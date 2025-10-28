@@ -40,3 +40,120 @@
       <img src="photo.jpg" alt="Portrait d'Adam" />
     </div>
     <div class="hero__bg"></div>
+  </header>
+
+  <!-- ABOUT -->
+  <section id="about" class="section section--about">
+    <div class="container">
+      <h2 class="section__title">À propos</h2>
+      <p class="lead">
+        Étudiant en électronique, électrotechnique et automatique (3EA) à l’ENSEEIHT.
+        Je m’intéresse aux systèmes embarqués, au contrôle/commande et aux applications à impact.
+        Je valorise une approche claire : comprendre, prototyper, mesurer, améliorer.
+      </p>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="section">
+    <div class="container">
+      <h2 class="section__title">Compétences</h2>
+      <div class="grid skills">
+        <div class="chip">Systèmes embarqués</div>
+        <div class="chip">Électronique</div>
+        <div class="chip">Automatique</div>
+        <div class="chip">Python</div>
+        <div class="chip">C</div>
+        <div class="chip">MATLAB/Simulink</div>
+        <div class="chip">Git / GitHub</div>
+        <div class="chip">Gestion de projet</div>
+        <div class="chip">Anglais · Italien · Espagnol</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORK -->
+  <section id="work" class="section section--muted">
+    <div class="container">
+      <h2 class="section__title">Mes réalisations</h2>
+
+      <div class="grid cards">
+        <!-- Card 1 -->
+        <article class="card">
+          <div class="card__icon" aria-hidden="true">
+            <!-- simple SVG icon -->
+            <svg viewBox="0 0 24 24"><path d="M3 5h18v14H3zM7 9h10v2H7zm0 4h7v2H7z"/></svg>
+          </div>
+          <h3>Stages & expériences</h3>
+          <p>Mes missions en environnement professionnel : objectifs, rôle, résultats concrets.</p>
+          <a class="btn small" href="#" target="_blank">Voir le PDF</a>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="card">
+          <div class="card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 2l9 4-9 4-9-4 9-4zm0 7l9 4-9 4-9-4 9-4zm0 7l9 4-9 4-9-4 9-4z"/></svg>
+          </div>
+          <h3>Projets techniques</h3>
+          <p>Travaux académiques & personnels : systèmes embarqués, contrôle, simulations.</p>
+          <a class="btn small" href="#" target="_blank">Voir le PDF</a>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="card">
+          <div class="card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 12c2.8 0 5-2.2 5-5S14.8 2 12 2 7 4.2 7 7s2.2 5 5 5zm0 2c-4 0-10 2-10 6v2h20v-2c0-4-6-6-10-6z"/></svg>
+          </div>
+          <h3>Engagements & humanitaire</h3>
+          <p>Associations, initiatives solidaires et sport : leadership, esprit d’équipe.</p>
+          <a class="btn small" href="#" target="_blank">Voir le PDF</a>
+        </article>
+      </div>
+
+      <div class="cta-row">
+        <a class="btn" href="#" target="_blank">Télécharger mon CV</a>
+        <a class="btn outline" href="#" target="_blank">Voir mon GitHub</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section">
+    <div class="container">
+      <h2 class="section__title">Contact</h2>
+      <p class="lead">Disponible pour un échange. N’hésitez pas à me contacter !</p>
+      <div class="grid contact">
+        <a class="contact__item" href="mailto:email@example.com">
+          <span class="contact__label">Email</span>
+          <span class="contact__value">email@example.com</span>
+        </a>
+        <a class="contact__item" href="#" target="_blank">
+          <span class="contact__label">LinkedIn</span>
+          <span class="contact__value">/in/adam-fournier</span>
+        </a>
+        <a class="contact__item" href="#" target="_blank">
+          <span class="contact__label">GitHub</span>
+          <span class="contact__value">@votre-username</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    © 2025 Adam Fournier — Portfolio
+  </footer>
+
+  <script>
+    // Smooth scroll (optionnel)
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', e=>{
+        const href = a.getAttribute('href');
+        if (href.length>1){
+          e.preventDefault();
+          document.querySelector(href).scrollIntoView({behavior:'smooth'});
+        }
+      });
+    });
+  </script>
+</body>
+</html>
