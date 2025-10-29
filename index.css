@@ -87,7 +87,7 @@ body{
   height:min(300px,42vw);
   border-radius:50%;
   object-fit:cover;
-  object-position:50% 28%; /*  cadrage photo */
+  object-position:50% 25%; /*  cadrage photo */
   border:3px solid var(--brand);
   display:block;
 }
@@ -161,4 +161,5 @@ body{
   .hero__cta{justify-content:center}
   .nav__links{display:none}
 }
+
 
