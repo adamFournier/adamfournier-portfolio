@@ -40,10 +40,9 @@ body{
 .btn, .btn--sm{
   display:inline-block; text-decoration:none; color:#071019;
   background:linear-gradient(135deg,var(--brand),var(--brand-2));
-  padding:12px 18px; border-radius:14px; font-weight:700;
-  letter-spacing:.2px;
+  padding:12px 18px; border-radius:14px; font-weight:700; letter-spacing:.2px;
   box-shadow:0 10px 28px rgba(88,211,255,.28);
-  transition:.2s ease;
+  transition: transform .2s ease, filter .2s ease;
 }
 .btn:hover{transform:translateY(-2px); filter:saturate(112%)}
 .btn.outline, .btn--sm.outline{
@@ -74,10 +73,12 @@ body{
 }
 .hero__cta{display:flex; gap:14px; flex-wrap:wrap}
 
+/* Avatar : anneau externe + photo concentrique, cadrage confortable */
 .hero__avatar{
   justify-self:center;
   background:linear-gradient(135deg,#123055,#0b1a31);
-  border-radius:50%; padding:22px;
+  border-radius:50%;
+  padding:22px;                 /* espace pour l’anneau externe */
   border:1px solid var(--border);
   box-shadow:var(--shadow);
   animation:fadeIn .6s .15s ease both;
@@ -86,17 +87,20 @@ body{
   width:min(300px,42vw);
   height:min(300px,42vw);
   border-radius:50%;
-  object-fit:cover;
-  object-position:50% 28%; /*  cadrage photo */
-  border:3px solid var(--brand);
   display:block;
+
+  /* Cadrage et rendu photo */
+  object-fit:cover;
+  object-position:50% 27%;      /* ↑ remonter/laisser + cheveux : 25–30% */
+  border:3px solid var(--brand);
+
+  /* Ajustement fin de position sans casser le cadrage */
+  transform: translateY(-8px);  /* - = monte, + = descend (ex: -8px à +8px) */
 }
 
 /* SECTIONS */
 .section{padding:96px 22px}
-.section--muted{
-  background:linear-gradient(180deg,#0a1330,#0c1938)
-}
+.section--muted{background:linear-gradient(180deg,#0a1330,#0c1938)}
 .container{max-width:1100px;margin:0 auto}
 .section__title{
   text-align:center; font-size:clamp(24px,3.4vw,38px);
@@ -161,6 +165,3 @@ body{
   .hero__cta{justify-content:center}
   .nav__links{display:none}
 }
-
-
-
