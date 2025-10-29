@@ -70,7 +70,7 @@ body{
   background: linear-gradient(135deg, #15345a, #0c1a30);
   border:1px solid var(--border);
   padding:14px; border-radius:50%; box-shadow:var(--shadow);
-  transform: translateY(+40px); /* Remonte la photo */
+  transform: translateY(40px); /* Remonte la photo */
 }
 .hero__avatar img{
   width:min(220px, 45vw); height:min(220px,45vw); border-radius:50%;
@@ -143,5 +143,6 @@ body{
   .hero__cta{justify-content:center}
   .nav__links{display:none} /* simplifie la nav mobile (on peut ajouter un burger si tu veux) */
 }
+
 
 
