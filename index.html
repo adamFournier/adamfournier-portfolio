@@ -6,8 +6,7 @@
   <title>Adam Fournier — Portfolio</title>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-  <!-- ↑↑↑ NE TOUCHE PAS | ↓↓↓ change juste le numéro si le style ne s’actualise pas -->
-  <link rel="stylesheet" href="index.css?v=60" />
+  <link rel="stylesheet" href="index.css?v=80" />
 </head>
 <body>
 
@@ -21,7 +20,7 @@
     </div>
   </nav>
 
-  <!-- HERO COMPACT (tout visible sans défiler) -->
+  <!-- HERO COMPACT -->
   <header class="hero hero--compact">
     <div class="hero__content">
       <h1 class="hero__title">
@@ -33,23 +32,47 @@
         Étudiant à l’ENSEEIHT. Je conçois et teste des systèmes électroniques/automatiques orientés impact.
       </p>
 
-      <div class="hero__cta hero__cta--wrap">
-        <a class="btn" href="pdf/stages.pdf" target="_blank" rel="noopener">Stages & expériences (PDF)</a>
-        <a class="btn" href="pdf/projets.pdf" target="_blank" rel="noopener">Projets techniques (PDF)</a>
-        <a class="btn" href="pdf/engagements.pdf" target="_blank" rel="noopener">Engagements & associatif (PDF)</a>
-        <a class="btn outline" href="pdf/CV.pdf" target="_blank" rel="noopener">Télécharger mon CV</a>
+      <!-- Boutons PDF en grille -->
+      <div class="quick-grid">
+        <a class="kbtn kbtn--primary" href="pdf/stages.pdf" target="_blank" rel="noopener">
+          <span class="kbtn__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M6 2h7l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm7 1v5h5"/></svg>
+          </span>
+          Stages & expériences (PDF)
+        </a>
+
+        <a class="kbtn kbtn--primary" href="pdf/projets.pdf" target="_blank" rel="noopener">
+          <span class="kbtn__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M4 6h16v4H4zm0 6h10v4H4z"/></svg>
+          </span>
+          Projets techniques (PDF)
+        </a>
+
+        <a class="kbtn kbtn--primary" href="pdf/engagements.pdf" target="_blank" rel="noopener">
+          <span class="kbtn__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5zm0 2c-5 0-9 2.5-9 5v3h18v-3c0-2.5-4-5-9-5z"/></svg>
+          </span>
+          Engagements & associatif (PDF)
+        </a>
+
+        <a class="kbtn kbtn--ghost" href="pdf/CV.pdf" target="_blank" rel="noopener">
+          <span class="kbtn__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16l4-2 4 2 4-2 4 2V9z"/></svg>
+          </span>
+          Télécharger mon CV
+        </a>
       </div>
     </div>
 
     <div class="hero__avatar">
-      <!-- Si ta photo s’actualise mal, ajoute ?v=2 à la fin -->
+      <!-- Ajoute ?v=2 si la photo ne se met pas à jour -->
       <img id="hero-photo" src="photo.JPG?v=1" alt="Portrait d'Adam" />
     </div>
 
     <div class="hero__bg"></div>
   </header>
 
-  <!-- CONTACT (courte) -->
+  <!-- CONTACT -->
   <section id="contact" class="section section--compact">
     <div class="container">
       <h2 class="section__title">Contact</h2>
