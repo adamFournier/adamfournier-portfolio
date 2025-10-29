@@ -93,9 +93,6 @@ body{
   object-fit:cover;
   object-position:50% 27%;      /* ↑ remonter/laisser + cheveux : 25–30% */
   border:3px solid var(--brand);
-
-  /* Ajustement fin de position sans casser le cadrage */
-  transform: translateY(-8px);  /* - = monte, + = descend (ex: -8px à +8px) */
 }
 
 /* SECTIONS */
@@ -165,3 +162,4 @@ body{
   .hero__cta{justify-content:center}
   .nav__links{display:none}
 }
+
