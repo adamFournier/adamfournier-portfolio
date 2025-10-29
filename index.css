@@ -91,7 +91,7 @@ body{
 
   /* Cadrage et rendu photo */
   object-fit:cover;
-  object-position:50% 25%;      /* ↑ remonter/laisser + cheveux : 25–30% */
+  object-position:50% 35%;      /* ↑ remonter/laisser + cheveux : 25–30% */
   border:3px solid var(--brand);
 }
 
@@ -162,5 +162,6 @@ body{
   .hero__cta{justify-content:center}
   .nav__links{display:none}
 }
+
 
 
