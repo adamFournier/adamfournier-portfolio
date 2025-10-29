@@ -107,9 +107,9 @@ body{
 #hero-photo{
   width:260px; height:260px; border-radius:50%; display:block;
   object-fit:cover;
-  object-position:50% 26%;      /* ajuste 24–28% selon ton cadrage */
+  object-position:50% 35%;     
   border:3px solid var(--brand);
-  transform:translateY(-4px);   /* - = monte / + = descend */
+ 
 }
 
 /* CONTACT */
@@ -144,3 +144,4 @@ body{
 @media(max-width:520px){
   .quick-grid{ grid-template-columns:1fr; }
 }
+
