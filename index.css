@@ -265,47 +265,39 @@ body {
 
 /* Masque la barre de progression sur les pages de slides, on garde les ronds + compteur */
 .progress { display: none !important; }
-/* ==== Boost visibilité des 3 cartes ==== */
-.navcard{
-  background: rgba(42,168,216,.08);            /* + de couleur dans le fond */
-  border-color: rgba(42,168,216,.28);          /* bord plus visible */
-  box-shadow: 0 12px 28px rgba(42,168,216,.18), 0 8px 22px rgba(0,0,0,.25);
-  backdrop-filter: blur(3px);
+/* === Contraste amélioré pour les 3 cartes === */
+.navcard {
+  background: rgba(255, 255, 255, 0.08);  /* plus clair que le fond */
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(6px);
+  transition: all 0.25s ease;
 }
-.navcard:hover{
-  background: rgba(42,168,216,.12);
-  border-color: rgba(42,168,216,.45);
+
+.navcard:hover {
+  background: rgba(255, 255, 255, 0.12);  /* léger glow */
+  border-color: var(--brand);
   transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(42, 168, 216, 0.25);
 }
 
-.navcard__accent{
-  width:6px;                                    /* accent plus épais */
+.navcard__icon {
+  background: linear-gradient(145deg, #2c5a82, #163657);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.navcard__icon svg {
+  fill: var(--brand-2);
+}
+
+.navcard__title {
+  color: #f3f8ff;
+  text-shadow: 0 0 6px rgba(42,168,216,0.35);
+}
+
+.navcard__accent {
+  width: 4px;
   background: linear-gradient(180deg, var(--brand-2), var(--brand));
-  opacity: 1;
-  box-shadow: 0 0 12px rgba(42,168,216,.45);
+  opacity: 0.9;
+  box-shadow: 0 0 10px rgba(42,168,216,0.4);
 }
-
-.navcard__icon{
-  background: linear-gradient(135deg, #234a6f, #1b3555); /* tuile icon + vive */
-  border-color: rgba(42,168,216,.35);
-}
-.navcard__icon svg{
-  fill: #8fe6ff;                                /* icône + lumineuse */
-}
-
-.navcard__title{
-  color: #eaf7ff;                                /* texte + clair */
-}
-
-/* Focus clavier visible (accessibilité) */
-.navcard:focus-visible{
-  outline: 0;
-  box-shadow: 0 0 0 3px rgba(255,255,255,.2), 0 0 0 6px rgba(42,168,216,.45);
-}
-
-/* Variante “hover glow” sur la flèche */
-.navcard:hover .navcard__chev{
-  transform: translateX(3px);
-  text-shadow: 0 0 8px rgba(111,226,255,.8);
-}
-
