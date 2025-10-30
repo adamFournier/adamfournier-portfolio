@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Engagements — Adam Fournier</title>
-  <link rel="stylesheet" href="index.css?v=300" />
+  <link rel="stylesheet" href="index.css?v=401" />
 </head>
 <body>
 
@@ -22,28 +22,90 @@
 
   <div class="slides-full-wrap">
     <div class="slides-full" id="slider">
-      <section class="slide-full"><div class="slide-content"><h1>Association humanitaire</h1><p>Actions solidaires et sensibilisation.</p></div></section>
-      <section class="slide-full"><div class="slide-content"><h1>Sport et esprit d’équipe</h1><p>Triathlon, natation, valeurs communes.</p></div></section>
-      <section class="slide-full"><div class="slide-content"><h1>Engagement local</h1><p>Projets étudiants et environnementaux.</p></div></section>
+      <section class="slide-full">
+        <div class="slide-content">
+          <h1>Associatif — Humanitaire</h1>
+          <p>À décrire : actions, responsabilités, résultats concrets, compétences transverses.</p>
+        </div>
+      </section>
+
+      <section class="slide-full">
+        <div class="slide-content">
+          <h1>Sport — Triathlon / Natation</h1>
+          <p>À décrire : régularité, performances, rigueur, parallels avec l’ingénierie.</p>
+        </div>
+      </section>
+
+      <section class="slide-full">
+        <div class="slide-content">
+          <h1>Autres engagements</h1>
+          <p>À décrire : mentoring, tutorat, projets locaux, événements, etc.</p>
+        </div>
+      </section>
     </div>
   </div>
 
-  <div class="arrows"><button class="arrow-btn" id="prev">‹</button><button class="arrow-btn" id="next">›</button></div>
+  <div class="arrows">
+    <button class="arrow-btn" id="prev" aria-label="Slide précédente">‹</button>
+    <button class="arrow-btn" id="next" aria-label="Slide suivante">›</button>
+  </div>
 
   <div class="progress"><div class="progress__bar" id="progressBar"></div></div>
   <div class="pagination-ui">
-    <div class="dots" id="dots"></div>
+    <div class="dots" id="dots" aria-label="Pagination des slides"></div>
     <div class="counter" id="counter">1 / 3</div>
   </div>
 
   <script>
-    let current=0;const slides=document.getElementById('slider');const total=slides.children.length;
-    const dots=document.getElementById('dots');for(let i=0;i<total;i++){const b=document.createElement('button');b.className='dot'+(i===0?' is-active':'');b.onclick=()=>{current=i;update()};dots.appendChild(b);}
-    const progressBar=document.getElementById('progressBar'),counter=document.getElementById('counter');
-    function update(){slides.style.transform=`translateX(-${current*100}vw)`;[...document.querySelectorAll('.dot')].forEach((d,idx)=>d.classList.toggle('is-active',idx===current));counter.textContent=`${current+1} / ${total}`;progressBar.style.width=`${((current+1)/total)*100}%`;}
-    document.getElementById('next').onclick=()=>{current=(current+1)%total;update();};
-    document.getElementById('prev').onclick=()=>{current=(current-1+total)%total;update();};
-    update();
+    let current = 0;
+    const slides = document.getElementById('slider');
+    const total = slides.children.length;
+
+    const dots = document.getElementById('dots');
+    for (let i = 0; i < total; i++) {
+      const b = document.createElement('button');
+      b.className = 'dot' + (i === 0 ? ' is-active' : '');
+      b.onclick = () => { current = i; updateSlide(true); };
+      dots.appendChild(b);
+    }
+    const counter = document.getElementById('counter');
+    const progressBar = document.getElementById('progressBar');
+
+    function updateSlide(animate = true){
+      slides.style.transitionDuration = animate ? '.7s' : '0s';
+      slides.style.transform = `translateX(-${current * 100}vw)`;
+      updateUI();
+    }
+    function updateUI(){
+      [...document.querySelectorAll('.dot')].forEach((d, idx)=> d.classList.toggle('is-active', idx === current));
+      counter.textContent = `${current + 1} / ${total}`;
+      progressBar.style.width = `${((current + 1) / total) * 100}%`;
+    }
+
+    document.getElementById('next').onclick = ()=>{ current = (current + 1) % total; updateSlide(); };
+    document.getElementById('prev').onclick = ()=>{ current = (current - 1 + total) % total; updateSlide(); };
+
+    document.addEventListener('keydown', (e)=>{
+      if(e.key==='ArrowRight') document.getElementById('next').click();
+      if(e.key==='ArrowLeft') document.getElementById('prev').click();
+      if(e.key==='Escape') window.location.href='index.html';
+    });
+
+    let lastScroll=0;
+    window.addEventListener('wheel', (e)=>{
+      const now=Date.now(); if(now-lastScroll<600) return;
+      if(e.deltaX>50){ document.getElementById('next').click(); lastScroll=now; }
+      else if(e.deltaX<-50){ document.getElementById('prev').click(); lastScroll=now; }
+    }, {passive:true});
+
+    let startX=0, startTime=0;
+    slides.addEventListener('touchstart', e=>{ startX=e.touches[0].clientX; startTime=Date.now(); }, {passive:true});
+    slides.addEventListener('touchend', e=>{
+      const diff=e.changedTouches[0].clientX-startX; const t=Date.now()-startTime;
+      if(Math.abs(diff)>50 && t<800){ diff>0 ? document.getElementById('prev').click() : document.getElementById('next').click(); }
+    }, {passive:true});
+
+    updateUI();
   </script>
 </body>
 </html>
