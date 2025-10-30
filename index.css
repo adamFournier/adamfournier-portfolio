@@ -266,49 +266,52 @@ body {
 /* Masque la barre de progression sur les pages de slides, on garde les ronds + compteur */
 .progress { display: none !important; }
 
-/* === Style premium pour les 3 cartes principales === */
+/* === Cartes bleues claires visibles === */
 .info-card {
-  background: linear-gradient(160deg, #12223f, #0c162d);  /* bleu nuit plus clair */
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: linear-gradient(160deg, #1e4f8c, #2769b1); /* bleu clair lumineux */
+  border: 1px solid rgba(255, 255, 255, 0.25);
   border-radius: 18px;
   padding: 22px 18px;
-  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
+  color: #ffffff;
+  box-shadow: 0 10px 25px rgba(20, 90, 160, 0.4);
   transition: all 0.25s ease;
   text-align: center;
 }
 
 .info-card:hover {
   transform: translateY(-5px);
+  background: linear-gradient(160deg, #2d7edb, #3a9bf5); /* encore plus clair au survol */
+  box-shadow: 0 14px 40px rgba(42, 168, 216, 0.5);
   border-color: var(--brand);
-  box-shadow: 0 14px 36px rgba(42, 168, 216, 0.25);
-  background: linear-gradient(160deg, #1b355f, #0d1c38);
 }
 
-/* Icône plus lumineuse */
+/* Cercle icône contrasté */
 .icon-circle {
   width: 50px;
   height: 50px;
   display: grid;
   place-items: center;
   border-radius: 50%;
-  background: linear-gradient(145deg, #2b76a3, #194468);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 0 8px rgba(42, 168, 216, 0.4);
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.25);
   margin-bottom: 10px;
 }
 
 .icon-circle svg {
-  fill: var(--brand-2);
+  fill: #ffffff;
   width: 24px;
   height: 24px;
 }
 
-/* Texte lisible et sobre */
+/* Titre clair et lisible */
 .info-card h3 {
   font-size: 16px;
   font-weight: 700;
-  color: #eaf4ff;
+  color: #ffffff;
   letter-spacing: 0.3px;
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
 }
+
 
 
