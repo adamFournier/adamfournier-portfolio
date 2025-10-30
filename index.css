@@ -145,3 +145,39 @@ body{
   .quick-grid{ grid-template-columns:1fr; }
 }
 
+/* ===== Pages secondaires + Slider ===== */
+.page{ padding:36px 22px 60px; }
+.page__head{ max-width:1100px; margin:0 auto 10px; display:flex; align-items:center; justify-content:space-between; gap:12px; }
+.page__title{ margin:0; font-size:clamp(22px,3.3vw,32px); font-weight:900; }
+.backlink{ color:var(--brand); text-decoration:none; border:1px solid var(--brand); padding:8px 12px; border-radius:12px; }
+.backlink:hover{ background:rgba(255,255,255,.04) }
+
+.slider{ position:relative; max-width:1100px; margin:10px auto 0; }
+.slides{
+  display:grid; grid-auto-flow:column; grid-auto-columns:minmax(260px, 420px);
+  gap:16px; overflow-x:auto; padding:10px 2px; scroll-snap-type:x mandatory;
+  scrollbar-width: thin;
+}
+.slide{
+  background:#0f1d3b; border:1px solid var(--border); border-radius:18px;
+  min-height: clamp(420px, 70vh, 900px);
+  aspect-ratio: 1 / 1.414; /* proche A4 portrait */
+  scroll-snap-align:center; box-shadow:var(--shadow);
+  background-size: cover; background-position:center;
+}
+.arrow{
+  position:absolute; top:50%; transform:translateY(-50%);
+  width:44px; height:44px; border-radius:50%;
+  background: rgba(255,255,255,.08); border:1px solid var(--border);
+  color:var(--text); font-size:22px; display:grid; place-items:center;
+  cursor:pointer; backdrop-filter: blur(6px);
+}
+.arrow:hover{ background: rgba(255,255,255,.12) }
+.arrow.prev{ left:-6px } .arrow.next{ right:-6px }
+
+@media(max-width:520px){
+  .slides{ grid-auto-columns:minmax(240px, 88%); }
+  .arrow.prev{ left:2px } .arrow.next{ right:2px }
+}
+
+
