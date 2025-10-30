@@ -266,36 +266,36 @@ body {
 /* Masque la barre de progression sur les pages de slides, on garde les ronds + compteur */
 .progress { display: none !important; }
 
-/* === Cartes bleues claires visibles === */
+/* === Cartes bleu clair plus lumineuses === */
 .info-card {
-  background: linear-gradient(160deg, #1e4f8c, #2769b1); /* bleu clair lumineux */
-  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: linear-gradient(160deg, #4fa3ff, #6bb8ff); /* bleu clair pastel */
+  border: 1px solid rgba(255, 255, 255, 0.35);
   border-radius: 18px;
   padding: 22px 18px;
   color: #ffffff;
-  box-shadow: 0 10px 25px rgba(20, 90, 160, 0.4);
+  box-shadow: 0 10px 25px rgba(80, 160, 255, 0.4);
   transition: all 0.25s ease;
   text-align: center;
 }
 
 .info-card:hover {
   transform: translateY(-5px);
-  background: linear-gradient(160deg, #2d7edb, #3a9bf5); /* encore plus clair au survol */
-  box-shadow: 0 14px 40px rgba(42, 168, 216, 0.5);
-  border-color: var(--brand);
+  background: linear-gradient(160deg, #7dc3ff, #9bd6ff); /* bleu encore plus clair au survol */
+  box-shadow: 0 16px 40px rgba(120, 190, 255, 0.5);
+  border-color: #b3e1ff;
 }
 
-/* Cercle icône contrasté */
+/* Cercle de l’icône plus doux */
 .icon-circle {
-  width: 50px;
-  height: 50px;
+  width: 52px;
+  height: 52px;
   display: grid;
   place-items: center;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.15);
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.35);
   margin-bottom: 10px;
+  box-shadow: 0 0 12px rgba(100, 190, 255, 0.4);
 }
 
 .icon-circle svg {
@@ -309,9 +309,11 @@ body {
   font-size: 16px;
   font-weight: 700;
   color: #ffffff;
-  letter-spacing: 0.3px;
-  text-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+  letter-spacing: 0.4px;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
+
+
 
 
 
