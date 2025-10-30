@@ -313,6 +313,44 @@ body {
   text-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
 }
 
+/* === Contact & Réseaux === */
+.contact-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+  align-items: center;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: var(--text);
+  font-size: 14px;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.contact-item img {
+  width: 16px;
+  height: 16px;
+  filter: invert(1);
+  opacity: 0.9;
+}
+
+/* Effet au survol uniquement pour les liens */
+.contact-item.link:hover {
+  background: rgba(42, 168, 216, 0.15);
+  border-color: rgba(42, 168, 216, 0.4);
+  transform: translateY(-2px);
+}
+
+
 
 
 
