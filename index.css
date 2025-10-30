@@ -265,39 +265,35 @@ body {
 
 /* Masque la barre de progression sur les pages de slides, on garde les ronds + compteur */
 .progress { display: none !important; }
-/* === Contraste amélioré pour les 3 cartes === */
-.navcard {
-  background: rgba(255, 255, 255, 0.08);  /* plus clair que le fond */
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
-  backdrop-filter: blur(6px);
-  transition: all 0.25s ease;
-}
 
-.navcard:hover {
-  background: rgba(255, 255, 255, 0.12);  /* léger glow */
+* ==== Boost visibilité pour les cartes .info-card (garde ton HTML actuel) ==== */
+.card-grid { gap:16px; }
+
+.info-card{
+  background: rgba(255,255,255,0.10);           /* plus clair que le fond */
+  border: 1px solid rgba(255,255,255,0.20);     /* bord + contrasté */
+  box-shadow: 0 10px 26px rgba(0,0,0,.28);      /* léger relief */
+  backdrop-filter: blur(6px);
+  transition: transform .22s ease, background .22s ease, border-color .22s ease;
+}
+.info-card:hover{
+  background: rgba(255,255,255,0.14);
   border-color: var(--brand);
   transform: translateY(-4px);
-  box-shadow: 0 12px 28px rgba(42, 168, 216, 0.25);
+  box-shadow: 0 14px 32px rgba(42,168,216,.22);
 }
 
-.navcard__icon {
-  background: linear-gradient(145deg, #2c5a82, #163657);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+.icon-circle{
+  background: linear-gradient(145deg, #2c5a82, #163657); /* tuile icône plus vive */
+  border: 1px solid rgba(255,255,255,.18);
+}
+.icon-circle svg{
+  fill: var(--brand-2); /* icône + lumineuse */
 }
 
-.navcard__icon svg {
-  fill: var(--brand-2);
+.info-card h3{
+  color: #f3f8ff;                      /* texte plus clair */
+  text-shadow: 0 0 6px rgba(42,168,216,.28);
+  letter-spacing:.2px;
 }
 
-.navcard__title {
-  color: #f3f8ff;
-  text-shadow: 0 0 6px rgba(42,168,216,0.35);
-}
-
-.navcard__accent {
-  width: 4px;
-  background: linear-gradient(180deg, var(--brand-2), var(--brand));
-  opacity: 0.9;
-  box-shadow: 0 0 10px rgba(42,168,216,0.4);
-}
