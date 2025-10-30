@@ -4,20 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Projets — Adam Fournier</title>
-  <link rel="stylesheet" href="index.css?v=100" />
-  <style>
-    .slides-full-wrap { padding-top: var(--board-h); height: 100vh; box-sizing: border-box; overflow: hidden; }
-    .slides-full { display:flex; width:300%; height: calc(100vh - var(--board-h)); transition: transform .9s cubic-bezier(.75,0,.25,1); }
-    .slide-full { width:100vw; height: calc(100vh - var(--board-h)); flex-shrink:0; display:flex; align-items:center; justify-content:center; padding:48px 40px; background: linear-gradient(160deg, #0c1a30, #132d55); }
-    .slide-full:nth-child(2){ background: linear-gradient(160deg, #0d2038, #184472); }
-    .slide-full:nth-child(3){ background: linear-gradient(160deg, #0e2240, #206b93); }
-    .slide-content{ max-width: 980px; margin:0 auto; }
-    .slide-content h1{ font-size: clamp(30px, 4vw, 56px); margin:0 0 12px; font-weight:800 }
-    .slide-content p{ max-width: 780px; color:#b8c3d6; line-height:1.7; font-size:18px; margin:0 }
-    .arrows{ position: fixed; top: calc(var(--board-h) + 50%); transform:translateY(-50%); width:100%; display:flex; justify-content:space-between; padding:0 40px; pointer-events:none; z-index:20 }
-    .arrow-btn{ pointer-events:auto; width:50px;height:50px;border-radius:50%; background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.15); color:#eaf3ff; display:grid; place-items:center; font-size:26px; cursor:pointer; transition:.25s }
-    .arrow-btn:hover{ background:rgba(255,255,255,.18); transform:scale(1.05) }
-  </style>
+  <link rel="stylesheet" href="index.css?v=300" />
 </head>
 <body>
 
@@ -35,34 +22,28 @@
 
   <div class="slides-full-wrap">
     <div class="slides-full" id="slider">
-      <section class="slide-full"><div class="slide-content">
-        <h1>Projet 1 — Système embarqué</h1>
-        <p>Capteur + MCU + communication série. Banc de tests automatisés, mesures et analyse.</p>
-      </div></section>
-      <section class="slide-full"><div class="slide-content">
-        <h1>Projet 2 — Commande moteur</h1>
-        <p>Modélisation + réglage PID vitesse/couple. Visualisation temps réel.</p>
-      </div></section>
-      <section class="slide-full"><div class="slide-content">
-        <h1>Projet 3 — Simulation contrôle</h1>
-        <p>Simulink/Matlab, étude de stabilité, critères de performance et robustesse.</p>
-      </div></section>
+      <section class="slide-full"><div class="slide-content"><h1>Projet 1</h1><p>Simulation système embarqué.</p></div></section>
+      <section class="slide-full"><div class="slide-content"><h1>Projet 2</h1><p>Commande moteur et PID.</p></div></section>
+      <section class="slide-full"><div class="slide-content"><h1>Projet 3</h1><p>Analyse de données capteurs.</p></div></section>
     </div>
   </div>
 
-  <div class="arrows">
-    <button class="arrow-btn" id="prev">‹</button>
-    <button class="arrow-btn" id="next">›</button>
+  <div class="arrows"><button class="arrow-btn" id="prev">‹</button><button class="arrow-btn" id="next">›</button></div>
+
+  <div class="progress"><div class="progress__bar" id="progressBar"></div></div>
+  <div class="pagination-ui">
+    <div class="dots" id="dots"></div>
+    <div class="counter" id="counter">1 / 3</div>
   </div>
 
   <script>
-    let current = 0; const slides = document.getElementById('slider'); const total = slides.children.length;
-    function updateSlide(){ slides.style.transform = `translateX(-${current * 100}vw)`; }
-    document.getElementById('next').onclick = ()=>{ current=(current+1)%total; updateSlide(); };
-    document.getElementById('prev').onclick = ()=>{ current=(current-1+total)%total; updateSlide(); };
-    document.addEventListener('keydown', (e)=>{ if(e.key==='ArrowRight')document.getElementById('next').click(); if(e.key==='ArrowLeft')document.getElementById('prev').click(); if(e.key==='Escape')window.location.href='index.html'; });
-    let lastScroll=0; window.addEventListener('wheel', (e)=>{ const now=Date.now(); if(now-lastScroll<600)return; if(e.deltaX>50){document.getElementById('next').click();lastScroll=now;} else if(e.deltaX<-50){document.getElementById('prev').click();lastScroll=now;} }, {passive:true});
-    let startX=0,startTime=0; slides.addEventListener('touchstart', e=>{startX=e.touches[0].clientX; startTime=Date.now();}); slides.addEventListener('touchend', e=>{const diff=e.changedTouches[0].clientX-startX; const t=Date.now()-startTime; if(Math.abs(diff)>50&&t<800){ diff>0?document.getElementById('prev').click():document.getElementById('next').click();}});
+    let current=0;const slides=document.getElementById('slider');const total=slides.children.length;
+    const dots=document.getElementById('dots');for(let i=0;i<total;i++){const b=document.createElement('button');b.className='dot'+(i===0?' is-active':'');b.onclick=()=>{current=i;update()};dots.appendChild(b);}
+    const progressBar=document.getElementById('progressBar'),counter=document.getElementById('counter');
+    function update(){slides.style.transform=`translateX(-${current*100}vw)`;[...document.querySelectorAll('.dot')].forEach((d,idx)=>d.classList.toggle('is-active',idx===current));counter.textContent=`${current+1} / ${total}`;progressBar.style.width=`${((current+1)/total)*100}%`;}
+    document.getElementById('next').onclick=()=>{current=(current+1)%total;update();};
+    document.getElementById('prev').onclick=()=>{current=(current-1+total)%total;update();};
+    update();
   </script>
 </body>
 </html>
