@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Projets — Adam Fournier</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="index.css?v=92" />
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav__brand">Adam&nbsp;Fournier</div>
+    <div class="nav__links">
+      <a href="index.html">Accueil</a>
+      <a href="stages.html">Stages</a>
+      <a href="engagements.html">Engagements</a>
+      <a class="btn--sm outline" href="resume_adam_fournier.pdf" target="_blank" rel="noopener">CV</a>
+    </div>
+  </nav>
+
+  <main class="page">
+    <div class="page__head">
+      <a class="backlink" href="index.html">← Retour</a>
+      <h1 class="page__title">Projets techniques</h1>
+    </div>
+
+    <section class="slider" id="slider-projets" tabindex="0" aria-label="Projets">
+      <button class="arrow prev" aria-label="Précédent">‹</button>
+      <div class="slides">
+        <div class="slide" style="background-image:linear-gradient(135deg,#123055,#0b1a31)"></div>
+        <div class="slide" style="background-image:linear-gradient(135deg,#1d4160,#0f2642)"></div>
+        <div class="slide" style="background-image:linear-gradient(135deg,#2a587d,#133152)"></div>
+      </div>
+      <button class="arrow next" aria-label="Suivant">›</button>
+    </section>
+  </main>
+
+  <footer class="footer">© 2025 Adam Fournier — Portfolio</footer>
+
+  <script>
+    function initSlider(id){
+      const root = document.getElementById(id);
+      const track = root.querySelector('.slides');
+      const prev = root.querySelector('.prev');
+      const next = root.querySelector('.next');
+      function step(dir){
+        const card = track.querySelector('.slide');
+        const w = card.getBoundingClientRect().width + 16;
+        track.scrollBy({left: dir * w, behavior:'smooth'});
+      }
+      prev.addEventListener('click', ()=>step(-1));
+      next.addEventListener('click', ()=>step(1));
+      root.addEventListener('keydown', (e)=>{
+        if(e.key === 'ArrowLeft') step(-1);
+        if(e.key === 'ArrowRight') step(1);
+      });
+    }
+    initSlider('slider-projets');
+  </script>
+</body>
+</html>
