@@ -4,10 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Stages — Adam Fournier</title>
-  <link rel="stylesheet" href="index.css?v=300" />
+  <link rel="stylesheet" href="index.css?v=401" />
 </head>
 <body>
 
+  <!-- BOARD identique (brand non gras) -->
   <header class="board">
     <div class="board__inner">
       <div class="board__brand">Adam&nbsp;Fournier</div>
@@ -20,34 +21,114 @@
     </div>
   </header>
 
+  <!-- SLIDES -->
   <div class="slides-full-wrap">
     <div class="slides-full" id="slider">
-      <section class="slide-full"><div class="slide-content"><h1>Stage EDF Toulouse</h1><p>Développement d’un module de diagnostic automatisé.</p></div></section>
-      <section class="slide-full"><div class="slide-content"><h1>Stage Airbus</h1><p>Intégration d’un banc de test électrique.</p></div></section>
-      <section class="slide-full"><div class="slide-content"><h1>Projet ENSEEIHT</h1><p>Robot autonome piloté par Arduino.</p></div></section>
+      <section class="slide-full">
+        <div class="slide-content">
+          <h1>Stage — EDF Toulouse</h1>
+          <p>
+            Développement d’un module de diagnostic automatisé pour des systèmes de mesure embarqués.<br><br>
+            • Étude du protocole Modbus et intégration Raspberry Pi<br>
+            • Interface graphique Python Tkinter<br>
+            • Simulation et test sur banc de mesure
+          </p>
+        </div>
+      </section>
+
+      <section class="slide-full">
+        <div class="slide-content">
+          <h1>Stage — Airbus Defence & Space</h1>
+          <p>
+            Intégration d’un banc de test pour contrôle d’actionneurs électriques.<br><br>
+            • Calibration capteurs Hall & codeurs<br>
+            • Analyse Matlab, rapport technique<br>
+            • Présentation aux équipes système
+          </p>
+        </div>
+      </section>
+
+      <section class="slide-full">
+        <div class="slide-content">
+          <h1>Projet — ENSEEIHT</h1>
+          <p>
+            Pilotage autonome d’un robot via Arduino + capteurs, réglage PID moteurs.<br><br>
+            • Code C++ embarqué<br>
+            • Tests ultrason & IR<br>
+            • Mise au point PID
+          </p>
+        </div>
+      </section>
     </div>
   </div>
 
+  <!-- Flèches -->
   <div class="arrows">
-    <button class="arrow-btn" id="prev">‹</button>
-    <button class="arrow-btn" id="next">›</button>
+    <button class="arrow-btn" id="prev" aria-label="Slide précédente">‹</button>
+    <button class="arrow-btn" id="next" aria-label="Slide suivante">›</button>
   </div>
 
-  <!-- Barre de progression identique -->
+  <!-- Pagination -->
   <div class="progress"><div class="progress__bar" id="progressBar"></div></div>
   <div class="pagination-ui">
-    <div class="dots" id="dots"></div>
+    <div class="dots" id="dots" aria-label="Pagination des slides"></div>
     <div class="counter" id="counter">1 / 3</div>
   </div>
 
   <script>
-    let current=0;const slides=document.getElementById('slider');const total=slides.children.length;
-    const dots=document.getElementById('dots');for(let i=0;i<total;i++){const b=document.createElement('button');b.className='dot'+(i===0?' is-active':'');b.onclick=()=>{current=i;update()};dots.appendChild(b);}
-    const progressBar=document.getElementById('progressBar'),counter=document.getElementById('counter');
-    function update(){slides.style.transform=`translateX(-${current*100}vw)`;[...document.querySelectorAll('.dot')].forEach((d,idx)=>d.classList.toggle('is-active',idx===current));counter.textContent=`${current+1} / ${total}`;progressBar.style.width=`${((current+1)/total)*100}%`;}
-    document.getElementById('next').onclick=()=>{current=(current+1)%total;update();};
-    document.getElementById('prev').onclick=()=>{current=(current-1+total)%total;update();};
-    update();
+    let current = 0;
+    const slides = document.getElementById('slider');
+    const total = slides.children.length;
+
+    // Dots dynamiques
+    const dots = document.getElementById('dots');
+    for (let i = 0; i < total; i++) {
+      const b = document.createElement('button');
+      b.className = 'dot' + (i === 0 ? ' is-active' : '');
+      b.onclick = () => { current = i; updateSlide(true); };
+      dots.appendChild(b);
+    }
+
+    const counter = document.getElementById('counter');
+    const progressBar = document.getElementById('progressBar');
+
+    function updateSlide(animate = true){
+      slides.style.transitionDuration = animate ? '.7s' : '0s';
+      slides.style.transform = `translateX(-${current * 100}vw)`;
+      updateUI();
+    }
+    function updateUI(){
+      [...document.querySelectorAll('.dot')].forEach((d, idx)=> d.classList.toggle('is-active', idx === current));
+      counter.textContent = `${current + 1} / ${total}`;
+      progressBar.style.width = `${((current + 1) / total) * 100}%`;
+    }
+
+    document.getElementById('next').onclick = ()=>{ current = (current + 1) % total; updateSlide(); };
+    document.getElementById('prev').onclick = ()=>{ current = (current - 1 + total) % total; updateSlide(); };
+
+    document.addEventListener('keydown', (e)=>{
+      if(e.key==='ArrowRight') document.getElementById('next').click();
+      if(e.key==='ArrowLeft') document.getElementById('prev').click();
+      if(e.key==='Escape') window.location.href='index.html';
+    });
+
+    // (optionnel) trackpad horizontal
+    let lastScroll=0;
+    window.addEventListener('wheel', (e)=>{
+      const now=Date.now(); if(now-lastScroll<600) return;
+      if(e.deltaX>50){ document.getElementById('next').click(); lastScroll=now; }
+      else if(e.deltaX<-50){ document.getElementById('prev').click(); lastScroll=now; }
+    }, {passive:true});
+
+    // tactile
+    let startX=0, startTime=0;
+    slides.addEventListener('touchstart', e=>{ startX=e.touches[0].clientX; startTime=Date.now(); }, {passive:true});
+    slides.addEventListener('touchend', e=>{
+      const diff=e.changedTouches[0].clientX-startX; const t=Date.now()-startTime;
+      if(Math.abs(diff)>50 && t<800){ diff>0 ? document.getElementById('prev').click() : document.getElementById('next').click(); }
+    }, {passive:true});
+
+    updateUI();
   </script>
 </body>
 </html>
