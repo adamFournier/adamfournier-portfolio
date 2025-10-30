@@ -6,7 +6,7 @@
   <title>Stages — Adam Fournier</title>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="index.css?v=92" />
+  <link rel="stylesheet" href="index.css?v=93" />
 </head>
 <body>
   <nav class="nav">
@@ -25,13 +25,30 @@
       <h1 class="page__title">Stages & expériences</h1>
     </div>
 
+    <!-- SLIDER -->
     <section class="slider" id="slider-stages" tabindex="0" aria-label="Stages">
       <button class="arrow prev" aria-label="Précédent">‹</button>
+
       <div class="slides">
-        <div class="slide" style="background-image:linear-gradient(135deg,#123055,#0b1a31)"></div>
-        <div class="slide" style="background-image:linear-gradient(135deg,#1d4160,#0f2642)"></div>
-        <div class="slide" style="background-image:linear-gradient(135deg,#2a587d,#133152)"></div>
+        <!-- Slide 1 -->
+        <div class="slide" style="background:#11284c; display:flex; flex-direction:column; justify-content:center; align-items:center; padding:40px;">
+          <h2>Stage 1 — EDF Toulouse</h2>
+          <p>Développement d’un module de diagnostic automatisé pour des systèmes de mesure embarqués.</p>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="slide" style="background:#14345f; display:flex; flex-direction:column; justify-content:center; align-items:center; padding:40px;">
+          <h2>Stage 2 — Airbus Defence & Space</h2>
+          <p>Participation à l’intégration d’un banc de test pour le contrôle d’actionneurs électriques.</p>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="slide" style="background:#1b457c; display:flex; flex-direction:column; justify-content:center; align-items:center; padding:40px;">
+          <h2>Projet industriel — N7</h2>
+          <p>Conception d’un système de pilotage autonome d’un robot mobile via Arduino et capteurs.</p>
+        </div>
       </div>
+
       <button class="arrow next" aria-label="Suivant">›</button>
     </section>
   </main>
