@@ -10,7 +10,7 @@
   --shadow:0 14px 40px rgba(0,0,0,.45);
   --board-h:64px;
 
-  /* Hauteur du bandeau contact unique */
+  /* Hauteur du bandeau contact unique (page d’accueil) */
   --contact-h:76px;
 }
 
@@ -51,7 +51,7 @@ body {
 .board__nav a:hover,
 .board__nav a.is-active { opacity:1; color:var(--brand); }
 
-/* === HERO === */
+/* === HERO (page d’accueil) === */
 .hero {
   display:grid;
   grid-template-columns:1.15fr .85fr;
@@ -102,7 +102,7 @@ body {
   display:block;
 }
 
-/* === CARDS === */
+/* === CARDS Accueil === */
 .card-grid {
   display:grid;
   grid-template-columns:repeat(auto-fit, minmax(180px, 1fr));
@@ -154,7 +154,7 @@ body {
   text-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
 }
 
-/* === Sections “Documents” === */
+/* === Sections “Documents” (accueil) === */
 .info-section { margin-top: 36px; text-align: center; }
 .info-section h4 {
   font-size: 15px; font-weight: 700; color: var(--brand-2);
@@ -180,7 +180,7 @@ body {
   box-shadow: 0 0 10px rgba(42,168,216,0.35);
 }
 
-/* === BANDEAU CONTACT UNIQUE EN BAS (contacts + ©) === */
+/* === BANDEAU CONTACT UNIQUE EN BAS (accueil) === */
 .contact-bar{
   position: fixed;
   left: 0; right: 0; bottom: 0;
@@ -210,7 +210,7 @@ body {
   font-size: 12px; color: var(--muted); opacity: .9;
 }
 
-/* On n’utilise plus de footer séparé */
+/* On n’utilise plus de footer séparé à l’accueil */
 .footer{ display:none; }
 
 /* === RESPONSIVE === */
@@ -219,3 +219,85 @@ body {
   .hero__avatar img { width:220px; height:220px; }
   .card-grid { grid-template-columns:1fr 1fr; }
 }
+
+/* ===================================================================== */
+/* === BLOCS POUR LES PAGES SLIDES : Stages / Projets / Engagements ==== */
+/* (rien n’a été retiré de l’accueil — on ajoute juste ce qui manquait) */
+/* ===================================================================== */
+
+.slides-full-wrap{
+  padding-top:var(--board-h);
+  height:100vh;
+  overflow:hidden;
+}
+.slides-full{
+  display:flex;
+  width:300%;
+  height:calc(100vh - var(--board-h));
+  transition:transform .7s cubic-bezier(.4,0,.2,1);
+}
+.slide-full{
+  width:100vw;
+  height:calc(100vh - var(--board-h));
+  flex-shrink:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:32px 24px;
+  background:linear-gradient(160deg,#0c1a30,#132d55);
+}
+.slide-full:nth-child(2){background:linear-gradient(160deg,#0d2038,#184472);}
+.slide-full:nth-child(3){background:linear-gradient(160deg,#0e2240,#206b93);}
+.slide-content{
+  max-width:760px;
+  width:min(92vw,760px);
+  margin:0 auto;
+}
+.slide-content h1{
+  font-size:clamp(26px,3.2vw,36px);
+  font-weight:800;
+  margin:0 0 10px;
+  line-height:1.2;
+}
+.slide-content p{
+  color:#c2cde0;
+  line-height:1.65;
+  font-size:clamp(14px,1.45vw,16px);
+}
+
+/* Pagination ronds + compteur (barre bleue masquée) */
+.pagination-ui{
+  position:fixed; left:0; right:0;
+  bottom:max(14px, env(safe-area-inset-bottom));
+  z-index:25; display:flex; align-items:center; justify-content:center;
+  gap:10px; pointer-events:none;
+}
+.dots{display:flex;align-items:center;gap:8px;pointer-events:auto;}
+.dot{
+  display:inline-block; width:8px; height:8px;
+  border:1px solid rgba(255,255,255,.2);
+  border-radius:50%; background:rgba(255,255,255,.30);
+  cursor:pointer; transition:transform .15s, background .2s, border-color .2s;
+}
+.dot:hover{transform:scale(1.08)}
+.dot.is-active{background:#fff;border-color:#fff;box-shadow:0 0 0 3px rgba(255,255,255,.14)}
+.counter{
+  pointer-events:none; font-size:11px; line-height:1; color:#dfe9ff; opacity:.9;
+  background:rgba(0,0,0,.16); border:1px solid rgba(255,255,255,.14);
+  padding:4px 7px; border-radius:8px;
+}
+.progress{ display: none !important; }
+
+/* Flèches */
+.arrows{
+  position:fixed; top:calc(var(--board-h) + 50%); transform:translateY(-50%);
+  width:100%; display:flex; justify-content:space-between; padding:0 20px;
+  pointer-events:none; z-index:20;
+}
+.arrow-btn{
+  pointer-events:auto; width:38px; height:38px; border-radius:50%;
+  background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.14);
+  color:#eaf3ff; display:grid; place-items:center; font-size:20px;
+  cursor:pointer; transition:.2s ease;
+}
+.arrow-btn:hover{ background:rgba(255,255,255,.15); transform:translateY(-1px) }
