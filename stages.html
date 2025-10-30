@@ -4,163 +4,73 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Stages — Adam Fournier</title>
-  <link rel="stylesheet" href="index.css?v=97" />
+  <link rel="stylesheet" href="index.css?v=100" />
   <style>
-    /* --- SLIDER PLEIN ÉCRAN PROPRE --- */
-    body {
-      margin: 0;
-      overflow: hidden;
-      font-family: Inter, system-ui, sans-serif;
-      color: #eaf3ff;
-    }
-
-    .slides-full {
-      display: flex;
-      width: 300%;
-      height: 100vh;
-      transition: transform 0.9s cubic-bezier(0.75, 0, 0.25, 1);
-    }
-
-    .slide-full {
-      width: 100vw;
-      height: 100vh;
-      flex-shrink: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: linear-gradient(160deg, #0c1a30, #132d55);
-      padding: 80px 60px;
-    }
-    .slide-full:nth-child(2) {
-      background: linear-gradient(160deg, #0d2038, #184472);
-    }
-    .slide-full:nth-child(3) {
-      background: linear-gradient(160deg, #0e2240, #206b93);
-    }
-
-    .slide-content {
-      max-width: 850px;
-      text-align: left;
-      animation: fadeIn 1s ease both;
-    }
-    .slide-full h1 {
-      font-size: clamp(32px, 4vw, 52px);
-      margin-bottom: 16px;
-      font-weight: 800;
-    }
-    .slide-full p {
-      max-width: 720px;
-      line-height: 1.7;
-      font-size: 18px;
-      color: #b8c3d6;
-    }
-
-    /* --- Flèches navigation --- */
-    .arrows {
-      position: fixed;
-      top: 50%;
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      transform: translateY(-50%);
-      padding: 0 40px;
-      pointer-events: none;
-      z-index: 20;
-    }
-    .arrow-btn {
-      pointer-events: auto;
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      background: rgba(255,255,255,.08);
-      border: 1px solid rgba(255,255,255,.15);
-      color: #eaf3ff;
-      display: grid;
-      place-items: center;
-      font-size: 26px;
-      cursor: pointer;
-      transition: 0.25s;
-    }
-    .arrow-btn:hover {
-      background: rgba(255,255,255,.18);
-      transform: scale(1.05);
-    }
-
-    /* --- Bouton retour (fixé et visible partout) --- */
-    .back-btn {
-      position: fixed;
-      top: 22px;
-      left: 22px;
-      z-index: 30;
-      text-decoration: none;
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.15);
-      color: #eaf3ff;
-      padding: 8px 14px;
-      border-radius: 10px;
-      font-weight: 600;
-      font-size: 14px;
-      letter-spacing: 0.3px;
-      backdrop-filter: blur(8px);
-      transition: background 0.25s, transform 0.25s;
-    }
-    .back-btn:hover {
-      background: rgba(255,255,255,0.18);
-      transform: scale(1.03);
-    }
-
-    /* --- Animation fluide --- */
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+    /* Ajuste le haut pour ne pas passer sous le board */
+    .slides-full-wrap { padding-top: var(--board-h); height: 100vh; box-sizing: border-box; overflow: hidden; }
+    .slides-full { display:flex; width:300%; height: calc(100vh - var(--board-h)); transition: transform .9s cubic-bezier(.75,0,.25,1); }
+    .slide-full { width:100vw; height: calc(100vh - var(--board-h)); flex-shrink:0; display:flex; align-items:center; justify-content:center; padding:48px 40px; background: linear-gradient(160deg, #0c1a30, #132d55); }
+    .slide-full:nth-child(2){ background: linear-gradient(160deg, #0d2038, #184472); }
+    .slide-full:nth-child(3){ background: linear-gradient(160deg, #0e2240, #206b93); }
+    .slide-content{ max-width: 980px; margin:0 auto; }
+    .slide-content h1{ font-size: clamp(30px, 4vw, 56px); margin:0 0 12px; font-weight:800 }
+    .slide-content p{ max-width: 780px; color:#b8c3d6; line-height:1.7; font-size:18px; margin:0 }
+    .arrows{ position: fixed; top: calc(var(--board-h) + 50%); transform:translateY(-50%); width:100%; display:flex; justify-content:space-between; padding:0 40px; pointer-events:none; z-index:20 }
+    .arrow-btn{ pointer-events:auto; width:50px;height:50px;border-radius:50%; background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.15); color:#eaf3ff; display:grid; place-items:center; font-size:26px; cursor:pointer; transition:.25s }
+    .arrow-btn:hover{ background:rgba(255,255,255,.18); transform:scale(1.05) }
   </style>
 </head>
-
 <body>
-  <!-- Bouton retour toujours visible -->
-  <a href="index.html" class="back-btn">← Retour au menu</a>
+
+  <!-- BOARD GLOBAL -->
+  <header class="board">
+    <div class="board__inner">
+      <div class="board__brand">Adam&nbsp;Fournier</div>
+      <nav class="board__nav">
+        <a href="index.html">Accueil</a>
+        <a href="stages.html" class="is-active">Stages</a>
+        <a href="projets.html">Projets</a>
+        <a href="engagements.html">Engagements</a>
+      </nav>
+    </div>
+  </header>
 
   <!-- SLIDES -->
-  <div class="slides-full" id="slider">
-    <section class="slide-full">
-      <div class="slide-content">
-        <h1>Stage 1 — EDF Toulouse</h1>
-        <p>
-          Développement d’un module de diagnostic automatisé pour des systèmes de mesure embarqués.
-          <br><br>
-          • Étude du protocole Modbus et intégration Raspberry Pi<br>
-          • Interface graphique Python Tkinter<br>
-          • Simulation et test sur banc de mesure
-        </p>
-      </div>
-    </section>
+  <div class="slides-full-wrap">
+    <div class="slides-full" id="slider">
+      <section class="slide-full">
+        <div class="slide-content">
+          <h1>Stage 1 — EDF Toulouse</h1>
+          <p>Développement d’un module de diagnostic automatisé pour des systèmes de mesure embarqués.<br><br>
+            • Étude du protocole Modbus et intégration Raspberry Pi<br>
+            • Interface graphique Python Tkinter<br>
+            • Simulation et test sur banc de mesure
+          </p>
+        </div>
+      </section>
 
-    <section class="slide-full">
-      <div class="slide-content">
-        <h1>Stage 2 — Airbus Defence & Space</h1>
-        <p>
-          Participation à l’intégration d’un banc de test pour le contrôle d’actionneurs électriques.
-          <br><br>
-          • Calibration de capteurs Hall et codeurs<br>
-          • Analyse sous Matlab et rédaction du rapport technique<br>
-          • Présentation des résultats devant les ingénieurs système
-        </p>
-      </div>
-    </section>
+      <section class="slide-full">
+        <div class="slide-content">
+          <h1>Stage 2 — Airbus Defence & Space</h1>
+          <p>Intégration d’un banc de test pour contrôle d’actionneurs électriques.<br><br>
+            • Calibration capteurs Hall & codeurs<br>
+            • Analyse Matlab, rapport technique<br>
+            • Présentation aux équipes système
+          </p>
+        </div>
+      </section>
 
-    <section class="slide-full">
-      <div class="slide-content">
-        <h1>Projet industriel — ENSEEIHT</h1>
-        <p>
-          Conception d’un système de pilotage autonome d’un robot mobile via Arduino et capteurs.
-          <br><br>
-          • Développement du code C++ embarqué<br>
-          • Test des distances ultrason et infrarouges<br>
-          • Réglage PID de la vitesse des moteurs
-        </p>
-      </div>
-    </section>
+      <section class="slide-full">
+        <div class="slide-content">
+          <h1>Projet industriel — ENSEEIHT</h1>
+          <p>Pilotage autonome d’un robot via Arduino + capteurs, réglage PID moteurs.<br><br>
+            • Code C++ embarqué<br>
+            • Tests ultrason & IR<br>
+            • Mise au point PID
+          </p>
+        </div>
+      </section>
+    </div>
   </div>
 
   <!-- Flèches -->
@@ -171,59 +81,34 @@
 
   <script>
     let current = 0;
-    const slides = document.querySelector('.slides-full');
+    const slides = document.getElementById('slider');
     const total = slides.children.length;
 
-    function updateSlide() {
-      slides.style.transform = `translateX(-${current * 100}vw)`;
-    }
+    function updateSlide(){ slides.style.transform = `translateX(-${current * 100}vw)`; }
+    document.getElementById('next').onclick = ()=>{ current = (current + 1) % total; updateSlide(); };
+    document.getElementById('prev').onclick = ()=>{ current = (current - 1 + total) % total; updateSlide(); };
 
-    // Clic flèches
-    document.getElementById('next').onclick = () => {
-      current = (current + 1) % total;
-      updateSlide();
-    };
-    document.getElementById('prev').onclick = () => {
-      current = (current - 1 + total) % total;
-      updateSlide();
-    };
-
-    // Clavier
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'ArrowRight') document.getElementById('next').click();
-      if (e.key === 'ArrowLeft') document.getElementById('prev').click();
-      if (e.key === 'Escape') window.location.href = "index.html";
+    // clavier
+    document.addEventListener('keydown', (e)=>{
+      if(e.key==='ArrowRight') document.getElementById('next').click();
+      if(e.key==='ArrowLeft') document.getElementById('prev').click();
+      if(e.key==='Escape') window.location.href='index.html';
     });
 
-    // Swipe tactile / trackpad
-    let startX = 0;
-    let startTime = 0;
-    slides.addEventListener('touchstart', e => {
-      startX = e.touches[0].clientX;
-      startTime = Date.now();
-    });
-    slides.addEventListener('touchend', e => {
-      const diff = e.changedTouches[0].clientX - startX;
-      const time = Date.now() - startTime;
-      if (Math.abs(diff) > 50 && time < 800) {
-        if (diff > 0) document.getElementById('prev').click();
-        else document.getElementById('next').click();
-      }
-    });
+    // touch / trackpad horizontal (deltaX)
+    let lastScroll=0;
+    window.addEventListener('wheel', (e)=>{
+      const now=Date.now(); if(now-lastScroll<600) return;
+      if(e.deltaX>50){ document.getElementById('next').click(); lastScroll=now; }
+      else if(e.deltaX<-50){ document.getElementById('prev').click(); lastScroll=now; }
+    }, {passive:true});
 
-    // Geste trackpad (mac / pavé tactile)
-    let lastScroll = 0;
-    window.addEventListener('wheel', (e) => {
-      const now = Date.now();
-      if (now - lastScroll < 600) return;
-      if (e.deltaX > 50) {
-        document.getElementById('next').click();
-        lastScroll = now;
-      } else if (e.deltaX < -50) {
-        document.getElementById('prev').click();
-        lastScroll = now;
-      }
-    }, { passive: true });
+    let startX=0, startTime=0;
+    slides.addEventListener('touchstart', e=>{ startX=e.touches[0].clientX; startTime=Date.now(); });
+    slides.addEventListener('touchend', e=>{
+      const diff=e.changedTouches[0].clientX-startX; const t=Date.now()-startTime;
+      if(Math.abs(diff)>50 && t<800){ diff>0 ? document.getElementById('prev').click() : document.getElementById('next').click(); }
+    });
   </script>
 </body>
 </html>
