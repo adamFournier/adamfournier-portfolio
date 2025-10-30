@@ -3,14 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Adam Fournier — Portfolio</title>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="index.css?v=100" />
+  <title>Accueil — Adam Fournier</title>
+  <link rel="stylesheet" href="index.css?v=300" />
 </head>
 <body>
 
-  <!-- BOARD GLOBAL -->
+  <!-- BOARD -->
   <header class="board">
     <div class="board__inner">
       <div class="board__brand">Adam&nbsp;Fournier</div>
@@ -23,59 +21,52 @@
     </div>
   </header>
 
-  <!-- HERO COMPACT (tout tient à l’écran) -->
-  <main class="hero hero--compact no-scroll">
+  <!-- HERO -->
+  <main class="hero">
     <div class="hero__content">
       <h1 class="hero__title">
         Adam Fournier
-        <span class="hero__role">Ingénierie 3EA — Systèmes embarqués & innovation durable</span>
+        <span class="hero__role">Étudiant en ingénierie 3EA — ENSEEIHT</span>
       </h1>
-
       <p class="hero__subtitle">
-        Étudiant ENSEEIHT. Conception & test de systèmes électroniques/automatiques orientés impact.
+        Passionné par les systèmes embarqués et l’innovation durable.
       </p>
 
-      <!-- 3 CTA principaux -->
-      <div class="quick-grid tight">
-        <a class="kbtn kbtn--primary" href="stages.html" rel="noopener">
-          <span class="kbtn__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M6 2h7l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm7 1v5h5"/></svg>
-          </span>
+      <div class="quick-grid">
+        <a class="kbtn kbtn--primary" href="stages.html">
+          <span class="kbtn__icon"><svg viewBox="0 0 24 24"><path d="M6 2h7l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm7 1v5h5"/></svg></span>
           Stages
         </a>
-
-        <a class="kbtn kbtn--primary" href="projets.html" rel="noopener">
-          <span class="kbtn__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M4 6h16v4H4zm0 6h10v4H4z"/></svg>
-          </span>
+        <a class="kbtn kbtn--primary" href="projets.html">
+          <span class="kbtn__icon"><svg viewBox="0 0 24 24"><path d="M4 6h16v4H4zm0 6h10v4H4z"/></svg></span>
           Projets
         </a>
-
-        <a class="kbtn kbtn--primary" href="engagements.html" rel="noopener">
-          <span class="kbtn__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5zm0 2c-5 0-9 2.5-9 5v3h18v-3c0-2.5-4-5-9-5z"/></svg>
-          </span>
+        <a class="kbtn kbtn--primary" href="engagements.html">
+          <span class="kbtn__icon"><svg viewBox="0 0 24 24"><path d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5zm0 2c-5 0-9 2.5-9 5v3h18v-3c0-2.5-4-5-9-5z"/></svg></span>
           Engagements
         </a>
       </div>
 
-      <!-- Ligne secondaire compacte (reste dans l’écran) -->
       <div class="mini-links">
-        <a class="mlink" href="resume_adam_fournier.pdf" target="_blank" rel="noopener">CV</a>
+        <a class="mlink" href="#">CV</a>
         <span class="sep">·</span>
-        <a class="mlink" href="mailto:email@example.com">Contact</a>
+        <a class="mlink" href="#">Contact</a>
         <span class="sep">·</span>
-        <a class="mlink" href="https://github.com/adamfournier" target="_blank" rel="noopener">GitHub</a>
+        <a class="mlink" href="#">GitHub</a>
       </div>
     </div>
 
     <div class="hero__avatar">
-      <img id="hero-photo" src="photo.JPG?v=3" alt="Portrait d'Adam" />
+      <img id="hero-photo" src="photo.JPG" alt="Photo Adam Fournier" />
     </div>
-
-    <div class="hero__bg"></div>
   </main>
 
-  <footer class="footer">© 2025 Adam Fournier — Portfolio</footer>
+  <!-- Barre de progression identique -->
+  <div class="progress"><div class="progress__bar" style="width:100%;"></div></div>
+  <div class="pagination-ui">
+    <div class="dots"><button class="dot is-active"></button></div>
+    <div class="counter">1 / 1</div>
+  </div>
+
 </body>
 </html>
