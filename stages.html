@@ -4,76 +4,134 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Stages — Adam Fournier</title>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="index.css?v=93" />
+  <link rel="stylesheet" href="index.css?v=95" />
+  <style>
+    /* --- STAGES SLIDER --- */
+    .slides-full {
+      display: flex;
+      width: 300%;
+      height: 100vh;
+      transition: transform 0.8s ease-in-out;
+    }
+    .slide-full {
+      width: 100vw;
+      height: 100vh;
+      flex-shrink: 0;
+      padding: 80px 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background: linear-gradient(160deg, #0c1a30, #132d55);
+      color: var(--text);
+    }
+    .slide-full:nth-child(2) { background: linear-gradient(160deg, #0d2038, #184472); }
+    .slide-full:nth-child(3) { background: linear-gradient(160deg, #0e2240, #206b93); }
+
+    .slide-full h1 {
+      font-size: clamp(30px, 4vw, 50px);
+      margin-bottom: 18px;
+    }
+    .slide-full p {
+      max-width: 750px;
+      line-height: 1.7;
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    .arrows {
+      position: fixed;
+      top: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+      padding: 0 30px;
+      pointer-events: none;
+    }
+    .arrow-btn {
+      pointer-events: auto;
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.08);
+      border: 1px solid var(--border);
+      color: var(--text);
+      display: grid;
+      place-items: center;
+      font-size: 24px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .arrow-btn:hover { background: rgba(255,255,255,.18); }
+  </style>
 </head>
+
 <body>
-  <nav class="nav">
-    <div class="nav__brand">Adam&nbsp;Fournier</div>
-    <div class="nav__links">
-      <a href="index.html">Accueil</a>
-      <a href="projets.html">Projets</a>
-      <a href="engagements.html">Engagements</a>
-      <a class="btn--sm outline" href="resume_adam_fournier.pdf" target="_blank" rel="noopener">CV</a>
-    </div>
-  </nav>
-
-  <main class="page">
-    <div class="page__head">
-      <a class="backlink" href="index.html">← Retour</a>
-      <h1 class="page__title">Stages & expériences</h1>
-    </div>
-
-    <!-- SLIDER -->
-    <section class="slider" id="slider-stages" tabindex="0" aria-label="Stages">
-      <button class="arrow prev" aria-label="Précédent">‹</button>
-
-      <div class="slides">
-        <!-- Slide 1 -->
-        <div class="slide" style="background:#11284c; display:flex; flex-direction:column; justify-content:center; align-items:center; padding:40px;">
-          <h2>Stage 1 — EDF Toulouse</h2>
-          <p>Développement d’un module de diagnostic automatisé pour des systèmes de mesure embarqués.</p>
-        </div>
-
-        <!-- Slide 2 -->
-        <div class="slide" style="background:#14345f; display:flex; flex-direction:column; justify-content:center; align-items:center; padding:40px;">
-          <h2>Stage 2 — Airbus Defence & Space</h2>
-          <p>Participation à l’intégration d’un banc de test pour le contrôle d’actionneurs électriques.</p>
-        </div>
-
-        <!-- Slide 3 -->
-        <div class="slide" style="background:#1b457c; display:flex; flex-direction:column; justify-content:center; align-items:center; padding:40px;">
-          <h2>Projet industriel — N7</h2>
-          <p>Conception d’un système de pilotage autonome d’un robot mobile via Arduino et capteurs.</p>
-        </div>
-      </div>
-
-      <button class="arrow next" aria-label="Suivant">›</button>
+  <div class="slides-full" id="slider">
+    <!-- SLIDE 1 -->
+    <section class="slide-full">
+      <h1>Stage 1 — EDF Toulouse</h1>
+      <p>
+        Développement d’un module de diagnostic automatisé pour des systèmes de mesure embarqués.
+        <br><br>
+        • Étude du protocole Modbus et intégration Raspberry Pi<br>
+        • Interface graphique Python Tkinter<br>
+        • Simulation et test sur banc de mesure
+      </p>
     </section>
-  </main>
 
-  <footer class="footer">© 2025 Adam Fournier — Portfolio</footer>
+    <!-- SLIDE 2 -->
+    <section class="slide-full">
+      <h1>Stage 2 — Airbus Defence & Space</h1>
+      <p>
+        Participation à l’intégration d’un banc de test pour le contrôle d’actionneurs électriques.<br><br>
+        • Calibration de capteurs Hall et codeurs<br>
+        • Analyse sous Matlab et rédaction du rapport technique<br>
+        • Présentation des résultats devant les ingénieurs système
+      </p>
+    </section>
+
+    <!-- SLIDE 3 -->
+    <section class="slide-full">
+      <h1>Projet industriel — ENSEEIHT</h1>
+      <p>
+        Conception d’un système de pilotage autonome d’un robot mobile via Arduino et capteurs.
+        <br><br>
+        • Développement du code C++ embarqué<br>
+        • Test des distances ultrason et infrarouges<br>
+        • Réglage PID de la vitesse des moteurs
+      </p>
+    </section>
+  </div>
+
+  <div class="arrows">
+    <button class="arrow-btn" id="prev">‹</button>
+    <button class="arrow-btn" id="next">›</button>
+  </div>
 
   <script>
-    function initSlider(id){
-      const root = document.getElementById(id);
-      const track = root.querySelector('.slides');
-      const prev = root.querySelector('.prev');
-      const next = root.querySelector('.next');
-      function step(dir){
-        const card = track.querySelector('.slide');
-        const w = card.getBoundingClientRect().width + 16;
-        track.scrollBy({left: dir * w, behavior:'smooth'});
-      }
-      prev.addEventListener('click', ()=>step(-1));
-      next.addEventListener('click', ()=>step(1));
-      root.addEventListener('keydown', (e)=>{
-        if(e.key === 'ArrowLeft') step(-1);
-        if(e.key === 'ArrowRight') step(1);
-      });
-    }
-    initSlider('slider-stages');
+    let current = 0;
+    const slides = document.querySelector('.slides-full');
+    const total = slides.children.length;
+
+    document.getElementById('next').onclick = () => {
+      current = (current + 1) % total;
+      slides.style.transform = `translateX(-${current * 100}vw)`;
+    };
+
+    document.getElementById('prev').onclick = () => {
+      current = (current - 1 + total) % total;
+      slides.style.transform = `translateX(-${current * 100}vw)`;
+    };
+
+    // swipe tactile
+    let startX = 0;
+    slides.addEventListener('touchstart', e => startX = e.touches[0].clientX);
+    slides.addEventListener('touchend', e => {
+      const diff = e.changedTouches[0].clientX - startX;
+      if (diff > 50) document.getElementById('prev').click();
+      if (diff < -50) document.getElementById('next').click();
+    });
   </script>
 </body>
 </html>
