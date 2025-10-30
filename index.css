@@ -262,3 +262,6 @@ body {
   cursor:pointer; transition:.2s ease;
 }
 .arrow-btn:hover{ background:rgba(255,255,255,.15); transform:translateY(-1px) }
+
+/* Masque la barre de progression sur les pages de slides, on garde les ronds + compteur */
+.progress { display: none !important; }
