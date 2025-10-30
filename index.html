@@ -1,29 +1,96 @@
-<div class="quick-grid">
-  <a class="kbtn kbtn--primary" href="stages.html" rel="noopener">
-    <span class="kbtn__icon" aria-hidden="true">
-      <svg viewBox="0 0 24 24"><path d="M6 2h7l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm7 1v5h5"/></svg>
-    </span>
-    Stages & expériences
-  </a>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Adam Fournier — Portfolio</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="index.css?v=93" />
+</head>
+<body>
 
-  <a class="kbtn kbtn--primary" href="projets.html" rel="noopener">
-    <span class="kbtn__icon" aria-hidden="true">
-      <svg viewBox="0 0 24 24"><path d="M4 6h16v4H4zm0 6h10v4H4z"/></svg>
-    </span>
-    Projets techniques
-  </a>
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav__brand">Adam&nbsp;Fournier</div>
+    <div class="nav__links">
+      <a href="#contact">Contact</a>
+      <a class="btn--sm outline" href="pdf/CV.pdf" target="_blank" rel="noopener">CV</a>
+      <a class="btn--sm" href="https://github.com/adamfournier" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </nav>
 
-  <a class="kbtn kbtn--primary" href="engagements.html" rel="noopener">
-    <span class="kbtn__icon" aria-hidden="true">
-      <svg viewBox="0 0 24 24"><path d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5zm0 2c-5 0-9 2.5-9 5v3h18v-3c0-2.5-4-5-9-5z"/></svg>
-    </span>
-    Engagements & associatif
-  </a>
+  <!-- HERO -->
+  <header class="hero hero--compact">
+    <div class="hero__content">
+      <h1 class="hero__title">
+        Adam Fournier
+        <span class="hero__role">Ingénierie 3EA — Systèmes embarqués & innovation durable</span>
+      </h1>
 
-  <a class="kbtn kbtn--ghost" href="resume_adam_fournier.pdf" target="_blank" rel="noopener">
-    <span class="kbtn__icon" aria-hidden="true">
-      <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16l4-2 4 2 4-2 4 2V9z"/></svg>
-    </span>
-    Télécharger mon CV
-  </a>
-</div>
+      <p class="hero__subtitle">
+        Étudiant à l’ENSEEIHT. Je conçois et teste des systèmes électroniques/automatiques orientés impact.
+      </p>
+
+      <div class="quick-grid">
+        <a class="kbtn kbtn--primary" href="stages.html" rel="noopener">
+          <span class="kbtn__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M6 2h7l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm7 1v5h5"/></svg>
+          </span>
+          Stages & expériences
+        </a>
+
+        <a class="kbtn kbtn--primary" href="projets.html" rel="noopener">
+          <span class="kbtn__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M4 6h16v4H4zm0 6h10v4H4z"/></svg>
+          </span>
+          Projets techniques
+        </a>
+
+        <a class="kbtn kbtn--primary" href="engagements.html" rel="noopener">
+          <span class="kbtn__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5zm0 2c-5 0-9 2.5-9 5v3h18v-3c0-2.5-4-5-9-5z"/></svg>
+          </span>
+          Engagements & associatif
+        </a>
+
+        <a class="kbtn kbtn--ghost" href="resume_adam_fournier.pdf" target="_blank" rel="noopener">
+          <span class="kbtn__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16l4-2 4 2 4-2 4 2V9z"/></svg>
+          </span>
+          Télécharger mon CV
+        </a>
+      </div>
+    </div>
+
+    <div class="hero__avatar">
+      <img id="hero-photo" src="photo.JPG?v=2" alt="Portrait d'Adam" />
+    </div>
+
+    <div class="hero__bg"></div>
+  </header>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section section--compact">
+    <div class="container">
+      <h2 class="section__title">Contact</h2>
+      <div class="contact">
+        <a class="contact__item" href="mailto:email@example.com">
+          <span class="contact__label">Email</span>
+          <span class="contact__value">email@example.com</span>
+        </a>
+        <a class="contact__item" href="https://www.linkedin.com/in/adam-fournier-6b625132a/" target="_blank" rel="noopener">
+          <span class="contact__label">LinkedIn</span>
+          <span class="contact__value">/in/adam-fournier</span>
+        </a>
+        <a class="contact__item" href="https://github.com/adamfournier" target="_blank" rel="noopener">
+          <span class="contact__label">GitHub</span>
+          <span class="contact__value">@adamfournier</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">© 2025 Adam Fournier — Portfolio</footer>
+</body>
+</html>
