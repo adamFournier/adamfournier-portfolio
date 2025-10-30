@@ -3,9 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Accueil — Adam Fournier</title>
-  <link rel="stylesheet" href="index.css?v=501" />
+  <title>Adam Fournier — Portfolio</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="index.css?v=101" />
 </head>
 <body>
 
@@ -22,17 +23,15 @@
     </div>
   </header>
 
-  <!-- HERO -->
-  <main class="hero new-hero">
-    <div class="hero__avatar large">
-      <img id="hero-photo" src="photo.JPG?v=7" alt="Photo Adam Fournier" />
-    </div>
-
+  <!-- HERO (photo à droite) -->
+  <main class="hero">
     <div class="hero__content">
-      <h1 class="hero__title">Adam Fournier</h1>
+      <h1 class="hero__title">
+        Adam Fournier
+      </h1>
       <p class="hero__subtitle">
-        Étudiant à l’ENSEEIHT — Ingénierie 3EA, spécialisé en systèmes embarqués et innovation durable.
-        Passionné par la technologie, la rigueur scientifique et l’impact positif des projets d’ingénierie.
+        Étudiant à l’ENSEEIHT — Ingénierie 3EA, spécialisé en systèmes embarqués et innovation durable.  
+        Passionné par la technologie, la rigueur scientifique et les projets à impact.
       </p>
 
       <div class="card-grid">
@@ -41,7 +40,6 @@
             <svg viewBox="0 0 24 24"><path d="M6 2h7l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm7 1v5h5"/></svg>
           </div>
           <h3>Stages & Expériences</h3>
-          <p>Découvrez mes missions et projets en environnement professionnel.</p>
         </a>
 
         <a href="projets.html" class="info-card">
@@ -49,15 +47,13 @@
             <svg viewBox="0 0 24 24"><path d="M4 6h16v4H4zm0 6h10v4H4z"/></svg>
           </div>
           <h3>Projets Techniques</h3>
-          <p>Travaux académiques et personnels : innovation, électronique, automatisme.</p>
         </a>
 
         <a href="engagements.html" class="info-card">
           <div class="icon-circle">
             <svg viewBox="0 0 24 24"><path d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5zm0 2c-5 0-9 2.5-9 5v3h18v-3c0-2.5-4-5-9-5z"/></svg>
           </div>
-          <h3>Engagements & Vie Associative</h3>
-          <p>Humanitaire, sport, travail d’équipe et ouverture sur le monde.</p>
+          <h3>Engagements & Associatif</h3>
         </a>
       </div>
 
@@ -76,6 +72,12 @@
         </a>
       </div>
     </div>
+
+    <div class="hero__avatar">
+      <img id="hero-photo" src="photo.JPG?v=7" alt="Portrait d'Adam" />
+    </div>
+
+    <div class="hero__bg"></div>
   </main>
 
   <footer class="footer">© 2025 Adam Fournier — Portfolio</footer>
