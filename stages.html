@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Stages — Adam Fournier</title>
-  <link rel="stylesheet" href="index.css?v=96" />
+  <link rel="stylesheet" href="index.css?v=97" />
   <style>
     /* --- SLIDER PLEIN ÉCRAN PROPRE --- */
     body {
@@ -13,21 +13,23 @@
       font-family: Inter, system-ui, sans-serif;
       color: #eaf3ff;
     }
+
     .slides-full {
       display: flex;
       width: 300%;
       height: 100vh;
       transition: transform 0.9s cubic-bezier(0.75, 0, 0.25, 1);
     }
+
     .slide-full {
       width: 100vw;
       height: 100vh;
       flex-shrink: 0;
-      padding: 80px 60px;
       display: flex;
-      flex-direction: column;
       justify-content: center;
+      align-items: center;
       background: linear-gradient(160deg, #0c1a30, #132d55);
+      padding: 80px 60px;
     }
     .slide-full:nth-child(2) {
       background: linear-gradient(160deg, #0d2038, #184472);
@@ -38,8 +40,8 @@
 
     .slide-content {
       max-width: 850px;
-      margin: 0 auto;
       text-align: left;
+      animation: fadeIn 1s ease both;
     }
     .slide-full h1 {
       font-size: clamp(32px, 4vw, 52px);
@@ -47,13 +49,13 @@
       font-weight: 800;
     }
     .slide-full p {
-      max-width: 700px;
+      max-width: 720px;
       line-height: 1.7;
       font-size: 18px;
       color: #b8c3d6;
     }
 
-    /* Flèches */
+    /* --- Flèches navigation --- */
     .arrows {
       position: fixed;
       top: 50%;
@@ -63,6 +65,7 @@
       transform: translateY(-50%);
       padding: 0 40px;
       pointer-events: none;
+      z-index: 20;
     }
     .arrow-btn {
       pointer-events: auto;
@@ -83,29 +86,30 @@
       transform: scale(1.05);
     }
 
-    /* Bouton retour */
+    /* --- Bouton retour (fixé et visible partout) --- */
     .back-btn {
       position: fixed;
-      top: 24px;
-      left: 24px;
+      top: 22px;
+      left: 22px;
+      z-index: 30;
       text-decoration: none;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.2);
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
       color: #eaf3ff;
       padding: 8px 14px;
       border-radius: 10px;
       font-weight: 600;
       font-size: 14px;
-      transition: background 0.2s;
+      letter-spacing: 0.3px;
+      backdrop-filter: blur(8px);
+      transition: background 0.25s, transform 0.25s;
     }
     .back-btn:hover {
-      background: rgba(255,255,255,0.15);
+      background: rgba(255,255,255,0.18);
+      transform: scale(1.03);
     }
 
-    /* Animation fluide */
-    .fade-in {
-      animation: fadeIn 1s ease both;
-    }
+    /* --- Animation fluide --- */
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
@@ -114,13 +118,12 @@
 </head>
 
 <body>
-  <!-- Bouton retour -->
+  <!-- Bouton retour toujours visible -->
   <a href="index.html" class="back-btn">← Retour au menu</a>
 
   <!-- SLIDES -->
   <div class="slides-full" id="slider">
-    <!-- SLIDE 1 -->
-    <section class="slide-full fade-in">
+    <section class="slide-full">
       <div class="slide-content">
         <h1>Stage 1 — EDF Toulouse</h1>
         <p>
@@ -133,8 +136,7 @@
       </div>
     </section>
 
-    <!-- SLIDE 2 -->
-    <section class="slide-full fade-in">
+    <section class="slide-full">
       <div class="slide-content">
         <h1>Stage 2 — Airbus Defence & Space</h1>
         <p>
@@ -147,8 +149,7 @@
       </div>
     </section>
 
-    <!-- SLIDE 3 -->
-    <section class="slide-full fade-in">
+    <section class="slide-full">
       <div class="slide-content">
         <h1>Projet industriel — ENSEEIHT</h1>
         <p>
@@ -177,31 +178,52 @@
       slides.style.transform = `translateX(-${current * 100}vw)`;
     }
 
+    // Clic flèches
     document.getElementById('next').onclick = () => {
       current = (current + 1) % total;
       updateSlide();
     };
-
     document.getElementById('prev').onclick = () => {
       current = (current - 1 + total) % total;
       updateSlide();
     };
 
-    // clavier
+    // Clavier
     document.addEventListener('keydown', (e) => {
       if (e.key === 'ArrowRight') document.getElementById('next').click();
       if (e.key === 'ArrowLeft') document.getElementById('prev').click();
       if (e.key === 'Escape') window.location.href = "index.html";
     });
 
-    // swipe tactile
+    // Swipe tactile / trackpad
     let startX = 0;
-    slides.addEventListener('touchstart', e => startX = e.touches[0].clientX);
+    let startTime = 0;
+    slides.addEventListener('touchstart', e => {
+      startX = e.touches[0].clientX;
+      startTime = Date.now();
+    });
     slides.addEventListener('touchend', e => {
       const diff = e.changedTouches[0].clientX - startX;
-      if (diff > 50) document.getElementById('prev').click();
-      if (diff < -50) document.getElementById('next').click();
+      const time = Date.now() - startTime;
+      if (Math.abs(diff) > 50 && time < 800) {
+        if (diff > 0) document.getElementById('prev').click();
+        else document.getElementById('next').click();
+      }
     });
+
+    // Geste trackpad (mac / pavé tactile)
+    let lastScroll = 0;
+    window.addEventListener('wheel', (e) => {
+      const now = Date.now();
+      if (now - lastScroll < 600) return;
+      if (e.deltaX > 50) {
+        document.getElementById('next').click();
+        lastScroll = now;
+      } else if (e.deltaX < -50) {
+        document.getElementById('prev').click();
+        lastScroll = now;
+      }
+    }, { passive: true });
   </script>
 </body>
 </html>
