@@ -266,34 +266,37 @@ body {
 /* Masque la barre de progression sur les pages de slides, on garde les ronds + compteur */
 .progress { display: none !important; }
 
-* ==== Boost visibilité pour les cartes .info-card (garde ton HTML actuel) ==== */
-.card-grid { gap:16px; }
-
-.info-card{
-  background: rgba(255,255,255,0.10);           /* plus clair que le fond */
-  border: 1px solid rgba(255,255,255,0.20);     /* bord + contrasté */
-  box-shadow: 0 10px 26px rgba(0,0,0,.28);      /* léger relief */
-  backdrop-filter: blur(6px);
-  transition: transform .22s ease, background .22s ease, border-color .22s ease;
+/* === Version plus claire et visible des 3 cartes === */
+.info-card {
+  background: rgba(255, 255, 255, 0.18);     /* fond clair translucide */
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(8px) saturate(130%);
+  transition: all 0.25s ease;
 }
-.info-card:hover{
-  background: rgba(255,255,255,0.14);
+
+.info-card:hover {
+  background: rgba(255, 255, 255, 0.26);     /* plus lumineux au survol */
   border-color: var(--brand);
   transform: translateY(-4px);
-  box-shadow: 0 14px 32px rgba(42,168,216,.22);
+  box-shadow: 0 16px 36px rgba(42, 168, 216, 0.35);
 }
 
-.icon-circle{
-  background: linear-gradient(145deg, #2c5a82, #163657); /* tuile icône plus vive */
-  border: 1px solid rgba(255,255,255,.18);
-}
-.icon-circle svg{
-  fill: var(--brand-2); /* icône + lumineuse */
+.icon-circle {
+  background: linear-gradient(135deg, #3d7ca8, #1f4d77); /* plus clair et lisible */
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 8px rgba(42, 168, 216, 0.4);
 }
 
-.info-card h3{
-  color: #f3f8ff;                      /* texte plus clair */
-  text-shadow: 0 0 6px rgba(42,168,216,.28);
-  letter-spacing:.2px;
+.icon-circle svg {
+  fill: #b3edff; /* icône claire et douce */
 }
+
+.info-card h3 {
+  color: #ffffff;
+  font-weight: 700;
+  text-shadow: 0 0 8px rgba(42, 168, 216, 0.4);
+}
+
+
 
