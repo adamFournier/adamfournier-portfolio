@@ -271,3 +271,12 @@ body {
 }
 .arrow-btn:hover{ background:rgba(255,255,255,.15); transform:translateY(-1px) }
 
+/* Icônes SVG du bandeau contact (nettes + accordées au texte) */
+.ci .ico{
+  width:18px; height:18px;
+  stroke:currentColor; fill:none; stroke-width:2;
+  stroke-linecap:round; stroke-linejoin:round;
+  flex:0 0 18px; opacity:.95;
+}
+.ci .ico.ico--in{ fill:currentColor; stroke:none; }  /* LinkedIn plein */
+
