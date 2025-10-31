@@ -52,17 +52,23 @@ body {
 .board__nav a.is-active { opacity:1; color:var(--brand); }
 
 /* === HERO (page d’accueil) === */
-.hero {
+/* HERO : ne réserve plus d'espace fixe, on met du padding en bas */
+.hero{
   display:grid;
   grid-template-columns:1.15fr .85fr;
   align-items:center;
   gap:44px;
-  /* réserve la place pour Contact + © */
-  min-height:calc(100vh - var(--board-h) - var(--contact-h) - var(--footer-h));
-  padding:calc(var(--board-h) + 32px) 40px 16px;
+  /* AVANT : min-height: calc(100vh - var(--board-h) - var(--contact-h) - var(--footer-h)); */
+  min-height: calc(100vh - var(--board-h)); /* <= plus de trou artificiel */
+  padding: calc(var(--board-h) + 32px) 40px
+           calc(var(--contact-h) + var(--footer-h) + 8px); /* on laisse juste la place aux barres */
   position:relative;
   overflow:hidden;
 }
+
+/* Un petit reset pour éviter un “dernier marge” qui pousse visuellement */
+.info-section:last-of-type { margin-bottom: 0; }
+
 .hero__bg {
   position:absolute; inset:-10%; z-index:-1;
   background:
@@ -264,3 +270,4 @@ body {
   cursor:pointer; transition:.2s ease;
 }
 .arrow-btn:hover{ background:rgba(255,255,255,.15); transform:translateY(-1px) }
+
