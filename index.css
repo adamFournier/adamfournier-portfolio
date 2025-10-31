@@ -317,3 +317,30 @@ body {
 }
 .arrow-btn:hover{ background:rgba(255,255,255,.15); transform:translateY(-1px) }
 
+/* 1) Bring the hero content closer to the contact bar */
+.hero{
+  /* was: padding: calc(var(--board-h) + 40px) 40px 40px; */
+  padding: calc(var(--board-h) + 32px) 40px 12px;
+}
+
+/* 2) Slightly reduce space after the 3 cards */
+.card-grid{
+  /* was: margin-bottom: 24px; */
+  margin-bottom: 16px;
+}
+
+/* 3) Tighter spacing for the “Documents” block */
+.info-section{
+  /* was: margin-top: 36px; */
+  margin-top: 22px;
+}
+.info-section:last-of-type{
+  margin-bottom: 0;
+}
+
+/* 4) Keep the contact bar compact (no extra top spacing) */
+.contact-bar{
+  margin: 0;           /* ensure no stray margin */
+  padding: 10px 16px 8px; /* already compact; keep it */
+}
+
