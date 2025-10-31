@@ -280,3 +280,62 @@ body {
 }
 .ci .ico.ico--in{ fill:currentColor; stroke:none; }  /* LinkedIn plein */
 
+/* --- Alignement fin des icônes dans le bandeau contact --- */
+.contacts-row .ci{
+  display:inline-flex;            /* déjà flex mais on force le inline */
+  align-items:center;
+  gap:8px;
+  line-height:1;                  /* évite les décalages verticaux */
+}
+
+.contacts-row .ci span{ line-height:1; }
+
+.contacts-row .ci .ico{
+  width:18px; height:18px;
+  stroke:currentColor; fill:none; stroke-width:2;
+  stroke-linecap:round; stroke-linejoin:round;
+  flex:0 0 18px;
+  vertical-align:middle;
+  transition:transform .25s ease, opacity .2s ease, color .2s ease;
+}
+
+/* Icône LinkedIn pleine : très léger réglage vertical pour l’aligner */
+.contacts-row .ci .ico--in{
+  fill:currentColor; 
+  stroke:none;
+  transform: translateY(1px);
+}
+
+/* --- Effets de survol uniquement sur les liens cliquables --- */
+.contacts-row a.ci{
+  position:relative;
+  transition: color .25s ease, transform .25s ease;
+}
+
+/* Soulignement animé discret sous l’élément */
+.contacts-row a.ci::after{
+  content:"";
+  position:absolute;
+  left:0; right:0; bottom:-6px;
+  height:2px;
+  background:linear-gradient(90deg, var(--brand), var(--brand-2));
+  opacity:0;
+  transform:scaleX(0);
+  transform-origin:left;
+  transition:opacity .2s ease, transform .25s ease;
+}
+
+.contacts-row a.ci:hover{
+  color:var(--brand-2);
+}
+
+.contacts-row a.ci:hover::after{
+  opacity:.9;
+  transform:scaleX(1);
+}
+
+/* L’icône glisse très légèrement à droite au hover pour signaler le clic */
+.contacts-row a.ci:hover .ico{
+  transform: translateY(1px) translateX(3px);
+}
+
