@@ -343,4 +343,38 @@ body {
   margin: 0;           /* ensure no stray margin */
   padding: 10px 16px 8px; /* already compact; keep it */
 }
+/* === Réserve la place des DEUX barres (Contact + ©) === */
+:root{
+  --footer-h: 40px;            /* hauteur de la fine barre © */
+}
+
+/* Le hero doit laisser la place pour contact + footer */
+.hero{
+  min-height: calc(100vh - var(--board-h) - var(--contact-h) - var(--footer-h));
+  padding: calc(var(--board-h) + 32px) 40px 16px;
+}
+
+/* Le bandeau de contact reste collé au-dessus du © */
+.contact-bar{
+  bottom: var(--footer-h);      /* au-dessus de la barre © */
+  padding: 10px 16px 10px;
+}
+
+/* Fine barre © fixée tout en bas */
+.footer{
+  position: fixed;
+  left: 0; right: 0; bottom: 0;
+  height: var(--footer-h);
+  display: flex; align-items: center; justify-content: center;
+  background: #060b18;
+  border-top: 1px solid rgba(255,255,255,.08);
+  color: var(--muted);
+  font-size: 13px;
+  z-index: 70;                  /* sous le bandeau contact (z-index plus bas OK) */
+}
+
+/* (Optionnel) compacter un peu l'espace au-dessus du bandeau */
+.card-grid{ margin-bottom: 16px; }
+.info-section{ margin-top: 22px; }
+
 
