@@ -299,11 +299,13 @@ body {
   transition:transform .25s ease, opacity .2s ease, color .2s ease;
 }
 
-/* Icône LinkedIn pleine : très léger réglage vertical pour l’aligner */
-.contacts-row .ci .ico--in{
-  fill:currentColor; 
-  stroke:none;
-  transform: translateY(1px);
+.contacts-row .ci .ico--in {
+  fill: currentColor;
+  stroke: none;
+  position: relative;
+  top: -1.5px;           /* remonte légèrement le logo */
+  width: 17px;
+  height: 17px;
 }
 
 /* --- Effets de survol uniquement sur les liens cliquables --- */
@@ -338,4 +340,5 @@ body {
 .contacts-row a.ci:hover .ico{
   transform: translateY(1px) translateX(3px);
 }
+
 
