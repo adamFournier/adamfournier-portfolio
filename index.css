@@ -448,75 +448,26 @@ body {
 }
 .intro-btn:hover{ transform:translateY(-2px); filter:brightness(1.05); }
 
-/* === DROPDOWN "Stages" dans le board === */
-.board__nav { position: relative; gap: 20px; }
+/* === Sous-menu global pour "Stages" (toutes pages) === */
+.board__nav { display:flex; gap:28px; align-items:center; position:relative; }
+.board__nav a { position:relative; color:#dfe9ff; text-decoration:none; font-weight:500; font-size:15.5px; transition:color .2s; }
+.board__nav a:hover { color:#79d2f2; }
 
-.nav-item {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
+.nav-item { position:relative; }
+.nav-item .sub{
+  position:absolute; top:100%; left:0; min-width:220px;
+  background:rgba(8,28,48,.95); border:1px solid rgba(255,255,255,.08);
+  border-radius:12px; padding:10px 0;
+  opacity:0; visibility:hidden; transform:translateY(8px);
+  transition:.22s ease; box-shadow:0 12px 28px rgba(0,0,0,.35);
+  z-index:200;
 }
+.nav-item .sub a{ display:block; padding:9px 14px; font-size:14.5px; }
+.nav-item .sub a:hover{ background:rgba(255,255,255,.08); color:#79d2f2; }
 
-.nav-item > a {
-  display: inline-block;
-  padding: 0;
-}
-
-/* Le panneau */
-.nav-item .sub {
-  position: absolute;
-  top: calc(100% + 10px);
-  left: 50%;
-  transform: translateX(-50%);
-  min-width: 220px;
-  background: rgba(12, 20, 40, .92);
-  border: 1px solid rgba(255,255,255,.10);
-  border-radius: 12px;
-  padding: 10px;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 18px 40px rgba(0,0,0,.45);
-  display: none;
-  z-index: 1000;
-}
-
-/* Petite flèche décorative */
-.nav-item .sub::before{
-  content:"";
-  position:absolute;
-  top:-8px; left:50%; transform:translateX(-50%);
-  width:14px; height:14px;
-  background: inherit;
-  border-left: 1px solid rgba(255,255,255,.10);
-  border-top: 1px solid rgba(255,255,255,.10);
-  transform: translateX(-50%) rotate(45deg);
-  border-radius: 3px 0 0 0;
-}
-
-/* Items du sous-menu */
-.nav-item .sub a{
-  display: block;
-  text-decoration: none;
-  color: #eaf3ff;
-  padding: 10px 12px;
-  border-radius: 8px;
-  font-weight: 600;
-  opacity: .95;
-  transition: .18s ease;
-}
-.nav-item .sub a:hover{
-  background: rgba(255,255,255,.06);
-  color: var(--brand);
-}
-
-/* Affichage au survol ou focus clavier */
 .nav-item:hover .sub,
-.nav-item:focus-within .sub { display: block; }
+.nav-item:focus-within .sub{ opacity:1; visibility:visible; transform:translateY(0); }
 
-/* Mobile : ancre centrée */
-@media (max-width: 900px){
-  .nav-item .sub { left: 0; right: 0; transform: none; }
-  .nav-item .sub::before { left: 24px; transform: rotate(45deg); }
-}
 
 
 
