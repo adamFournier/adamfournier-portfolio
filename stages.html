@@ -5,8 +5,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Stages — Adam Fournier</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="index.css?v=110" />
+  <link rel="stylesheet" href="index.css?v=122" />
+  <style>
+    /* Styles spécifiques aux cartes vides */
+    .intro-card--empty {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px dashed rgba(255, 255, 255, 0.15);
+      color: #b6c3d4;
+      cursor: default;
+      opacity: 0.6;
+      text-align: center;
+    }
+    .intro-card--empty:hover {
+      transform: none;
+      box-shadow: none;
+      background: rgba(255, 255, 255, 0.05);
+    }
+  </style>
 </head>
+
 <body>
 
   <!-- HEADER -->
@@ -22,38 +39,70 @@
     </div>
   </header>
 
-  <!-- CONTENU PRINCIPAL -->
-  <main class="hero" style="display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center;">
-    <h1 class="hero__title">Mes expériences professionnelles</h1>
-    <p class="hero__subtitle" style="max-width:700px;">
-      Découvrez mes stages réalisés dans le domaine des systèmes embarqués, de l’électronique et de l’innovation technologique.
-    </p>
+  <!-- SLIDES -->
+  <div class="slides-full-wrap">
+    <div class="slides-full" id="slider">
 
-    <div class="card-grid" style="max-width:900px;">
-      <a href="stage-edf.html" class="info-card">
-        <div class="icon-circle">
-          <svg viewBox="0 0 24 24"><path d="M6 2h7l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm7 1v5h5"/></svg>
-        </div>
-        <h3>Stage — EDF Toulouse</h3>
-        <p style="font-size:14px; opacity:.9;">Développement d’un module de diagnostic automatisé sur Raspberry&nbsp;Pi.</p>
-      </a>
+      <!-- Slide d’intro -->
+      <section class="slide-full slide-intro">
+        <div class="slide-content intro">
+          <h1>Mes stages</h1>
+          <p class="intro__lead">
+            Découvrez mes expériences professionnelles : de l’analyse de données à la conception de systèmes embarqués,
+            chaque stage m’a permis de renforcer mes compétences techniques et humaines.
+          </p>
 
-      <a href="stage-airbus.html" class="info-card">
-        <div class="icon-circle">
-          <svg viewBox="0 0 24 24"><path d="M4 6h16v4H4zm0 6h10v4H4z"/></svg>
-        </div>
-        <h3>Stage — Airbus D&amp;S</h3>
-        <p style="font-size:14px; opacity:.9;">Intégration d’un banc de test pour le contrôle d’actionneurs électriques.</p>
-      </a>
+          <div class="intro-grid">
 
-      <a href="stage-enseeiht.html" class="info-card">
-        <div class="icon-circle">
-          <svg viewBox="0 0 24 24"><path d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5zm0 2c-5 0-9 2.5-9 5v3h18v-3c0-2.5-4-5-9-5z"/></svg>
+            <!-- Stage Enedis -->
+            <button class="intro-card" onclick="window.location.href='stage-enedis.html'">
+              <div class="intro-card__title">Enedis Toulouse</div>
+              <div class="intro-card__subtitle">Data Analyst — Pôle Data / DSI</div>
+              <div class="intro-card__tags">
+                <span>Python</span><span>Power&nbsp;BI</span><span>Data&nbsp;Viz</span>
+              </div>
+            </button>
+
+            <!-- Stage à venir -->
+            <div class="intro-card intro-card--empty">
+              <div class="intro-card__title">Stage #2</div>
+              <div class="intro-card__subtitle">À venir</div>
+              <div class="intro-card__tags">
+                <span>Bientôt disponible</span>
+              </div>
+            </div>
+
+            <!-- Stage à venir -->
+            <div class="intro-card intro-card--empty">
+              <div class="intro-card__title">Stage #3</div>
+              <div class="intro-card__subtitle">À venir</div>
+              <div class="intro-card__tags">
+                <span>Bientôt disponible</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="intro-cta">
+            <button class="intro-btn" id="introStart" onclick="window.location.href='stage-enedis.html'">
+              Voir le stage
+            </button>
+          </div>
         </div>
-        <h3>Projet — ENSEEIHT</h3>
-        <p style="font-size:14px; opacity:.9;">Pilotage autonome d’un robot via Arduino et capteurs ultrason.</p>
-      </a>
+      </section>
     </div>
-  </main>
+  </div>
+
+  <!-- Flèches (désactivées ici car une seule slide) -->
+  <div class="arrows" style="display:none;">
+    <button class="arrow-btn" id="prev">‹</button>
+    <button class="arrow-btn" id="next">›</button>
+  </div>
+
+  <!-- Pagination (masquée car une seule slide) -->
+  <div class="pagination-ui" style="display:none;">
+    <div class="dots" id="dots"></div>
+    <div class="counter" id="counter">1 / 1</div>
+  </div>
+
 </body>
 </html>
