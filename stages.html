@@ -65,11 +65,24 @@
     </div>
   </div>
 
-  <!-- Flèches -->
   <div class="arrows">
-    <button class="arrow-btn" id="prev" aria-label="Slide précédente">‹</button>
-    <button class="arrow-btn" id="next" aria-label="Slide suivante">›</button>
-  </div>
+  <button class="arrow-btn" id="prev" aria-label="Slide précédente">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
+         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+         viewBox="0 0 24 24">
+      <polyline points="15 18 9 12 15 6" />
+    </svg>
+  </button>
+
+  <button class="arrow-btn" id="next" aria-label="Slide suivante">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
+         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+         viewBox="0 0 24 24">
+      <polyline points="9 6 15 12 9 18" />
+    </svg>
+  </button>
+</div>
+
 
   <!-- Pagination -->
   <div class="progress"><div class="progress__bar" id="progressBar"></div></div>
@@ -135,4 +148,5 @@
   </script>
 </body>
 </html>
+
 
