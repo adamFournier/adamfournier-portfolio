@@ -448,7 +448,75 @@ body {
 }
 .intro-btn:hover{ transform:translateY(-2px); filter:brightness(1.05); }
 
+/* === DROPDOWN "Stages" dans le board === */
+.board__nav { position: relative; gap: 20px; }
 
+.nav-item {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.nav-item > a {
+  display: inline-block;
+  padding: 0;
+}
+
+/* Le panneau */
+.nav-item .sub {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 220px;
+  background: rgba(12, 20, 40, .92);
+  border: 1px solid rgba(255,255,255,.10);
+  border-radius: 12px;
+  padding: 10px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 18px 40px rgba(0,0,0,.45);
+  display: none;
+  z-index: 1000;
+}
+
+/* Petite flèche décorative */
+.nav-item .sub::before{
+  content:"";
+  position:absolute;
+  top:-8px; left:50%; transform:translateX(-50%);
+  width:14px; height:14px;
+  background: inherit;
+  border-left: 1px solid rgba(255,255,255,.10);
+  border-top: 1px solid rgba(255,255,255,.10);
+  transform: translateX(-50%) rotate(45deg);
+  border-radius: 3px 0 0 0;
+}
+
+/* Items du sous-menu */
+.nav-item .sub a{
+  display: block;
+  text-decoration: none;
+  color: #eaf3ff;
+  padding: 10px 12px;
+  border-radius: 8px;
+  font-weight: 600;
+  opacity: .95;
+  transition: .18s ease;
+}
+.nav-item .sub a:hover{
+  background: rgba(255,255,255,.06);
+  color: var(--brand);
+}
+
+/* Affichage au survol ou focus clavier */
+.nav-item:hover .sub,
+.nav-item:focus-within .sub { display: block; }
+
+/* Mobile : ancre centrée */
+@media (max-width: 900px){
+  .nav-item .sub { left: 0; right: 0; transform: none; }
+  .nav-item .sub::before { left: 24px; transform: rotate(45deg); }
+}
 
 
 
