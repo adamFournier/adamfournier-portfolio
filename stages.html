@@ -4,209 +4,56 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Stages — Adam Fournier</title>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="index.css?v=401" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="index.css?v=110" />
 </head>
 <body>
 
-<!-- BOARD identique (brand non gras) --> 
-<header class="board"> 
-<div class="board__inner"> 
-<div 
-class="board__brand">Adam&nbsp;Fournier</div> 
-<nav class="board__nav"> 
-<a href="index.html">Accueil</a> 
-<a href="stages.html" class="is-active">Stages</a>
- <a href="projets.html">Projets</a> 
- <a href="engagements.html">Engagements</a> 
- </nav> 
- </div> 
- </header>
-
-
-  <!-- SLIDES -->
-  <div class="slides-full-wrap">
-    <div class="slides-full" id="slider">
-      
-    <!-- NEW: slide d’intro -->
-    <section class="slide-full slide-intro">
-      <div class="slide-content intro">
-        <h1>Mes stages</h1>
-        <p class="intro__lead">
-          Aperçu rapide de mes expériences : diagnostic embarqué, bancs de test et robotique.
-          Cliquez pour ouvrir le détail.
-        </p>
-
-        <div class="intro-grid">
-          <button class="intro-card" data-go="1">
-            <div class="intro-card__title">EDF Toulouse</div>
-            <div class="intro-card__tags">
-              <span>Modbus</span><span>Raspberry&nbsp;Pi</span><span>Python UI</span>
-            </div>
-          </button>
-
-          <button class="intro-card" data-go="2">
-            <div class="intro-card__title">Airbus D&amp;S</div>
-            <div class="intro-card__tags">
-              <span>Actionneurs</span><span>Capteurs Hall</span><span>Matlab</span>
-            </div>
-          </button>
-
-          <button class="intro-card" data-go="3">
-            <div class="intro-card__title">Projet ENSEEIHT</div>
-            <div class="intro-card__tags">
-              <span>Arduino</span><span>PID</span><span>Robot</span>
-            </div>
-          </button>
-        </div>
-
-        <div class="intro-cta">
-          <button class="intro-btn" id="introStart">Voir les détails</button>
-        </div>
-      </div>
-    </section>
-    <!-- /slide d’intro -->
-      
-      <section class="slide-full">
-        <div class="slide-content">
-          <h1>Stage — EDF Toulouse</h1>
-          <p>
-            Développement d’un module de diagnostic automatisé pour des systèmes de mesure embarqués.<br><br>
-            • Étude du protocole Modbus et intégration Raspberry Pi<br>
-            • Interface graphique Python Tkinter<br>
-            • Simulation et test sur banc de mesure
-          </p>
-        </div>
-      </section>
-
-      <section class="slide-full">
-        <div class="slide-content">
-          <h1>Stage — Airbus Defence & Space</h1>
-          <p>
-            Intégration d’un banc de test pour contrôle d’actionneurs électriques.<br><br>
-            • Calibration capteurs Hall & codeurs<br>
-            • Analyse Matlab, rapport technique<br>
-            • Présentation aux équipes système
-          </p>
-        </div>
-      </section>
-
-      <section class="slide-full">
-        <div class="slide-content">
-          <h1>Projet — ENSEEIHT</h1>
-          <p>
-            Pilotage autonome d’un robot via Arduino + capteurs, réglage PID moteurs.<br><br>
-            • Code C++ embarqué<br>
-            • Tests ultrason & IR<br>
-            • Mise au point PID
-          </p>
-        </div>
-      </section>
+  <!-- HEADER -->
+  <header class="board">
+    <div class="board__inner">
+      <div class="board__brand">Adam&nbsp;Fournier</div>
+      <nav class="board__nav">
+        <a href="index.html">Accueil</a>
+        <a href="stages.html" class="is-active">Stages</a>
+        <a href="projets.html">Projets</a>
+        <a href="engagements.html">Engagements</a>
+      </nav>
     </div>
-  </div>
+  </header>
 
-  <div class="arrows">
-  <button class="arrow-btn" id="prev" aria-label="Slide précédente">
-    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
-         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-         viewBox="0 0 24 24">
-      <polyline points="15 18 9 12 15 6" />
-    </svg>
-  </button>
+  <!-- CONTENU PRINCIPAL -->
+  <main class="hero" style="display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center;">
+    <h1 class="hero__title">Mes expériences professionnelles</h1>
+    <p class="hero__subtitle" style="max-width:700px;">
+      Découvrez mes stages réalisés dans le domaine des systèmes embarqués, de l’électronique et de l’innovation technologique.
+    </p>
 
-  <button class="arrow-btn" id="next" aria-label="Slide suivante">
-    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
-         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-         viewBox="0 0 24 24">
-      <polyline points="9 6 15 12 9 18" />
-    </svg>
-  </button>
-</div>
+    <div class="card-grid" style="max-width:900px;">
+      <a href="stage-edf.html" class="info-card">
+        <div class="icon-circle">
+          <svg viewBox="0 0 24 24"><path d="M6 2h7l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm7 1v5h5"/></svg>
+        </div>
+        <h3>Stage — EDF Toulouse</h3>
+        <p style="font-size:14px; opacity:.9;">Développement d’un module de diagnostic automatisé sur Raspberry&nbsp;Pi.</p>
+      </a>
 
+      <a href="stage-airbus.html" class="info-card">
+        <div class="icon-circle">
+          <svg viewBox="0 0 24 24"><path d="M4 6h16v4H4zm0 6h10v4H4z"/></svg>
+        </div>
+        <h3>Stage — Airbus D&amp;S</h3>
+        <p style="font-size:14px; opacity:.9;">Intégration d’un banc de test pour le contrôle d’actionneurs électriques.</p>
+      </a>
 
-  <!-- Pagination -->
-  <div class="progress"><div class="progress__bar" id="progressBar"></div></div>
-  <div class="pagination-ui">
-    <div class="dots" id="dots" aria-label="Pagination des slides"></div>
-    <div class="counter" id="counter">1 / 3</div>
-  </div>
-
-  <script>
-    let current = 0;
-    const slides = document.getElementById('slider');
-    const total = slides.children.length;
-
-    // Dots dynamiques
-    const dots = document.getElementById('dots');
-    for (let i = 0; i < total; i++) {
-      const b = document.createElement('button');
-      b.className = 'dot' + (i === 0 ? ' is-active' : '');
-      b.onclick = () => { current = i; updateSlide(true); };
-      dots.appendChild(b);
-    }
-
-    const counter = document.getElementById('counter');
-    const progressBar = document.getElementById('progressBar');
-
-    function updateSlide(animate = true){
-      slides.style.transitionDuration = animate ? '.7s' : '0s';
-      slides.style.transform = `translateX(-${current * 100}vw)`;
-      updateUI();
-    }
-    function updateUI(){
-      [...document.querySelectorAll('.dot')].forEach((d, idx)=> d.classList.toggle('is-active', idx === current));
-      counter.textContent = `${current + 1} / ${total}`;
-      progressBar.style.width = `${((current + 1) / total) * 100}%`;
-    }
-
-    document.getElementById('next').onclick = ()=>{ current = (current + 1) % total; updateSlide(); };
-    document.getElementById('prev').onclick = ()=>{ current = (current - 1 + total) % total; updateSlide(); };
-
-    document.addEventListener('keydown', (e)=>{
-      if(e.key==='ArrowRight') document.getElementById('next').click();
-      if(e.key==='ArrowLeft') document.getElementById('prev').click();
-      if(e.key==='Escape') window.location.href='index.html';
-    });
-
-    // (optionnel) trackpad horizontal
-    let lastScroll=0;
-    window.addEventListener('wheel', (e)=>{
-      const now=Date.now(); if(now-lastScroll<600) return;
-      if(e.deltaX>50){ document.getElementById('next').click(); lastScroll=now; }
-      else if(e.deltaX<-50){ document.getElementById('prev').click(); lastScroll=now; }
-    }, {passive:true});
-
-    // tactile
-    let startX=0, startTime=0;
-    slides.addEventListener('touchstart', e=>{ startX=e.touches[0].clientX; startTime=Date.now(); }, {passive:true});
-    slides.addEventListener('touchend', e=>{
-      const diff=e.changedTouches[0].clientX-startX; const t=Date.now()-startTime;
-      if(Math.abs(diff)>50 && t<800){ diff>0 ? document.getElementById('prev').click() : document.getElementById('next').click(); }
-    }, {passive:true});
-
-    updateUI();
-    // Cartes de l'intro -> aller directement à la slide ciblée
-document.querySelectorAll('.intro-card').forEach(c => {
-  c.addEventListener('click', () => {
-    current = Number(c.dataset.go);
-    updateSlide();
-  });
-});
-
-// Bouton "Voir les détails" -> va à la 1ʳᵉ expérience
-document.getElementById('introStart')?.addEventListener('click', () => {
-  current = 1;
-  updateSlide();
-});
-
-  </script>
+      <a href="stage-enseeiht.html" class="info-card">
+        <div class="icon-circle">
+          <svg viewBox="0 0 24 24"><path d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5zm0 2c-5 0-9 2.5-9 5v3h18v-3c0-2.5-4-5-9-5z"/></svg>
+        </div>
+        <h3>Projet — ENSEEIHT</h3>
+        <p style="font-size:14px; opacity:.9;">Pilotage autonome d’un robot via Arduino et capteurs ultrason.</p>
+      </a>
+    </div>
+  </main>
 </body>
 </html>
-
-
-
-
-
-
