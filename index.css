@@ -235,27 +235,64 @@ body {
 .slide-content p{ color:#c2cde0; line-height:1.65; font-size:clamp(14px,1.45vw,16px); }
 
 /* Pagination ronds + compteur (barre bleue masquée) */
-.pagination-ui{
-  position:fixed; left:0; right:0;
-  bottom:max(14px, env(safe-area-inset-bottom));
-  z-index:25; display:flex; align-items:center; justify-content:center;
-  gap:10px; pointer-events:none;
+.pagination-ui {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: max(18px, env(safe-area-inset-bottom)); /* un peu plus haut pour respirer */
+  z-index: 25;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px; /* plus d’espace entre les éléments */
+  pointer-events: none;
 }
-.dots{display:flex;align-items:center;gap:8px;pointer-events:auto;}
-.dot{
-  display:inline-block; width:8px; height:8px;
-  border:1px solid rgba(255,255,255,.2);
-  border-radius:50%; background:rgba(255,255,255,.30);
-  cursor:pointer; transition:transform .15s, background .2s, border-color .2s;
+
+.dots {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  pointer-events: auto;
 }
-.dot:hover{transform:scale(1.08)}
-.dot.is-active{background:#fff;border-color:#fff;box-shadow:0 0 0 3px rgba(255,255,255,.14)}
-.counter{
-  pointer-events:none; font-size:11px; line-height:1; color:#dfe9ff; opacity:.9;
-  background:rgba(0,0,0,.16); border:1px solid rgba(255,255,255,.14);
-  padding:4px 7px; border-radius:8px;
+
+.dot {
+  display: inline-block;
+  width: 12px;              /* avant : 8px */
+  height: 12px;             /* avant : 8px */
+  border: 1.5px solid rgba(255, 255, 255, 0.25);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.35);
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s, border-color 0.2s;
 }
-.progress{ display:none !important; }
+
+.dot:hover {
+  transform: scale(1.2);
+}
+
+.dot.is-active {
+  background: #fff;
+  border-color: #fff;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.15);
+}
+
+.counter {
+  pointer-events: none;
+  font-size: 13px;             /* avant : 11px */
+  line-height: 1;
+  color: #eaf3ff;
+  opacity: 0.95;
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  padding: 5px 9px;           /* avant : 4px 7px */
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.08);
+}
+
+.progress {
+  display: none !important;
+}
+
 
 /* Flèches */
 .arrows{
@@ -340,5 +377,6 @@ body {
 .contacts-row a.ci:hover .ico{
   transform: translateY(1px) translateX(3px);
 }
+
 
 
