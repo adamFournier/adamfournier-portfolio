@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Stage — EDF Toulouse | Adam Fournier</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="index.css?v=1" />
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="board">
+    <div class="board__inner">
+      <div class="board__brand">Adam&nbsp;Fournier</div>
+      <nav class="board__nav">
+        <a href="index.html">Accueil</a>
+        <div class="nav-item has-sub">
+          <a href="stages.html" class="is-active">Stages</a>
+          <div class="sub">
+            <a href="stage-edf.html">Stage — EDF</a>
+            <a href="stage-airbus.html">Stage — Airbus</a>
+            <a href="stage-enseeiht.html">Projet — ENSEEIHT</a>
+          </div>
+        </div>
+        <a href="projets.html">Projets</a>
+        <a href="engagements.html">Engagements</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- CONTENU -->
+  <main style="padding: calc(var(--board-h) + 40px) 24px 100px; max-width: 900px; margin: 0 auto;">
+    <h1 style="font-size:clamp(28px,4vw,42px); font-weight:800; margin-bottom:6px;">
+      Stage — EDF Toulouse
+    </h1>
+    <p style="color:var(--muted); margin-bottom:24px;">
+      Période : Juin – Août 2025 · Équipe Mesures & Systèmes
+    </p>
+
+    <section style="background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.10); border-radius:16px; padding:20px 22px; margin-bottom:18px;">
+      <h2 style="font-size:18px; color:var(--brand-2); margin-bottom:8px;">Objectif du stage</h2>
+      <p>
+        Développer un module de diagnostic automatisé pour des systèmes de mesure embarqués utilisés dans la maintenance des infrastructures électriques EDF.
+      </p>
+    </section>
+
+    <section style="background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.10); border-radius:16px; padding:20px 22px; margin-bottom:18px;">
+      <h2 style="font-size:18px; color:var(--brand-2); margin-bottom:8px;">Contributions principales</h2>
+      <ul style="margin-left:20px; line-height:1.7;">
+        <li>Étude du protocole Modbus et mise en œuvre sur Raspberry&nbsp;Pi</li>
+        <li>Conception d’une interface graphique Python (Tkinter)</li>
+        <li>Simulation des signaux et validation sur banc de mesure</li>
+      </ul>
+    </section>
+
+    <section style="background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.10); border-radius:16px; padding:20px 22px; margin-bottom:18px;">
+      <h2 style="font-size:18px; color:var(--brand-2); margin-bottom:8px;">Résultats et apprentissages</h2>
+      <p>
+        Le prototype de diagnostic a permis de réduire le temps de test de 40 %.  
+        Ce stage m’a permis de renforcer mes compétences en Python, communication Modbus et intégration de systèmes embarqués.
+      </p>
+    </section>
+
+    <a href="stages.html" style="display:inline-block; margin-top:12px; color:var(--brand-2); font-weight:600; text-decoration:none;">
+      ← Retour aux stages
+    </a>
+  </main>
+
+</body>
+</html>
