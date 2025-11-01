@@ -12,17 +12,22 @@
 <body>
 
   <!-- BOARD identique (brand non gras) -->
-  <header class="board">
-    <div class="board__inner">
-      <div class="board__brand">Adam&nbsp;Fournier</div>
-      <nav class="board__nav">
-        <a href="index.html">Accueil</a>
-        <a href="stages.html" class="is-active">Stages</a>
-        <a href="projets.html">Projets</a>
-        <a href="engagements.html">Engagements</a>
-      </nav>
+  <nav class="board__nav">
+  <a href="index.html" class="is-active">Accueil</a>
+
+  <div class="nav-item has-sub">
+    <a href="stages.html">Stages</a>
+    <div class="sub">
+      <a href="stage-edf.html">Stage — EDF</a>
+      <a href="stage-airbus.html">Stage — Airbus</a>
+      <a href="stage-enseeiht.html">Projet — ENSEEIHT</a>
     </div>
-  </header>
+  </div>
+
+  <a href="projets.html">Projets</a>
+  <a href="engagements.html">Engagements</a>
+</nav>
+
 
   <!-- SLIDES -->
   <div class="slides-full-wrap">
@@ -202,6 +207,7 @@ document.getElementById('introStart')?.addEventListener('click', () => {
   </script>
 </body>
 </html>
+
 
 
 
