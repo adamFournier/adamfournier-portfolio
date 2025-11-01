@@ -5,21 +5,111 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Stages — Adam Fournier</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="index.css?v=122" />
+  <link rel="stylesheet" href="index.css?v=123" />
   <style>
-    /* Styles spécifiques aux cartes vides */
-    .intro-card--empty {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px dashed rgba(255, 255, 255, 0.15);
-      color: #b6c3d4;
-      cursor: default;
-      opacity: 0.6;
-      text-align: center;
+    /* ===== Affinage mise en page de la section Stages ===== */
+
+    .slide-intro .intro {
+      max-width: 980px;
     }
-    .intro-card--empty:hover {
+
+    .intro__lead{
+      margin-top: 10px;
+      margin-bottom: 28px;
+      color: #cbd8ea;
+      line-height: 1.7;
+      font-size: 16.5px;
+    }
+
+    .intro-grid{
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 26px;                      /* plus d’air entre les cartes */
+      margin-top: 8px;
+      margin-bottom: 34px;
+    }
+
+    .intro-card{
+      text-align: left;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 16px;
+      padding: 18px 18px 16px;
+      cursor: pointer;
+      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease, background .2s ease;
+      min-height: 132px;              /* hauteur plus généreuse */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 8px;
+    }
+    .intro-card:hover{
+      transform: translateY(-3px);
+      border-color: rgba(120, 200, 255, 0.5);
+      background: rgba(255,255,255,0.08);
+      box-shadow: 0 10px 28px rgba(42,168,216,0.25);
+    }
+
+    .intro-card__title{
+      font-weight: 800;
+      font-size: 18px;
+      letter-spacing: 0.2px;
+    }
+    .intro-card__subtitle{
+      color: #cbd8ea;
+      font-size: 14.5px;
+      line-height: 1.45;
+    }
+
+    /* pastille méta (durée) */
+    .meta-row{
+      display: flex; gap: 10px; align-items: center;
+      margin-top: 4px;
+    }
+    .pill{
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.18);
+      background: rgba(255,255,255,0.06);
+      font-size: 12.5px;
+      color: #dfe9ff;
+      opacity: 0.95;
+    }
+    .pill svg{ width:14px; height:14px; opacity:.9; }
+
+    /* cartes vides (pas de "À venir") */
+    .intro-card--empty{
+      cursor: default;
+      background: rgba(255,255,255,0.04);
+      border: 1px dashed rgba(255,255,255,0.18);
+      opacity: .65;
+      backdrop-filter: blur(0px);
+    }
+    .intro-card--empty:hover{
       transform: none;
       box-shadow: none;
-      background: rgba(255, 255, 255, 0.05);
+      border-color: rgba(255,255,255,0.18);
+      background: rgba(255,255,255,0.04);
+    }
+
+    .intro-cta{ display: flex; justify-content: center; }
+    .intro-btn{
+      padding: 12px 22px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: linear-gradient(160deg, #2aa8d8, #67c8e3);
+      color: #062033;
+      font-weight: 800;
+      font-size: 16px;
+      letter-spacing: .2px;
+      cursor: pointer;
+      transition: transform .18s ease, box-shadow .18s ease;
+    }
+    .intro-btn:hover{ transform: translateY(-2px); box-shadow: 0 10px 26px rgba(42,168,216,.35); }
+
+    @media (max-width: 900px){
+      .intro__lead{ font-size: 15.5px; }
     }
   </style>
 </head>
@@ -39,70 +129,57 @@
     </div>
   </header>
 
-  <!-- SLIDES -->
+  <!-- SLIDE d’intro (page fixe) -->
   <div class="slides-full-wrap">
     <div class="slides-full" id="slider">
-
-      <!-- Slide d’intro -->
       <section class="slide-full slide-intro">
         <div class="slide-content intro">
           <h1>Mes stages</h1>
           <p class="intro__lead">
-            Découvrez mes expériences professionnelles : de l’analyse de données à la conception de systèmes embarqués,
-            chaque stage m’a permis de renforcer mes compétences techniques et humaines.
+            Pour le moment, j’ai effectué mon <strong>stage de première année</strong> chez
+            <strong>Enedis</strong>, au <strong>pôle Data</strong> de la <strong>DSI</strong>,
+            en tant que <strong>Data Analyst</strong> pendant <strong>3 mois</strong>.
           </p>
 
           <div class="intro-grid">
-
             <!-- Stage Enedis -->
             <button class="intro-card" onclick="window.location.href='stage-enedis.html'">
               <div class="intro-card__title">Enedis Toulouse</div>
               <div class="intro-card__subtitle">Data Analyst — Pôle Data / DSI</div>
-              <div class="intro-card__tags">
-                <span>Python</span><span>Power&nbsp;BI</span><span>Data&nbsp;Viz</span>
+              <div class="meta-row">
+                <span class="pill" title="Durée du stage">
+                  <!-- icône calendrier -->
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M8 7V3m8 4V3M3 11h18M5 20h14a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2z"/>
+                  </svg>
+                  3&nbsp;mois
+                </span>
               </div>
             </button>
 
-            <!-- Stage à venir -->
+            <!-- Stage futur #2 (carte vide, sans 'À venir') -->
             <div class="intro-card intro-card--empty">
-              <div class="intro-card__title">Stage #2</div>
-              <div class="intro-card__subtitle">À venir</div>
-              <div class="intro-card__tags">
-                <span>Bientôt disponible</span>
-              </div>
+              <div class="intro-card__title">Stage&nbsp;#2</div>
+              <div class="intro-card__subtitle">&nbsp;</div>
             </div>
 
-            <!-- Stage à venir -->
+            <!-- Stage futur #3 (carte vide, sans 'À venir') -->
             <div class="intro-card intro-card--empty">
-              <div class="intro-card__title">Stage #3</div>
-              <div class="intro-card__subtitle">À venir</div>
-              <div class="intro-card__tags">
-                <span>Bientôt disponible</span>
-              </div>
+              <div class="intro-card__title">Stage&nbsp;#3</div>
+              <div class="intro-card__subtitle">&nbsp;</div>
             </div>
           </div>
 
           <div class="intro-cta">
-            <button class="intro-btn" id="introStart" onclick="window.location.href='stage-enedis.html'">
-              Voir le stage
-            </button>
+            <button class="intro-btn" onclick="window.location.href='stage-enedis.html'">Voir le stage</button>
           </div>
         </div>
       </section>
     </div>
   </div>
 
-  <!-- Flèches (désactivées ici car une seule slide) -->
-  <div class="arrows" style="display:none;">
-    <button class="arrow-btn" id="prev">‹</button>
-    <button class="arrow-btn" id="next">›</button>
-  </div>
-
-  <!-- Pagination (masquée car une seule slide) -->
-  <div class="pagination-ui" style="display:none;">
-    <div class="dots" id="dots"></div>
-    <div class="counter" id="counter">1 / 1</div>
-  </div>
+  <!-- Pas de flèches/pagination ici (page fixe) -->
 
 </body>
 </html>
