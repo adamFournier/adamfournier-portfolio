@@ -449,24 +449,81 @@ body {
 .intro-btn:hover{ transform:translateY(-2px); filter:brightness(1.05); }
 
 /* === Sous-menu global pour "Stages" (toutes pages) === */
-.board__nav { display:flex; gap:28px; align-items:center; position:relative; }
-.board__nav a { position:relative; color:#dfe9ff; text-decoration:none; font-weight:500; font-size:15.5px; transition:color .2s; }
-.board__nav a:hover { color:#79d2f2; }
-
-.nav-item { position:relative; }
-.nav-item .sub{
-  position:absolute; top:100%; left:0; min-width:220px;
-  background:rgba(8,28,48,.95); border:1px solid rgba(255,255,255,.08);
-  border-radius:12px; padding:10px 0;
-  opacity:0; visibility:hidden; transform:translateY(8px);
-  transition:.22s ease; box-shadow:0 12px 28px rgba(0,0,0,.35);
-  z-index:200;
+.board__nav { 
+  display: flex; 
+  gap: 28px; 
+  align-items: center; 
+  position: relative; 
 }
-.nav-item .sub a{ display:block; padding:9px 14px; font-size:14.5px; }
-.nav-item .sub a:hover{ background:rgba(255,255,255,.08); color:#79d2f2; }
+.board__nav a { 
+  position: relative; 
+  color: #dfe9ff; 
+  text-decoration: none; 
+  font-weight: 500; 
+  font-size: 15.5px; 
+  transition: color .2s; 
+}
+.board__nav a:hover { 
+  color: #79d2f2; 
+}
 
+/* Élément de navigation avec sous-menu */
+.nav-item { 
+  position: relative; 
+  display: inline-flex; 
+  align-items: center; 
+}
+
+/* Flèche ▼ à côté de "Stages" */
+.nav-item > a::after {
+  content: "▼";
+  font-size: 9px;
+  margin-left: 6px;
+  opacity: 0.7;
+  transform: translateY(-1px);
+  transition: transform .2s ease, opacity .2s ease;
+}
+.nav-item:hover > a::after,
+.nav-item:focus-within > a::after {
+  transform: translateY(1px) rotate(180deg);
+  opacity: 1;
+}
+
+/* Sous-menu */
+.nav-item .sub {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 220px;
+  background: rgba(8, 28, 48, 0.95);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 12px;
+  padding: 10px 0;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: 0.22s ease;
+  box-shadow: 0 12px 28px rgba(0,0,0,0.35);
+  z-index: 200;
+}
+.nav-item .sub a {
+  display: block;
+  padding: 9px 14px;
+  font-size: 14.5px;
+  text-decoration: none;
+  color: #eaf3ff;
+  transition: 0.18s ease;
+}
+.nav-item .sub a:hover {
+  background: rgba(255,255,255,0.08);
+  color: #79d2f2;
+}
 .nav-item:hover .sub,
-.nav-item:focus-within .sub{ opacity:1; visibility:visible; transform:translateY(0); }
+.nav-item:focus-within .sub {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
 
 
 
