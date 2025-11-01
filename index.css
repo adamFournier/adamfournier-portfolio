@@ -315,19 +315,21 @@ body {
   background: rgba(255, 255, 255, 0.07);
   border: 1px solid rgba(255, 255, 255, 0.14);
   color: #eaf3ff;
-  font-size: 28px;              /* un peu plus grand pour le centrage visuel */
-  line-height: 46px;            /* exactement la même que la hauteur du cercle */
-  text-align: center;           /* centre horizontalement */
-  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
   transition: all 0.25s ease;
-  user-select: none;
 }
 .arrow-btn:hover {
   background: rgba(255, 255, 255, 0.18);
   transform: scale(1.1);
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.15);
 }
+.arrow-btn svg {
+  stroke: #eaf3ff;
+}
+
 
 
 
@@ -400,6 +402,7 @@ body {
 .contacts-row a.ci:hover .ico{
   transform: translateY(1px) translateX(3px);
 }
+
 
 
 
