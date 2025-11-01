@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Stage — EDF Toulouse | Adam Fournier</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="index.css?v=111" />
+  <link rel="stylesheet" href="index.css?v=112" />
 </head>
 <body>
 
@@ -29,8 +29,10 @@
       <section class="slide-full">
         <div class="slide-content">
           <h1>Contexte du stage</h1>
-          <p>Stage réalisé au centre EDF Toulouse (Juin – Août 2025).  
-          Objectif : développer un module de diagnostic automatisé pour les systèmes de mesure embarqués.</p>
+          <p>
+            Stage réalisé au centre EDF Toulouse (Juin – Août 2025).<br><br>
+            Objectif : développer un module de diagnostic automatisé pour les systèmes de mesure embarqués.
+          </p>
         </div>
       </section>
 
@@ -50,7 +52,7 @@
         <div class="slide-content">
           <h1>Résultats</h1>
           <p>
-            Réduction de 40 % du temps de diagnostic, meilleure fiabilité du protocole Modbus,  
+            Réduction de 40&nbsp;% du temps de diagnostic, meilleure fiabilité du protocole Modbus,<br>
             et outil transféré aux équipes terrain.
           </p>
         </div>
@@ -68,40 +70,96 @@
     </div>
   </div>
 
-  <!-- FLECHES + PAGINATION -->
+  <!-- FLECHES -->
   <div class="arrows">
-    <button class="arrow-btn" id="prev">‹</button>
-    <button class="arrow-btn" id="next">›</button>
+    <button class="arrow-btn" id="prev" aria-label="Slide précédente">
+      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none"
+           stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"
+           viewBox="0 0 24 24">
+        <polyline points="15 18 9 12 15 6" />
+      </svg>
+    </button>
+
+    <button class="arrow-btn" id="next" aria-label="Slide suivante">
+      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none"
+           stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"
+           viewBox="0 0 24 24">
+        <polyline points="9 6 15 12 9 18" />
+      </svg>
+    </button>
   </div>
 
+  <!-- PAGINATION -->
   <div class="pagination-ui">
     <div class="dots" id="dots"></div>
     <div class="counter" id="counter">1 / 4</div>
   </div>
 
+  <!-- SCRIPT COMPLET -->
   <script>
     let current = 0;
     const slides = document.getElementById('slider');
     const total = slides.children.length;
+
+    // Création dynamique des points
     const dots = document.getElementById('dots');
     for (let i = 0; i < total; i++) {
       const b = document.createElement('button');
       b.className = 'dot' + (i === 0 ? ' is-active' : '');
-      b.onclick = () => { current = i; updateSlide(); };
+      b.onclick = () => { current = i; updateSlide(true); };
       dots.appendChild(b);
     }
 
     const counter = document.getElementById('counter');
-    function updateSlide() {
+    function updateSlide(animate = true) {
+      slides.style.transitionDuration = animate ? '.7s' : '0s';
       slides.style.transform = `translateX(-${current * 100}vw)`;
+      updateUI();
+    }
+
+    function updateUI() {
       document.querySelectorAll('.dot').forEach((d, i) =>
         d.classList.toggle('is-active', i === current)
       );
       counter.textContent = `${current + 1} / ${total}`;
     }
+
+    // Navigation boutons
     document.getElementById('next').onclick = () => { current = (current + 1) % total; updateSlide(); };
     document.getElementById('prev').onclick = () => { current = (current - 1 + total) % total; updateSlide(); };
-    updateSlide();
+
+    // Navigation clavier
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') document.getElementById('next').click();
+      if (e.key === 'ArrowLeft') document.getElementById('prev').click();
+      if (e.key === 'Escape') window.location.href = 'stages.html';
+    });
+
+    // Défilement trackpad / souris
+    let lastScroll = 0;
+    window.addEventListener('wheel', (e) => {
+      const now = Date.now();
+      if (now - lastScroll < 600) return;
+      if (e.deltaX > 50) { document.getElementById('next').click(); lastScroll = now; }
+      else if (e.deltaX < -50) { document.getElementById('prev').click(); lastScroll = now; }
+    }, { passive: true });
+
+    // Swipe tactile
+    let startX = 0, startTime = 0;
+    slides.addEventListener('touchstart', e => {
+      startX = e.touches[0].clientX;
+      startTime = Date.now();
+    }, { passive: true });
+
+    slides.addEventListener('touchend', e => {
+      const diff = e.changedTouches[0].clientX - startX;
+      const t = Date.now() - startTime;
+      if (Math.abs(diff) > 50 && t < 800) {
+        diff > 0 ? document.getElementById('prev').click() : document.getElementById('next').click();
+      }
+    }, { passive: true });
+
+    updateUI();
   </script>
 
 </body>
