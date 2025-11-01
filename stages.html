@@ -185,9 +185,24 @@
     }, {passive:true});
 
     updateUI();
+    // Cartes de l'intro -> aller directement à la slide ciblée
+document.querySelectorAll('.intro-card').forEach(c => {
+  c.addEventListener('click', () => {
+    current = Number(c.dataset.go);
+    updateSlide();
+  });
+});
+
+// Bouton "Voir les détails" -> va à la 1ʳᵉ expérience
+document.getElementById('introStart')?.addEventListener('click', () => {
+  current = 1;
+  updateSlide();
+});
+
   </script>
 </body>
 </html>
+
 
 
 
