@@ -1140,4 +1140,106 @@ body {
   }
 }
 
+/* ====== ENEDIS — overrides sans effet bouton + halo ambiant ====== */
+
+/* Alignement/placement : texte un peu plus à droite et remonté */
+.enedis-text{
+  padding-left: 32px;
+  transform: translateY(-16px);
+}
+
+/* Image : pas d'effet hover, halo ambiant diffus derrière */
+.enedis-image{
+  position: relative;
+  margin-top: -18px; /* remonte l'image */
+}
+.enedis-image::before{
+  content:"";
+  position:absolute;
+  inset:-26px -26px -26px -26px;   /* déborde pour un halo plus large */
+  background:
+    radial-gradient(420px 220px at 60% 40%, rgba(56,148,255,.18), transparent 60%),
+    radial-gradient(380px 260px at 30% 70%, rgba(0,180,210,.12), transparent 65%);
+  filter: blur(18px);
+  z-index: 0;
+  pointer-events:none;
+}
+.enedis-image img{
+  position: relative;
+  z-index: 1;
+  max-width: 560px;               /* image un peu plus grande */
+  border-radius: 18px;
+  box-shadow: 0 14px 38px rgba(0,0,0,.45); /* ombre douce, pas de glow “bouton” */
+  transform: none !important;
+  transition: none !important;
+}
+.enedis-image img:hover{
+  transform: none !important;
+  filter: none !important;
+}
+
+/* Bloc missions sous l'image (à droite) */
+.enedis-missions-under{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-width: 560px;
+  margin-top: 14px;
+}
+
+/* Cartes missions : statiques, sans hover, curseur par défaut */
+.enedis-mission{
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  border-radius: 14px;
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.14);
+  box-shadow: 0 10px 26px rgba(0,0,0,.28); /* profondeur sans effet bouton */
+  cursor: default;
+  transition: none !important;
+}
+.enedis-mission::before{
+  content:"";
+  position:absolute;
+  inset:-16px -16px -16px -16px;
+  background:
+    radial-gradient(260px 140px at 25% 50%, rgba(56,148,255,.16), transparent 60%),
+    radial-gradient(220px 120px at 80% 60%, rgba(0,180,210,.10), transparent 65%);
+  filter: blur(16px);
+  z-index:0;
+  pointer-events:none;
+}
+.enedis-mission > *{ position: relative; z-index: 1; }
+.enedis-mission .icon{ font-size: 1.4rem; line-height: 1; }
+.enedis-mission h3{ margin:0; font-size:16px; font-weight:700; color:#fff; }
+
+/* Neutralise TOUT effet hover hérité de styles globaux */
+.enedis-mission:hover,
+.enedis-mission:focus,
+.mission-card:hover,
+.mission-card:focus{
+  background: rgba(255,255,255,.06) !important;
+  border-color: rgba(255,255,255,.14) !important;
+  box-shadow: 0 10px 26px rgba(0,0,0,.28) !important;
+  transform: none !important;
+}
+.card:hover{ transform:none !important; filter:none !important; }
+
+/* Bullets chiffres-clés : un peu plus lisible */
+.enedis-bullets strong{
+  color:#59b9ff;
+  font-weight:800;
+}
+
+/* Responsive : cohérent sans décalages */
+@media (max-width: 900px){
+  .enedis-text{ padding-left:0; transform:none; text-align:center; }
+  .enedis-image{ margin-top:0; }
+  .enedis-missions-under{ max-width: 100%; }
+}
+
 
