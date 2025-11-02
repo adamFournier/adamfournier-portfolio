@@ -532,7 +532,7 @@ body {
 /* === Hero Slide Enedis === */
 .slide-enedis-hero {
   position: relative;
-  background: url("photo-enedis.jpg") center/cover no-repeat;
+  background: url("assets/enedis/photo-enedis.jpg") center/cover no-repeat;
   color: #fff;
 }
 
@@ -550,4 +550,5 @@ body {
 .slide-enedis-hero h1 {
   color: #fff;
 }
+
 
