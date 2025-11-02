@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Stage — Enedis (Paris) | Adam Fournier</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="index.css?v=122" />
+  <link rel="stylesheet" href="index.css?v=123" />
 </head>
 <body>
 
@@ -31,7 +31,8 @@
   <div class="slides-full" id="slider">
 
     <!-- SLIDE 1 · Présentation générale -->
-    <section class="slide-full">
+    <section class="slide-full slide-enedis-hero">
+      <div class="slide-overlay"></div>
       <div class="slide-content slide-hero">
         <div class="hero-left">
           <h1>Stage — Enedis (Paris)</h1>
@@ -48,12 +49,6 @@
             <li><strong>Mise en conformité des données métiers</strong> pour les usages analytiques & IA.</li>
             <li><strong>Création d’un produit de données Cloud</strong> conforme by design.</li>
           </ul>
-        </div>
-        <div class="hero-right">
-          <div class="media-card">
-            <img src="assets/enedis/cover.jpg" alt="Illustration du réseau Enedis et data" />
-            <div class="media-caption">Enedis — DSI, Pôle SI Réseau Électrique</div>
-          </div>
         </div>
       </div>
     </section>
@@ -148,15 +143,6 @@
           <span class="chip">Data Quality</span>
           <span class="chip">Automatisation</span>
         </div>
-
-        <div class="media-card" style="max-width:600px; margin:24px auto;">
-          <img src="assets/enedis/team.jpg" alt="Équipe Data Enedis" />
-          <div class="media-caption">Équipe Data — Enedis, Direction des Systèmes d’Information</div>
-        </div>
-
-        <p style="text-align:center; margin-top:20px;">
-          📄 <a href="docs/rapport-stage-enedis.pdf" target="_blank"><strong>Consulter le rapport complet du stage</strong></a>
-        </p>
       </div>
     </section>
 
@@ -165,8 +151,21 @@
 
 <!-- FLECHES -->
 <div class="arrows">
-  <button class="arrow-btn" id="prev">‹</button>
-  <button class="arrow-btn" id="next">›</button>
+  <button class="arrow-btn" id="prev" aria-label="Slide précédente">
+    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none"
+         stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"
+         viewBox="0 0 24 24">
+      <polyline points="15 18 9 12 15 6" />
+    </svg>
+  </button>
+
+  <button class="arrow-btn" id="next" aria-label="Slide suivante">
+    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none"
+         stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"
+         viewBox="0 0 24 24">
+      <polyline points="9 6 15 12 9 18" />
+    </svg>
+  </button>
 </div>
 
 <!-- PAGINATION -->
@@ -175,31 +174,71 @@
   <div class="counter" id="counter">1 / 4</div>
 </div>
 
-<!-- SCRIPT -->
+<!-- SCRIPT complet (flèches, clavier, pad, tactile) -->
 <script>
 let current = 0;
 const slides = document.getElementById('slider');
 const total = slides.children.length;
-const dots = document.getElementById('dots');
 
+// Dots dynamiques
+const dots = document.getElementById('dots');
 for (let i = 0; i < total; i++) {
   const b = document.createElement('button');
   b.className = 'dot' + (i === 0 ? ' is-active' : '');
-  b.onclick = () => { current = i; updateSlide(); };
+  b.onclick = () => { current = i; updateSlide(true); };
   dots.appendChild(b);
 }
 
 const counter = document.getElementById('counter');
-function updateSlide() {
+function updateSlide(animate = true) {
+  slides.style.transitionDuration = animate ? '.7s' : '0s';
   slides.style.transform = `translateX(-${current * 100}vw)`;
-  document.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('is-active', i === current));
+  updateUI();
+}
+
+function updateUI() {
+  document.querySelectorAll('.dot').forEach((d, i) =>
+    d.classList.toggle('is-active', i === current)
+  );
   counter.textContent = `${current + 1} / ${total}`;
 }
 
+// Navigation boutons
 document.getElementById('next').onclick = () => { current = (current + 1) % total; updateSlide(); };
 document.getElementById('prev').onclick = () => { current = (current - 1 + total) % total; updateSlide(); };
 
-updateSlide();
+// Navigation clavier
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'ArrowRight') document.getElementById('next').click();
+  if (e.key === 'ArrowLeft') document.getElementById('prev').click();
+  if (e.key === 'Escape') window.location.href = 'stages.html';
+});
+
+// Trackpad horizontal
+let lastScroll = 0;
+window.addEventListener('wheel', (e) => {
+  const now = Date.now();
+  if (now - lastScroll < 600) return;
+  if (e.deltaX > 50) { document.getElementById('next').click(); lastScroll = now; }
+  else if (e.deltaX < -50) { document.getElementById('prev').click(); lastScroll = now; }
+}, { passive: true });
+
+// Swipe tactile
+let startX = 0, startTime = 0;
+slides.addEventListener('touchstart', e => {
+  startX = e.touches[0].clientX;
+  startTime = Date.now();
+}, { passive: true });
+
+slides.addEventListener('touchend', e => {
+  const diff = e.changedTouches[0].clientX - startX;
+  const t = Date.now() - startTime;
+  if (Math.abs(diff) > 50 && t < 800) {
+    diff > 0 ? document.getElementById('prev').click() : document.getElementById('next').click();
+  }
+}, { passive: true });
+
+updateUI();
 </script>
 
 </body>
