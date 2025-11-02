@@ -638,5 +638,49 @@ body {
   }
 }
 
+/* ==== ENEDIS – Slide principale compacte ==== */
+.slide-enedis-main .slide-content{max-width:1050px}
+
+.enedis-grid{
+  display:grid;
+  grid-template-columns: minmax(520px, 1fr) 380px;
+  align-items:center;
+  gap:28px;
+}
+
+.enedis-text h1{margin:0 0 10px}
+.enedis-text .intro-text{margin:0 0 16px; line-height:1.6}
+
+/* Missions en pills (sans détails) */
+.missions-chips{
+  list-style:none; padding:0; margin:0; display:flex; flex-wrap:wrap; gap:10px;
+}
+.missions-chips li{
+  padding:10px 14px; border:1px solid rgba(255,255,255,.12);
+  background:rgba(255,255,255,.06);
+  border-radius:999px; font-size:14px; white-space:nowrap;
+}
+
+/* Carte image à droite */
+.card{
+  background:linear-gradient(160deg,#0f1d3b,#0b1530);
+  border:1px solid rgba(255,255,255,.10);
+  border-radius:16px; padding:12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.35);
+}
+.enedis-image{margin:0; text-align:center}
+.enedis-image img{
+  display:block; width:100%; height:auto; border-radius:12px;
+}
+.enedis-image figcaption{
+  margin-top:8px; font-size:13px; color:#cfd9ea; opacity:.9;
+}
+
+/* Petits écrans */
+@media (max-width: 1000px){
+  .enedis-grid{grid-template-columns:1fr; gap:18px}
+  .enedis-image{max-width:420px; margin:0 auto}
+}
+
 
 
