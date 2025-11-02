@@ -1371,6 +1371,107 @@ body {
   }
 }
 
+/* === SLIDE 2 — Mise en conformité (fixe & centrée) === */
+.slide-enedis-mission1{
+  background: radial-gradient(100% 100% at 50% 0%, rgba(12,32,56,.70) 0%, rgba(8,20,36,.96) 100%);
+  overflow: hidden;               /* rien ne déborde visuellement */
+}
+
+/* Conteneur : largeur et hauteur contrôlées + centrage vertical */
+.slide-enedis-mission1 .slide-content{
+  width: min(92vw, 980px);
+  min-height: calc(100vh - var(--board-h));  /* tient dans la fenêtre sous le board */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;        /* centre verticalement tout le contenu */
+  padding: 10vh 20px 6vh;         /* espace haut/bas stable (ajuste à 8/5 si besoin) */
+  margin: 0 auto;
+  gap: 12px;
+}
+@supports (height: 100svh){
+  .slide-enedis-mission1 .slide-content{
+    min-height: calc(100svh - var(--board-h));
+  }
+}
+
+/* Typo & espacements plus serrés (évite de pousser le contenu vers le bas) */
+.slide-enedis-mission1 h1{
+  font-size: clamp(28px, 3vw, 38px);
+  line-height: 1.15;
+  margin: 0 0 10px;
+  color: #fff;
+}
+.slide-enedis-mission1 p{
+  margin: 0 0 12px;
+  line-height: 1.65;
+  color: #d8e2f1;
+}
+.slide-enedis-mission1 strong{ color:#59b9ff; }
+
+/* --- Bloc Résultats : compact, centré, sans débordement --- */
+.enedis-results{
+  margin: 20px auto 0;
+  width: min(86%, 820px);
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.10);
+  border-radius: 18px;
+  padding: 26px 28px;
+  box-shadow:
+    0 0 22px rgba(56,148,255,.12),
+    0 8px 24px rgba(0,0,0,.30);
+  backdrop-filter: blur(10px);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.enedis-results::before{
+  content:"";
+  position:absolute; inset:-16px;
+  background: radial-gradient(380px 220px at 50% 45%, rgba(56,148,255,.14), transparent 70%);
+  filter: blur(18px);
+  pointer-events:none;
+}
+.enedis-results > *{ position:relative; z-index:1; }
+.enedis-results h2{
+  font-size: 20px;
+  margin: 0 0 20px;
+  color:#fff; font-weight:700;
+  display:inline-flex; gap:10px; align-items:center;
+}
+
+/* Grille et cartes */
+.results-grid{
+  display:flex; justify-content:center; align-items:stretch;
+  gap:18px; flex-wrap:wrap; margin:0 auto; max-width:700px;
+}
+.result-card{
+  width: 200px;
+  padding: 18px 22px;
+  text-align:center;
+  background: rgba(255,255,255,.07);
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 12px;
+  box-shadow:
+    0 0 14px rgba(56,148,255,.10),
+    0 6px 14px rgba(0,0,0,.25);
+  cursor: default;           /* pas un bouton */
+  transition: none;          /* pas d’effet hover */
+}
+.result-card h3{
+  color:#4db4ff; font-size:26px; font-weight:800; margin:0 0 6px;
+}
+.result-card p{
+  color:#dce7f7; font-size:15px; margin:0;
+}
+
+/* Responsive */
+@media (max-width: 900px){
+  .slide-enedis-mission1 .slide-content{ padding: 8vh 16px 6vh; }
+  .enedis-results{ width: 92%; padding: 22px 16px; }
+  .results-grid{ flex-direction:column; gap:14px; }
+  .result-card{ width: 100%; }
+}
+
 
 
 
