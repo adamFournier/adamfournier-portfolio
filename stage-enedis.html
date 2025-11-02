@@ -5,305 +5,202 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Stage — Enedis (Paris) | Adam Fournier</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="index.css?v=116" />
+  <link rel="stylesheet" href="index.css?v=122" />
 </head>
 <body>
 
-  <!-- HEADER -->
-  <header class="board">
-    <div class="board__inner">
-      <div class="board__brand">Adam&nbsp;Fournier</div>
-      <nav class="board__nav">
-        <a href="index.html">Accueil</a>
+<header class="board">
+  <div class="board__inner">
+    <div class="board__brand">Adam&nbsp;Fournier</div>
+    <nav class="board__nav">
+      <a href="index.html">Accueil</a>
+      <div class="nav-item">
+        <a href="stages.html" class="is-active">Stages</a>
+        <div class="sub">
+          <a href="stage-enedis.html">Stage — Enedis (Paris)</a>
+        </div>
+      </div>
+      <a href="projets.html">Projets</a>
+      <a href="engagements.html">Engagements</a>
+    </nav>
+  </div>
+</header>
 
-        <div class="nav-item">
-          <a href="stages.html" class="is-active">Stages</a>
-          <div class="sub">
-            <a href="stage-enedis.html">Stage — Enedis (Paris)</a>
+<!-- SLIDES -->
+<div class="slides-full-wrap">
+  <div class="slides-full" id="slider">
+
+    <!-- SLIDE 1 · Présentation générale -->
+    <section class="slide-full">
+      <div class="slide-content slide-hero">
+        <div class="hero-left">
+          <h1>Stage — Enedis (Paris)</h1>
+          <p class="lead">
+            J’ai effectué mon <strong>stage de première année</strong> chez <strong>Enedis</strong>, au sein du
+            <strong>pôle SI Réseau Électrique</strong> de la DSI à Paris. Enedis est le principal gestionnaire du réseau public
+            de distribution d’électricité en France, couvrant plus de <strong>1,4 million de km de réseau</strong>.
+          </p>
+          <p>
+            Mon rôle a été de soutenir l’équipe <strong>Data</strong> du domaine <strong>Raccordement et Ingénierie du réseau</strong> dans
+            la valorisation et la fiabilisation des données métiers. Deux missions principales m’ont été confiées :
+          </p>
+          <ul class="nice-list">
+            <li><strong>Mise en conformité des données métiers</strong> pour les usages analytiques & IA.</li>
+            <li><strong>Création d’un produit de données Cloud</strong> conforme by design.</li>
+          </ul>
+        </div>
+        <div class="hero-right">
+          <div class="media-card">
+            <img src="assets/enedis/cover.jpg" alt="Illustration du réseau Enedis et data" />
+            <div class="media-caption">Enedis — DSI, Pôle SI Réseau Électrique</div>
           </div>
         </div>
+      </div>
+    </section>
 
-        <a href="projets.html">Projets</a>
-        <a href="engagements.html">Engagements</a>
-      </nav>
-    </div>
-  </header>
-
-  <!-- SLIDES -->
-  <div class="slides-full-wrap">
-    <div class="slides-full" id="slider">
-
-      <!-- SLIDE 1 · HERO VISUEL -->
-      <section class="slide-full">
-        <div class="slide-content slide-hero">
-          <div class="hero-left">
-            <h1>Stage — Enedis (Paris)</h1>
-            <p class="lead">
-              Stage de <strong>2&nbsp;mois</strong> au <strong>pôle SI Réseau Électrique</strong> (DSI),
-              pour soutenir l’équipe <strong>Data</strong> (Raccordement & Ingénierie du réseau).
-            </p>
-
-            <div class="badges">
-              <span class="badge">Data Quality</span>
-              <span class="badge">Automatisation VQL</span>
-              <span class="badge">Conforme by design</span>
-            </div>
-
-            <div class="kpis">
-              <div class="kpi">
-                <div class="kpi__val">-33%</div>
-                <div class="kpi__label">Charge estimée</div>
-              </div>
-              <div class="kpi">
-                <div class="kpi__val">&gt;50%</div>
-                <div class="kpi__label">Stock traité</div>
-              </div>
-              <div class="kpi">
-                <div class="kpi__val">2&nbsp;mois</div>
-                <div class="kpi__label">Durée</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="hero-right">
-            <div class="media-card">
-              <img src="assets/enedis/cover.jpg" alt="Illustration data & réseau électrique" />
-              <div class="media-caption">Aperçu contexte Data & Réseau</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- SLIDE 2 · 2 COLONNES (Objectifs / Contexte) -->
-      <section class="slide-full">
-        <div class="slide-content two-col">
-          <div class="col">
-            <h2>🎯 Objectifs</h2>
-            <ul class="nice-list">
-              <li>Fiabiliser / enrichir les données pour l’analytique & IA.</li>
-              <li>Automatiser les tâches récurrentes (requêtes <strong>VQL</strong>).</li>
-              <li>Préparer un <strong>data product</strong> conforme <em>by design</em> (Cloud).</li>
-            </ul>
-          </div>
-          <div class="col">
-            <h2>🏗️ Contexte</h2>
-            <p>Domaine <strong>Raccordement & Ingénierie</strong> avec un périmètre large :</p>
-            <ul class="nice-list">
-              <li>~2&nbsp;500 postes sources</li>
-              <li>~650&nbsp;000&nbsp;km de réseau HTA</li>
-              <li>~750&nbsp;000&nbsp;km de réseau BT</li>
-              <li>~800&nbsp;000 postes de distribution</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <!-- SLIDE 3 · MISSIONS + APERÇUS (grille images) -->
-      <section class="slide-full">
-        <div class="slide-content">
-          <h1>Missions principales</h1>
-
-          <div class="two-col">
-            <div class="col">
-              <ul class="nice-list">
-                <li>
-                  Mise en conformité des données pour l’analytique & IA :
-                  réconciliation avec <strong>Datapedia</strong>, enrichissement par <strong>métadonnées</strong>.
-                </li>
-                <li>
-                  Conception d’un <strong>outil d’automatisation</strong> de requêtes <strong>VQL</strong>.
-                </li>
-                <li>
-                  Préparation d’un <strong>data product</strong> conforme sur la nouvelle plateforme Cloud.
-                </li>
-              </ul>
-            </div>
-
-            <div class="col">
-              <div class="media-grid">
-                <div class="media-card">
-                  <img src="assets/enedis/datapedia.jpg" alt="Datapedia - catalogue de données" />
-                  <div class="media-caption">Réconciliation avec Datapedia</div>
-                </div>
-                <div class="media-card">
-                  <img src="assets/enedis/queries.jpg" alt="Automatisation de requêtes VQL" />
-                  <div class="media-caption">Automatisation de requêtes VQL</div>
-                </div>
-                <div class="media-card">
-                  <img src="assets/enedis/pipeline.jpg" alt="Schéma pipeline data conforme" />
-                  <div class="media-caption">Pipeline conforme (by design)</div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-      <!-- SLIDE 4 · RÉSULTATS (cartes) -->
-      <section class="slide-full">
-        <div class="slide-content">
-          <h1>Résultats</h1>
-
-          <div class="cards-row">
-            <div class="result-card">
-              <div class="result-top">
-                <span class="result-pill success">Impact</span>
-              </div>
-              <h3>-33% de charge</h3>
-              <p>Grâce à l’outil d’automatisation VQL sur les traitements récurrents.</p>
-            </div>
-
-            <div class="result-card">
-              <div class="result-top">
-                <span class="result-pill info">&gt;50%</span>
-              </div>
-              <h3>Stock prioritaire traité</h3>
-              <p>Au-delà des objectifs initiaux convenus avec l’équipe.</p>
-            </div>
-
-            <div class="result-card">
-              <div class="result-top">
-                <span class="result-pill neutral">Qualité</span>
-              </div>
-              <h3>Données fiabilisées</h3>
-              <p>Standardisation & enrichissement des métadonnées de conformité.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- SLIDE 5 · STACK / TECHNOS -->
-      <section class="slide-full">
-        <div class="slide-content">
-          <h1>Stack & compétences</h1>
-
-          <div class="stack-row">
-            <span class="chip">SQL</span>
-            <span class="chip">VQL</span>
-            <span class="chip">Python</span>
-            <span class="chip">PowerQuery (M)</span>
-            <span class="chip">VBA</span>
-            <span class="chip">Denodo</span>
-            <span class="chip">Power BI</span>
-          </div>
-
-          <p class="muted">
-            Compétences&nbsp;: data quality & conformité, automatisation, visualisation, restitution,
-            collaboration DSI / métiers, rigueur documentaire.
+    <!-- SLIDE 2 · Mission 1 -->
+    <section class="slide-full">
+      <div class="slide-content two-col">
+        <div class="col">
+          <h1>Mission 1 — Mise en conformité des données métiers</h1>
+          <p>
+            Objectif : <strong>améliorer la qualité et la traçabilité</strong> des données pour les usages analytiques et IA.
+            J’ai travaillé sur des jeux de données du SI d’Enedis afin d’assurer leur conformité aux standards internes.
+          </p>
+          <ul class="nice-list">
+            <li>Réconciliation avec le <strong>catalogue métier Datapedia</strong>.</li>
+            <li>Analyse des écarts et enrichissement en <strong>métadonnées de conformité</strong>.</li>
+            <li>Automatisation partielle des contrôles via <strong>Python</strong> et <strong>VQL</strong>.</li>
+          </ul>
+          <p>
+            👉 Résultat : réduction d’un tiers du temps de traitement et fiabilisation des données
+            avant intégration dans les outils analytiques.
           </p>
         </div>
-      </section>
-
-      <!-- SLIDE 6 · GALLERIE (si besoin) -->
-      <section class="slide-full">
-        <div class="slide-content">
-          <h1>Galerie</h1>
-          <p class="muted">(Placeholders — remplace par tes propres visuels)</p>
-          <div class="media-grid media-grid--large">
+        <div class="col">
+          <div class="media-grid">
             <div class="media-card">
-              <img src="assets/enedis/dashboard-1.jpg" alt="Dashboard Power BI 1" />
-              <div class="media-caption">Dashboard Power BI — KPI</div>
+              <img src="assets/enedis/datapedia.jpg" alt="Datapedia Enedis" />
+              <div class="media-caption">Datapedia — Catalogue des données métiers</div>
             </div>
             <div class="media-card">
-              <img src="assets/enedis/dashboard-2.jpg" alt="Dashboard Power BI 2" />
-              <div class="media-caption">Flux & suivi de qualité</div>
-            </div>
-            <div class="media-card">
-              <img src="assets/enedis/flow.jpg" alt="Schéma de flux" />
-              <div class="media-caption">Schéma de flux (simplifié)</div>
+              <img src="assets/enedis/data-clean.jpg" alt="Contrôles qualité" />
+              <div class="media-caption">Nettoyage et standardisation des jeux de données</div>
             </div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-    </div>
+    <!-- SLIDE 3 · Mission 2 -->
+    <section class="slide-full">
+      <div class="slide-content two-col">
+        <div class="col">
+          <h1>Mission 2 — Produit de données Cloud</h1>
+          <p>
+            J’ai ensuite participé à la <strong>conception d’un nouveau produit de données</strong> hébergé sur la plateforme Cloud d’Enedis,
+            dans une logique <strong>“by design”</strong> intégrant qualité, sécurité et conformité dès la création du pipeline.
+          </p>
+          <ul class="nice-list">
+            <li>Modélisation des entités et flux de données.</li>
+            <li>Développement de requêtes <strong>VQL</strong> automatisées pour l’alimentation.</li>
+            <li>Visualisation et suivi via <strong>Power BI</strong> et <strong>Denodo</strong>.</li>
+          </ul>
+          <p>
+            👉 Impact : réduction de 33% de la charge estimée et plus de 50% du stock traité en fin de stage.
+          </p>
+        </div>
+        <div class="col">
+          <div class="media-grid">
+            <div class="media-card">
+              <img src="assets/enedis/pipeline.jpg" alt="Pipeline Cloud" />
+              <div class="media-caption">Pipeline Cloud — flux automatisé</div>
+            </div>
+            <div class="media-card">
+              <img src="assets/enedis/dashboard.jpg" alt="Dashboard Power BI" />
+              <div class="media-caption">Tableau de bord de suivi de la qualité des flux</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 4 · Bilan -->
+    <section class="slide-full">
+      <div class="slide-content">
+        <h1>Bilan du stage</h1>
+        <p>
+          Ce stage m’a permis de consolider mes compétences en <strong>analyse et gestion de données</strong>,
+          en découvrant le fonctionnement d’un grand groupe et la complexité d’un système d’information à grande échelle.
+        </p>
+        <p>
+          J’ai développé ma <strong>rigueur technique</strong> et ma capacité à <strong>collaborer avec des équipes transverses</strong>
+          sur des projets data concrets et stratégiques. Ce stage a renforcé mon intérêt pour les métiers liés à la
+          <strong>Data et l’Intelligence Artificielle</strong>.
+        </p>
+
+        <div class="stack-row">
+          <span class="chip">SQL</span>
+          <span class="chip">Python</span>
+          <span class="chip">VQL</span>
+          <span class="chip">Power BI</span>
+          <span class="chip">Denodo</span>
+          <span class="chip">Data Quality</span>
+          <span class="chip">Automatisation</span>
+        </div>
+
+        <div class="media-card" style="max-width:600px; margin:24px auto;">
+          <img src="assets/enedis/team.jpg" alt="Équipe Data Enedis" />
+          <div class="media-caption">Équipe Data — Enedis, Direction des Systèmes d’Information</div>
+        </div>
+
+        <p style="text-align:center; margin-top:20px;">
+          📄 <a href="docs/rapport-stage-enedis.pdf" target="_blank"><strong>Consulter le rapport complet du stage</strong></a>
+        </p>
+      </div>
+    </section>
+
   </div>
+</div>
 
-  <!-- FLECHES -->
-  <div class="arrows">
-    <button class="arrow-btn" id="prev" aria-label="Slide précédente">
-      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none"
-           stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"
-           viewBox="0 0 24 24">
-        <polyline points="15 18 9 12 15 6" />
-      </svg>
-    </button>
+<!-- FLECHES -->
+<div class="arrows">
+  <button class="arrow-btn" id="prev">‹</button>
+  <button class="arrow-btn" id="next">›</button>
+</div>
 
-    <button class="arrow-btn" id="next" aria-label="Slide suivante">
-      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none"
-           stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"
-           viewBox="0 0 24 24">
-        <polyline points="9 6 15 12 9 18" />
-      </svg>
-    </button>
-  </div>
+<!-- PAGINATION -->
+<div class="pagination-ui">
+  <div class="dots" id="dots"></div>
+  <div class="counter" id="counter">1 / 4</div>
+</div>
 
-  <!-- PAGINATION -->
-  <div class="pagination-ui">
-    <div class="dots" id="dots"></div>
-    <div class="counter" id="counter">1 / 6</div>
-  </div>
+<!-- SCRIPT -->
+<script>
+let current = 0;
+const slides = document.getElementById('slider');
+const total = slides.children.length;
+const dots = document.getElementById('dots');
 
-  <!-- SCRIPT NAV (identique à tes autres pages) -->
-  <script>
-    let current = 0;
-    const slides = document.getElementById('slider');
-    const total = slides.children.length;
+for (let i = 0; i < total; i++) {
+  const b = document.createElement('button');
+  b.className = 'dot' + (i === 0 ? ' is-active' : '');
+  b.onclick = () => { current = i; updateSlide(); };
+  dots.appendChild(b);
+}
 
-    const dots = document.getElementById('dots');
-    for (let i = 0; i < total; i++) {
-      const b = document.createElement('button');
-      b.className = 'dot' + (i === 0 ? ' is-active' : '');
-      b.onclick = () => { current = i; updateSlide(true); };
-      dots.appendChild(b);
-    }
+const counter = document.getElementById('counter');
+function updateSlide() {
+  slides.style.transform = `translateX(-${current * 100}vw)`;
+  document.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('is-active', i === current));
+  counter.textContent = `${current + 1} / ${total}`;
+}
 
-    const counter = document.getElementById('counter');
-    function updateSlide(animate = true) {
-      slides.style.transitionDuration = animate ? '.7s' : '0s';
-      slides.style.transform = `translateX(-${current * 100}vw)`;
-      updateUI();
-    }
-    function updateUI() {
-      document.querySelectorAll('.dot').forEach((d, i) =>
-        d.classList.toggle('is-active', i === current)
-      );
-      counter.textContent = `${current + 1} / ${total}`;
-    }
+document.getElementById('next').onclick = () => { current = (current + 1) % total; updateSlide(); };
+document.getElementById('prev').onclick = () => { current = (current - 1 + total) % total; updateSlide(); };
 
-    document.getElementById('next').onclick = () => { current = (current + 1) % total; updateSlide(); };
-    document.getElementById('prev').onclick = () => { current = (current - 1 + total) % total; updateSlide(); };
-
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'ArrowRight') document.getElementById('next').click();
-      if (e.key === 'ArrowLeft') document.getElementById('prev').click();
-      if (e.key === 'Escape') window.location.href = 'stages.html';
-    });
-
-    let lastScroll = 0;
-    window.addEventListener('wheel', (e) => {
-      const now = Date.now();
-      if (now - lastScroll < 600) return;
-      if (e.deltaX > 50) { document.getElementById('next').click(); lastScroll = now; }
-      else if (e.deltaX < -50) { document.getElementById('prev').click(); lastScroll = now; }
-    }, { passive: true });
-
-    let startX = 0, startTime = 0;
-    slides.addEventListener('touchstart', e => {
-      startX = e.touches[0].clientX;
-      startTime = Date.now();
-    }, { passive: true });
-    slides.addEventListener('touchend', e => {
-      const diff = e.changedTouches[0].clientX - startX;
-      const t = Date.now() - startTime;
-      if (Math.abs(diff) > 50 && t < 800) {
-        diff > 0 ? document.getElementById('prev').click() : document.getElementById('next').click();
-      }
-    }, { passive: true });
-
-    updateUI();
-  </script>
+updateSlide();
+</script>
 
 </body>
 </html>
