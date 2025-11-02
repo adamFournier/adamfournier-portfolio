@@ -1320,5 +1320,94 @@ body {
     align-items: center;
   }
 }
+/* --- Bloc résultats bien intégré dans le cadre --- */
+.enedis-results {
+  margin-top: 40px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 36px 40px;
+  box-shadow:
+    0 0 30px rgba(56, 148, 255, 0.12),
+    0 8px 30px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(10px);
+  text-align: center;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+}
+
+/* petit halo diffus autour du bloc */
+.enedis-results::before {
+  content: "";
+  position: absolute;
+  inset: -20px;
+  background: radial-gradient(600px 300px at 50% 30%, rgba(56,148,255,0.15), transparent 70%);
+  filter: blur(22px);
+  z-index: 0;
+}
+
+.enedis-results h2 {
+  position: relative;
+  z-index: 1;
+  font-size: 22px;
+  color: #fff;
+  margin-bottom: 30px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* --- Les cartes de résultats --- */
+.results-grid {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.result-card {
+  background: rgba(255,255,255,0.07);
+  border-radius: 14px;
+  padding: 24px 30px;
+  width: 220px;
+  text-align: center;
+  box-shadow: 
+    0 0 20px rgba(56,148,255,0.12),
+    0 6px 18px rgba(0,0,0,0.3);
+  border: 1px solid rgba(255,255,255,0.12);
+  cursor: default;
+  transition: none;
+}
+
+.result-card h3 {
+  color: #4db4ff;
+  font-size: 28px;
+  margin-bottom: 8px;
+  font-weight: 800;
+}
+
+.result-card p {
+  color: #dce7f7;
+  margin: 0;
+  font-size: 15px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .enedis-results {
+    padding: 28px 20px;
+  }
+  .results-grid {
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+  }
+}
+
 
 
