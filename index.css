@@ -914,5 +914,120 @@ body {
   }
 }
 
+/* ==== Ajustements harmonisés pour la slide Enedis ==== */
+.enedis-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 1.1fr;
+  align-items: start;
+  gap: 60px;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding-top: 20px;
+}
+
+.enedis-text {
+  padding-left: 30px; /* décale légèrement à droite */
+  transform: translateY(-20px); /* remonte un peu le texte */
+}
+
+.enedis-text h1 {
+  font-size: clamp(28px, 3.2vw, 40px);
+  margin-bottom: 14px;
+}
+
+.enedis-text p {
+  line-height: 1.65;
+  margin-bottom: 14px;
+  color: #cfd9eb;
+}
+
+.enedis-bullets {
+  margin: 10px 0 22px 24px;
+  color: #eaf3ff;
+}
+.enedis-bullets li {
+  margin-bottom: 6px;
+  font-size: 15.5px;
+}
+.enedis-bullets strong {
+  color: #4db4ff;
+}
+
+.enedis-image {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  margin-top: -25px;
+}
+
+.enedis-image img {
+  width: 100%;
+  max-width: 540px;
+  border-radius: 18px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.enedis-image img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 16px 50px rgba(0, 0, 0, 0.55);
+}
+
+/* --- Missions plus valorisées --- */
+.enedis-missions-under {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  max-width: 540px;
+}
+
+.enedis-mission {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: linear-gradient(145deg, rgba(255,255,255,0.06), rgba(255,255,255,0.08));
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 14px;
+  padding: 14px 18px;
+  transition: all 0.25s ease;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+}
+
+.enedis-mission:hover {
+  transform: translateY(-3px);
+  background: linear-gradient(145deg, rgba(255,255,255,0.1), rgba(255,255,255,0.15));
+  box-shadow: 0 10px 26px rgba(42,168,216,0.25);
+  border-color: rgba(42,168,216,0.5);
+}
+
+.enedis-mission .icon {
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.enedis-mission h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.2px;
+}
+
+@media (max-width: 900px) {
+  .enedis-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+  .enedis-text {
+    padding-left: 0;
+    text-align: center;
+    transform: translateY(0);
+  }
+  .enedis-image {
+    margin-top: 0;
+  }
+}
+
 
 
