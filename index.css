@@ -1269,64 +1269,13 @@ body {
   color: #59b9ff;
 }
 
-/* --- Résultats --- */
+/* --- Bloc Résultats intégré --- */
 .enedis-results {
   margin-top: 50px;
-  text-align: center;
-}
-
-.enedis-results h2 {
-  font-size: 22px;
-  color: #fff;
-  margin-bottom: 30px;
-  font-weight: 600;
-}
-
-.results-grid {
-  display: flex;
-  justify-content: center;
-  gap: 26px;
-  flex-wrap: wrap;
-}
-
-.result-card {
-  background: rgba(255,255,255,0.06);
-  border-radius: 14px;
-  padding: 22px 28px;
-  width: 200px;
-  text-align: center;
-  box-shadow:
-    0 0 25px rgba(42,168,216,0.15),
-    0 6px 20px rgba(0,0,0,0.35);
-  transition: none;
-}
-
-.result-card h3 {
-  color: #4db4ff;
-  font-size: 28px;
-  margin-bottom: 8px;
-}
-
-.result-card p {
-  color: #eaf3ff;
-  margin: 0;
-  font-size: 15px;
-}
-
-/* Responsive */
-@media (max-width: 900px) {
-  .results-grid {
-    flex-direction: column;
-    align-items: center;
-  }
-}
-/* --- Bloc résultats bien intégré dans le cadre --- */
-.enedis-results {
-  margin-top: 40px;
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 20px;
-  padding: 36px 40px;
+  padding: 40px 50px;
   box-shadow:
     0 0 30px rgba(56, 148, 255, 0.12),
     0 8px 30px rgba(0, 0, 0, 0.35);
@@ -1336,21 +1285,26 @@ body {
   margin-left: auto;
   margin-right: auto;
   position: relative;
+  overflow: hidden;
 }
 
-/* petit halo diffus autour du bloc */
+/* Halo diffus autour du bloc */
 .enedis-results::before {
   content: "";
   position: absolute;
-  inset: -20px;
-  background: radial-gradient(600px 300px at 50% 30%, rgba(56,148,255,0.15), transparent 70%);
+  inset: -25px;
+  background: radial-gradient(600px 320px at 50% 25%, rgba(56,148,255,0.15), transparent 75%);
   filter: blur(22px);
   z-index: 0;
+  pointer-events: none;
+}
+
+.enedis-results > * {
+  position: relative;
+  z-index: 1;
 }
 
 .enedis-results h2 {
-  position: relative;
-  z-index: 1;
   font-size: 22px;
   color: #fff;
   margin-bottom: 30px;
@@ -1360,10 +1314,8 @@ body {
   gap: 10px;
 }
 
-/* --- Les cartes de résultats --- */
+/* --- Cartes des résultats --- */
 .results-grid {
-  position: relative;
-  z-index: 1;
   display: flex;
   justify-content: center;
   gap: 30px;
@@ -1381,7 +1333,6 @@ body {
     0 6px 18px rgba(0,0,0,0.3);
   border: 1px solid rgba(255,255,255,0.12);
   cursor: default;
-  transition: none;
 }
 
 .result-card h3 {
@@ -1408,6 +1359,7 @@ body {
     gap: 18px;
   }
 }
+
 
 
 
