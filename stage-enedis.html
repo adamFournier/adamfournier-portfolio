@@ -2,54 +2,49 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Stage Enedis - Ema Demarigny</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Stage — Enedis (Paris) | Adam Fournier</title>
 
-  <!-- Lien vers ton CSS -->
-  <link rel="stylesheet" href="index.css" />
-
-  <!-- Icône onglet navigateur (optionnelle) -->
-  <link rel="icon" type="image/png" href="assets/favicon.png" />
+  <!-- Inter + ta feuille CSS globale (même que Engagements) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="index.css?v=enedis1" />
 </head>
-
 <body>
-  <!-- ======= BARRE HAUTE (BOARD) ======= -->
+
+  <!-- BOARD (identique à Engagements) -->
   <header class="board">
-  <div class="board__inner">
-    <div class="board__brand">Adam&nbsp;Fournier</div>
-    <nav class="board__nav">
-      <a href="index.html">Accueil</a>
+    <div class="board__inner">
+      <div class="board__brand">Adam&nbsp;Fournier</div>
+      <nav class="board__nav">
+        <a href="index.html">Accueil</a>
 
-      <div class="nav-item">
-        <a href="stages.html">Stages</a>
-        <div class="sub">
-          <a href="stage-enedis.html">Stage — Enedis (Paris)</a>
-          <!-- Ajoute ici d'autres liens quand tu auras Stage #2, #3 -->
-          <!-- <a href="stage-airbus.html">Stage — Airbus</a> -->
-          <!-- <a href="stage-edf.html">Stage — EDF</a> -->
+        <div class="nav-item">
+          <a href="stages.html" class="is-active">Stages</a>
+          <div class="sub">
+            <a href="stage-enedis.html">Stage — Enedis (Paris)</a>
+          </div>
         </div>
-      </div>
 
-      <a href="projets.html">Projets</a>
-      <a href="engagements.html">Engagements</a>
-    </nav>
-  </div>
-</header>
+        <a href="projets.html">Projets</a>
+        <a href="engagements.html">Engagements</a>
+      </nav>
+    </div>
+  </header>
 
-  <!-- ======= SLIDES WRAPPER ======= -->
+  <!-- WRAPPER SLIDES (identique à Engagements) -->
   <div class="slides-full-wrap">
     <div class="slides-full" id="slider">
 
-      <!-- SLIDE 1 : Introduction Enedis -->
+      <!-- SLIDE 1 : Intro Enedis -->
       <section class="slide-full slide-enedis-main">
         <div class="slide-content">
           <div class="enedis-grid">
-            <!-- Texte principal -->
+            <!-- Texte -->
             <div class="enedis-text">
-              <h1>Stage Enedis – Data Analyst</h1>
+              <h1>Stage Enedis — Data Analyst</h1>
               <p class="intro-text">
-                J’ai effectué mon stage de première année chez <strong>Enedis</strong> pendant 3&nbsp;mois, 
-                au sein de la <strong>DSI</strong> au <strong>pôle SI Réseaux&nbsp;Électrique</strong>, couvrant&nbsp;:
+                J’ai effectué mon stage de première année chez <strong>Enedis</strong> pendant 3&nbsp;mois,
+                au sein de la <strong>DSI</strong> au <strong>pôle SI Réseaux Électrique</strong>, couvrant&nbsp;:
               </p>
 
               <ul class="enedis-bullets">
@@ -59,8 +54,8 @@
               </ul>
 
               <p>
-                Mon rôle a été de soutenir l’équipe <strong>Data</strong> du domaine 
-                <strong>Raccordement et Ingénierie du réseau</strong> dans la valorisation 
+                Mon rôle a été de soutenir l’équipe <strong>Data</strong> du domaine
+                <strong>Raccordement et Ingénierie du réseau</strong> dans la valorisation
                 et la fiabilisation des données métiers. Deux missions principales m’ont été confiées :
               </p>
 
@@ -76,52 +71,52 @@
               </div>
             </div>
 
-            <!-- Image à droite -->
+            <!-- Image -->
             <figure class="enedis-image card">
-              <img src="photo-enedis.jpg" alt="Stage Enedis — Pôle SI Réseau Électrique">
+              <img src="photo-enedis.jpg" alt="Stage Enedis — Pylônes électriques au coucher du soleil" />
             </figure>
           </div>
         </div>
       </section>
 
-      <!-- SLIDE 2 · Mission 1 -->
+      <!-- SLIDE 2 : Mission 1 -->
       <section class="slide-full">
         <div class="slide-content two-col">
           <div class="col">
             <h1>Mission 1 — Mise en conformité des données métiers</h1>
             <p>
               Objectif : <strong>améliorer la qualité et la traçabilité</strong> des données pour les usages analytiques et IA.
-              J’ai travaillé sur des jeux de données du SI d’Enedis afin d’assurer leur conformité aux standards internes.
+              Conformité aux standards internes à partir des jeux de données du SI d’Enedis.
             </p>
             <ul class="nice-list">
               <li>Réconciliation avec le <strong>catalogue métier Datapedia</strong>.</li>
-              <li>Analyse des écarts et enrichissement en <strong>métadonnées de conformité</strong>.</li>
-              <li>Automatisation partielle des contrôles via <strong>Python</strong> et <strong>VQL</strong>.</li>
+              <li>Enrichissement en <strong>métadonnées de conformité</strong>.</li>
+              <li>Automatisation partielle via <strong>Python</strong> / <strong>VQL</strong>.</li>
             </ul>
-            <p>👉 Résultat : réduction d’un tiers du temps de traitement et fiabilisation des données.</p>
+            <p>👉 Résultat : ~<strong>−33%</strong> sur la charge de traitement, données fiabilisées.</p>
           </div>
           <div class="col">
             <div class="media-grid">
               <div class="media-card">
-                <img src="assets/enedis/datapedia.jpg" alt="Datapedia Enedis" />
+                <img src="assets/enedis/datapedia.jpg" alt="Datapedia — Catalogue" />
                 <div class="media-caption">Datapedia — Catalogue des données métiers</div>
               </div>
               <div class="media-card">
-                <img src="assets/enedis/data-clean.jpg" alt="Contrôles qualité" />
-                <div class="media-caption">Nettoyage et standardisation des jeux de données</div>
+                <img src="assets/enedis/data-clean.jpg" alt="Nettoyage de données" />
+                <div class="media-caption">Contrôles et standardisation</div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- SLIDE 3 · Mission 2 -->
+      <!-- SLIDE 3 : Mission 2 -->
       <section class="slide-full">
         <div class="slide-content two-col">
           <div class="col">
             <h1>Mission 2 — Produit de données Cloud</h1>
             <p>
-              Participation à la <strong>conception d’un nouveau produit de données</strong> hébergé sur la plateforme Cloud d’Enedis,
+              Conception d’un <strong>produit de données</strong> sur la plateforme Cloud d’Enedis
               en logique <strong>by design</strong> (qualité/sécurité/conformité intégrées).
             </p>
             <ul class="nice-list">
@@ -129,92 +124,115 @@
               <li>Requêtes <strong>VQL</strong> automatisées.</li>
               <li>Suivi via <strong>Power BI</strong> et <strong>Denodo</strong>.</li>
             </ul>
-            <p>👉 Impact : ~33% de charge en moins et >50% du stock traité.</p>
+            <p>👉 Impact : ~<strong>−33%</strong> de charge, &gt;<strong>50%</strong> du stock traité.</p>
           </div>
           <div class="col">
             <div class="media-grid">
               <div class="media-card">
                 <img src="assets/enedis/pipeline.jpg" alt="Pipeline Cloud" />
-                <div class="media-caption">Pipeline Cloud — flux automatisé</div>
+                <div class="media-caption">Pipeline — flux automatisé</div>
               </div>
               <div class="media-card">
                 <img src="assets/enedis/dashboard.jpg" alt="Dashboard Power BI" />
-                <div class="media-caption">Tableau de bord qualité des flux</div>
+                <div class="media-caption">Suivi qualité des flux</div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- SLIDE 4 · Bilan -->
+      <!-- SLIDE 4 : Bilan -->
       <section class="slide-full">
         <div class="slide-content">
           <h1>Bilan du stage</h1>
           <p>
             Stage très formateur en <strong>data</strong> au sein d’un grand SI : rigueur, industrialisation,
-            et collaboration avec des équipes transverses. Confirme mon intérêt pour la <strong>Data & IA</strong>.
+            collaboration transverse. Confirme mon intérêt pour la <strong>Data & IA</strong>.
           </p>
           <div class="stack-row">
             <span class="chip">SQL</span><span class="chip">Python</span><span class="chip">VQL</span>
-            <span class="chip">Power BI</span><span class="chip">Denodo</span><span class="chip">Data Quality</span>
-            <span class="chip">Automatisation</span>
+            <span class="chip">Power BI</span><span class="chip">Denodo</span>
+            <span class="chip">Data Quality</span><span class="chip">Automatisation</span>
           </div>
         </div>
       </section>
+
     </div>
   </div>
 
-  <!-- ======= PAGINATION / FLÈCHES ======= -->
+  <!-- FLÈCHES (identiques Engagements) -->
   <div class="arrows">
-    <button class="arrow-btn" id="prevSlide" aria-label="Précédent">
-      <svg width="20" height="20" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
+    <button class="arrow-btn" id="prev" aria-label="Slide précédente">
+      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none"
+           stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"
+           viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
     </button>
-    <button class="arrow-btn" id="nextSlide" aria-label="Suivant">
-      <svg width="20" height="20" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg>
+    <button class="arrow-btn" id="next" aria-label="Slide suivante">
+      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none"
+           stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"
+           viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"/></svg>
     </button>
   </div>
 
+  <!-- PAGINATION (identique) -->
   <div class="pagination-ui">
-    <div class="dots">
-      <span class="dot is-active"></span>
-      <span class="dot"></span>
-      <span class="dot"></span>
-      <span class="dot"></span>
-    </div>
+    <div class="dots" id="dots"></div>
+    <div class="counter" id="counter">1 / 4</div>
   </div>
 
- 
-
-  <!-- ======= SCRIPT SLIDER ======= -->
+  <!-- SCRIPT slider (identique Engagements) -->
   <script>
-    const slides = document.querySelector('.slides-full');
-    const dots = document.querySelectorAll('.dot');
-    const prev = document.getElementById('prevSlide');
-    const next = document.getElementById('nextSlide');
-    let index = 0;
+    let current = 0;
+    const slides = document.getElementById('slider');
+    const total = slides.children.length;
 
-    function updateSlider() {
-      slides.style.transform = `translateX(-${index * 100}vw)`;
-      dots.forEach((dot, i) => dot.classList.toggle('is-active', i === index));
+    // Dots dynamiques
+    const dots = document.getElementById('dots');
+    for (let i = 0; i < total; i++) {
+      const b = document.createElement('button');
+      b.className = 'dot' + (i === 0 ? ' is-active' : '');
+      b.onclick = () => { current = i; updateSlide(true); };
+      dots.appendChild(b);
     }
 
-    next.addEventListener('click', () => {
-      index = (index + 1) % dots.length;
-      updateSlider();
+    const counter = document.getElementById('counter');
+
+    function updateSlide(animate = true){
+      slides.style.transitionDuration = animate ? '.7s' : '0s';
+      slides.style.transform = `translateX(-${current * 100}vw)`;
+      document.querySelectorAll('.dot').forEach((d, i) =>
+        d.classList.toggle('is-active', i === current)
+      );
+      counter.textContent = `${current + 1} / ${total}`;
+    }
+
+    document.getElementById('next').onclick = ()=>{ current = (current + 1) % total; updateSlide(); };
+    document.getElementById('prev').onclick = ()=>{ current = (current - 1 + total) % total; updateSlide(); };
+
+    // clavier
+    document.addEventListener('keydown', (e)=>{
+      if(e.key==='ArrowRight') document.getElementById('next').click();
+      if(e.key==='ArrowLeft')  document.getElementById('prev').click();
+      if(e.key==='Escape')     window.location.href='stages.html';
     });
 
-    prev.addEventListener('click', () => {
-      index = (index - 1 + dots.length) % dots.length;
-      updateSlider();
-    });
+    // trackpad horizontal
+    let lastScroll=0;
+    window.addEventListener('wheel', (e)=>{
+      const now=Date.now(); if(now-lastScroll<600) return;
+      if(e.deltaX>50){ document.getElementById('next').click(); lastScroll=now; }
+      else if(e.deltaX<-50){ document.getElementById('prev').click(); lastScroll=now; }
+    }, {passive:true});
 
-    dots.forEach((dot, i) => {
-      dot.addEventListener('click', () => {
-        index = i;
-        updateSlider();
-      });
-    });
+    // tactile
+    let startX=0, startTime=0;
+    slides.addEventListener('touchstart', e=>{ startX=e.touches[0].clientX; startTime=Date.now(); }, {passive:true});
+    slides.addEventListener('touchend', e=>{
+      const diff=e.changedTouches[0].clientX-startX; const t=Date.now()-startTime;
+      if(Math.abs(diff)>50 && t<800){ diff>0 ? document.getElementById('prev').click() : document.getElementById('next').click(); }
+    }, {passive:true});
+
+    updateSlide(false);
   </script>
 </body>
 </html>
-
