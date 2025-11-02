@@ -705,3 +705,77 @@ body {
     grid-template-columns: 1fr;
   }
 }
+/* === Ajustement de la slide Enedis pour meilleur centrage === */
+.slide-enedis-main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - var(--board-h));
+  padding: 40px 6vw;
+}
+
+.enedis-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.enedis-text {
+  max-width: 560px;
+}
+
+.enedis-text h1 {
+  font-size: clamp(28px, 3.3vw, 36px);
+  line-height: 1.2;
+  margin-bottom: 16px;
+}
+
+.enedis-text p,
+.enedis-bullets {
+  font-size: 15.5px;
+}
+
+.enedis-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 440px;
+  margin: 0 auto;
+}
+
+.enedis-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 14px;
+  object-fit: cover;
+  box-shadow: 0 12px 32px rgba(0,0,0,0.4);
+}
+
+/* Ajustement responsive : centrage vertical + pile texte/image */
+@media (max-width: 900px) {
+  .slide-enedis-main {
+    padding: 80px 6vw;
+    min-height: calc(100vh - var(--board-h));
+  }
+
+  .enedis-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    text-align: center;
+  }
+
+  .enedis-text {
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  .enedis-image {
+    max-width: 360px;
+  }
+}
+
