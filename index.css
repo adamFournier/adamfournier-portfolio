@@ -779,6 +779,118 @@ body {
   }
 }
 
+/* === Enedis slide améliorée === */
+.slide-enedis-main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding-left: 5vw; /* décale le contenu vers la gauche */
+}
+
+.enedis-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 420px;
+  align-items: center;
+  gap: 48px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.enedis-text h1 {
+  margin-bottom: 16px;
+  font-size: 2.2rem;
+}
+
+.enedis-text p {
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+/* Liste à puces */
+.enedis-bullets {
+  list-style: disc;
+  margin: 10px 0 22px 28px;
+  color: #dfe8f8;
+}
+.enedis-bullets li {
+  margin-bottom: 6px;
+  font-size: 15px;
+}
+.enedis-bullets strong {
+  color: #4da3ff;
+  font-weight: 700;
+}
+
+/* --- Cartes missions --- */
+.missions-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.mission-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 14px;
+  padding: 14px 16px;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+}
+
+.mission-card:hover {
+  background: rgba(255, 255, 255, 0.12);
+  transform: translateY(-2px);
+}
+
+.mission-card .icon {
+  font-size: 1.4rem;
+  line-height: 1;
+}
+
+.mission-card .text h3 {
+  font-size: 16px;
+  margin: 0 0 4px;
+  color: #fff;
+}
+
+.mission-card .text p {
+  font-size: 14px;
+  color: #cfd8e3;
+  margin: 0;
+}
+
+/* Image à droite */
+.card {
+  background: linear-gradient(160deg, #0f1d3b, #0b1530);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 14px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.45);
+}
+.enedis-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 14px;
+}
+
+/* Responsive */
+@media (max-width: 1000px) {
+  .enedis-grid {
+    grid-template-columns: 1fr;
+    gap: 26px;
+  }
+  .enedis-image {
+    max-width: 480px;
+    margin: 0 auto;
+  }
+}
+
 
 
 
