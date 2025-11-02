@@ -3,92 +3,117 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Stage — Enedis Toulouse | Adam Fournier</title>
+  <title>Stage — Enedis (Paris) | Adam Fournier</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="index.css?v=114" />
+  <link rel="stylesheet" href="index.css?v=115" />
 </head>
 <body>
 
+  <!-- HEADER (garde ton dropdown Stages) -->
   <header class="board">
-  <div class="board__inner">
-    <div class="board__brand">Adam&nbsp;Fournier</div>
-    <nav class="board__nav">
-      <a href="index.html">Accueil</a>
+    <div class="board__inner">
+      <div class="board__brand">Adam&nbsp;Fournier</div>
+      <nav class="board__nav">
+        <a href="index.html">Accueil</a>
 
-      <div class="nav-item">
-        <a href="stages.html">Stages</a>
-        <div class="sub">
-          <a href="stage-enedis.html">Stage — Enedis (Paris)</a>
-          <!-- Ajoute ici d'autres liens quand tu auras Stage #2, #3 -->
-          <!-- <a href="stage-airbus.html">Stage — Airbus</a> -->
-          <!-- <a href="stage-edf.html">Stage — EDF</a> -->
+        <div class="nav-item">
+          <a href="stages.html" class="is-active">Stages</a>
+          <div class="sub">
+            <a href="stage-enedis.html">Stage — Enedis (Paris)</a>
+            <!-- <a href="#">Stage — #2</a> -->
+            <!-- <a href="#">Stage — #3</a> -->
+          </div>
         </div>
-      </div>
 
-      <a href="projets.html">Projets</a>
-      <a href="engagements.html">Engagements</a>
-    </nav>
-  </div>
-</header>
-
+        <a href="projets.html">Projets</a>
+        <a href="engagements.html">Engagements</a>
+      </nav>
+    </div>
+  </header>
 
   <!-- SLIDES -->
   <div class="slides-full-wrap">
     <div class="slides-full" id="slider">
 
+      <!-- 1) Intro synthétique -->
       <section class="slide-full">
         <div class="slide-content">
-          <h1>Expériences professionnelles</h1>
-          <p class="intro-text">
-            J’ai pour le moment réalisé mon stage de première année d’école au sein du pôle Data de la DSI d’Enedis à Toulouse.  
-            Ce stage de trois mois m’a permis de découvrir le fonctionnement d’un grand groupe,  
-            d’appliquer mes compétences en analyse de données et de comprendre les enjeux liés à la gestion et la valorisation des données à grande échelle.
-          </p>
-        </div>
-      </section>
-
-      <section class="slide-full">
-        <div class="slide-content">
-          <h1>Contexte du stage</h1>
+          <h1>Stage — Enedis (Paris)</h1>
           <p>
-            Stage réalisé à Enedis Toulouse (Juin – Août 2025), au sein du pôle Data de la DSI.  
-            Mission principale : contribuer à l’amélioration de la qualité et de l’exploitation des données utilisées  
-            pour le pilotage des activités internes d’Enedis.
+            Stage de <strong>2 mois</strong> au sein du <strong>pôle SI Réseau Électrique</strong> (DSI), pour
+            soutenir l’équipe <strong>Data</strong> sur le domaine <strong>Raccordement & Ingénierie du réseau</strong>.
+            Objectif général&nbsp;: améliorer la <strong>conformité des données</strong> pour les usages
+            analytiques & IA et <strong>automatiser</strong> les tâches récurrentes pour gagner en efficacité.
           </p>
+          <h2>🎯 Objectifs</h2>
+          <ul>
+            <li>Fiabiliser / enrichir les données pour les usages analytiques & IA.</li>
+            <li>Préparer un produit de données conforme <em>by design</em> sur la nouvelle data plateforme Cloud.</li>
+          </ul>
         </div>
       </section>
 
+      <!-- 2) Missions détaillées -->
       <section class="slide-full">
         <div class="slide-content">
           <h1>Missions principales</h1>
+          <ul>
+            <li>
+              Mise en conformité des données pour l’analytique & l’IA&nbsp;:
+              réconciliation avec le catalogue métier <strong>Datapedia</strong>, puis
+              enrichissement des jeux applicatifs avec des <strong>métadonnées de conformité</strong>.
+            </li>
+            <li>
+              Conception d’un <strong>outil d’automatisation</strong> de requêtes <strong>VQL</strong>
+              pour accélérer les traitements récurrents.
+            </li>
+            <li>
+              Contribution à la préparation d’un nouveau <strong>data product</strong> conforme by design
+              sur la plateforme Cloud d’Enedis.
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 3) Résultats -->
+      <section class="slide-full">
+        <div class="slide-content">
+          <h1>Résultats</h1>
+          <ul>
+            <li><strong>–33&nbsp;%</strong> de charge de travail estimée grâce à l’automatisation VQL.</li>
+            <li><strong>&gt;50&nbsp;%</strong> du stock prioritaire traité, au-delà des objectifs initiaux.</li>
+          </ul>
           <p>
-            • Nettoyage et consolidation de jeux de données internes<br>
-            • Création de tableaux de bord interactifs avec Power BI<br>
-            • Automatisation de rapports de performance via Python et Excel VBA<br>
-            • Participation à l’analyse de KPI pour la direction des systèmes d’information
+            L’automatisation et la standardisation ont permis d’industrialiser la démarche et
+            d’améliorer la qualité de service pour les équipes métier.
           </p>
         </div>
       </section>
 
+      <!-- 4) Contexte & périmètre réseau -->
       <section class="slide-full">
         <div class="slide-content">
-          <h1>Résultats obtenus</h1>
+          <h1>Contexte & périmètre</h1>
           <p>
-            • Réduction du temps de production de certains rapports hebdomadaires de 50&nbsp;%<br>
-            • Amélioration de la fiabilité des données par la mise en place de scripts de contrôle<br>
-            • Meilleure visualisation des indicateurs clés grâce à des dashboards clairs et automatisés
+            Domaine <strong>Raccordement & Ingénierie</strong> couvrant un vaste périmètre d’ouvrages&nbsp;:
           </p>
+          <ul>
+            <li>~2&nbsp;500 postes sources</li>
+            <li>~650&nbsp;000&nbsp;km de réseau HTA</li>
+            <li>~750&nbsp;000&nbsp;km de réseau BT</li>
+            <li>~800&nbsp;000 postes de distribution</li>
+          </ul>
         </div>
       </section>
 
+      <!-- 5) Stack & compétences -->
       <section class="slide-full">
         <div class="slide-content">
-          <h1>Compétences acquises</h1>
+          <h1>Environnement technique & compétences</h1>
+          <p><strong>Stack&nbsp;:</strong> SQL, VQL, Python, PowerQuery (Langage&nbsp;M), VBA, Denodo, Power&nbsp;BI</p>
           <p>
-            • Analyse de données, visualisation Power BI<br>
-            • Programmation Python et manipulation de fichiers Excel/VBA<br>
-            • Gestion de projet, rigueur et communication technique<br>
-            • Découverte des processus d’une grande entreprise publique
+            <strong>Compétences clés&nbsp;:</strong> data quality & conformité, automatisation de traitements,
+            visualisation et restitution, collaboration avec la DSI et les métiers, rigueur documentaire.
           </p>
         </div>
       </section>
@@ -121,13 +146,12 @@
     <div class="counter" id="counter">1 / 5</div>
   </div>
 
-  <!-- SCRIPT -->
+  <!-- SCRIPT (navigation identique à tes autres pages) -->
   <script>
     let current = 0;
     const slides = document.getElementById('slider');
     const total = slides.children.length;
 
-    // Création dynamique des points
     const dots = document.getElementById('dots');
     for (let i = 0; i < total; i++) {
       const b = document.createElement('button');
@@ -142,7 +166,6 @@
       slides.style.transform = `translateX(-${current * 100}vw)`;
       updateUI();
     }
-
     function updateUI() {
       document.querySelectorAll('.dot').forEach((d, i) =>
         d.classList.toggle('is-active', i === current)
@@ -150,18 +173,15 @@
       counter.textContent = `${current + 1} / ${total}`;
     }
 
-    // Navigation boutons
     document.getElementById('next').onclick = () => { current = (current + 1) % total; updateSlide(); };
     document.getElementById('prev').onclick = () => { current = (current - 1 + total) % total; updateSlide(); };
 
-    // Navigation clavier
     document.addEventListener('keydown', (e) => {
       if (e.key === 'ArrowRight') document.getElementById('next').click();
       if (e.key === 'ArrowLeft') document.getElementById('prev').click();
       if (e.key === 'Escape') window.location.href = 'stages.html';
     });
 
-    // Défilement trackpad / souris
     let lastScroll = 0;
     window.addEventListener('wheel', (e) => {
       const now = Date.now();
@@ -170,13 +190,11 @@
       else if (e.deltaX < -50) { document.getElementById('prev').click(); lastScroll = now; }
     }, { passive: true });
 
-    // Swipe tactile
     let startX = 0, startTime = 0;
     slides.addEventListener('touchstart', e => {
       startX = e.touches[0].clientX;
       startTime = Date.now();
     }, { passive: true });
-
     slides.addEventListener('touchend', e => {
       const diff = e.changedTouches[0].clientX - startX;
       const t = Date.now() - startTime;
@@ -190,4 +208,3 @@
 
 </body>
 </html>
-
