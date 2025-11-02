@@ -527,67 +527,181 @@ body {
 
 
 
+
+
+
+/* === ENEDIS SLIDE — version corrigée === */
+.slide-enedis-main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding-left: 5vw;
 }
 
-
-
-/* === ENEDIS SLIDE — propre === */
-.slide-enedis-main{
-  display:flex; align-items:center; justify-content:center; min-height:100vh; padding-left:5vw;
-}
-.enedis-grid{
-  display:grid; grid-template-columns:1.1fr 460px; align-items:center;
-  gap:44px; max-width:1200px; margin:0 auto;
-}
-.enedis-text h1{margin:0 0 14px; font-size:clamp(26px,3vw,34px)}
-.enedis-text p{line-height:1.6; margin-bottom:14px}
-.enedis-text strong{color:#fff; font-weight:800}
-.enedis-bullets{list-style:disc; margin:10px 0 20px 28px; color:#dfe8f8}
-.enedis-bullets li{margin-bottom:6px; font-size:15px}
-.enedis-bullets strong{color:#4da3ff; font-weight:800}
-
-/* Missions en cartes */
-.missions-cards{display:flex; flex-direction:column; gap:14px; margin-top:18px}
-.mission-card{
-  display:flex; gap:14px; align-items:flex-start;
-  background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.12);
-  border-radius:14px; padding:14px 16px; box-shadow:0 4px 14px rgba(0,0,0,.2);
-  transition:.25s ease;
-}
-.mission-card:hover{background:rgba(255,255,255,.12); transform:translateY(-2px)}
-.mission-card .icon{font-size:1.4rem; line-height:1}
-.mission-card .text h3{font-size:16px; margin:0; color:#fff}
-
-/* Image à droite */
-.card{
-  background:linear-gradient(160deg,#0f1d3b,#0b1530); border:1px solid rgba(255,255,255,.1);
-  border-radius:20px; padding:14px; box-shadow:0 15px 40px rgba(0,0,0,.45);
-}
-.enedis-image img{display:block; width:100%; height:auto; border-radius:14px}
-
-/* Grille 2 colonnes générique (slides 2/3) */
-.two-col{max-width:1100px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:28px}
-.two-col .col{min-width:0}
-.nice-list{margin:12px 0 18px 18px}
-.media-grid{display:grid; grid-template-columns:1fr 1fr; gap:14px}
-.media-card{background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.12); border-radius:12px; overflow:hidden}
-.media-card img{display:block; width:100%; height:auto}
-.media-caption{font-size:13px; color:#cfd8e3; padding:8px 10px}
-
-/* Chips (bilan) */
-.stack-row{display:flex; flex-wrap:wrap; gap:8px; margin-top:14px}
-.chip{font-size:12px; padding:6px 10px; border-radius:999px; background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.12)}
-
-/* Responsive */
-@media (max-width:1000px){
-  .enedis-grid{grid-template-columns:1fr; gap:22px}
-  .enedis-image{max-width:520px; margin:0 auto}
-  .two-col{grid-template-columns:1fr}
+.enedis-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 460px;
+  align-items: center;
+  gap: 44px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
+.enedis-text h1 {
+  margin: 0 0 14px;
+  font-size: clamp(26px, 3vw, 34px);
+}
 
+.enedis-text p {
+  line-height: 1.6;
+  margin-bottom: 14px;
+}
 
+.enedis-text strong {
+  color: #fff;
+  font-weight: 800;
+}
 
+.enedis-bullets {
+  list-style: disc;
+  margin: 10px 0 20px 28px;
+  color: #dfe8f8;
+}
 
+.enedis-bullets li {
+  margin-bottom: 6px;
+  font-size: 15px;
+}
 
+.enedis-bullets strong {
+  color: #4da3ff;
+  font-weight: 800;
+}
 
+/* --- Cartes Missions --- */
+.missions-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.mission-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 14px;
+  padding: 14px 16px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+  transition: all 0.25s ease;
+}
+
+.mission-card:hover {
+  background: rgba(255, 255, 255, 0.12);
+  transform: translateY(-2px);
+}
+
+.mission-card .icon {
+  font-size: 1.4rem;
+  line-height: 1;
+}
+
+.mission-card .text h3 {
+  font-size: 16px;
+  margin: 0;
+  color: #fff;
+}
+
+/* --- Image à droite --- */
+.card {
+  background: linear-gradient(160deg, #0f1d3b, #0b1530);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 14px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.45);
+}
+
+.enedis-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 14px;
+}
+
+/* --- Slides suivantes (missions / bilan) --- */
+.two-col {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+}
+
+.two-col .col {
+  min-width: 0;
+}
+
+.nice-list {
+  margin: 12px 0 18px 18px;
+}
+
+.media-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.media-card {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.media-card img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.media-caption {
+  font-size: 13px;
+  color: #cfd8e3;
+  padding: 8px 10px;
+}
+
+/* --- Chips (bilan) --- */
+.stack-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.chip {
+  font-size: 12px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+/* --- Responsive --- */
+@media (max-width: 1000px) {
+  .enedis-grid {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .enedis-image {
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  .two-col {
+    grid-template-columns: 1fr;
+  }
+}
