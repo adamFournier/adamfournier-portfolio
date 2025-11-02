@@ -1242,4 +1242,83 @@ body {
   .enedis-missions-under{ max-width: 100%; }
 }
 
+/* ==== SLIDE 2 — Mise en conformité ==== */
+.slide-enedis-mission1 {
+  background: radial-gradient(100% 100% at 50% 0%, rgba(12,32,56,0.7) 0%, rgba(8,20,36,0.95) 100%);
+}
+
+.slide-enedis-mission1 .slide-content {
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.slide-enedis-mission1 h1 {
+  font-size: clamp(28px, 3vw, 38px);
+  margin-bottom: 24px;
+  color: #fff;
+}
+
+.slide-enedis-mission1 p {
+  line-height: 1.7;
+  color: #d8e2f1;
+  margin-bottom: 16px;
+}
+
+.slide-enedis-mission1 strong {
+  color: #59b9ff;
+}
+
+/* --- Résultats --- */
+.enedis-results {
+  margin-top: 50px;
+  text-align: center;
+}
+
+.enedis-results h2 {
+  font-size: 22px;
+  color: #fff;
+  margin-bottom: 30px;
+  font-weight: 600;
+}
+
+.results-grid {
+  display: flex;
+  justify-content: center;
+  gap: 26px;
+  flex-wrap: wrap;
+}
+
+.result-card {
+  background: rgba(255,255,255,0.06);
+  border-radius: 14px;
+  padding: 22px 28px;
+  width: 200px;
+  text-align: center;
+  box-shadow:
+    0 0 25px rgba(42,168,216,0.15),
+    0 6px 20px rgba(0,0,0,0.35);
+  transition: none;
+}
+
+.result-card h3 {
+  color: #4db4ff;
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+
+.result-card p {
+  color: #eaf3ff;
+  margin: 0;
+  font-size: 15px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .results-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
 
