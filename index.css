@@ -1521,6 +1521,118 @@ body {
   line-height: 1.6;
 }
 
+/* ==== SLIDE 2 — Mission 1 ==== */
+
+.slide-enedis-mission1 {
+  background: radial-gradient(100% 100% at 50% 0%, rgba(12,32,56,0.7) 0%, rgba(8,20,36,0.95) 100%);
+  display: flex;
+  align-items: center;
+}
+
+.slide-enedis-mission1 .slide-content {
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.slide-enedis-mission1 h1 {
+  font-size: clamp(28px, 3vw, 36px);
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+.slide-enedis-mission1 p {
+  line-height: 1.7;
+  color: #d8e2f1;
+  margin-bottom: 16px;
+}
+
+.slide-enedis-mission1 strong {
+  color: #59b9ff;
+  font-weight: 600;
+}
+
+/* --- Conteneur des deux blocs --- */
+.enedis-bottom {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  margin-top: 40px;
+}
+
+/* --- Bloc outils --- */
+.tools-box {
+  flex: 1;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 16px;
+  padding: 24px 28px;
+  text-align: center;
+  box-shadow: 0 0 25px rgba(80,160,255,0.1),
+              0 8px 25px rgba(0,0,0,0.35);
+}
+
+.tools-box h2 {
+  color: #fff;
+  font-size: 18px;
+  margin-bottom: 16px;
+  font-weight: 700;
+}
+
+.tools-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.tool-chip {
+  font-size: 13px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(42,168,216,0.1);
+  border: 1px solid rgba(42,168,216,0.3);
+  color: #cfe8ff;
+}
+
+/* --- Bloc résultat --- */
+.enedis-result-single {
+  flex: 1;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 16px;
+  padding: 24px 28px;
+  text-align: center;
+  box-shadow: 0 0 25px rgba(42,168,216,0.1),
+              0 8px 25px rgba(0,0,0,0.35);
+}
+
+.enedis-result-single h2 {
+  color: #fff;
+  font-size: 18px;
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+
+.enedis-result-single p {
+  color: #dce7f8;
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+/* --- Responsive --- */
+@media (max-width: 900px) {
+  .enedis-bottom {
+    flex-direction: column;
+    align-items: center;
+  }
+  .tools-box,
+  .enedis-result-single {
+    width: 90%;
+  }
+}
+
 
 
 
