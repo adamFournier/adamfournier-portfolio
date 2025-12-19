@@ -1633,6 +1633,106 @@ body {
   }
 }
 
+/* ========== SLIDE 2 : cadrage qui tient en 1 page ========== */
+.slide-enedis-mission1{
+  min-height: calc(100vh - var(--board-h));
+}
+
+.slide-enedis-mission1 .slide-content{
+  max-width: 1100px;
+  width: min(92vw, 1100px);
+  margin: 0 auto;
+
+  /* IMPORTANT : structure verticale (texte en haut / blocs en bas) */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  /* Hauteur dispo dans la slide */
+  height: calc(100vh - var(--board-h));
+  padding: 54px 0 34px; /* remonte le bas + évite débordement */
+}
+
+/* petit ajustement du titre pour qu’il ne soit pas trop haut */
+.slide-enedis-mission1 h1{
+  margin-bottom: 18px;
+  line-height: 1.1;
+}
+
+/* paragraphs un peu plus compacts */
+.slide-enedis-mission1 p{
+  margin-bottom: 14px;
+}
+
+/* ========== 2 blocs du bas alignés ========== */
+.enedis-bottom{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  align-items: stretch;
+  margin-top: 18px; /* remonte les blocs */
+}
+
+/* mêmes dimensions visuelles */
+.tools-box,
+.enedis-result-single{
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 18px;
+  padding: 22px 26px;
+  min-height: 170px; /* <- évite que ça descende */
+  box-shadow:
+    0 0 22px rgba(56,148,255,0.10),
+    0 8px 26px rgba(0,0,0,0.28);
+}
+
+/* titre des blocs */
+.tools-box h2,
+.enedis-result-single h2{
+  margin: 0 0 14px;
+  font-size: 20px;
+  color: #fff;
+  font-weight: 800;
+}
+
+/* chips outils */
+.tools-grid{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.tool-chip{
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(77,180,255,0.25);
+  color: #eaf3ff;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+/* texte résultat */
+.enedis-result-single p{
+  margin: 0;
+  color: #dce7f7;
+  line-height: 1.55;
+}
+.enedis-result-single p strong{
+  color: #59b9ff; /* met en valeur sans "tout en gras" */
+  font-weight: 800;
+}
+
+/* responsive */
+@media (max-width: 900px){
+  .slide-enedis-mission1 .slide-content{
+    padding: 44px 0 26px;
+  }
+  .enedis-bottom{
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
 
 
 
