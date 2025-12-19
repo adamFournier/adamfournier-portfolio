@@ -547,122 +547,143 @@ body {
 }
 
 /* ===================================================== */
-/* ENEDIS — SLIDE PRINCIPALE (slide 1) — VERSION COURTE & STABLE */
+/* ENEDIS — SLIDE 1 (INTRO) — VERSION FINALE */
 /* ===================================================== */
 
 .slide-enedis-main{
   width: 100vw;
   flex: 0 0 100vw;
   height: calc(100vh - var(--board-h));
-  display:flex;
-  align-items:center;
-  justify-content:center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 32px 24px;
-  background: radial-gradient(100% 100% at 50% 0%, rgba(12,32,56,.70) 0%, rgba(8,20,36,.95) 100%);
+  background: radial-gradient(
+    100% 100% at 50% 0%,
+    rgba(12,32,56,.70) 0%,
+    rgba(8,20,36,.95) 100%
+  );
 }
 
 .slide-enedis-main .slide-content{
-  max-width:1100px;
-  width:min(92vw,1100px);
-  margin:0 auto;
+  width: min(92vw, 1100px);
+  margin: 0 auto;
 }
 
+/* ===== GRILLE PRINCIPALE ===== */
 .enedis-grid{
-  display:grid;
-  grid-template-columns: minmax(520px, 1fr) minmax(420px, 560px);
-  align-items:center;
-  gap:40px;
+  display: grid;
+  grid-template-columns: minmax(520px, 1fr) 560px;
+  align-items: center;
+  gap: 40px;
 }
 
-/* Texte gauche */
+/* ===== TEXTE GAUCHE ===== */
 .enedis-text{
   padding-left: 32px;
   transform: translateY(-16px);
 }
+
 .enedis-text h1{
-  margin:0 0 12px;
-  font-size:clamp(28px,3.2vw,40px);
-  line-height:1.2;
+  margin: 0 0 12px;
+  font-size: clamp(28px, 3.2vw, 40px);
+  line-height: 1.2;
 }
-.enedis-text p{ margin:0 0 14px; color:#cfd9eb; line-height:1.65; }
-.enedis-bullets{ list-style:disc; margin:8px 0 18px 28px; color:#dfe8f8; }
-.enedis-bullets li{ margin-bottom:6px; }
+
+.enedis-text p{
+  margin: 0 0 14px;
+  color: #cfd9eb;
+  line-height: 1.65;
+}
+
+.enedis-bullets{
+  list-style: disc;
+  margin: 8px 0 18px 28px;
+  color: #dfe8f8;
+}
+
+.enedis-bullets li{ margin-bottom: 6px; }
 .enedis-bullets strong{ color:#59b9ff; font-weight:800; }
 
-/* Colonne droite : image + cartes dessous (comme avant) */
+/* ===== COLONNE DROITE ===== */
 .enedis-grid > :nth-child(2){
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
+/* Image */
 .enedis-image{
-  position:relative;
-  margin-top:-18px;
-  width:100%;
-  display:flex;
-  justify-content:center;
+  position: relative;
+  margin-top: -18px;
+  display: flex;
+  justify-content: center;
 }
-.enedis-image::before{
-  content:"";
-  position:absolute;
-  inset:-26px;
-  background:
-    radial-gradient(420px 220px at 60% 40%, rgba(56,148,255,.18), transparent 60%),
-    radial-gradient(380px 260px at 30% 70%, rgba(0,180,210,.12), transparent 65%);
-  filter: blur(18px);
-  z-index:0;
-  pointer-events:none;
-}
+
 .enedis-image img{
-  position:relative;
-  z-index:1;
-  width:100%;
-  max-width:560px;
-  height:auto;
-  border-radius:18px;
+  width: 100%;
+  max-width: 560px;
+  border-radius: 18px;
   box-shadow: 0 14px 38px rgba(0,0,0,.45);
 }
 
-/* Cartes missions : SOUS l’image + même largeur */
+/* ===== CARTES MISSIONS (COMPACTES, À DROITE) ===== */
 .enedis-missions-under{
-  width:100%;
-  max-width:560px;
-  display:flex;
-  flex-direction:column;
-  gap:14px;
-  margin-top:14px;
+  width: 100%;
+  max-width: 560px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 18px;
+  align-items: flex-end;
 }
 
 .enedis-mission{
-  width:100%;
+  width: 420px;
+  max-width: 100%;
   background: rgba(255,255,255,.06);
   border: 1px solid rgba(255,255,255,.14);
-  border-radius:14px;
-  padding:14px 16px;
-  display:flex;
-  align-items:center;
-  gap:12px;
+  border-radius: 14px;
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
   box-shadow: 0 10px 26px rgba(0,0,0,.28);
   cursor: default;
-
-  /* anti “panneau à droite” (si une ancienne règle traîne) */
-  position:relative;
-  inset:auto;
-  right:auto;
-  top:auto;
-  transform:none;
 }
 
-.enedis-mission .icon{ font-size:1.4rem; line-height:1; }
-.enedis-mission h3{ margin:0; font-size:16px; font-weight:700; color:#fff; }
+.enedis-mission .icon{
+  font-size: 1.4rem;
+  line-height: 1;
+}
 
+.enedis-mission h3{
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+}
+
+/* ===== RESPONSIVE ===== */
 @media (max-width: 900px){
-  .enedis-grid{ grid-template-columns:1fr; gap:20px; }
-  .enedis-text{ padding-left:0; transform:none; text-align:center; }
-  .enedis-image{ margin-top:0; }
-  .enedis-missions-under{ max-width:100%; }
+  .enedis-grid{
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .enedis-text{
+    padding-left: 0;
+    transform: none;
+    text-align: center;
+  }
+
+  .enedis-missions-under{
+    align-items: center;
+  }
+
+  .enedis-mission{
+    width: 100%;
+  }
 }
 
 
@@ -772,5 +793,6 @@ body {
     rgba(8,20,36,0.95) 100%
   );
 }
+
 
 
