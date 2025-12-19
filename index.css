@@ -528,17 +528,34 @@ body {
 @media (max-width: 1000px) {
   .two-col { grid-template-columns: 1fr; }
 }
+/* ===================================================== */
+/* ENEDIS — SLIDES (CORRIGÉ : 100vw + flex-shrink + height) */
+/* Remplace tout ton bloc Enedis par celui-ci */
+/* ===================================================== */
+
+/* Les slides Enedis doivent se comporter comme .slide-full dans le slider */
+.slide-enedis-main,
+.slide-enedis-mission1,
+.slide-enedis-bilan {
+  width: 100vw;
+  flex: 0 0 100vw; /* équivalent "flex-shrink:0" + largeur fixe */
+  height: calc(100vh - var(--board-h));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 24px; /* même logique que .slide-full */
+}
 
 /* ===================================================== */
-/* ENEDIS — SLIDE PRINCIPALE (finale, sans effet bouton) */
+/* ENEDIS — SLIDE PRINCIPALE (slide 1) */
 /* ===================================================== */
 
 .slide-enedis-main{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  min-height: calc(100vh - var(--board-h));
-  padding: 40px 6vw;
+  background: radial-gradient(
+    100% 100% at 50% 0%,
+    rgba(12,32,56,0.7) 0%,
+    rgba(8,20,36,0.95) 100%
+  );
 }
 
 .slide-enedis-main .slide-content{
@@ -641,14 +658,11 @@ body {
 }
 
 /* ===================================================== */
-/* ENEDIS — SLIDES MISSIONS (M1/M2/M3) (final stable) */
+/* ENEDIS — SLIDES MISSIONS (slides 2/3) */
 /* ===================================================== */
 
 .slide-enedis-mission1{
   background: radial-gradient(100% 100% at 50% 0%, rgba(12,32,56,0.70) 0%, rgba(8,20,36,0.95) 100%);
-  display:flex;
-  align-items:center;
-  min-height: calc(100vh - var(--board-h));
 }
 
 .slide-enedis-mission1 .slide-content{
@@ -736,3 +750,17 @@ body {
   .enedis-bottom{ grid-template-columns: 1fr; gap:14px; }
   .tools-box, .enedis-result-single{ min-height:auto; }
 }
+
+/* ===================================================== */
+/* ENEDIS — SLIDE BILAN (slide 4) */
+/* (au cas où tu utilises .slide-enedis-bilan) */
+/* ===================================================== */
+
+.slide-enedis-bilan{
+  background: radial-gradient(
+    100% 100% at 50% 0%,
+    rgba(12,32,56,0.7) 0%,
+    rgba(8,20,36,0.95) 100%
+  );
+}
+
