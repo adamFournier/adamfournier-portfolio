@@ -1664,6 +1664,33 @@ body {
   }
 }
 
+/* === FIX : 2 boxes du bas même taille + alignées en haut (sans bouger le reste) === */
+
+/* 1) on aligne les cartes sur le haut du conteneur */
+.enedis-bottom{
+  align-items: flex-start;   /* si .enedis-bottom est en flex */
+  align-content: start;      /* au cas où */
+}
+
+/* 2) on force une hauteur identique (calée sur celle de droite) */
+.enedis-bottom .tools-box,
+.enedis-bottom .enedis-result-single{
+  height: 175px;             /* ajuste ici si besoin : 165 / 170 / 175 */
+}
+
+/* 3) on évite que la tools-box garde un “vide” inutile */
+.enedis-bottom .tools-box{
+  padding-bottom: 12px;      /* réduit juste le bas, sans changer le haut */
+}
+
+/* mobile : on laisse respirer */
+@media (max-width: 900px){
+  .enedis-bottom .tools-box,
+  .enedis-bottom .enedis-result-single{
+    height: auto;
+  }
+}
+
 
 
 
