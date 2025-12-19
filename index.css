@@ -1521,30 +1521,50 @@ body {
   line-height: 1.6;
 }
 
-/* ==== SLIDE 2 — Mission 1 ==== */
+/* ==== SLIDE 2 — Mission 1 (CLEAN, sans doublons) ==== */
 
 .slide-enedis-mission1 {
-  background: radial-gradient(100% 100% at 50% 0%, rgba(12,32,56,0.7) 0%, rgba(8,20,36,0.95) 100%);
+  background: radial-gradient(
+    100% 100% at 50% 0%,
+    rgba(12,32,56,0.7) 0%,
+    rgba(8,20,36,0.95) 100%
+  );
   display: flex;
   align-items: center;
+
+  /* cadrage 1 page */
+  min-height: calc(100vh - var(--board-h));
 }
 
+/* Contenu global */
 .slide-enedis-mission1 .slide-content {
-  max-width: 1000px;
+  max-width: 1100px;
+  width: min(92vw, 1100px);
   margin: 0 auto;
   text-align: left;
+
+  /* structure verticale : texte en haut / blocs en bas */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  height: calc(100vh - var(--board-h));
+  padding: 54px 0 34px;
 }
 
+/* Titre */
 .slide-enedis-mission1 h1 {
   font-size: clamp(28px, 3vw, 36px);
-  margin-bottom: 20px;
+  margin-bottom: 18px;
+  line-height: 1.1;
   color: #fff;
 }
 
+/* Texte */
 .slide-enedis-mission1 p {
   line-height: 1.7;
   color: #d8e2f1;
-  margin-bottom: 16px;
+  margin-bottom: 14px;
 }
 
 .slide-enedis-mission1 strong {
@@ -1554,31 +1574,38 @@ body {
 
 /* --- Conteneur des deux blocs --- */
 .enedis-bottom {
-  display: flex;
-  justify-content: space-between;
-  gap: 40px;
-  margin-top: 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  align-items: stretch;
+  margin-top: 18px;
 }
 
-/* --- Bloc outils --- */
-.tools-box {
+/* --- Blocs (outils + résultat) --- */
+.tools-box,
+.enedis-result-single {
   flex: 1;
-  background: rgba(255,255,255,0.05);
+  background: rgba(255,255,255,0.06);
   border: 1px solid rgba(255,255,255,0.12);
-  border-radius: 16px;
+  border-radius: 18px;
   padding: 18px 22px;
+  min-height: 170px;
   text-align: center;
-  box-shadow: 0 0 25px rgba(80,160,255,0.1),
-              0 8px 25px rgba(0,0,0,0.35);
+  box-shadow:
+    0 0 22px rgba(56,148,255,0.10),
+    0 8px 26px rgba(0,0,0,0.28);
 }
 
-.tools-box h2 {
+/* Titres des blocs */
+.tools-box h2,
+.enedis-result-single h2 {
+  margin: 0 0 14px;
+  font-size: 20px;
   color: #fff;
-  font-size: 18px;
-  margin-bottom: 16px;
-  font-weight: 700;
+  font-weight: 800;
 }
 
+/* Grille des outils */
 .tools-grid {
   display: flex;
   flex-wrap: wrap;
@@ -1586,123 +1613,9 @@ body {
   gap: 10px;
 }
 
+/* Chips outils (boutons) */
 .tool-chip {
-  font-size: 13px;
-  padding: 6px 12px;
-  border-radius: 999px;
-  background: rgba(42,168,216,0.1);
-  border: 1px solid rgba(42,168,216,0.3);
-  color: #cfe8ff;
-}
-
-/* --- Bloc résultat --- */
-.enedis-result-single {
-  flex: 1;
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.12);
-  border-radius: 16px;
-  padding: 24px 28px;
-  text-align: center;
-  box-shadow: 0 0 25px rgba(42,168,216,0.1),
-              0 8px 25px rgba(0,0,0,0.35);
-}
-
-.enedis-result-single h2 {
-  color: #fff;
-  font-size: 18px;
-  margin-bottom: 12px;
-  font-weight: 700;
-}
-
-.enedis-result-single p {
-  color: #dce7f8;
-  margin: 0;
-  font-size: 15px;
-  line-height: 1.5;
-}
-
-/* --- Responsive --- */
-@media (max-width: 900px) {
-  .enedis-bottom {
-    flex-direction: column;
-    align-items: center;
-  }
-  .tools-box,
-  .enedis-result-single {
-    width: 90%;
-  }
-}
-
-/* ========== SLIDE 2 : cadrage qui tient en 1 page ========== */
-.slide-enedis-mission1{
-  min-height: calc(100vh - var(--board-h));
-}
-
-.slide-enedis-mission1 .slide-content{
-  max-width: 1100px;
-  width: min(92vw, 1100px);
-  margin: 0 auto;
-
-  /* IMPORTANT : structure verticale (texte en haut / blocs en bas) */
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-
-  /* Hauteur dispo dans la slide */
-  height: calc(100vh - var(--board-h));
-  padding: 54px 0 34px; /* remonte le bas + évite débordement */
-}
-
-/* petit ajustement du titre pour qu’il ne soit pas trop haut */
-.slide-enedis-mission1 h1{
-  margin-bottom: 18px;
-  line-height: 1.1;
-}
-
-/* paragraphs un peu plus compacts */
-.slide-enedis-mission1 p{
-  margin-bottom: 14px;
-}
-
-/* ========== 2 blocs du bas alignés ========== */
-.enedis-bottom{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 28px;
-  align-items: stretch;
-  margin-top: 18px; /* remonte les blocs */
-}
-
-/* mêmes dimensions visuelles */
-.tools-box,
-.enedis-result-single{
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.12);
-  border-radius: 18px;
-  padding: 18px 22px;
-  min-height: 170px; /* <- évite que ça descende */
-  box-shadow:
-    0 0 22px rgba(56,148,255,0.10),
-    0 8px 26px rgba(0,0,0,0.28);
-}
-
-/* titre des blocs */
-.tools-box h2,
-.enedis-result-single h2{
-  margin: 0 0 14px;
-  font-size: 20px;
-  color: #fff;
-  font-weight: 800;
-}
-
-/* chips outils */
-.tools-grid{
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-.tool-chip{
-  padding: 10px 14px;
+  padding: 10px 14px; /* tu peux réduire ici */
   border-radius: 999px;
   background: rgba(255,255,255,0.07);
   border: 1px solid rgba(77,180,255,0.25);
@@ -1711,27 +1624,38 @@ body {
   font-size: 14px;
 }
 
-/* texte résultat */
-.enedis-result-single p{
+/* Texte résultat */
+.enedis-result-single p {
   margin: 0;
   color: #dce7f7;
+  font-size: 15px;
   line-height: 1.55;
 }
-.enedis-result-single p strong{
-  color: #59b9ff; /* met en valeur sans "tout en gras" */
+
+.enedis-result-single p strong {
+  color: #59b9ff;
   font-weight: 800;
 }
 
-/* responsive */
-@media (max-width: 900px){
-  .slide-enedis-mission1 .slide-content{
+/* --- Responsive --- */
+@media (max-width: 900px) {
+  .slide-enedis-mission1 .slide-content {
     padding: 44px 0 26px;
   }
-  .enedis-bottom{
+
+  .enedis-bottom {
     grid-template-columns: 1fr;
     gap: 16px;
   }
+
+  .tools-box,
+  .enedis-result-single {
+    width: 90%;
+    margin: 0 auto;
+  }
 }
+
+
 
 
 
