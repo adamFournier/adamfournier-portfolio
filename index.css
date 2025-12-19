@@ -1697,6 +1697,15 @@ body {
 
 
 
+/* Centrage du texte dans la box Résultat */
+.enedis-result-single {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* centre verticalement */
+  align-items: center;     /* centre horizontalement */
+  text-align: center;
+}
+
 
 
 
