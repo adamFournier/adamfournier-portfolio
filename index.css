@@ -43,30 +43,88 @@ body {
   padding:0 24px;
 }
 .board__brand { font-weight:600; font-size:18px; letter-spacing:.3px; }
-.board__nav { display:flex; gap:20px; }
+
+/* Nav */
+.board__nav {
+  display:flex;
+  gap:28px;
+  align-items:center;
+  position:relative;
+}
 .board__nav a {
-  text-decoration:none; color:#eaf3ff;
-  font-weight:600; opacity:.85; transition:.2s;
+  position:relative;
+  text-decoration:none;
+  color:#dfe9ff;
+  font-weight:500;
+  font-size:15.5px;
+  opacity:.9;
+  transition:.2s;
 }
 .board__nav a:hover,
-.board__nav a.is-active { opacity:1; color:var(--brand); }
+.board__nav a.is-active { opacity:1; color:var(--brand-2); }
+
+/* === Sous-menu global "Stages" === */
+.nav-item { position: relative; display: inline-flex; align-items: center; }
+.nav-item > a::after {
+  content: "▼";
+  font-size: 9px;
+  margin-left: 6px;
+  opacity: 0.7;
+  transform: translateY(-1px);
+  transition: transform .2s ease, opacity .2s ease;
+}
+.nav-item:hover > a::after,
+.nav-item:focus-within > a::after {
+  transform: translateY(1px) rotate(180deg);
+  opacity: 1;
+}
+.nav-item .sub {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 220px;
+  background: rgba(8, 28, 48, 0.95);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 12px;
+  padding: 10px 0;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: 0.22s ease;
+  box-shadow: 0 12px 28px rgba(0,0,0,0.35);
+  z-index: 200;
+}
+.nav-item .sub a {
+  display: block;
+  padding: 9px 14px;
+  font-size: 14.5px;
+  text-decoration: none;
+  color: #eaf3ff;
+  transition: 0.18s ease;
+}
+.nav-item .sub a:hover {
+  background: rgba(255,255,255,0.08);
+  color: #79d2f2;
+}
+.nav-item:hover .sub,
+.nav-item:focus-within .sub {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
 
 /* === HERO (page d’accueil) === */
-/* HERO : ne réserve plus d'espace fixe, on met du padding en bas */
 .hero{
   display:grid;
   grid-template-columns:1.15fr .85fr;
   align-items:center;
   gap:44px;
-  /* AVANT : min-height: calc(100vh - var(--board-h) - var(--contact-h) - var(--footer-h)); */
-  min-height: calc(100vh - var(--board-h)); /* <= plus de trou artificiel */
+  min-height: calc(100vh - var(--board-h));
   padding: calc(var(--board-h) + 32px) 40px
-           calc(var(--contact-h) + var(--footer-h) + 8px); /* on laisse juste la place aux barres */
+           calc(var(--contact-h) + var(--footer-h) + 8px);
   position:relative;
   overflow:hidden;
 }
-
-/* Un petit reset pour éviter un “dernier marge” qui pousse visuellement */
 .info-section:last-of-type { margin-bottom: 0; }
 
 .hero__bg {
@@ -106,7 +164,7 @@ body {
   display:grid;
   grid-template-columns:repeat(auto-fit, minmax(180px, 1fr));
   gap:14px;
-  margin-bottom:16px; /* compact */
+  margin-bottom:16px;
 }
 .info-card {
   background: linear-gradient(160deg, #1b4c72, #216fa0);
@@ -134,7 +192,10 @@ body {
   box-shadow: 0 0 10px rgba(40, 140, 200, 0.4);
 }
 .icon-circle svg { fill:#fff; width:24px; height:24px; }
-.info-card h3 { font-size:16px; font-weight:700; color:#fff; letter-spacing:.4px; text-shadow:0 0 8px rgba(0,0,0,.3); }
+.info-card h3 {
+  font-size:16px; font-weight:700; color:#fff;
+  letter-spacing:.4px; text-shadow:0 0 8px rgba(0,0,0,.3);
+}
 
 /* === Section “Documents” (accueil) === */
 .info-section { margin-top:22px; text-align:center; }
@@ -177,12 +238,56 @@ body {
   display:flex; flex-wrap:wrap; align-items:center; justify-content:center;
   gap:24px;
 }
-.ci{ display:flex; align-items:center; gap:8px; font-size:14px; color:var(--text); text-decoration:none; opacity:.9; }
+.ci{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  font-size:14px;
+  color:var(--text);
+  text-decoration:none;
+  opacity:.9;
+  line-height:1;
+}
 .ci:hover{ opacity:1; }
-.ci img{ width:16px; height:16px; filter:invert(1); opacity:.85; }
 .sep{ width:1px; height:18px; background:rgba(255,255,255,.14); }
 
-/* === FOOTER © (ultra fin, tout en bas) === */
+/* Icônes SVG du bandeau contact */
+.ci .ico{
+  width:18px; height:18px;
+  stroke:currentColor; fill:none; stroke-width:2;
+  stroke-linecap:round; stroke-linejoin:round;
+  flex:0 0 18px; opacity:.95;
+  transition:transform .25s ease, opacity .2s ease, color .2s ease;
+}
+.ci .ico.ico--in{ fill:currentColor; stroke:none; }
+.ci .ico--in{
+  position: relative;
+  top: -1.5px;
+  width: 17px;
+  height: 17px;
+}
+
+/* Effets hover pour liens */
+.contacts-row a.ci{
+  position:relative;
+  transition: color .25s ease, transform .25s ease;
+}
+.contacts-row a.ci::after{
+  content:"";
+  position:absolute;
+  left:0; right:0; bottom:-6px;
+  height:2px;
+  background:linear-gradient(90deg, var(--brand), var(--brand-2));
+  opacity:0;
+  transform:scaleX(0);
+  transform-origin:left;
+  transition:opacity .2s ease, transform .25s ease;
+}
+.contacts-row a.ci:hover{ color:var(--brand-2); }
+.contacts-row a.ci:hover::after{ opacity:.9; transform:scaleX(1); }
+.contacts-row a.ci:hover .ico{ transform: translateY(1px) translateX(3px); }
+
+/* === FOOTER © === */
 .footer{
   position:fixed; left:0; right:0; bottom:0;
   height:var(--footer-h);
@@ -193,7 +298,7 @@ body {
   z-index:90;
 }
 
-/* === RESPONSIVE === */
+/* === RESPONSIVE HOME === */
 @media(max-width:900px){
   .hero { grid-template-columns:1fr; text-align:center; gap:28px; }
   .hero__avatar img { width:220px; height:220px; }
@@ -206,6 +311,7 @@ body {
 
 .slides-full-wrap{
   padding-top:var(--board-h);
+  padding-bottom: calc(var(--contact-h) + var(--footer-h) + 8px);
   height:100vh;
   overflow:hidden;
 }
@@ -225,76 +331,74 @@ body {
 }
 .slide-full:nth-child(2){background:linear-gradient(160deg,#0d2038,#184472);}
 .slide-full:nth-child(3){background:linear-gradient(160deg,#0e2240,#206b93);}
+
 .slide-content{
-  max-width:760px; width:min(92vw,760px); margin:0 auto;
+  max-width:760px;
+  width:min(92vw,760px);
+  margin:0 auto;
 }
 .slide-content h1{
-  font-size:clamp(26px,3.2vw,36px); font-weight:800;
-  margin:0 0 10px; line-height:1.2;
+  font-size:clamp(26px,3.2vw,36px);
+  font-weight:800;
+  margin:0 0 10px;
+  line-height:1.2;
 }
-.slide-content p{ color:#c2cde0; line-height:1.65; font-size:clamp(14px,1.45vw,16px); }
+.slide-content p{
+  color:#c2cde0;
+  line-height:1.65;
+  font-size:clamp(14px,1.45vw,16px);
+}
 
-/* Pagination ronds + compteur (barre bleue masquée) */
+/* Pagination */
 .pagination-ui {
   position: fixed;
   left: 0;
   right: 0;
-  bottom: max(18px, env(safe-area-inset-bottom)); /* un peu plus haut pour respirer */
+  bottom: max(18px, env(safe-area-inset-bottom));
   z-index: 25;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 14px; /* plus d’espace entre les éléments */
+  gap: 14px;
   pointer-events: none;
 }
-
 .dots {
   display: flex;
   align-items: center;
   gap: 10px;
   pointer-events: auto;
 }
-
 .dot {
   display: inline-block;
-  width: 12px;              /* avant : 8px */
-  height: 12px;             /* avant : 8px */
+  width: 12px;
+  height: 12px;
   border: 1.5px solid rgba(255, 255, 255, 0.25);
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.35);
   cursor: pointer;
   transition: transform 0.2s ease, background 0.2s, border-color 0.2s;
 }
-
-.dot:hover {
-  transform: scale(1.2);
-}
-
+.dot:hover { transform: scale(1.2); }
 .dot.is-active {
   background: #fff;
   border-color: #fff;
   box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.15);
 }
-
 .counter {
   pointer-events: none;
-  font-size: 13px;             /* avant : 11px */
+  font-size: 13px;
   line-height: 1;
   color: #eaf3ff;
   opacity: 0.95;
   background: rgba(0, 0, 0, 0.25);
   border: 1px solid rgba(255, 255, 255, 0.18);
-  padding: 5px 9px;           /* avant : 4px 7px */
+  padding: 5px 9px;
   border-radius: 8px;
   box-shadow: 0 0 8px rgba(255, 255, 255, 0.08);
 }
+.progress { display: none !important; }
 
-.progress {
-  display: none !important;
-}
-
-
-/* === Flèches parfaitement centrées === */
+/* Flèches */
 .arrows {
   position: fixed;
   top: 50%;
@@ -306,7 +410,6 @@ body {
   pointer-events: none;
   z-index: 30;
 }
-
 .arrow-btn {
   pointer-events: auto;
   width: 46px;
@@ -326,88 +429,11 @@ body {
   transform: scale(1.1);
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.15);
 }
-.arrow-btn svg {
-  stroke: #eaf3ff;
-}
-
-
-
-
-/* Icônes SVG du bandeau contact (nettes + accordées au texte) */
-.ci .ico{
-  width:18px; height:18px;
-  stroke:currentColor; fill:none; stroke-width:2;
-  stroke-linecap:round; stroke-linejoin:round;
-  flex:0 0 18px; opacity:.95;
-}
-.ci .ico.ico--in{ fill:currentColor; stroke:none; }  /* LinkedIn plein */
-
-/* --- Alignement fin des icônes dans le bandeau contact --- */
-.contacts-row .ci{
-  display:inline-flex;            /* déjà flex mais on force le inline */
-  align-items:center;
-  gap:8px;
-  line-height:1;                  /* évite les décalages verticaux */
-}
-
-.contacts-row .ci span{ line-height:1; }
-
-.contacts-row .ci .ico{
-  width:18px; height:18px;
-  stroke:currentColor; fill:none; stroke-width:2;
-  stroke-linecap:round; stroke-linejoin:round;
-  flex:0 0 18px;
-  vertical-align:middle;
-  transition:transform .25s ease, opacity .2s ease, color .2s ease;
-}
-
-.contacts-row .ci .ico--in {
-  fill: currentColor;
-  stroke: none;
-  position: relative;
-  top: -1.5px;           /* remonte légèrement le logo */
-  width: 17px;
-  height: 17px;
-}
-
-/* --- Effets de survol uniquement sur les liens cliquables --- */
-.contacts-row a.ci{
-  position:relative;
-  transition: color .25s ease, transform .25s ease;
-}
-
-/* Soulignement animé discret sous l’élément */
-.contacts-row a.ci::after{
-  content:"";
-  position:absolute;
-  left:0; right:0; bottom:-6px;
-  height:2px;
-  background:linear-gradient(90deg, var(--brand), var(--brand-2));
-  opacity:0;
-  transform:scaleX(0);
-  transform-origin:left;
-  transition:opacity .2s ease, transform .25s ease;
-}
-
-.contacts-row a.ci:hover{
-  color:var(--brand-2);
-}
-
-.contacts-row a.ci:hover::after{
-  opacity:.9;
-  transform:scaleX(1);
-}
-
-/* L’icône glisse très légèrement à droite au hover pour signaler le clic */
-.contacts-row a.ci:hover .ico{
-  transform: translateY(1px) translateX(3px);
-}
-
+.arrow-btn svg { stroke: #eaf3ff; }
 
 /* Intro slide (stages) */
 .slide-intro { background: linear-gradient(160deg,#0c1a30,#16385f); }
 .slide-content.intro { max-width: 900px; }
-
 .intro__lead { color:#cfe3ff; opacity:.9; margin:8px 0 18px; }
 
 .intro-grid{
@@ -438,185 +464,25 @@ body {
   background:rgba(42,168,216,.12);
   border:1px solid rgba(42,168,216,.35);
 }
-
 .intro-cta{ margin-top:6px; display:flex; justify-content:center; }
 .intro-btn{
-  padding:10px 16px; border-radius:10px; border:none; cursor:pointer;
+  padding:10px 16px;
+  border-radius:10px;
+  border:none;
+  cursor:pointer;
   background:linear-gradient(90deg, var(--brand), var(--brand-2));
-  color:#061022; font-weight:800;
-  transition:.2s ease; box-shadow:0 6px 16px rgba(42,168,216,.35);
+  color:#061022;
+  font-weight:800;
+  transition:.2s ease;
+  box-shadow:0 6px 16px rgba(42,168,216,.35);
 }
 .intro-btn:hover{ transform:translateY(-2px); filter:brightness(1.05); }
 
-/* === Sous-menu global pour "Stages" (toutes pages) === */
-.board__nav { 
-  display: flex; 
-  gap: 28px; 
-  align-items: center; 
-  position: relative; 
-}
-.board__nav a { 
-  position: relative; 
-  color: #dfe9ff; 
-  text-decoration: none; 
-  font-weight: 500; 
-  font-size: 15.5px; 
-  transition: color .2s; 
-}
-.board__nav a:hover { 
-  color: #79d2f2; 
-}
+/* ===================================================== */
+/* COMPOSANTS UTILITAIRES (slides 2 colonnes, medias, etc.) */
+/* ===================================================== */
 
-/* Élément de navigation avec sous-menu */
-.nav-item { 
-  position: relative; 
-  display: inline-flex; 
-  align-items: center; 
-}
-
-/* Flèche ▼ à côté de "Stages" */
-.nav-item > a::after {
-  content: "▼";
-  font-size: 9px;
-  margin-left: 6px;
-  opacity: 0.7;
-  transform: translateY(-1px);
-  transition: transform .2s ease, opacity .2s ease;
-}
-.nav-item:hover > a::after,
-.nav-item:focus-within > a::after {
-  transform: translateY(1px) rotate(180deg);
-  opacity: 1;
-}
-
-/* Sous-menu */
-.nav-item .sub {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  min-width: 220px;
-  background: rgba(8, 28, 48, 0.95);
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 12px;
-  padding: 10px 0;
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(8px);
-  transition: 0.22s ease;
-  box-shadow: 0 12px 28px rgba(0,0,0,0.35);
-  z-index: 200;
-}
-.nav-item .sub a {
-  display: block;
-  padding: 9px 14px;
-  font-size: 14.5px;
-  text-decoration: none;
-  color: #eaf3ff;
-  transition: 0.18s ease;
-}
-.nav-item .sub a:hover {
-  background: rgba(255,255,255,0.08);
-  color: #79d2f2;
-}
-.nav-item:hover .sub,
-.nav-item:focus-within .sub {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-}
-
-
-
-
-
-
-/* === ENEDIS SLIDE — version corrigée === */
-.slide-enedis-main {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  padding-left: 5vw;
-}
-
-.enedis-grid {
-  display: grid;
-  grid-template-columns: 1.1fr 460px;
-  align-items: center;
-  gap: 44px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.enedis-text h1 {
-  margin: 0 0 14px;
-  font-size: clamp(26px, 3vw, 34px);
-}
-
-.enedis-text p {
-  line-height: 1.6;
-  margin-bottom: 14px;
-}
-
-.enedis-text strong {
-  color: #fff;
-  font-weight: 800;
-}
-
-.enedis-bullets {
-  list-style: disc;
-  margin: 10px 0 20px 28px;
-  color: #dfe8f8;
-}
-
-.enedis-bullets li {
-  margin-bottom: 6px;
-  font-size: 15px;
-}
-
-.enedis-bullets strong {
-  color: #4da3ff;
-  font-weight: 800;
-}
-
-/* --- Cartes Missions --- */
-.missions-cards {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  margin-top: 18px;
-}
-
-.mission-card {
-  display: flex;
-  align-items: flex-start;
-  gap: 14px;
-  background: rgba(255, 255, 255, 0.07);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 14px;
-  padding: 14px 16px;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
-  transition: all 0.25s ease;
-}
-
-.mission-card:hover {
-  background: rgba(255, 255, 255, 0.12);
-  transform: translateY(-2px);
-}
-
-.mission-card .icon {
-  font-size: 1.4rem;
-  line-height: 1;
-}
-
-.mission-card .text h3 {
-  font-size: 16px;
-  margin: 0;
-  color: #fff;
-}
-
-/* --- Image à droite --- */
-.card {
+.card{
   background: linear-gradient(160deg, #0f1d3b, #0b1530);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 20px;
@@ -624,63 +490,33 @@ body {
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.45);
 }
 
-.enedis-image img {
-  display: block;
-  width: 100%;
-  height: auto;
-  border-radius: 14px;
-}
-
-/* --- Slides suivantes (missions / bilan) --- */
 .two-col {
   max-width: 1100px;
+  width:min(92vw,1100px);
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 28px;
+  gap: 26px;
 }
+.two-col .col { min-width: 0; }
 
-.two-col .col {
-  min-width: 0;
-}
-
-.nice-list {
-  margin: 12px 0 18px 18px;
-}
+.nice-list { margin: 12px 0 18px 18px; }
 
 .media-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 14px;
+  gap: 12px;
 }
-
 .media-card {
   background: rgba(255, 255, 255, 0.06);
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 12px;
   overflow: hidden;
 }
+.media-card img { display: block; width: 100%; height: auto; }
+.media-caption { font-size: 13px; color: #cfd8e3; padding: 8px 10px; }
 
-.media-card img {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-
-.media-caption {
-  font-size: 13px;
-  color: #cfd8e3;
-  padding: 8px 10px;
-}
-
-/* --- Chips (bilan) --- */
-.stack-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 14px;
-}
-
+.stack-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
 .chip {
   font-size: 12px;
   padding: 6px 10px;
@@ -689,474 +525,61 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.12);
 }
 
-/* --- Responsive --- */
 @media (max-width: 1000px) {
-  .enedis-grid {
-    grid-template-columns: 1fr;
-    gap: 22px;
-  }
-
-  .enedis-image {
-    max-width: 520px;
-    margin: 0 auto;
-  }
-
-  .two-col {
-    grid-template-columns: 1fr;
-  }
+  .two-col { grid-template-columns: 1fr; }
 }
-/* === Ajustement de la slide Enedis pour meilleur centrage === */
-.slide-enedis-main {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+
+/* ===================================================== */
+/* ENEDIS — SLIDE PRINCIPALE (finale, sans effet bouton) */
+/* ===================================================== */
+
+.slide-enedis-main{
+  display:flex;
+  align-items:center;
+  justify-content:center;
   min-height: calc(100vh - var(--board-h));
   padding: 40px 6vw;
 }
 
-.enedis-grid {
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  align-items: center;
-  justify-content: center;
-  gap: 40px;
-  max-width: 1100px;
-  width: 100%;
-  margin: 0 auto;
+.slide-enedis-main .slide-content{
+  max-width:1100px;
+  width:min(92vw,1100px);
+  margin:0 auto;
 }
 
-.enedis-text {
-  max-width: 560px;
-}
-
-.enedis-text h1 {
-  font-size: clamp(28px, 3.3vw, 36px);
-  line-height: 1.2;
-  margin-bottom: 16px;
-}
-
-.enedis-text p,
-.enedis-bullets {
-  font-size: 15.5px;
-}
-
-.enedis-image {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  max-width: 440px;
-  margin: 0 auto;
-}
-
-.enedis-image img {
-  width: 100%;
-  height: auto;
-  border-radius: 14px;
-  object-fit: cover;
-  box-shadow: 0 12px 32px rgba(0,0,0,0.4);
-}
-
-/* Ajustement responsive : centrage vertical + pile texte/image */
-@media (max-width: 900px) {
-  .slide-enedis-main {
-    padding: 80px 6vw;
-    min-height: calc(100vh - var(--board-h));
-  }
-
-  .enedis-grid {
-    grid-template-columns: 1fr;
-    gap: 32px;
-    text-align: center;
-  }
-
-  .enedis-text {
-    max-width: 640px;
-    margin: 0 auto;
-  }
-
-  .enedis-image {
-    max-width: 360px;
-  }
-}
-/* Laisse de la place aux éléments fixes bas (contact + ©) */
-.slides-full-wrap{
-  padding-bottom: calc(var(--contact-h) + var(--footer-h) + 8px);
-}
-
-/* Enedis – mise en page interne (namespacée) */
-.slide-enedis-main .slide-content{max-width:1100px; width:min(92vw,1100px); margin:0 auto;}
 .enedis-grid{
   display:grid;
-  grid-template-columns: minmax(520px, 1fr) 440px;
+  grid-template-columns: minmax(520px, 1fr) 560px;
   align-items:center;
   gap:40px;
 }
-.enedis-text h1{margin:0 0 12px; font-size:clamp(28px,3.2vw,40px)}
-.enedis-text .intro-text{margin:0 0 14px}
-.enedis-bullets{list-style:disc; margin:8px 0 18px 28px; color:#dfe8f8}
-.enedis-bullets li{margin-bottom:6px}
-.enedis-bullets strong{color:#4da3ff; font-weight:800}
 
-.missions-cards{display:flex; flex-direction:column; gap:12px; margin-top:16px}
-.mission-card{
-  display:flex; gap:12px; align-items:flex-start;
-  background:rgba(255,255,255,.07);
-  border:1px solid rgba(255,255,255,.12);
-  border-radius:14px; padding:12px 14px;
-}
-.mission-card .icon{font-size:1.35rem; line-height:1}
-.mission-card h3{margin:0; font-size:16px}
-
-.card{
-  background:linear-gradient(160deg,#0f1d3b,#0b1530);
-  border:1px solid rgba(255,255,255,.10);
-  border-radius:18px; padding:12px;
-  box-shadow:0 12px 34px rgba(0,0,0,.42);
-}
-.enedis-image img{display:block; width:100%; height:auto; border-radius:12px}
-
-/* Slides 2/3 & bilan (grille 2 colonnes) */
-.two-col{max-width:1100px; width:min(92vw,1100px); margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:26px}
-.two-col .col{min-width:0}
-.nice-list{margin:12px 0 18px 18px}
-.media-grid{display:grid; grid-template-columns:1fr 1fr; gap:12px}
-.media-card{background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.12); border-radius:12px; overflow:hidden}
-.media-card img{display:block; width:100%; height:auto}
-.media-caption{font-size:13px; color:#cfd8e3; padding:8px 10px}
-.stack-row{display:flex; flex-wrap:wrap; gap:8px; margin-top:12px}
-.chip{font-size:12px; padding:6px 10px; border-radius:999px; background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.12)}
-
-/* Responsive */
-@media (max-width:1000px){
-  .enedis-grid{grid-template-columns:1fr; gap:20px}
-  .enedis-image{max-width:480px; margin:0 auto}
-  .two-col{grid-template-columns:1fr}
-}
-
-/* ==== Ajustements visuels pour la slide Enedis ==== */
-.enedis-grid {
-  display: grid;
-  grid-template-columns: 1fr 1.1fr; /* image un peu plus large */
-  align-items: start;
-  gap: 50px;
-  max-width: 1150px;
-  margin: 0 auto;
-}
-
-.enedis-image {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-  margin-top: -30px; /* remonte légèrement l'image */
-}
-
-.enedis-image img {
-  width: 100%;
-  max-width: 520px;
-  border-radius: 16px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.45);
-  object-fit: cover;
-  transition: transform 0.3s ease;
-}
-.enedis-image img:hover {
-  transform: scale(1.03);
-}
-
-/* Mise en page des missions sous l'image */
-.enedis-missions-under {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  width: 100%;
-  max-width: 520px;
-}
-
-.enedis-mission {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
-  padding: 12px 16px;
-  transition: background 0.3s ease, transform 0.3s ease;
-}
-
-.enedis-mission:hover {
-  background: rgba(255, 255, 255, 0.12);
-  transform: translateY(-2px);
-}
-
-.enedis-mission .icon {
-  font-size: 1.4rem;
-}
-
-.enedis-mission h3 {
-  margin: 0;
-  font-size: 15.5px;
-  font-weight: 600;
-  color: #fff;
-}
-
-/* Responsive : image centrée au-dessus du texte */
-@media (max-width: 900px) {
-  .enedis-grid {
-    grid-template-columns: 1fr;
-    text-align: center;
-    gap: 32px;
-  }
-  .enedis-image {
-    margin-top: 0;
-  }
-  .enedis-missions-under {
-    align-items: center;
-  }
-}
-
-/* ==== Ajustements harmonisés pour la slide Enedis ==== */
-.enedis-grid {
-  display: grid;
-  grid-template-columns: 1.05fr 1.1fr;
-  align-items: start;
-  gap: 60px;
-  max-width: 1180px;
-  margin: 0 auto;
-  padding-top: 20px;
-}
-
-.enedis-text {
-  padding-left: 30px; /* décale légèrement à droite */
-  transform: translateY(-20px); /* remonte un peu le texte */
-}
-
-.enedis-text h1 {
-  font-size: clamp(28px, 3.2vw, 40px);
-  margin-bottom: 14px;
-}
-
-.enedis-text p {
-  line-height: 1.65;
-  margin-bottom: 14px;
-  color: #cfd9eb;
-}
-
-.enedis-bullets {
-  margin: 10px 0 22px 24px;
-  color: #eaf3ff;
-}
-.enedis-bullets li {
-  margin-bottom: 6px;
-  font-size: 15.5px;
-}
-.enedis-bullets strong {
-  color: #4db4ff;
-}
-
-.enedis-image {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 24px;
-  margin-top: -25px;
-}
-
-.enedis-image img {
-  width: 100%;
-  max-width: 540px;
-  border-radius: 18px;
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.enedis-image img:hover {
-  transform: scale(1.03);
-  box-shadow: 0 16px 50px rgba(0, 0, 0, 0.55);
-}
-
-/* --- Missions plus valorisées --- */
-.enedis-missions-under {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  width: 100%;
-  max-width: 540px;
-}
-
-.enedis-mission {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  background: linear-gradient(145deg, rgba(255,255,255,0.06), rgba(255,255,255,0.08));
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 14px;
-  padding: 14px 18px;
-  transition: all 0.25s ease;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.3);
-}
-
-.enedis-mission:hover {
-  transform: translateY(-3px);
-  background: linear-gradient(145deg, rgba(255,255,255,0.1), rgba(255,255,255,0.15));
-  box-shadow: 0 10px 26px rgba(42,168,216,0.25);
-  border-color: rgba(42,168,216,0.5);
-}
-
-.enedis-mission .icon {
-  font-size: 1.5rem;
-  line-height: 1;
-}
-
-.enedis-mission h3 {
-  margin: 0;
-  font-size: 16px;
-  font-weight: 700;
-  color: #fff;
-  letter-spacing: 0.2px;
-}
-
-@media (max-width: 900px) {
-  .enedis-grid {
-    grid-template-columns: 1fr;
-    gap: 36px;
-  }
-  .enedis-text {
-    padding-left: 0;
-    text-align: center;
-    transform: translateY(0);
-  }
-  .enedis-image {
-    margin-top: 0;
-  }
-}
-
-
-/* ==== Ajustements harmonisés pour la slide Enedis ==== */
-.enedis-grid {
-  display: grid;
-  grid-template-columns: 1.05fr 1.1fr;
-  align-items: start;
-  gap: 60px;
-  max-width: 1180px;
-  margin: 0 auto;
-  padding-top: 20px;
-}
-
-.enedis-text {
-  padding-left: 30px; /* décale légèrement à droite */
-  transform: translateY(-20px); /* remonte un peu le texte */
-}
-
-.enedis-text h1 {
-  font-size: clamp(28px, 3.2vw, 40px);
-  margin-bottom: 14px;
-}
-
-.enedis-text p {
-  line-height: 1.65;
-  margin-bottom: 14px;
-  color: #cfd9eb;
-}
-
-.enedis-bullets {
-  margin: 10px 0 22px 24px;
-  color: #eaf3ff;
-}
-.enedis-bullets li {
-  margin-bottom: 6px;
-  font-size: 15.5px;
-}
-.enedis-bullets strong {
-  color: #4db4ff;
-}
-
-/* --- Image --- */
-.enedis-image {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 24px;
-  margin-top: -25px;
-}
-
-.enedis-image img {
-  width: 100%;
-  max-width: 540px;
-  border-radius: 18px;
-  box-shadow:
-    0 0 25px rgba(42, 168, 216, 0.25), /* halo bleuté doux */
-    0 12px 40px rgba(0, 0, 0, 0.45);
-  transition: none;
-}
-
-/* --- Missions (plus mises en valeur, sans hover) --- */
-.enedis-missions-under {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  width: 100%;
-  max-width: 540px;
-}
-
-.enedis-mission {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  background: linear-gradient(145deg, rgba(255,255,255,0.07), rgba(255,255,255,0.09));
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 14px;
-  padding: 14px 18px;
-  box-shadow:
-    0 0 20px rgba(42, 168, 216, 0.15), /* halo discret */
-    0 6px 14px rgba(0,0,0,0.3);
-  transition: none;
-}
-
-.enedis-mission .icon {
-  font-size: 1.5rem;
-  line-height: 1;
-  text-shadow: 0 0 6px rgba(42,168,216,0.4);
-}
-
-.enedis-mission h3 {
-  margin: 0;
-  font-size: 16px;
-  font-weight: 700;
-  color: #fff;
-  letter-spacing: 0.2px;
-}
-
-@media (max-width: 900px) {
-  .enedis-grid {
-    grid-template-columns: 1fr;
-    gap: 36px;
-  }
-  .enedis-text {
-    padding-left: 0;
-    text-align: center;
-    transform: translateY(0);
-  }
-  .enedis-image {
-    margin-top: 0;
-  }
-}
-
-/* ====== ENEDIS — overrides sans effet bouton + halo ambiant ====== */
-
-/* Alignement/placement : texte un peu plus à droite et remonté */
 .enedis-text{
   padding-left: 32px;
   transform: translateY(-16px);
 }
+.enedis-text h1{
+  margin:0 0 12px;
+  font-size:clamp(28px,3.2vw,40px);
+  line-height:1.2;
+}
+.enedis-text p{ margin:0 0 14px; color:#cfd9eb; line-height:1.65; }
+.enedis-bullets{ list-style:disc; margin:8px 0 18px 28px; color:#dfe8f8; }
+.enedis-bullets li{ margin-bottom:6px; }
+.enedis-bullets strong{ color:#59b9ff; font-weight:800; }
 
-/* Image : pas d'effet hover, halo ambiant diffus derrière */
+/* Image : halo diffus, pas de hover */
 .enedis-image{
   position: relative;
-  margin-top: -18px; /* remonte l'image */
+  margin-top: -18px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
 .enedis-image::before{
   content:"";
   position:absolute;
-  inset:-26px -26px -26px -26px;   /* déborde pour un halo plus large */
+  inset:-26px;
   background:
     radial-gradient(420px 220px at 60% 40%, rgba(56,148,255,.18), transparent 60%),
     radial-gradient(380px 260px at 30% 70%, rgba(0,180,210,.12), transparent 65%);
@@ -1167,45 +590,38 @@ body {
 .enedis-image img{
   position: relative;
   z-index: 1;
-  max-width: 560px;               /* image un peu plus grande */
-  border-radius: 18px;
-  box-shadow: 0 14px 38px rgba(0,0,0,.45); /* ombre douce, pas de glow “bouton” */
-  transform: none !important;
-  transition: none !important;
-}
-.enedis-image img:hover{
-  transform: none !important;
-  filter: none !important;
-}
-
-/* Bloc missions sous l'image (à droite) */
-.enedis-missions-under{
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
+  display:block;
+  width:100%;
+  height:auto;
   max-width: 560px;
-  margin-top: 14px;
+  border-radius: 18px;
+  box-shadow: 0 14px 38px rgba(0,0,0,.45);
 }
 
-/* Cartes missions : statiques, sans hover, curseur par défaut */
+/* Missions sous l'image : statiques */
+.enedis-missions-under{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+  max-width:560px;
+  margin-top:14px;
+}
 .enedis-mission{
   position: relative;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 14px 16px;
-  border-radius: 14px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:14px 16px;
+  border-radius:14px;
   background: rgba(255,255,255,.06);
   border: 1px solid rgba(255,255,255,.14);
-  box-shadow: 0 10px 26px rgba(0,0,0,.28); /* profondeur sans effet bouton */
+  box-shadow: 0 10px 26px rgba(0,0,0,.28);
   cursor: default;
-  transition: none !important;
 }
 .enedis-mission::before{
   content:"";
   position:absolute;
-  inset:-16px -16px -16px -16px;
+  inset:-16px;
   background:
     radial-gradient(260px 140px at 25% 50%, rgba(56,148,255,.16), transparent 60%),
     radial-gradient(220px 120px at 80% 60%, rgba(0,180,210,.10), transparent 65%);
@@ -1214,402 +630,91 @@ body {
   pointer-events:none;
 }
 .enedis-mission > *{ position: relative; z-index: 1; }
-.enedis-mission .icon{ font-size: 1.4rem; line-height: 1; }
+.enedis-mission .icon{ font-size:1.4rem; line-height:1; }
 .enedis-mission h3{ margin:0; font-size:16px; font-weight:700; color:#fff; }
 
-/* Neutralise TOUT effet hover hérité de styles globaux */
-.enedis-mission:hover,
-.enedis-mission:focus,
-.mission-card:hover,
-.mission-card:focus{
-  background: rgba(255,255,255,.06) !important;
-  border-color: rgba(255,255,255,.14) !important;
-  box-shadow: 0 10px 26px rgba(0,0,0,.28) !important;
-  transform: none !important;
-}
-.card:hover{ transform:none !important; filter:none !important; }
-
-/* Bullets chiffres-clés : un peu plus lisible */
-.enedis-bullets strong{
-  color:#59b9ff;
-  font-weight:800;
-}
-
-/* Responsive : cohérent sans décalages */
 @media (max-width: 900px){
+  .enedis-grid{ grid-template-columns:1fr; gap:20px; }
   .enedis-text{ padding-left:0; transform:none; text-align:center; }
   .enedis-image{ margin-top:0; }
   .enedis-missions-under{ max-width: 100%; }
 }
 
-/* ==== SLIDE 2 — Mise en conformité ==== */
-.slide-enedis-mission1 {
-  background: radial-gradient(100% 100% at 50% 0%, rgba(12,32,56,0.7) 0%, rgba(8,20,36,0.95) 100%);
-}
+/* ===================================================== */
+/* ENEDIS — SLIDES MISSIONS (M1/M2/M3) (final stable) */
+/* ===================================================== */
 
-.slide-enedis-mission1 .slide-content {
-  max-width: 1000px;
-  margin: 0 auto;
-  text-align: left;
-}
-
-.slide-enedis-mission1 h1 {
-  font-size: clamp(28px, 3vw, 38px);
-  margin-bottom: 24px;
-  color: #fff;
-}
-
-.slide-enedis-mission1 p {
-  line-height: 1.7;
-  color: #d8e2f1;
-  margin-bottom: 16px;
-}
-
-.slide-enedis-mission1 strong {
-  color: #59b9ff;
-}
-
-/* --- Bloc Résultats bien centré et contenu dans la page --- */
-.enedis-results {
-  margin: 40px auto 0 auto;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 20px;
-  padding: 30px 35px;
-  box-shadow:
-    0 0 25px rgba(56, 148, 255, 0.12),
-    0 8px 25px rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(10px);
-  text-align: center;
-  width: 85%;
-  max-width: 800px;
-  position: relative;
-  overflow: hidden;
-}
-
-/* Halo diffus recentré */
-.enedis-results::before {
-  content: "";
-  position: absolute;
-  inset: -20px;
-  background: radial-gradient(400px 260px at 50% 50%, rgba(56,148,255,0.15), transparent 70%);
-  filter: blur(20px);
-  z-index: 0;
-  pointer-events: none;
-}
-
-.enedis-results > * {
-  position: relative;
-  z-index: 1;
-}
-
-/* Titre */
-.enedis-results h2 {
-  font-size: 22px;
-  color: #fff;
-  margin-bottom: 25px;
-  font-weight: 700;
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-}
-
-/* Grille des résultats bien centrée */
-.results-grid {
-  display: flex;
-  justify-content: center;
-  align-items: stretch;
-  gap: 20px;
-  flex-wrap: wrap;
-  margin: 0 auto;
-  max-width: 700px;
-}
-
-/* Cartes de résultats */
-.result-card {
-  background: rgba(255, 255, 255, 0.07);
-  border-radius: 12px;
-  padding: 20px 25px;
-  width: 200px;
-  text-align: center;
-  box-shadow:
-    0 0 15px rgba(56,148,255,0.1),
-    0 6px 15px rgba(0, 0, 0, 0.25);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  cursor: default;
-  transition: none;
-}
-
-.result-card h3 {
-  color: #4db4ff;
-  font-size: 26px;
-  margin-bottom: 8px;
-  font-weight: 800;
-}
-
-.result-card p {
-  color: #dce7f7;
-  margin: 0;
-  font-size: 15px;
-}
-
-/* Responsive */
-@media (max-width: 900px) {
-  .enedis-results {
-    width: 92%;
-    padding: 25px 18px;
-  }
-
-  .results-grid {
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-  }
-
-  .result-card {
-    width: 90%;
-  }
-}
-
-/* === SLIDE 2 — Mise en conformité (fixe & centrée) === */
 .slide-enedis-mission1{
-  background: radial-gradient(100% 100% at 50% 0%, rgba(12,32,56,.70) 0%, rgba(8,20,36,.96) 100%);
-  overflow: hidden;               /* rien ne déborde visuellement */
-}
-
-/* Conteneur : largeur et hauteur contrôlées + centrage vertical */
-.slide-enedis-mission1 .slide-content{
-  width: min(92vw, 980px);
-  min-height: calc(100vh - var(--board-h));  /* tient dans la fenêtre sous le board */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;        /* centre verticalement tout le contenu */
-  padding: 10vh 20px 6vh;         /* espace haut/bas stable (ajuste à 8/5 si besoin) */
-  margin: 0 auto;
-  gap: 12px;
-}
-@supports (height: 100svh){
-  .slide-enedis-mission1 .slide-content{
-    min-height: calc(100svh - var(--board-h));
-  }
-}
-
-/* Typo & espacements plus serrés (évite de pousser le contenu vers le bas) */
-.slide-enedis-mission1 h1{
-  font-size: clamp(28px, 3vw, 38px);
-  line-height: 1.15;
-  margin: 0 0 10px;
-  color: #fff;
-}
-.slide-enedis-mission1 p{
-  margin: 0 0 12px;
-  line-height: 1.65;
-  color: #d8e2f1;
-}
-.slide-enedis-mission1 strong{ color:#59b9ff; }
-
-/* --- Bloc Résultats : compact, centré, sans débordement --- */
-.enedis-results{
-  margin: 20px auto 0;
-  width: min(86%, 820px);
-  background: rgba(255,255,255,.05);
-  border: 1px solid rgba(255,255,255,.10);
-  border-radius: 18px;
-  padding: 26px 28px;
-  box-shadow:
-    0 0 22px rgba(56,148,255,.12),
-    0 8px 24px rgba(0,0,0,.30);
-  backdrop-filter: blur(10px);
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-}
-.enedis-results::before{
-  content:"";
-  position:absolute; inset:-16px;
-  background: radial-gradient(380px 220px at 50% 45%, rgba(56,148,255,.14), transparent 70%);
-  filter: blur(18px);
-  pointer-events:none;
-}
-.enedis-results > *{ position:relative; z-index:1; }
-.enedis-results h2{
-  font-size: 20px;
-  margin: 0 0 20px;
-  color:#fff; font-weight:700;
-  display:inline-flex; gap:10px; align-items:center;
-}
-
-/* Grille et cartes */
-.results-grid{
-  display:flex; justify-content:center; align-items:stretch;
-  gap:18px; flex-wrap:wrap; margin:0 auto; max-width:700px;
-}
-.result-card{
-  width: 200px;
-  padding: 18px 22px;
-  text-align:center;
-  background: rgba(255,255,255,.07);
-  border: 1px solid rgba(255,255,255,.12);
-  border-radius: 12px;
-  box-shadow:
-    0 0 14px rgba(56,148,255,.10),
-    0 6px 14px rgba(0,0,0,.25);
-  cursor: default;           /* pas un bouton */
-  transition: none;          /* pas d’effet hover */
-}
-.result-card h3{
-  color:#4db4ff; font-size:26px; font-weight:800; margin:0 0 6px;
-}
-.result-card p{
-  color:#dce7f7; font-size:15px; margin:0;
-}
-
-/* Responsive */
-@media (max-width: 900px){
-  .slide-enedis-mission1 .slide-content{ padding: 8vh 16px 6vh; }
-  .enedis-results{ width: 92%; padding: 22px 16px; }
-  .results-grid{ flex-direction:column; gap:14px; }
-  .result-card{ width: 100%; }
-}
-
-/* === Bloc résultat unique (option 1) === */
-.enedis-result-single {
-  margin: 40px auto 0;
-  text-align: center;
-  background: rgba(255,255,255,0.06);
-  border-radius: 18px;
-  padding: 26px 34px;
-  width: min(85%, 750px);
-  box-shadow:
-    0 0 25px rgba(56,148,255,0.12),
-    0 8px 25px rgba(0,0,0,0.35);
-  border: 1px solid rgba(255,255,255,0.12);
-  backdrop-filter: blur(10px);
-  position: relative;
-  overflow: hidden;
-}
-
-.enedis-result-single::before {
-  content: "";
-  position: absolute;
-  inset: -18px;
-  background: radial-gradient(450px 250px at 50% 50%, rgba(56,148,255,0.15), transparent 75%);
-  filter: blur(20px);
-  z-index: 0;
-}
-
-.enedis-result-single > * {
-  position: relative;
-  z-index: 1;
-}
-
-.enedis-result-single h2 {
-  font-size: 22px;
-  color: #fff;
-  margin-bottom: 12px;
-  font-weight: 700;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.enedis-result-single p {
-  color: #d8e2f1;
-  font-size: 18px;
-  font-weight: 500;
-  margin: 0;
-  line-height: 1.6;
-}
-/* ==== SLIDE 2 — Mission 1 (VERSION FINALE CLEAN) ==== */
-
-.slide-enedis-mission1 {
-  background: radial-gradient(
-    100% 100% at 50% 0%,
-    rgba(12,32,56,0.7) 0%,
-    rgba(8,20,36,0.95) 100%
-  );
-  display: flex;
-  align-items: center;
+  background: radial-gradient(100% 100% at 50% 0%, rgba(12,32,56,0.70) 0%, rgba(8,20,36,0.95) 100%);
+  display:flex;
+  align-items:center;
   min-height: calc(100vh - var(--board-h));
 }
 
-/* Contenu global */
-.slide-enedis-mission1 .slide-content {
-  max-width: 1100px;
+.slide-enedis-mission1 .slide-content{
   width: min(92vw, 1100px);
   margin: 0 auto;
-  text-align: left;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start; /* FIX : plus de space-between */
-
-  height: calc(100vh - var(--board-h));
-  padding: 48px 0 28px; /* remonte le bas */
+  padding: 48px 0 28px;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  text-align:left;
 }
 
-/* Titre */
-.slide-enedis-mission1 h1 {
+.slide-enedis-mission1 h1{
   font-size: clamp(28px, 3vw, 36px);
-  margin-bottom: 16px;
   line-height: 1.1;
-  color: #fff;
+  margin: 0 0 6px;
+  color:#fff;
 }
-
-/* Texte */
-.slide-enedis-mission1 p {
-  line-height: 1.65;
-  color: #d8e2f1;
-  margin-bottom: 12px;
+.slide-enedis-mission1 p{
+  margin:0;
+  color:#d8e2f1;
+  line-height:1.65;
 }
+.slide-enedis-mission1 strong{ color:#59b9ff; font-weight:600; }
 
-.slide-enedis-mission1 strong {
-  color: #59b9ff;
-  font-weight: 600;
-}
-
-/* --- Conteneur des deux blocs --- */
-.enedis-bottom {
-  display: grid;
+/* Bas de slide : 2 cartes */
+.enedis-bottom{
+  margin-top: 16px;
+  display:grid;
   grid-template-columns: 1fr 1fr;
   gap: 24px;
-  align-items: stretch;
-  margin-top: 12px; /* remonte les box */
+  align-items: start;
 }
 
-/* --- Blocs outils + résultat --- */
 .tools-box,
-.enedis-result-single {
+.enedis-result-single{
   background: rgba(255,255,255,0.06);
   border: 1px solid rgba(255,255,255,0.12);
   border-radius: 18px;
-  padding: 14px 18px; /* espace intérieur réduit */
-  min-height: 150px;
-  text-align: center;
-  box-shadow:
-    0 0 22px rgba(56,148,255,0.10),
-    0 8px 26px rgba(0,0,0,0.28);
+  padding: 16px 18px;
+  min-height: 170px;
+  box-shadow: 0 0 22px rgba(56,148,255,0.10), 0 8px 26px rgba(0,0,0,0.28);
+
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
 }
 
-/* Titres des blocs */
 .tools-box h2,
-.enedis-result-single h2 {
+.enedis-result-single h2{
   margin: 0 0 10px;
-  font-size: 19px;
-  color: #fff;
+  font-size: 18px;
   font-weight: 800;
+  color:#fff;
 }
 
-/* Grille des outils */
-.tools-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 6px; /* plus compact */
+.tools-grid{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:6px;
 }
 
-/* Chips outils */
-.tool-chip {
+.tool-chip{
   padding: 6px 10px;
   border-radius: 999px;
   background: rgba(255,255,255,0.07);
@@ -1619,104 +724,15 @@ body {
   font-size: 13px;
 }
 
-/* Texte résultat */
-.enedis-result-single p {
-  margin: 0;
-  color: #dce7f7;
-  font-size: 15px;
-  line-height: 1.5;
+.enedis-result-single p{
+  margin:0;
+  color:#dce7f7;
+  font-size:15px;
+  line-height:1.5;
 }
+.enedis-result-single p strong{ color:#59b9ff; font-weight:800; }
 
-.enedis-result-single p strong {
-  color: #59b9ff;
-  font-weight: 800;
-}
-
-/* --- Responsive --- */
-@media (max-width: 900px) {
-  .slide-enedis-mission1 .slide-content {
-    padding: 40px 0 22px;
-  }
-
-  .enedis-bottom {
-    grid-template-columns: 1fr;
-    gap: 14px;
-  }
-
-  .tools-box,
-  .enedis-result-single {
-    width: 90%;
-    margin: 0 auto;
-  }
-}
-
-
-/* === FIX : 2 boxes du bas même taille + alignées en haut (sans bouger le reste) === */
-
-/* 1) on aligne les cartes sur le haut du conteneur */
-.enedis-bottom{
-  align-items: flex-start;   /* si .enedis-bottom est en flex */
-  align-content: start;      /* au cas où */
-}
-
-/* 2) on force une hauteur identique (calée sur celle de droite) */
-.enedis-bottom .tools-box,
-.enedis-bottom .enedis-result-single{
-  height: 175px;             /* ajuste ici si besoin : 165 / 170 / 175 */
-}
-
-/* 3) on évite que la tools-box garde un “vide” inutile */
-.enedis-bottom .tools-box{
-  padding-bottom: 12px;      /* réduit juste le bas, sans changer le haut */
-}
-
-/* mobile : on laisse respirer */
 @media (max-width: 900px){
-  .enedis-bottom .tools-box,
-  .enedis-bottom .enedis-result-single{
-    height: auto;
-  }
+  .enedis-bottom{ grid-template-columns: 1fr; gap:14px; }
+  .tools-box, .enedis-result-single{ min-height:auto; }
 }
-
-
-/* FIX : remonter la box de droite pour l'aligner avec la gauche */
-.enedis-bottom{
-  align-items: flex-start !important; /* si c'est en flex */
-}
-
-/* au cas où tu es en grid : on force aussi l'alignement */
-.enedis-bottom{
-  align-items: start !important;
-}
-
-/* supprime tout décalage vertical éventuel */
-.enedis-result-single{
-  margin-top: 0 !important;
-  align-self: flex-start !important;
-}
-
-
-
-/* Centrage du texte dans la box Résultat */
-.enedis-result-single {
-  display: flex;
-  flex-direction: column;
-  justify-content: center; /* centre verticalement */
-  align-items: center;     /* centre horizontalement */
-  text-align: center;
-}
-
-/* Centrage du texte dans la box Résultat */
-.tools-box {
-  display: flex;
-  flex-direction: column;
-  justify-content: center; /* centre verticalement */
-  align-items: center;     /* centre horizontalement */
-  text-align: center;
-
-
-
-
-
-
-
