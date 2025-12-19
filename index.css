@@ -547,15 +547,18 @@ body {
 }
 
 /* ===================================================== */
-/* ENEDIS — SLIDE PRINCIPALE (slide 1) */
+/* ENEDIS — SLIDE PRINCIPALE (slide 1) — VERSION COURTE & STABLE */
 /* ===================================================== */
 
 .slide-enedis-main{
-  background: radial-gradient(
-    100% 100% at 50% 0%,
-    rgba(12,32,56,0.7) 0%,
-    rgba(8,20,36,0.95) 100%
-  );
+  width: 100vw;
+  flex: 0 0 100vw;
+  height: calc(100vh - var(--board-h));
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding: 32px 24px;
+  background: radial-gradient(100% 100% at 50% 0%, rgba(12,32,56,.70) 0%, rgba(8,20,36,.95) 100%);
 }
 
 .slide-enedis-main .slide-content{
@@ -566,11 +569,12 @@ body {
 
 .enedis-grid{
   display:grid;
-  grid-template-columns: minmax(520px, 1fr) 560px;
+  grid-template-columns: minmax(520px, 1fr) minmax(420px, 560px);
   align-items:center;
   gap:40px;
 }
 
+/* Texte gauche */
 .enedis-text{
   padding-left: 32px;
   transform: translateY(-16px);
@@ -585,12 +589,19 @@ body {
 .enedis-bullets li{ margin-bottom:6px; }
 .enedis-bullets strong{ color:#59b9ff; font-weight:800; }
 
-/* Image : halo diffus, pas de hover */
-.enedis-image{
-  position: relative;
-  margin-top: -18px;
+/* Colonne droite : image + cartes dessous (comme avant) */
+.enedis-grid > :nth-child(2){
   display:flex;
+  flex-direction:column;
   align-items:center;
+  justify-content:center;
+}
+
+.enedis-image{
+  position:relative;
+  margin-top:-18px;
+  width:100%;
+  display:flex;
   justify-content:center;
 }
 .enedis-image::before{
@@ -601,52 +612,49 @@ body {
     radial-gradient(420px 220px at 60% 40%, rgba(56,148,255,.18), transparent 60%),
     radial-gradient(380px 260px at 30% 70%, rgba(0,180,210,.12), transparent 65%);
   filter: blur(18px);
-  z-index: 0;
-  pointer-events:none;
-}
-.enedis-image img{
-  position: relative;
-  z-index: 1;
-  display:block;
-  width:100%;
-  height:auto;
-  max-width: 560px;
-  border-radius: 18px;
-  box-shadow: 0 14px 38px rgba(0,0,0,.45);
-}
-
-/* Missions sous l'image : statiques */
-.enedis-missions-under{
-  display:flex;
-  flex-direction:column;
-  gap:14px;
-  max-width:560px;
-  margin-top:14px;
-}
-.enedis-mission{
-  position: relative;
-  display:flex;
-  align-items:center;
-  gap:12px;
-  padding:14px 16px;
-  border-radius:14px;
-  background: rgba(255,255,255,.06);
-  border: 1px solid rgba(255,255,255,.14);
-  box-shadow: 0 10px 26px rgba(0,0,0,.28);
-  cursor: default;
-}
-.enedis-mission::before{
-  content:"";
-  position:absolute;
-  inset:-16px;
-  background:
-    radial-gradient(260px 140px at 25% 50%, rgba(56,148,255,.16), transparent 60%),
-    radial-gradient(220px 120px at 80% 60%, rgba(0,180,210,.10), transparent 65%);
-  filter: blur(16px);
   z-index:0;
   pointer-events:none;
 }
-.enedis-mission > *{ position: relative; z-index: 1; }
+.enedis-image img{
+  position:relative;
+  z-index:1;
+  width:100%;
+  max-width:560px;
+  height:auto;
+  border-radius:18px;
+  box-shadow: 0 14px 38px rgba(0,0,0,.45);
+}
+
+/* Cartes missions : SOUS l’image + même largeur */
+.enedis-missions-under{
+  width:100%;
+  max-width:560px;
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+  margin-top:14px;
+}
+
+.enedis-mission{
+  width:100%;
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.14);
+  border-radius:14px;
+  padding:14px 16px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  box-shadow: 0 10px 26px rgba(0,0,0,.28);
+  cursor: default;
+
+  /* anti “panneau à droite” (si une ancienne règle traîne) */
+  position:relative;
+  inset:auto;
+  right:auto;
+  top:auto;
+  transform:none;
+}
+
 .enedis-mission .icon{ font-size:1.4rem; line-height:1; }
 .enedis-mission h3{ margin:0; font-size:16px; font-weight:700; color:#fff; }
 
@@ -654,8 +662,9 @@ body {
   .enedis-grid{ grid-template-columns:1fr; gap:20px; }
   .enedis-text{ padding-left:0; transform:none; text-align:center; }
   .enedis-image{ margin-top:0; }
-  .enedis-missions-under{ max-width: 100%; }
+  .enedis-missions-under{ max-width:100%; }
 }
+
 
 /* ===================================================== */
 /* ENEDIS — SLIDES MISSIONS (slides 2/3) */
@@ -763,4 +772,5 @@ body {
     rgba(8,20,36,0.95) 100%
   );
 }
+
 
