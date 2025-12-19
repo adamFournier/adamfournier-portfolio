@@ -1520,7 +1520,7 @@ body {
   margin: 0;
   line-height: 1.6;
 }
-/* ==== SLIDE 2 — Mission 1 (VERSION FINALE + 2 BOX MÊME TAILLE) ==== */
+/* ==== SLIDE 2 — Mission 1 (2 BOX ALIGNÉES + MÊME TAILLE) ==== */
 
 .slide-enedis-mission1 {
   background: radial-gradient(
@@ -1533,7 +1533,6 @@ body {
   min-height: calc(100vh - var(--board-h));
 }
 
-/* Contenu global */
 .slide-enedis-mission1 .slide-content {
   max-width: 1100px;
   width: min(92vw, 1100px);
@@ -1548,7 +1547,6 @@ body {
   padding: 48px 0 28px;
 }
 
-/* Titre */
 .slide-enedis-mission1 h1 {
   font-size: clamp(28px, 3vw, 36px);
   margin-bottom: 16px;
@@ -1556,7 +1554,6 @@ body {
   color: #fff;
 }
 
-/* Texte */
 .slide-enedis-mission1 p {
   line-height: 1.65;
   color: #d8e2f1;
@@ -1570,54 +1567,56 @@ body {
 
 /* --- Conteneur des deux blocs --- */
 .enedis-bottom {
+  --card-h: 185px;               /* ✅ hauteur cible (proche de ta box de droite) */
+
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 24px;
   align-items: stretch;
   margin-top: 12px;
+
+  grid-auto-rows: var(--card-h); /* ✅ les 2 cartes ont EXACTEMENT la même hauteur */
 }
 
-/* --- Blocs outils + résultat (MÊME TAILLE) --- */
+/* --- Cartes --- */
 .tools-box,
 .enedis-result-single {
+  height: 100%;                  /* ✅ prend la hauteur du row (donc identique) */
   background: rgba(255,255,255,0.06);
   border: 1px solid rgba(255,255,255,0.12);
   border-radius: 18px;
 
-  padding: 14px 18px;
-  height: 220px;              /* ✅ force la même hauteur */
-  display: flex;              /* ✅ structure interne */
-  flex-direction: column;
-  justify-content: flex-start;
-
+  padding: 14px 18px;            /* ✅ moins de vide */
   text-align: center;
+
   box-shadow:
     0 0 22px rgba(56,148,255,0.10),
     0 8px 26px rgba(0,0,0,0.28);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;   /* ✅ pas d’espace “forcé” */
 }
 
-/* Titres des blocs */
+/* Titres */
 .tools-box h2,
 .enedis-result-single h2 {
   margin: 0 0 10px;
   font-size: 19px;
   color: #fff;
   font-weight: 800;
-  min-height: 32px; /* ✅ aligne visuellement les titres */
 }
 
-/* Grille des outils */
+/* --- Outils : grille plus compacte (évite que la carte “gonfle”) --- */
 .tools-grid {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 6px;
-  margin-top: 6px;
 }
 
-/* Chips outils */
 .tool-chip {
-  padding: 6px 10px;
+  padding: 6px 10px;             /* ✅ moins d’espace intérieur */
   border-radius: 999px;
   background: rgba(255,255,255,0.07);
   border: 1px solid rgba(77,180,255,0.25);
@@ -1626,12 +1625,18 @@ body {
   font-size: 13px;
 }
 
-/* Texte résultat */
+/* --- Résultat : centré proprement sans “pousser” les cartes --- */
 .enedis-result-single p {
-  margin: auto 0 0; /* ✅ équilibre vertical du texte */
+  margin: 0;
   color: #dce7f7;
   font-size: 15px;
   line-height: 1.5;
+
+  flex: 1;                        /* ✅ prend l’espace restant */
+  display: flex;
+  align-items: center;            /* ✅ centre vertical */
+  justify-content: center;        /* ✅ centre horizontal */
+  text-align: center;
 }
 
 .enedis-result-single p strong {
@@ -1648,18 +1653,16 @@ body {
   .enedis-bottom {
     grid-template-columns: 1fr;
     gap: 14px;
+    grid-auto-rows: auto;         /* ✅ sur mobile : hauteur auto */
   }
 
   .tools-box,
   .enedis-result-single {
     width: 90%;
     margin: 0 auto;
-    height: auto;       /* ✅ sur mobile : hauteur auto */
     min-height: 180px;
   }
 }
-
-
 
 
 
