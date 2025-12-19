@@ -317,7 +317,7 @@ body {
 }
 .slides-full{
   display:flex;
-  width:300%;
+  width:400%;
   height:calc(100vh - var(--board-h));
   transition:transform .7s cubic-bezier(.4,0,.2,1);
 }
@@ -733,6 +733,7 @@ body {
     rgba(8,20,36,0.95) 100%
   );
 }
+
 
 
 
