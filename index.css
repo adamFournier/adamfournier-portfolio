@@ -1679,6 +1679,22 @@ body {
 }
 
 
+/* FIX : remonter la box de droite pour l'aligner avec la gauche */
+.enedis-bottom{
+  align-items: flex-start !important; /* si c'est en flex */
+}
+
+/* au cas où tu es en grid : on force aussi l'alignement */
+.enedis-bottom{
+  align-items: start !important;
+}
+
+/* supprime tout décalage vertical éventuel */
+.enedis-result-single{
+  margin-top: 0 !important;
+  align-self: flex-start !important;
+}
+
 
 
 
