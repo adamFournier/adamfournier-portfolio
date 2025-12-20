@@ -529,18 +529,24 @@ body {
   .two-col { grid-template-columns: 1fr; }
 }
 /* ===================================================== */
-/* ENEDIS — SLIDE 1 (INTRO) — STABLE (comme avant) */
+/* ENEDIS — SLIDES (TOUTES ALIGNÉES, 100vw, SANS DÉCALAGE) */
 /* ===================================================== */
 
+/* ===== SLIDE 1 : INTRO ===== */
 .slide-enedis-main{
   width: 100vw;
   flex: 0 0 100vw;
   height: calc(100vh - var(--board-h));
-  display:flex;
-  align-items:center;
-  justify-content:center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 32px 24px;
-  background: radial-gradient(100% 100% at 50% 0%, rgba(12,32,56,.70) 0%, rgba(8,20,36,.95) 100%);
+
+  background: radial-gradient(
+    100% 100% at 50% 0%,
+    rgba(12,32,56,.70) 0%,
+    rgba(8,20,36,.95) 100%
+  );
 }
 
 .slide-enedis-main .slide-content{
@@ -548,194 +554,50 @@ body {
   margin: 0 auto;
 }
 
-/* grille */
-.enedis-grid{
-  display:grid;
-  grid-template-columns: minmax(520px, 1fr) 560px;
-  align-items:center;
-  gap:40px;
-}
-
-/* gauche */
-.enedis-text{
-  padding-left: 32px;
-  transform: translateY(-16px);
-}
-.enedis-text h1{
-  margin:0 0 12px;
-  font-size:clamp(28px,3.2vw,40px);
-  line-height:1.2;
-}
-.enedis-text p{ margin:0 0 14px; color:#cfd9eb; line-height:1.65; }
-.enedis-bullets{ list-style:disc; margin:8px 0 18px 28px; color:#dfe8f8; }
-.enedis-bullets li{ margin-bottom:6px; }
-.enedis-bullets strong{ color:#59b9ff; font-weight:800; }
-
-/* droite */
-.enedis-grid > :nth-child(2){
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-}
-
-/* image */
-.enedis-image{
-  position: relative;
-  margin-top: -18px;
-  display:flex;
-  justify-content:center;
-}
-.enedis-image img{
-  width:100%;
-  max-width:560px;
-  border-radius:18px;
-  box-shadow: 0 14px 38px rgba(0,0,0,.45);
-}
-
-/* cartes compactes à droite */
-.enedis-missions-under{
-  width:100%;
-  max-width:560px;
-  display:flex;
-  flex-direction:column;
-  gap:16px;
-  margin-top:16px;
-  align-items:flex-end;
-}
-.enedis-mission{
-  width:420px;
-  max-width:100%;
-  background: rgba(255,255,255,.06);
-  border: 1px solid rgba(255,255,255,.14);
-  border-radius:14px;
-  padding:14px 16px;
-  display:flex;
-  align-items:center;
-  gap:12px;
-  box-shadow:0 10px 26px rgba(0,0,0,.28);
-  cursor: default;
-}
-.enedis-mission .icon{ font-size:1.4rem; line-height:1; }
-.enedis-mission h3{ margin:0; font-size:16px; font-weight:700; color:#fff; }
-
-@media (max-width: 900px){
-  .enedis-grid{ grid-template-columns:1fr; gap:20px; }
-  .enedis-text{ padding-left:0; transform:none; text-align:center; }
-  .enedis-missions-under{ align-items:center; max-width:100%; }
-  .enedis-mission{ width:100%; }
-}
-
-
-
-/* ===================================================== */
-/* ENEDIS — SLIDES MISSIONS (slides 2/3) */
-/* ===================================================== */
-
+/* ===== SLIDE 2 & 3 : MISSIONS ===== */
 .slide-enedis-mission1{
-  background: radial-gradient(100% 100% at 50% 0%, rgba(12,32,56,0.70) 0%, rgba(8,20,36,0.95) 100%);
+  width: 100vw;
+  flex: 0 0 100vw;
+  height: calc(100vh - var(--board-h));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 24px;
+
+  background: radial-gradient(
+    100% 100% at 50% 0%,
+    rgba(12,32,56,.70) 0%,
+    rgba(8,20,36,.95) 100%
+  );
 }
 
 .slide-enedis-mission1 .slide-content{
   width: min(92vw, 1100px);
   margin: 0 auto;
   padding: 48px 0 28px;
-  display:flex;
-  flex-direction:column;
-  gap:12px;
-  text-align:left;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
-.slide-enedis-mission1 h1{
-  font-size: clamp(28px, 3vw, 36px);
-  line-height: 1.1;
-  margin: 0 0 6px;
-  color:#fff;
-}
-.slide-enedis-mission1 p{
-  margin:0;
-  color:#d8e2f1;
-  line-height:1.65;
-}
-.slide-enedis-mission1 strong{ color:#59b9ff; font-weight:600; }
-
-/* Bas de slide : 2 cartes */
-.enedis-bottom{
-  margin-top: 16px;
-  display:grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 24px;
-  align-items: start;
-}
-
-.tools-box,
-.enedis-result-single{
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.12);
-  border-radius: 18px;
-  padding: 16px 18px;
-  min-height: 170px;
-  box-shadow: 0 0 22px rgba(56,148,255,0.10), 0 8px 26px rgba(0,0,0,0.28);
-
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
-}
-
-.tools-box h2,
-.enedis-result-single h2{
-  margin: 0 0 10px;
-  font-size: 18px;
-  font-weight: 800;
-  color:#fff;
-}
-
-.tools-grid{
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:center;
-  gap:6px;
-}
-
-.tool-chip{
-  padding: 6px 10px;
-  border-radius: 999px;
-  background: rgba(255,255,255,0.07);
-  border: 1px solid rgba(77,180,255,0.25);
-  color: #eaf3ff;
-  font-weight: 600;
-  font-size: 13px;
-}
-
-.enedis-result-single p{
-  margin:0;
-  color:#dce7f7;
-  font-size:15px;
-  line-height:1.5;
-}
-.enedis-result-single p strong{ color:#59b9ff; font-weight:800; }
-
-@media (max-width: 900px){
-  .enedis-bottom{ grid-template-columns: 1fr; gap:14px; }
-  .tools-box, .enedis-result-single{ min-height:auto; }
-}
-
-/* ===================================================== */
-/* ENEDIS — SLIDE BILAN (slide 4) */
-/* (au cas où tu utilises .slide-enedis-bilan) */
-/* ===================================================== */
-
+/* ===== SLIDE 4 : BILAN ===== */
 .slide-enedis-bilan{
+  width: 100vw;
+  flex: 0 0 100vw;
+  height: calc(100vh - var(--board-h));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 24px;
+
   background: radial-gradient(
     100% 100% at 50% 0%,
-    rgba(12,32,56,0.7) 0%,
-    rgba(8,20,36,0.95) 100%
+    rgba(12,32,56,.70) 0%,
+    rgba(8,20,36,.95) 100%
   );
 }
 
-
-
-
-
-
+.slide-enedis-bilan .slide-content{
+  width: min(92vw, 1100px);
+  margin: 0 auto;
+}
