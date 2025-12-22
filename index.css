@@ -766,10 +766,19 @@ body {
 
 
 /* ===================================================== */
-/* ENEDIS — SLIDE 4 (BILAN) — VERSION STABLE */
+/* ENEDIS — SLIDE 4 (BILAN) */
+/* Conclusion élégante & centrée */
 /* ===================================================== */
 
 .slide-enedis-bilan{
+  width: 100vw;
+  height: calc(100vh - var(--board-h));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 24px;
+  box-sizing: border-box;
+
   background: radial-gradient(
     100% 100% at 50% 0%,
     rgba(12,32,56,.70) 0%,
@@ -777,11 +786,53 @@ body {
   );
 }
 
+/* conteneur central */
 .slide-enedis-bilan .slide-content{
-  max-width: 900px;
-  margin: 0 auto;
+  max-width: 820px;
+  padding: 42px 48px;
   text-align: center;
+
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.14);
+  border-radius: 22px;
+  box-shadow:
+    0 12px 30px rgba(0,0,0,.35),
+    0 0 30px rgba(56,148,255,.12);
 }
+
+/* titre */
+.slide-enedis-bilan h1{
+  margin: 0 0 20px;
+  font-size: clamp(30px, 3vw, 40px);
+  line-height: 1.1;
+  color: #fff;
+}
+
+/* texte */
+.slide-enedis-bilan p{
+  margin: 0;
+  font-size: 17px;
+  line-height: 1.6;
+  color: #dce6f5;
+}
+
+/* mots-clés */
+.slide-enedis-bilan strong{
+  color: #59b9ff;
+  font-weight: 800;
+}
+
+/* responsive */
+@media (max-width: 900px){
+  .slide-enedis-bilan .slide-content{
+    padding: 32px 24px;
+  }
+
+  .slide-enedis-bilan p{
+    font-size: 16px;
+  }
+}
+
 
 /* ===================================================== */
 /* RESPONSIVE */
@@ -812,6 +863,7 @@ body {
     gap: 16px;
   }
 }
+
 
 
 
