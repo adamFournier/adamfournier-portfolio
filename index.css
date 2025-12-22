@@ -594,28 +594,28 @@ body {
   max-width: 1100px;
   margin: 0 auto;
 
-  height: calc(100vh - var(--board-h) - 52px); /* = padding top+bottom */
+  height: calc(100vh - var(--board-h) - 52px);
   display:flex;
   flex-direction:column;
   justify-content:space-between;
-  gap: 10px;
+  gap: 8px;                 /* ✅ AVANT: 10px */
 
   text-align:left;
 }
 
 /* titre */
 .slide-enedis-mission1 h1{
-  margin: 0 0 8px;
+  margin: 0 0 6px;           /* ✅ AVANT: 0 0 8px */
   font-size: clamp(28px, 3vw, 38px);
-  line-height: 1.15;
+  line-height: 1.1;          /* ✅ AVANT: 1.15 */
   color:#fff;
 }
 
 /* texte compact pour libérer la place aux encadrés */
 .slide-enedis-mission1 p{
-  margin: 0 0 10px;
+  margin: 0 0 6px;           /* ✅ AVANT: 0 0 10px */
   color:#d8e2f1;
-  line-height: 1.55;
+  line-height: 1.5;          /* ✅ AVANT: 1.55 */
   font-size: 16px;
 }
 
@@ -630,7 +630,7 @@ body {
   grid-template-columns: 1fr 1fr;
   gap: 18px;
   align-items: stretch;
-  margin-top: 6px;
+  margin-top: 2px;           /* ✅ AVANT: 6px */
 }
 
 /* cartes "fines" */
@@ -642,7 +642,7 @@ body {
   padding: 16px 18px;
   box-shadow: 0 10px 26px rgba(0,0,0,.28);
 
-  min-height: 130px;         /* plus fin */
+  min-height: 130px;
   display:flex;
   flex-direction:column;
   justify-content:center;
@@ -695,11 +695,11 @@ body {
   }
   .slide-enedis-mission1 .slide-content{
     height: auto;
-    gap: 8px;
+    gap: 14px;
   }
   .enedis-bottom{
     grid-template-columns: 1fr;
-    gap: 2px;
+    gap: 12px;
   }
   .tools-box,
   .enedis-result-single{
@@ -754,6 +754,7 @@ body {
     gap: 16px;
   }
 }
+
 
 
 
