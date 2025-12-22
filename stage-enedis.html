@@ -34,142 +34,97 @@
   <div class="slides-full-wrap">
     <div class="slides-full" id="slider">
 
-      <!-- SLIDE 1 : Intro Enedis -->
-      <section class="slide-full slide-enedis-main">
-        <div class="slide-content">
-          <div class="enedis-grid">
+      <!-- SLIDE 1 : Présentation Enedis -->
+<section class="slide-full slide-enedis-main" id="enedis-intro">
+  <div class="slide-content">
+    <div class="enedis-grid">
 
-            <!-- Texte -->
-            <div class="enedis-text">
-              <h1>Stage Enedis — Data Analyst</h1>
-              <p class="intro-text">
-                J’ai effectué mon stage de première année chez <strong>Enedis</strong> pendant 3 mois,
-                au sein de la <strong>DSI</strong> au <strong>pôle SI Réseaux Électrique</strong>, couvrant :
-              </p>
+      <div class="enedis-text">
+        <h1>Stage Data — Enedis</h1>
+        <p>
+          Stage réalisé au sein de la direction data d’Enedis, avec pour objectif
+          de fiabiliser et valoriser les données métiers dans un contexte de
+          transformation numérique.
+        </p>
+      </div>
 
-              <ul class="enedis-bullets">
-                <li><strong>1,4 million de km</strong> de réseau électrique</li>
-                <li><strong>2 500</strong> postes sources</li>
-                <li><strong>800 000</strong> postes de distribution</li>
-              </ul>
-
-              <p>
-                Mon rôle a été de soutenir l’équipe <strong>Data</strong> du domaine
-                <strong>Raccordement et Ingénierie du réseau</strong> dans la valorisation
-                et la fiabilisation des données métiers. Deux missions principales m’ont été confiées :
-              </p>
-            </div>
-
-            <!-- Colonne droite : image + cartes dessous -->
-            <div>
-              <div class="enedis-image">
-                <img src="photo-enedis.jpg" alt="Stage Enedis — Pylônes électriques au coucher du soleil" />
-              </div>
-
-              <div class="enedis-missions-under">
-                <div class="enedis-mission">
-                  <div class="icon">🎯</div>
-                  <div class="text">
-                    <h3>1 - Mise en conformité d’un stock de données métiers</h3>
-                  </div>
-                </div>
-
-                <div class="enedis-mission">
-                  <div class="icon">☁️</div>
-                  <div class="text">
-                    <h3>2 - Élaboration d’un nouveau produit de données</h3>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-          </div>
+      <div class="enedis-right">
+        <div class="enedis-image">
+          <img src="assets/enedis/enedis.jpg" alt="Enedis" />
         </div>
-      </section>
 
-      <!-- SLIDE 2 : Mission 1 (TEXTES DE TA CAPTURE) -->
-      <section class="slide-full slide-enedis-mission1">
-        <div class="slide-content">
-          <h1>Mission 1 — Mise en conformité des données métiers</h1>
+        <div class="enedis-missions-under">
+          <a href="#enedis-mission1" class="enedis-mission">
+            <span class="icon">🎯</span>
+            <h3>1 – Mise en conformité d’un stock de données métiers</h3>
+          </a>
 
-          <p>
-            L’objectif de cette mission était <strong>d’améliorer la qualité et la conformité</strong>
-            d’un stock de données du SI du réseau électrique.
-          </p>
-
-          <p>
-            J’ai travaillé sur un ensemble de données métiers contenant des informations potentiellement
-            <strong>sensibles au regard du RGPD</strong>. Il s’agissait de relier ces données aux référentiels
-            métiers d’Enedis afin d’enrichir chaque enregistrement avec les caractéristiques adéquates.
-          </p>
-
-          <p>
-            Le processus initial étant majoritairement manuel, j’ai donc proposé et conçu un
-            <strong>outil d’automatisation sous Excel</strong> capable de générer des
-            <strong>requêtes SQL dynamiques</strong> intégrant automatiquement les nouvelles caractéristiques métiers.
-            Ces requêtes ont ensuite été utilisées pour intégrer directement les données conformes dans
-            <strong>la base de données d’Enedis</strong>.
-          </p>
-
-          <div class="enedis-bottom">
-            <div class="tools-box">
-              <h2>🧰 Outils & compétences mobilisés</h2>
-              <div class="tools-grid">
-                <span class="tool-chip">Excel</span>
-                <span class="tool-chip">SQL</span>
-                <span class="tool-chip">Power Query</span>
-                <span class="tool-chip">Data Virtualisation</span>
-              </div>
-            </div>
-
-            <div class="enedis-result-single">
-              <h2>📊 Résultat obtenu</h2>
-              <p>
-                <strong>Réduction d’un tiers</strong> de la charge de travail estimée et
-                <strong>plus de 50 % du stock de données traité</strong>.
-              </p>
-            </div>
-          </div>
+          <a href="#enedis-mission2" class="enedis-mission">
+            <span class="icon">☁️</span>
+            <h3>2 – Élaboration d’un nouveau produit de données</h3>
+          </a>
         </div>
-      </section>
+      </div>
 
-      <!-- SLIDE 3 : Mission 2 (TEXTES DE TA CAPTURE) -->
-      <section class="slide-full slide-enedis-mission2">
-        <div class="slide-content">
-          <h1>Mission 2 — Produit de données Cloud</h1>
+    </div>
+  </div>
+</section>
 
-          <p>
-            Cette mission consistait à concevoir un <strong>produit de données Cloud</strong>
-            destiné à être réutilisé sur la nouvelle plateforme Cloud d’Enedis.
-          </p>
 
-          <p>
-            J’ai réalisé le <strong>tri</strong>, <strong>l’étiquetage</strong> et la <strong>description</strong> des données,
-            ainsi que leur mise au bon format, afin de garantir leur exploitabilité
-            par un <strong>Data Engineer</strong> sur la nouvelle plateforme.
-          </p>
+   <!-- SLIDE 2 : Mission 1 -->
+<section class="slide-full slide-enedis-mission1" id="enedis-mission1">
+  <div class="slide-content">
+    <h1>Mission 1 — Mise en conformité d’un stock de données</h1>
+    <p>
+      Travail de fiabilisation et de structuration des données métiers afin
+      d’améliorer leur qualité et leur exploitabilité pour les équipes data.
+    </p>
 
-          <div class="enedis-bottom">
-            <div class="tools-box">
-              <h2>🧰 Outils & compétences mobilisés</h2>
-              <div class="tools-grid">
-                <span class="tool-chip">Power Query</span>
-                <span class="tool-chip">SQL</span>
-                <span class="tool-chip">Excel (VBA)</span>
-                <span class="tool-chip">Power BI</span>
-              </div>
-            </div>
-
-            <div class="enedis-result-single">
-              <h2>📊 Résultat obtenu</h2>
-              <p>
-                <strong>Réalisation d’un produit de données</strong> comprenant environ <strong>1 000 données</strong>,
-                structuré et prêt à être réutilisé sur la plateforme Cloud d’Enedis.
-              </p>
-            </div>
-          </div>
+    <div class="enedis-bottom">
+      <div class="tools-box">
+        <h2>Outils</h2>
+        <div class="tools-grid">
+          <span class="tool-chip">Power Query</span>
+          <span class="tool-chip">SQL</span>
+          <span class="tool-chip">Excel (VBA)</span>
         </div>
-      </section>
+      </div>
+
+      <div class="enedis-result-single">
+        <h2>Résultat</h2>
+        <p>Nettoyage et mise en conformité de plusieurs jeux de données métiers.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 3 : Mission 2 -->
+<section class="slide-full slide-enedis-mission2" id="enedis-mission2">
+  <div class="slide-content">
+    <h1>Mission 2 — Produit de données Cloud</h1>
+    <p>
+      Réalisation d’un nouveau produit de données en triant, structurant et
+      documentant les données afin de les rendre directement exploitables par
+      un data engineer sur la plateforme Cloud d’Enedis.
+    </p>
+
+    <div class="enedis-bottom">
+      <div class="tools-box">
+        <h2>Outils</h2>
+        <div class="tools-grid">
+          <span class="tool-chip">Power Query</span>
+          <span class="tool-chip">SQL</span>
+          <span class="tool-chip">Power BI</span>
+        </div>
+      </div>
+
+      <div class="enedis-result-single">
+        <h2>Résultat</h2>
+        <p>Réalisation d’un produit d’environ <strong>1 000 données</strong>.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
 
       <!-- SLIDE 4 : Bilan -->
@@ -251,6 +206,7 @@
   </script>
 </body>
 </html>
+
 
 
 
