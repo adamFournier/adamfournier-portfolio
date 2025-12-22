@@ -597,7 +597,7 @@ body {
   height: calc(100vh - var(--board-h) - 52px);
   display:flex;
   flex-direction:column;
-  justify-content:space-between;
+  justify-content:flex-start;;
   gap: 8px;                 /* ✅ AVANT: 10px */
 
   text-align:left;
@@ -754,6 +754,7 @@ body {
     gap: 16px;
   }
 }
+
 
 
 
