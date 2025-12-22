@@ -695,11 +695,11 @@ body {
   }
   .slide-enedis-mission1 .slide-content{
     height: auto;
-    gap: 14px;
+    gap: 8px;
   }
   .enedis-bottom{
     grid-template-columns: 1fr;
-    gap: 12px;
+    gap: 2px;
   }
   .tools-box,
   .enedis-result-single{
@@ -754,6 +754,7 @@ body {
     gap: 16px;
   }
 }
+
 
 
 
