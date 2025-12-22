@@ -568,17 +568,18 @@ body {
 
 /* ===================================================== */
 /* ENEDIS — SLIDES 2 & 3 (MISSION 1 / MISSION 2) */
-/* Texte compact + 2 cartes fines en bas */
+/* Texte plein + 2 encadrés alignés sous le texte */
 /* ===================================================== */
 
-.slide-enedis-mission1{
+.slide-enedis-mission1,
+.slide-enedis-mission2{
   width: 100vw;
   height: calc(100vh - var(--board-h));
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding: 26px 24px;
-  box-sizing:border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  box-sizing: border-box;
 
   background: radial-gradient(
     100% 100% at 50% 0%,
@@ -587,94 +588,91 @@ body {
   );
 }
 
-/* conteneur : texte en haut / cartes collées en bas */
-.slide-enedis-mission1 .slide-content{
+/* conteneur central */
+.slide-enedis-mission1 .slide-content,
+.slide-enedis-mission2 .slide-content{
   width: min(92vw, 1100px);
-  max-width: 1100px;
   margin: 0 auto;
 
-  height: calc(100vh - var(--board-h) - 52px);
-  display:flex;
-  flex-direction:column;
-  justify-content:flex-start;
-  gap: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
 
-  text-align:left;
+  padding-top: 10px;
+  padding-bottom: 70px; /* espace exact avant bullets */
+  box-sizing: border-box;
 }
 
-/* titre */
-.slide-enedis-mission1 h1{
-  margin: 0 0 6px;
-  font-size: clamp(28px, 3vw, 38px);
-  line-height: 1.1;
-  color:#fff;
+/* ================= TITRE ================= */
+.slide-enedis-mission1 h1,
+.slide-enedis-mission2 h1{
+  margin: 0 0 12px;
+  font-size: clamp(30px, 3vw, 40px);
+  line-height: 1.15;
+  color: #fff;
 }
 
-/* texte compact */
-.slide-enedis-mission1 p{
-  margin: 0 0 6px;
-  color:#d8e2f1;
-  line-height: 1.5;
+/* ================= TEXTE ================= */
+.slide-enedis-mission1 p,
+.slide-enedis-mission2 p{
+  margin: 0 0 12px;
+  color: #dbe4f2;
   font-size: 16px;
+  line-height: 1.55;
 }
 
-.slide-enedis-mission1 strong{
-  color:#59b9ff;
-  font-weight:700;
+.slide-enedis-mission1 strong,
+.slide-enedis-mission2 strong{
+  color: #59b9ff;
+  font-weight: 700;
 }
 
-/* ========== bloc bas : collé en bas, prend l'espace sans toucher au texte ========== */
+/* ================= BAS DE SLIDE ================= */
 .enedis-bottom{
-  margin-top: auto;          /* ✅ clé : pousse le bloc en bas */
-  display:grid;
+  display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 18px;
+  gap: 20px;
   align-items: stretch;
 }
 
-/* cartes "fines" */
+/* cartes */
 .tools-box,
 .enedis-result-single{
   background: rgba(255,255,255,.06);
   border: 1px solid rgba(255,255,255,.14);
   border-radius: 18px;
-  padding: 16px 18px;
+  padding: 18px 20px;
   box-shadow: 0 10px 26px rgba(0,0,0,.28);
 
-  min-height: 130px;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-/* titres des cartes */
+/* titres cartes */
 .tools-box h2,
 .enedis-result-single h2{
   margin: 0 0 10px;
   font-size: 18px;
   font-weight: 800;
-  color:#fff;
+  color: #fff;
 }
 
-/* chips */
+/* outils */
 .tools-grid{
-  display:flex;
-  flex-wrap:wrap;
+  display: flex;
+  flex-wrap: wrap;
   gap: 8px;
 }
 
 .tool-chip{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-
-  padding: 7px 11px;
+  padding: 7px 12px;
   border-radius: 999px;
-
   background: rgba(255,255,255,.07);
   border: 1px solid rgba(77,180,255,.25);
-  color:#eaf3ff;
-  font-weight:700;
+  color: #eaf3ff;
+  font-weight: 700;
   font-size: 13px;
   white-space: nowrap;
 }
@@ -682,28 +680,21 @@ body {
 /* texte résultat */
 .enedis-result-single p{
   margin: 0;
-  color:#dce7f7;
   font-size: 15px;
   line-height: 1.45;
+  color: #dce7f7;
 }
 
-/* responsive */
+/* ================= RESPONSIVE ================= */
 @media (max-width: 900px){
-  .slide-enedis-mission1{
-    padding: 20px 16px;
+  .slide-enedis-mission1 .slide-content,
+  .slide-enedis-mission2 .slide-content{
+    padding-bottom: 40px;
   }
-  .slide-enedis-mission1 .slide-content{
-    height: auto;
-    gap: 14px;
-  }
+
   .enedis-bottom{
     grid-template-columns: 1fr;
-    gap: 12px;
-    margin-top: 12px; /* en mobile on évite que ce soit trop collé */
-  }
-  .tools-box,
-  .enedis-result-single{
-    min-height: auto;
+    gap: 14px;
   }
 }
 
@@ -755,6 +746,7 @@ body {
     gap: 16px;
   }
 }
+
 
 
 
