@@ -6,7 +6,6 @@
   <title>Stage — Enedis (Paris) | Adam Fournier</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet" />
-  <!-- IMPORTANT : garde le même nom de CSS que tes autres pages -->
   <link rel="stylesheet" href="index.css" />
 </head>
 
@@ -71,14 +70,14 @@
                 <div class="enedis-mission">
                   <div class="icon">🎯</div>
                   <div class="text">
-                    <h3>1 — Mise en conformité d’un stock de données</h3>
+                    <h3>1 - Mise en conformité d’un stock de données métiers</h3>
                   </div>
                 </div>
 
                 <div class="enedis-mission">
                   <div class="icon">☁️</div>
                   <div class="text">
-                    <h3>2 — Produit de données Cloud</h3>
+                    <h3>2 - Élaboration d’un nouveau produit de données</h3>
                   </div>
                 </div>
               </div>
@@ -88,13 +87,66 @@
         </div>
       </section>
 
-      <!-- SLIDE 2 : Mission 1 -->
+      <!-- SLIDE 2 : Mission 1 (TEXTES DE TA CAPTURE) -->
       <section class="slide-full slide-enedis-mission1">
         <div class="slide-content">
-          <h1>Mission 1 — Mise en conformité</h1>
+          <h1>Mission 1 — Mise en conformité des données métiers</h1>
+
           <p>
-            Mise en qualité et standardisation d’un stock de données : tri, étiquetage, description
-            et mise au bon format pour exploitation.
+            L’objectif de cette mission était <strong>d’améliorer la qualité et la conformité</strong>
+            d’un stock de données du SI du réseau électrique.
+          </p>
+
+          <p>
+            J’ai travaillé sur un ensemble de données métiers contenant des informations potentiellement
+            <strong>sensibles au regard du RGPD</strong>. Il s’agissait de relier ces données aux référentiels
+            métiers d’Enedis afin d’enrichir chaque enregistrement avec les caractéristiques adéquates.
+          </p>
+
+          <p>
+            Le processus initial étant majoritairement manuel, j’ai donc proposé et conçu un
+            <strong>outil d’automatisation sous Excel</strong> capable de générer des
+            <strong>requêtes SQL dynamiques</strong> intégrant automatiquement les nouvelles caractéristiques métiers.
+            Ces requêtes ont ensuite été utilisées pour intégrer directement les données conformes dans
+            <strong>la base de données d’Enedis</strong>.
+          </p>
+
+          <div class="enedis-bottom">
+            <div class="tools-box">
+              <h2>🧰 Outils & compétences mobilisés</h2>
+              <div class="tools-grid">
+                <span class="tool-chip">Excel</span>
+                <span class="tool-chip">SQL</span>
+                <span class="tool-chip">Power Query</span>
+                <span class="tool-chip">Data Virtualisation</span>
+              </div>
+            </div>
+
+            <div class="enedis-result-single">
+              <h2>📊 Résultat obtenu</h2>
+              <p>
+                <strong>Réduction d’un tiers</strong> de la charge de travail estimée et
+                <strong>plus de 50 % du stock de données traité</strong>.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 3 : Mission 2 (TEXTES DE TA CAPTURE) -->
+      <section class="slide-full slide-enedis-mission1">
+        <div class="slide-content">
+          <h1>Mission 2 — Produit de données Cloud</h1>
+
+          <p>
+            Cette mission consistait à concevoir un <strong>produit de données Cloud</strong>
+            destiné à être réutilisé sur la nouvelle plateforme d’Enedis.
+          </p>
+
+          <p>
+            J’ai réalisé le <strong>tri</strong>, <strong>l’étiquetage</strong> et la <strong>description</strong> des données,
+            ainsi que leur <strong>mise au bon format</strong>, afin de garantir leur <strong>exploitabilité</strong>
+            par un <strong>Data Engineer</strong> dans les flux Cloud.
           </p>
 
           <div class="enedis-bottom">
@@ -111,41 +163,9 @@
             <div class="enedis-result-single">
               <h2>📊 Résultat obtenu</h2>
               <p>
-                <strong>Produit de données</strong> comprenant environ <strong>1 000 données</strong>,
-                prêt à être réutilisé sur la plateforme Cloud d’Enedis.
+                <strong>Réalisation d’un produit de données</strong> comprenant environ <strong>1 000 données</strong>,
+                structuré et prêt à être réutilisé sur la plateforme Cloud d’Enedis.
               </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- SLIDE 3 : Mission 2 -->
-      <section class="slide-full slide-enedis-mission1">
-        <div class="slide-content two-col">
-          <div class="col">
-            <h1>Mission 2 — Produit de données Cloud</h1>
-            <p>
-              Conception d’un <strong>produit de données</strong> sur la plateforme Cloud d’Enedis
-              en logique <strong>by design</strong> (qualité / sécurité / conformité intégrées).
-            </p>
-            <ul class="nice-list">
-              <li>Modélisation des entités et flux.</li>
-              <li>Requêtes <strong>VQL</strong> automatisées.</li>
-              <li>Suivi via <strong>Power BI</strong> et <strong>Denodo</strong>.</li>
-            </ul>
-            <p>👉 Impact : ~<strong>−33%</strong> de charge, &gt;<strong>50%</strong> du stock traité.</p>
-          </div>
-
-          <div class="col">
-            <div class="media-grid">
-              <div class="media-card">
-                <img src="assets/enedis/pipeline.jpg" alt="Pipeline Cloud" />
-                <div class="media-caption">Pipeline — flux automatisé</div>
-              </div>
-              <div class="media-card">
-                <img src="assets/enedis/dashboard.jpg" alt="Dashboard Power BI" />
-                <div class="media-caption">Suivi qualité des flux</div>
-              </div>
             </div>
           </div>
         </div>
@@ -159,10 +179,15 @@
             Stage très formateur en <strong>data</strong> au sein d’un grand SI : rigueur, industrialisation,
             collaboration transverse. Confirme mon intérêt pour la <strong>Data & IA</strong>.
           </p>
+
           <div class="stack-row">
-            <span class="chip">SQL</span><span class="chip">Python</span><span class="chip">VQL</span>
-            <span class="chip">Power BI</span><span class="chip">Denodo</span>
-            <span class="chip">Data Quality</span><span class="chip">Automatisation</span>
+            <span class="chip">SQL</span>
+            <span class="chip">Python</span>
+            <span class="chip">VQL</span>
+            <span class="chip">Power BI</span>
+            <span class="chip">Denodo</span>
+            <span class="chip">Data Quality</span>
+            <span class="chip">Automatisation</span>
           </div>
         </div>
       </section>
@@ -227,20 +252,6 @@
         if(e.key==='ArrowLeft')  document.getElementById('prev').click();
         if(e.key==='Escape')     window.location.href='stages.html';
       });
-
-      let lastScroll=0;
-      window.addEventListener('wheel', (e)=>{
-        const now=Date.now(); if(now-lastScroll<600) return;
-        if(e.deltaX>50){ document.getElementById('next').click(); lastScroll=now; }
-        else if(e.deltaX<-50){ document.getElementById('prev').click(); lastScroll=now; }
-      }, {passive:true});
-
-      let startX=0, startTime=0;
-      slides.addEventListener('touchstart', e=>{ startX=e.touches[0].clientX; startTime=Date.now(); }, {passive:true});
-      slides.addEventListener('touchend', e=>{
-        const diff=e.changedTouches[0].clientX-startX; const t=Date.now()-startTime;
-        if(Math.abs(diff)>50 && t<800){ diff>0 ? document.getElementById('prev').click() : document.getElementById('next').click(); }
-      }, {passive:true});
 
       updateSlide(false);
     }
