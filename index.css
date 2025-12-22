@@ -568,10 +568,19 @@ body {
 
 
 /* ===================================================== */
-/* ENEDIS — SLIDES 2 / 3 (MISSIONS) — VERSION STABLE */
+/* ENEDIS — SLIDES 2 & 3 (MISSION 1 / MISSION 2) */
+/* Texte compact + 2 cartes fines en bas */
 /* ===================================================== */
 
 .slide-enedis-mission1{
+  width: 100vw;
+  height: calc(100vh - var(--board-h));
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding: 26px 24px;
+  box-sizing:border-box;
+
   background: radial-gradient(
     100% 100% at 50% 0%,
     rgba(12,32,56,.70) 0%,
@@ -579,21 +588,123 @@ body {
   );
 }
 
+/* conteneur large + organisation verticale (texte haut / cartes bas) */
 .slide-enedis-mission1 .slide-content{
+  width: min(92vw, 1100px);
   max-width: 1100px;
   margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
+
+  height: calc(100vh - var(--board-h) - 52px); /* = padding top+bottom */
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  gap: 10px;
+
+  text-align:left;
 }
 
-/* Bas de slide */
+/* titre */
+.slide-enedis-mission1 h1{
+  margin: 0 0 8px;
+  font-size: clamp(28px, 3vw, 38px);
+  line-height: 1.15;
+  color:#fff;
+}
+
+/* texte compact pour libérer la place aux encadrés */
+.slide-enedis-mission1 p{
+  margin: 0 0 10px;
+  color:#d8e2f1;
+  line-height: 1.55;
+  font-size: 16px;
+}
+
+.slide-enedis-mission1 strong{
+  color:#59b9ff;
+  font-weight:700;
+}
+
+/* ========== bloc bas : 2 cartes fines ========== */
 .enedis-bottom{
-  margin-top: 16px;
-  display: grid;
+  display:grid;
   grid-template-columns: 1fr 1fr;
-  gap: 24px;
-  align-items: start;
+  gap: 18px;
+  align-items: stretch;
+  margin-top: 6px;
+}
+
+/* cartes "fines" */
+.tools-box,
+.enedis-result-single{
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.14);
+  border-radius: 18px;
+  padding: 16px 18px;
+  box-shadow: 0 10px 26px rgba(0,0,0,.28);
+
+  min-height: 130px;         /* plus fin */
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+
+/* titres des cartes */
+.tools-box h2,
+.enedis-result-single h2{
+  margin: 0 0 10px;
+  font-size: 18px;
+  font-weight: 800;
+  color:#fff;
+}
+
+/* chips */
+.tools-grid{
+  display:flex;
+  flex-wrap:wrap;
+  gap: 8px;
+}
+
+.tool-chip{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+
+  padding: 7px 11px;
+  border-radius: 999px;
+
+  background: rgba(255,255,255,.07);
+  border: 1px solid rgba(77,180,255,.25);
+  color:#eaf3ff;
+  font-weight:700;
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+/* texte résultat */
+.enedis-result-single p{
+  margin: 0;
+  color:#dce7f7;
+  font-size: 15px;
+  line-height: 1.45;
+}
+
+/* responsive */
+@media (max-width: 900px){
+  .slide-enedis-mission1{
+    padding: 20px 16px;
+  }
+  .slide-enedis-mission1 .slide-content{
+    height: auto;
+    gap: 14px;
+  }
+  .enedis-bottom{
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .tools-box,
+  .enedis-result-single{
+    min-height: auto;
+  }
 }
 
 /* ===================================================== */
@@ -643,6 +754,7 @@ body {
     gap: 16px;
   }
 }
+
 
 
 
