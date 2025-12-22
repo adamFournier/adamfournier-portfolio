@@ -864,23 +864,20 @@ body {
   }
 }
 
+
 /* ===================================================== */
-/* ENEDIS — COHÉRENCE COULEUR (fond unique) */
+/* ENEDIS — COHÉRENCE COULEUR (FORCÉE) */
 /* ===================================================== */
 
-:root{
-  --enedis-bg: radial-gradient(
+.slide-full.slide-enedis-main,
+.slide-full.slide-enedis-mission1,
+.slide-full.slide-enedis-mission2,
+.slide-full.slide-enedis-bilan{
+  background: radial-gradient(
     100% 100% at 50% 0%,
     rgba(12,32,56,.75) 0%,
     rgba(8,20,36,.95) 100%
-  );
-}
-
-.slide-enedis-main,
-.slide-enedis-mission1,
-.slide-enedis-mission2,
-.slide-enedis-bilan{
-  background: var(--enedis-bg);
+  ) !important;
 }
 
 
