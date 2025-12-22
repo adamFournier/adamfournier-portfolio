@@ -432,8 +432,8 @@ body {
 .arrow-btn svg { stroke: #eaf3ff; }
 
 /* ===================================================== */
-/* ENEDIS — SLIDE 1 (INTRO) — CORRIGÉ POUR TON HTML */
-/* Texte à gauche / Image à droite / 2 missions dessous */
+/* ENEDIS — SLIDE 1 (STRUCTURE PROPRE ET STABLE) */
+/* Texte à gauche / Image à droite / Missions en bas */
 /* ===================================================== */
 
 .slide-enedis-main{
@@ -442,6 +442,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 32px 24px;
   background: radial-gradient(
     100% 100% at 50% 0%,
     rgba(12,32,56,.70) 0%,
@@ -450,23 +451,24 @@ body {
   box-sizing: border-box;
 }
 
+/* Conteneur spécifique Enedis (ne dépend PAS de .slide-content global) */
 .slide-enedis-main .slide-content{
   width: min(92vw, 1100px);
+  max-width: 1100px;
   margin: 0 auto;
 }
 
-/* Grille principale (c’est elle qui doit être en 2 colonnes) */
+/* ===== GRILLE PRINCIPALE ===== */
 .enedis-grid{
   display: grid;
-  grid-template-columns: minmax(520px, 1fr) 560px;
+  grid-template-columns: 1fr 520px;
   gap: 40px;
   align-items: center;
 }
 
-/* Colonne gauche (texte) */
+/* ===== TEXTE GAUCHE ===== */
 .enedis-text{
-  padding-left: 32px;
-  transform: translateY(-10px);
+  padding-left: 24px;
 }
 
 .enedis-text h1{
@@ -486,49 +488,45 @@ body {
   margin: 10px 0 18px 22px;
   color: #e5edff;
 }
-.enedis-bullets li{ margin-bottom: 6px; }
-.enedis-bullets strong{ color:#59b9ff; font-weight: 800; }
 
-/* ✅ Colonne droite (dans ton HTML c’est le 2ème div de .enedis-grid) */
-.enedis-grid > div:nth-child(2){
+.enedis-bullets li{ margin-bottom: 6px; }
+.enedis-bullets strong{ color:#59b9ff; font-weight:800; }
+
+/* ===== COLONNE DROITE ===== */
+.enedis-right{
   display: flex;
   flex-direction: column;
-  align-items: flex-end;   /* tout à droite */
-  justify-content: center;
+  align-items: center;
 }
 
-/* Image (on limite pour que TOUT rentre dans la slide) */
+/* Image */
 .enedis-image{
-  margin-top: -12px;
   width: 100%;
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
 }
 
 .enedis-image img{
   width: 100%;
-  max-width: 560px;
-  max-height: 320px;        /* IMPORTANT : évite l’image géante */
-  object-fit: cover;        /* recadre proprement */
+  max-width: 520px;
+  max-height: 300px;
+  object-fit: cover;
   border-radius: 18px;
-  display: block;
   box-shadow: 0 14px 38px rgba(0,0,0,.45);
 }
 
-/* Missions sous l’image */
+/* ===== MISSIONS ===== */
 .enedis-missions-under{
   width: 100%;
-  max-width: 560px;
+  max-width: 520px;
   margin-top: 16px;
   display: flex;
   flex-direction: column;
   gap: 14px;
-  align-items: flex-end;
 }
 
 .enedis-mission{
-  width: 420px;
-  max-width: 100%;
+  width: 100%;
   background: rgba(255,255,255,.06);
   border: 1px solid rgba(255,255,255,.14);
   border-radius: 14px;
@@ -539,7 +537,10 @@ body {
   box-shadow: 0 8px 24px rgba(0,0,0,.28);
 }
 
-.enedis-mission .icon{ font-size: 1.4rem; }
+.enedis-mission .icon{
+  font-size: 1.4rem;
+}
+
 .enedis-mission h3{
   margin: 0;
   font-size: 16px;
@@ -547,34 +548,24 @@ body {
   color: #fff;
 }
 
-/* Responsive */
+/* ===== RESPONSIVE ===== */
 @media (max-width: 900px){
   .enedis-grid{
     grid-template-columns: 1fr;
-    gap: 22px;
+    gap: 24px;
   }
+
   .enedis-text{
     padding-left: 0;
-    transform: none;
     text-align: center;
   }
-  .enedis-grid > div:nth-child(2){
-    align-items: center;
-  }
-  .enedis-image{
-    justify-content: center;
-  }
+
   .enedis-image img{
     max-width: 100%;
     max-height: 260px;
   }
-  .enedis-missions-under{
-    align-items: center;
-  }
-  .enedis-mission{
-    width: 100%;
-  }
 }
+
 
 /* ===================================================== */
 /* ENEDIS — SLIDES 2 / 3 (MISSIONS) — VERSION STABLE */
@@ -652,6 +643,7 @@ body {
     gap: 16px;
   }
 }
+
 
 
 
