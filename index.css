@@ -567,7 +567,7 @@ body {
 }
 /* ===================================================== */
 /* ENEDIS — SLIDES 2 & 3 (MISSION 1 / MISSION 2) */
-/* Version ÉTIRÉE comme avant (flex space-between) */
+/* Étirement naturel + encadrés sous le texte */
 /* ===================================================== */
 
 .slide-enedis-mission1,
@@ -587,15 +587,21 @@ body {
   );
 }
 
-/* ===== CONTENEUR ÉTIRÉ ===== */
+/* ===== CONTENEUR PRINCIPAL ===== */
 .slide-enedis-mission1 .slide-content,
 .slide-enedis-mission2 .slide-content{
   width: min(92vw, 1100px);
-  height: calc(100vh - var(--board-h) - 52px);
+  max-width: 1100px;
+  margin: 0 auto;
 
+  height: calc(100vh - var(--board-h) - 52px);
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /* 🔑 COMME AVANT */
+  justify-content: flex-start;
+  gap: 14px;
+
+  padding-top: 12px;
+  padding-bottom: 60px; /* espace avant bullets */
 
   text-align: left;
 }
@@ -603,19 +609,19 @@ body {
 /* ===== TITRE ===== */
 .slide-enedis-mission1 h1,
 .slide-enedis-mission2 h1{
-  font-size: clamp(26px, 2.6vw, 34px); /* ↓ léger */
-  line-height: 1.08;
-  margin-bottom: 10px;
+  margin: 0 0 6px;
+  font-size: clamp(28px, 3vw, 38px);
+  line-height: 1.1;
   color: #fff;
 }
 
 /* ===== TEXTE ===== */
 .slide-enedis-mission1 p,
 .slide-enedis-mission2 p{
-  font-size: 14.8px;  /* ↓ léger */
-  line-height: 1.42;
-  margin-bottom: 8px;
+  margin: 0 0 6px;
   color: #d8e2f1;
+  line-height: 1.5;
+  font-size: 16px;
 }
 
 .slide-enedis-mission1 strong,
@@ -624,11 +630,18 @@ body {
   font-weight: 700;
 }
 
-/* ===== BLOC ENCADRÉS ===== */
+/* 🔑 Étirement naturel du texte (COMME AVANT) */
+.slide-enedis-mission1 .slide-content > p:last-of-type,
+.slide-enedis-mission2 .slide-content > p:last-of-type{
+  margin-bottom: auto;
+}
+
+/* ===== BLOC DES CARTES ===== */
 .enedis-bottom{
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 18px;
+  align-items: stretch;
 }
 
 /* ===== CARTES ===== */
@@ -638,21 +651,71 @@ body {
   border: 1px solid rgba(255,255,255,.14);
   border-radius: 18px;
   padding: 16px 18px;
-  min-height: 140px;
   box-shadow: 0 10px 26px rgba(0,0,0,.28);
+
+  min-height: 140px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* ===== TITRES CARTES ===== */
+.tools-box h2,
+.enedis-result-single h2{
+  margin: 0 0 10px;
+  font-size: 18px;
+  font-weight: 800;
+  color: #fff;
+}
+
+/* ===== CHIPS ===== */
+.tools-grid{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tool-chip{
+  padding: 7px 11px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.07);
+  border: 1px solid rgba(77,180,255,.25);
+  color: #eaf3ff;
+  font-weight: 700;
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+/* ===== TEXTE RÉSULTAT ===== */
+.enedis-result-single p{
+  margin: 0;
+  color: #dce7f7;
+  font-size: 15px;
+  line-height: 1.45;
 }
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 900px){
+  .slide-enedis-mission1,
+  .slide-enedis-mission2{
+    padding: 20px 16px;
+  }
+
   .slide-enedis-mission1 .slide-content,
   .slide-enedis-mission2 .slide-content{
     height: auto;
-    justify-content: flex-start;
-    gap: 16px;
+    gap: 14px;
+    padding-bottom: 40px;
   }
 
   .enedis-bottom{
     grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .tools-box,
+  .enedis-result-single{
+    min-height: auto;
   }
 }
 
@@ -704,6 +767,7 @@ body {
     gap: 16px;
   }
 }
+
 
 
 
