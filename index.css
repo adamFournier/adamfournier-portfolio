@@ -613,7 +613,7 @@ body {
   margin: 0 0 6px;
   color: #d8e2f1;
   line-height: 1.51;
-  font-size: 18px; /* ✅ ton réglage slide 2 */
+  font-size: 17px; /* ✅ ton réglage slide 2 */
 }
 
 .slide-enedis-mission1 strong{ color:#59b9ff; font-weight:700; }
@@ -662,7 +662,7 @@ body {
 }
 
 .slide-enedis-mission2 h1{
-  margin: 0 0 6px;
+  margin: 0 0 8px;
   font-size: clamp(28px, 3vw, 38px);
   line-height: 1.1;
   color: #fff;
@@ -812,6 +812,7 @@ body {
     gap: 16px;
   }
 }
+
 
 
 
