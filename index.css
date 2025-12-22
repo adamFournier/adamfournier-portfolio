@@ -726,6 +726,29 @@ body {
   line-height: 1.45;   /* avant 1.5 */
   margin-bottom: 5px; /* avant 6px */
 }
+/* ===== Ajustement fin texte & titre — Slides 2 & 3 ===== */
+
+/* Titre */
+.slide-enedis-mission1 h1,
+.slide-enedis-mission2 h1{
+  font-size: clamp(26px, 2.7vw, 34px); /* avant plus grand */
+  line-height: 1.08;
+  margin-bottom: 10px;
+}
+
+/* Paragraphes */
+.slide-enedis-mission1 p,
+.slide-enedis-mission2 p{
+  font-size: 14.8px;   /* ↓ légèrement */
+  line-height: 1.42;   /* ↓ interligne */
+  margin-bottom: 8px; /* équilibre vertical */
+}
+
+/* Dernier paragraphe : pousse naturellement les cartes */
+.slide-enedis-mission1 p:last-of-type,
+.slide-enedis-mission2 p:last-of-type{
+  margin-bottom: auto;
+}
 /* ===================================================== */
 /* ENEDIS — SLIDE 4 (BILAN) — VERSION STABLE */
 /* ===================================================== */
@@ -773,6 +796,7 @@ body {
     gap: 16px;
   }
 }
+
 
 
 
