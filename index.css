@@ -620,8 +620,8 @@ body {
 .slide-enedis-mission2 p{
   margin: 0 0 6px;
   color: #d8e2f1;
-  line-height: 1.5;
-  font-size: 16px;
+  line-height: 1.55;
+  font-size: 20px;
 }
 
 .slide-enedis-mission1 strong,
@@ -767,6 +767,7 @@ body {
     gap: 16px;
   }
 }
+
 
 
 
