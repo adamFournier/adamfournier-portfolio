@@ -662,7 +662,7 @@ body {
 }
 
 .slide-enedis-mission2 h1{
-  margin: 0 0 40px;
+  margin: 0 0 60px;
   font-size: clamp(28px, 3vw, 38px);
   line-height: 1.1;
   color: #fff;
@@ -863,6 +863,7 @@ body {
     gap: 16px;
   }
 }
+
 
 
 
