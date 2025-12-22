@@ -718,7 +718,14 @@ body {
     min-height: auto;
   }
 }
+/* ===== Ajustement fin du texte (slides 2 & 3) ===== */
 
+.slide-enedis-mission1 p,
+.slide-enedis-mission2 p{
+  font-size: 15px;     /* avant 16px */
+  line-height: 1.45;   /* avant 1.5 */
+  margin-bottom: 5px; /* avant 6px */
+}
 /* ===================================================== */
 /* ENEDIS — SLIDE 4 (BILAN) — VERSION STABLE */
 /* ===================================================== */
@@ -766,6 +773,7 @@ body {
     gap: 16px;
   }
 }
+
 
 
 
