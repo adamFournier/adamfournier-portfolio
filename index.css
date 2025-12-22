@@ -566,11 +566,68 @@ body {
   }
 }
 /* ===================================================== */
-/* ENEDIS — SLIDES 2 & 3 (MISSION 1 / MISSION 2) */
-/* Étirement naturel + encadrés sous le texte */
+/* ENEDIS — SLIDE 2 : MISSION 1 (ton compromis parfait) */
 /* ===================================================== */
 
-.slide-enedis-mission1,
+.slide-enedis-mission1{
+  width: 100vw;
+  height: calc(100vh - var(--board-h));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 26px 24px;
+  box-sizing: border-box;
+
+  background: radial-gradient(
+    100% 100% at 50% 0%,
+    rgba(12,32,56,.70) 0%,
+    rgba(8,20,36,.95) 100%
+  );
+}
+
+.slide-enedis-mission1 .slide-content{
+  width: min(92vw, 1100px);
+  max-width: 1100px;
+  margin: 0 auto;
+
+  height: calc(100vh - var(--board-h) - 52px);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 14px;
+
+  padding-top: 12px;
+  padding-bottom: 60px;
+
+  text-align: left;
+}
+
+.slide-enedis-mission1 h1{
+  margin: 0 0 6px;
+  font-size: clamp(28px, 3vw, 38px);
+  line-height: 1.1;
+  color: #fff;
+}
+
+.slide-enedis-mission1 p{
+  margin: 0 0 6px;
+  color: #d8e2f1;
+  line-height: 1.51;
+  font-size: 18px; /* ✅ ton réglage slide 2 */
+}
+
+.slide-enedis-mission1 strong{ color:#59b9ff; font-weight:700; }
+
+.slide-enedis-mission1 .slide-content > p:last-of-type{
+  margin-bottom: auto;
+}
+
+
+/* ===================================================== */
+/* ENEDIS — SLIDE 3 : MISSION 2 (même mise en page, réglable) */
+/* ➜ tu changes uniquement le titre et les textes dans le HTML */
+/* ===================================================== */
+
 .slide-enedis-mission2{
   width: 100vw;
   height: calc(100vh - var(--board-h));
@@ -587,8 +644,6 @@ body {
   );
 }
 
-/* ===== CONTENEUR PRINCIPAL ===== */
-.slide-enedis-mission1 .slide-content,
 .slide-enedis-mission2 .slide-content{
   width: min(92vw, 1100px);
   max-width: 1100px;
@@ -601,13 +656,11 @@ body {
   gap: 14px;
 
   padding-top: 12px;
-  padding-bottom: 60px; /* espace avant bullets */
+  padding-bottom: 60px;
 
   text-align: left;
 }
 
-/* ===== TITRE ===== */
-.slide-enedis-mission1 h1,
 .slide-enedis-mission2 h1{
   margin: 0 0 6px;
   font-size: clamp(28px, 3vw, 38px);
@@ -615,28 +668,24 @@ body {
   color: #fff;
 }
 
-/* ===== TEXTE ===== */
-.slide-enedis-mission1 p,
 .slide-enedis-mission2 p{
   margin: 0 0 6px;
   color: #d8e2f1;
   line-height: 1.51;
-  font-size: 18px;
+  font-size: 18px; /* ✅ ici tu pourras ajuster si besoin (ex: 16px) */
 }
 
-.slide-enedis-mission1 strong,
-.slide-enedis-mission2 strong{
-  color: #59b9ff;
-  font-weight: 700;
-}
+.slide-enedis-mission2 strong{ color:#59b9ff; font-weight:700; }
 
-/* 🔑 Étirement naturel du texte (COMME AVANT) */
-.slide-enedis-mission1 .slide-content > p:last-of-type,
 .slide-enedis-mission2 .slide-content > p:last-of-type{
   margin-bottom: auto;
 }
 
-/* ===== BLOC DES CARTES ===== */
+
+/* ===================================================== */
+/* COMMUN — BLOC CARTES (identique pour 2 & 3) */
+/* ===================================================== */
+
 .enedis-bottom{
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -644,7 +693,6 @@ body {
   align-items: stretch;
 }
 
-/* ===== CARTES ===== */
 .tools-box,
 .enedis-result-single{
   background: rgba(255,255,255,.06);
@@ -659,7 +707,6 @@ body {
   justify-content: center;
 }
 
-/* ===== TITRES CARTES ===== */
 .tools-box h2,
 .enedis-result-single h2{
   margin: 0 0 10px;
@@ -668,7 +715,6 @@ body {
   color: #fff;
 }
 
-/* ===== CHIPS ===== */
 .tools-grid{
   display: flex;
   flex-wrap: wrap;
@@ -686,7 +732,6 @@ body {
   white-space: nowrap;
 }
 
-/* ===== TEXTE RÉSULTAT ===== */
 .enedis-result-single p{
   margin: 0;
   color: #dce7f7;
@@ -694,7 +739,7 @@ body {
   line-height: 1.45;
 }
 
-/* ===== RESPONSIVE ===== */
+/* Responsive */
 @media (max-width: 900px){
   .slide-enedis-mission1,
   .slide-enedis-mission2{
@@ -767,6 +812,7 @@ body {
     gap: 16px;
   }
 }
+
 
 
 
