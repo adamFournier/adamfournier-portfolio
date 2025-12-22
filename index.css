@@ -566,7 +566,6 @@ body {
   }
 }
 
-
 /* ===================================================== */
 /* ENEDIS — SLIDES 2 & 3 (MISSION 1 / MISSION 2) */
 /* Texte compact + 2 cartes fines en bas */
@@ -588,7 +587,7 @@ body {
   );
 }
 
-/* conteneur large + organisation verticale (texte haut / cartes bas) */
+/* conteneur : texte en haut / cartes collées en bas */
 .slide-enedis-mission1 .slide-content{
   width: min(92vw, 1100px);
   max-width: 1100px;
@@ -597,25 +596,25 @@ body {
   height: calc(100vh - var(--board-h) - 52px);
   display:flex;
   flex-direction:column;
-  justify-content:flex-start;;
-  gap: 8px;                 /* ✅ AVANT: 10px */
+  justify-content:flex-start;
+  gap: 8px;
 
   text-align:left;
 }
 
 /* titre */
 .slide-enedis-mission1 h1{
-  margin: 0 0 6px;           /* ✅ AVANT: 0 0 8px */
+  margin: 0 0 6px;
   font-size: clamp(28px, 3vw, 38px);
-  line-height: 1.1;          /* ✅ AVANT: 1.15 */
+  line-height: 1.1;
   color:#fff;
 }
 
-/* texte compact pour libérer la place aux encadrés */
+/* texte compact */
 .slide-enedis-mission1 p{
-  margin: 0 0 6px;           /* ✅ AVANT: 0 0 10px */
+  margin: 0 0 6px;
   color:#d8e2f1;
-  line-height: 1.5;          /* ✅ AVANT: 1.55 */
+  line-height: 1.5;
   font-size: 16px;
 }
 
@@ -624,13 +623,13 @@ body {
   font-weight:700;
 }
 
-/* ========== bloc bas : 2 cartes fines ========== */
+/* ========== bloc bas : collé en bas, prend l'espace sans toucher au texte ========== */
 .enedis-bottom{
+  margin-top: auto;          /* ✅ clé : pousse le bloc en bas */
   display:grid;
   grid-template-columns: 1fr 1fr;
   gap: 18px;
   align-items: stretch;
-  margin-top: 2px;           /* ✅ AVANT: 6px */
 }
 
 /* cartes "fines" */
@@ -700,12 +699,14 @@ body {
   .enedis-bottom{
     grid-template-columns: 1fr;
     gap: 12px;
+    margin-top: 12px; /* en mobile on évite que ce soit trop collé */
   }
   .tools-box,
   .enedis-result-single{
     min-height: auto;
   }
 }
+
 
 /* ===================================================== */
 /* ENEDIS — SLIDE 4 (BILAN) — VERSION STABLE */
@@ -754,6 +755,7 @@ body {
     gap: 16px;
   }
 }
+
 
 
 
