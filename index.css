@@ -864,47 +864,6 @@ body {
   }
 }
 
-/* ===================================================== */
-/* ENEDIS — COHÉRENCE COULEUR (fond unique) */
-/* ===================================================== */
-
-:root{
-  --enedis-bg: radial-gradient(
-    100% 100% at 50% 0%,
-    rgba(12,32,56,.75) 0%,
-    rgba(8,20,36,.95) 100%
-  );
-}
-
-.slide-enedis-main,
-.slide-enedis-mission1,
-.slide-enedis-mission2,
-.slide-enedis-bilan{
-  background: var(--enedis-bg);
-}
-
-/* Missions cliquables (slide 1) */
-.enedis-mission{
-  text-decoration: none;
-  color: inherit;
-  cursor: pointer;
-  transition: transform .25s ease, box-shadow .25s ease;
-}
-
-.enedis-mission:hover{
-  transform: translateX(4px);
-  box-shadow: 0 14px 32px rgba(56,148,255,.35);
-}
-
-
-
-
-
-
-
-
-
-
 
 
 
