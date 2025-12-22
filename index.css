@@ -529,19 +529,10 @@ body {
   .two-col { grid-template-columns: 1fr; }
 }
 /* ===================================================== */
-/* ENEDIS — SLIDES (TOUTES ALIGNÉES, 100vw, SANS DÉCALAGE) */
+/* ENEDIS — SLIDE 1 (INTRO) — VERSION STABLE */
 /* ===================================================== */
 
-/* ===== SLIDE 1 : INTRO ===== */
 .slide-enedis-main{
-  width: 100vw;
-  flex: 0 0 100vw;
-  height: calc(100vh - var(--board-h));
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 32px 24px;
-
   background: radial-gradient(
     100% 100% at 50% 0%,
     rgba(12,32,56,.70) 0%,
@@ -550,20 +541,90 @@ body {
 }
 
 .slide-enedis-main .slide-content{
-  width: min(92vw, 1100px);
+  max-width: 1100px;
   margin: 0 auto;
 }
 
-/* ===== SLIDE 2 & 3 : MISSIONS ===== */
-.slide-enedis-mission1{
-  width: 100vw;
-  flex: 0 0 100vw;
-  height: calc(100vh - var(--board-h));
+/* Grille principale */
+.enedis-grid{
+  display: grid;
+  grid-template-columns: minmax(520px, 1fr) 560px;
+  align-items: center;
+  gap: 40px;
+}
+
+/* Colonne gauche */
+.enedis-text{
+  padding-left: 32px;
+  transform: translateY(-16px);
+}
+
+.enedis-text h1{
+  margin: 0 0 12px;
+  font-size: clamp(28px, 3.2vw, 40px);
+  line-height: 1.2;
+}
+
+.enedis-text p{
+  margin: 0 0 14px;
+  color: #cfd9eb;
+  line-height: 1.65;
+}
+
+.enedis-bullets{
+  list-style: disc;
+  margin: 8px 0 18px 28px;
+  color: #dfe8f8;
+}
+
+/* Colonne droite */
+.enedis-grid > :nth-child(2){
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Image */
+.enedis-image{
+  margin-top: -18px;
+  display: flex;
+  justify-content: center;
+}
+
+.enedis-image img{
+  width: 100%;
+  max-width: 560px;
+  border-radius: 18px;
+  box-shadow: 0 14px 38px rgba(0,0,0,.45);
+}
+
+/* Cartes missions */
+.enedis-missions-under{
+  max-width: 560px;
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: flex-end;
+}
+
+.enedis-mission{
+  width: 420px;
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.14);
+  border-radius: 14px;
+  padding: 14px 16px;
   display: flex;
   align-items: center;
-  justify-content: center;
-  padding: 32px 24px;
+  gap: 12px;
+  box-shadow: 0 10px 26px rgba(0,0,0,.28);
+}
 
+/* ===================================================== */
+/* ENEDIS — SLIDES 2 / 3 (MISSIONS) — VERSION STABLE */
+/* ===================================================== */
+
+.slide-enedis-mission1{
   background: radial-gradient(
     100% 100% at 50% 0%,
     rgba(12,32,56,.70) 0%,
@@ -572,24 +633,27 @@ body {
 }
 
 .slide-enedis-mission1 .slide-content{
-  width: min(92vw, 1100px);
+  max-width: 1100px;
   margin: 0 auto;
-  padding: 48px 0 28px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 16px;
 }
 
-/* ===== SLIDE 4 : BILAN ===== */
-.slide-enedis-bilan{
-  width: 100vw;
-  flex: 0 0 100vw;
-  height: calc(100vh - var(--board-h));
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 32px 24px;
+/* Bas de slide */
+.enedis-bottom{
+  margin-top: 16px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  align-items: start;
+}
 
+/* ===================================================== */
+/* ENEDIS — SLIDE 4 (BILAN) — VERSION STABLE */
+/* ===================================================== */
+
+.slide-enedis-bilan{
   background: radial-gradient(
     100% 100% at 50% 0%,
     rgba(12,32,56,.70) 0%,
@@ -598,6 +662,38 @@ body {
 }
 
 .slide-enedis-bilan .slide-content{
-  width: min(92vw, 1100px);
+  max-width: 900px;
   margin: 0 auto;
+  text-align: center;
 }
+
+/* ===================================================== */
+/* RESPONSIVE */
+/* ===================================================== */
+
+@media (max-width: 900px){
+  .enedis-grid{
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .enedis-text{
+    padding-left: 0;
+    transform: none;
+    text-align: center;
+  }
+
+  .enedis-missions-under{
+    align-items: center;
+  }
+
+  .enedis-mission{
+    width: 100%;
+  }
+
+  .enedis-bottom{
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
