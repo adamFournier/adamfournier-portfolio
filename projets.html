@@ -4,13 +4,27 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Projets — Adam Fournier</title>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="index.css?v=401" />
+
+  <style>
+    /* Réutilise la structure “stages.html” (stage-wrap / stage-grid / stage-card / pill) */
+    .section-title{
+      max-width:1100px;
+      margin: 34px auto 10px;
+      font-size: 18px;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: rgba(223,233,255,.85);
+    }
+  </style>
 </head>
+
 <body>
 
+<!-- BOARD commun -->
 <header class="board">
   <div class="board__inner">
     <div class="board__brand">Adam&nbsp;Fournier</div>
@@ -21,125 +35,64 @@
         <a href="stages.html">Stages</a>
         <div class="sub">
           <a href="stage-enedis.html">Stage — Enedis (Paris)</a>
-          <!-- Ajoute ici d'autres liens quand tu auras Stage #2, #3 -->
-          <!-- <a href="stage-airbus.html">Stage — Airbus</a> -->
-          <!-- <a href="stage-edf.html">Stage — EDF</a> -->
         </div>
       </div>
 
-      <a href="projets.html">Projets</a>
+      <a href="projets.html" class="is-active">Projets</a>
       <a href="engagements.html">Engagements</a>
     </nav>
   </div>
 </header>
 
-
-
-  <div class="slides-full-wrap">
-    <div class="slides-full" id="slider">
-      <section class="slide-full">
-        <div class="slide-content">
-          <h1>Projet 1 — Systèmes embarqués</h1>
-          <p>À décrire : objectif, rôle, outils (C, Python, STM32/Arduino…), résultats, apprentissages clés.</p>
-        </div>
-      </section>
-
-      <section class="slide-full">
-        <div class="slide-content">
-          <h1>Projet 2 — Contrôle/Commande</h1>
-          <p>À décrire : modélisation, PID, Matlab/Simulink, tests, performance obtenue.</p>
-        </div>
-      </section>
-
-      <section class="slide-full">
-        <div class="slide-content">
-          <h1>Projet 3 — Simulation & Data</h1>
-          <p>À décrire : traitement signal/données, scripts Python, visualisations, conclusions.</p>
-        </div>
-      </section>
-    </div>
+<main class="stage-wrap">
+  <div class="stage-head">
+    <h1>Mes projets</h1>
+    <p>
+      Projets académiques réalisés en école d’ingénieur, principalement en
+      <strong>électronique</strong> et <strong>systèmes embarqués</strong>.
+      Chaque projet est détaillé à travers plusieurs slides (contexte, rôle, outils, résultats, apprentissages).
+    </p>
   </div>
 
-  <div class="arrows">
-  <button class="arrow-btn" id="prev" aria-label="Slide précédente">
-    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
-         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-         viewBox="0 0 24 24">
-      <polyline points="15 18 9 12 15 6" />
-    </svg>
-  </button>
+  <!-- SECTION : ÉLECTRONIQUE -->
+  <h2 class="section-title">Électronique</h2>
 
-  <button class="arrow-btn" id="next" aria-label="Slide suivante">
-    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
-         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-         viewBox="0 0 24 24">
-      <polyline points="9 6 15 12 9 18" />
-    </svg>
-  </button>
-</div>
+  <section class="stage-grid">
+    <!-- Moniteur cardiaque -->
+    <article class="stage-card is-clickable">
+      <a href="projet-moniteur.html" aria-label="Voir le projet Moniteur cardiaque">
+        <div class="stage-title">Moniteur cardiaque</div>
+        <div class="stage-sub">Acquisition du signal • Traitement • Affichage</div>
+        <div class="stage-meta">
+          <span class="pill">Électronique</span>
+          <span class="pill">Signal</span>
+          <span class="pill">Slides</span>
+        </div>
+      </a>
+    </article>
 
+    <!-- Émetteur / Récepteur -->
+    <article class="stage-card is-clickable">
+      <a href="projet-emetteur.html" aria-label="Voir le projet Émetteur / Récepteur">
+        <div class="stage-title">Émetteur / Récepteur</div>
+        <div class="stage-sub">Transmission • Modulation • Communication</div>
+        <div class="stage-meta">
+          <span class="pill">Électronique</span>
+          <span class="pill">Comms</span>
+          <span class="pill">Slides</span>
+        </div>
+      </a>
+    </article>
 
-  <div class="progress"><div class="progress__bar" id="progressBar"></div></div>
-  <div class="pagination-ui">
-    <div class="dots" id="dots" aria-label="Pagination des slides"></div>
-    <div class="counter" id="counter">1 / 3</div>
-  </div>
+    <!-- Ghost -->
+    <article class="stage-card is-ghost">
+      <div>
+        <div class="stage-title">Projet&nbsp;#3</div>
+        <div class="stage-sub">À venir</div>
+      </div>
+    </article>
+  </section>
+</main>
 
-  <script>
-    let current = 0;
-    const slides = document.getElementById('slider');
-    const total = slides.children.length;
-
-    const dots = document.getElementById('dots');
-    for (let i = 0; i < total; i++) {
-      const b = document.createElement('button');
-      b.className = 'dot' + (i === 0 ? ' is-active' : '');
-      b.onclick = () => { current = i; updateSlide(true); };
-      dots.appendChild(b);
-    }
-    const counter = document.getElementById('counter');
-    const progressBar = document.getElementById('progressBar');
-
-    function updateSlide(animate = true){
-      slides.style.transitionDuration = animate ? '.7s' : '0s';
-      slides.style.transform = `translateX(-${current * 100}vw)`;
-      updateUI();
-    }
-    function updateUI(){
-      [...document.querySelectorAll('.dot')].forEach((d, idx)=> d.classList.toggle('is-active', idx === current));
-      counter.textContent = `${current + 1} / ${total}`;
-      progressBar.style.width = `${((current + 1) / total) * 100}%`;
-    }
-
-    document.getElementById('next').onclick = ()=>{ current = (current + 1) % total; updateSlide(); };
-    document.getElementById('prev').onclick = ()=>{ current = (current - 1 + total) % total; updateSlide(); };
-
-    document.addEventListener('keydown', (e)=>{
-      if(e.key==='ArrowRight') document.getElementById('next').click();
-      if(e.key==='ArrowLeft') document.getElementById('prev').click();
-      if(e.key==='Escape') window.location.href='index.html';
-    });
-
-    let lastScroll=0;
-    window.addEventListener('wheel', (e)=>{
-      const now=Date.now(); if(now-lastScroll<600) return;
-      if(e.deltaX>50){ document.getElementById('next').click(); lastScroll=now; }
-      else if(e.deltaX<-50){ document.getElementById('prev').click(); lastScroll=now; }
-    }, {passive:true});
-
-    let startX=0, startTime=0;
-    slides.addEventListener('touchstart', e=>{ startX=e.touches[0].clientX; startTime=Date.now(); }, {passive:true});
-    slides.addEventListener('touchend', e=>{
-      const diff=e.changedTouches[0].clientX-startX; const t=Date.now()-startTime;
-      if(Math.abs(diff)>50 && t<800){ diff>0 ? document.getElementById('prev').click() : document.getElementById('next').click(); }
-    }, {passive:true});
-
-    updateUI();
-  </script>
 </body>
 </html>
-
-
-
-
-
