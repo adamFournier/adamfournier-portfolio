@@ -880,6 +880,63 @@ body {
   ) !important;
 }
 
+/* ===================================================== */
+/* ENGAGEMENT — CORDÉES DE LA RÉUSSITE */
+/* ===================================================== */
+
+.slide-engagement-cordee{
+  background: var(--enedis-bg); /* cohérence avec Enedis */
+  width: 100vw;
+  height: calc(100vh - var(--board-h));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 24px;
+}
+
+.engagement-grid{
+  max-width: 1100px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 48px;
+  align-items: center;
+}
+
+/* Image */
+.engagement-image img{
+  width: 100%;
+  border-radius: 18px;
+  box-shadow: 0 14px 38px rgba(0,0,0,.4);
+}
+
+/* Texte */
+.engagement-text h1{
+  margin-bottom: 16px;
+  font-size: clamp(28px, 3vw, 38px);
+}
+
+.engagement-text p{
+  font-size: 16px;
+  line-height: 1.55;
+  color: #d8e2f1;
+  margin-bottom: 10px;
+}
+
+.engagement-text strong{
+  color: #59b9ff;
+  font-weight: 700;
+}
+
+/* Responsive */
+@media (max-width: 900px){
+  .engagement-grid{
+    grid-template-columns: 1fr;
+    gap: 24px;
+    text-align: center;
+  }
+}
+
 
 
 
