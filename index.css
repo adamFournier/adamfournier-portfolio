@@ -1163,6 +1163,22 @@ body {
   align-items:center;
   text-align:center;
 }
+/* Carte stage planifié (Inde – non cliquable) */
+.stage-card.is-disabled{
+  background: rgba(255,255,255,.085);
+  border: 1px solid rgba(255,255,255,.16);
+  color: #dfe9ff;
+  opacity: .92;
+  cursor: default;
+}
+
+.stage-card.is-disabled:hover{
+  transform: none;
+  box-shadow: none;
+  border-color: rgba(255,255,255,.16);
+  background: rgba(255,255,255,.085);
+}
+
 
 .stage-title{
   font-weight:800;
@@ -1199,6 +1215,7 @@ body {
   .stage-grid{grid-template-columns:1fr;}
   .stage-head h1{font-size:34px;}
 }
+
 
 
 
