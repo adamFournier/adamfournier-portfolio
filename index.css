@@ -954,6 +954,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-left: 24px; /* ← AJOUTE CETTE LIGNE */
 }
 
 .engagement-image img{
@@ -1016,6 +1017,7 @@ body {
     display: none;
   }
 }
+
 
 
 
