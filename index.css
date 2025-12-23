@@ -1054,6 +1054,11 @@ body {
   opacity: .95;
 }
 
+.slide-cours-soutien strong{
+  color: #7dd3fc; /* bleu clair comme les autres slides */
+  font-weight: 600;
+}
+
 
 
 
