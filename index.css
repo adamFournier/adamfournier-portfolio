@@ -1019,6 +1019,44 @@ body {
 }
 
 
+/* === SLIDE : COURS DE SOUTIENS === */
+
+.slide-full .slide-content{
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+/* Titre */
+.slide-full h1{
+  font-size: clamp(36px, 5vw, 56px);
+  margin-bottom: 32px;
+  position: relative;
+}
+
+/* Ligne décorative sous le titre */
+.slide-full h1::after{
+  content: "";
+  display: block;
+  width: 64px;
+  height: 4px;
+  margin-top: 16px;
+  background: linear-gradient(
+    to right,
+    rgba(255,255,255,.8),
+    rgba(255,255,255,.2)
+  );
+  border-radius: 2px;
+}
+
+/* Texte */
+.slide-full p{
+  font-size: 17px;
+  line-height: 1.8;
+  max-width: 700px;
+  opacity: .95;
+}
+
 
 
 
