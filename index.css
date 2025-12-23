@@ -329,6 +329,22 @@ body {
   padding:32px 24px;
   background:linear-gradient(160deg,#0c1a30,#132d55);
 }
+
+
+/* ===================================================== */
+/* ENEDIS — COHÉRENCE COULEUR (FORCÉE) */
+/* ===================================================== */
+
+.slide-full.slide-enedis-main,
+.slide-full.slide-enedis-mission1,
+.slide-full.slide-enedis-mission2,
+.slide-full.slide-enedis-bilan{
+  background: radial-gradient(
+    100% 100% at 50% 0%,
+    rgba(12,32,56,.75) 0%,
+    rgba(8,20,36,.95) 100%
+  ) !important;
+}
 .slide-full:nth-child(2){background:linear-gradient(160deg,#0d2038,#184472);}
 .slide-full:nth-child(3){background:linear-gradient(160deg,#0e2240,#206b93);}
 
@@ -865,20 +881,6 @@ body {
 }
 
 
-/* ===================================================== */
-/* ENEDIS — COHÉRENCE COULEUR (FORCÉE) */
-/* ===================================================== */
-
-.slide-full.slide-enedis-main,
-.slide-full.slide-enedis-mission1,
-.slide-full.slide-enedis-mission2,
-.slide-full.slide-enedis-bilan{
-  background: radial-gradient(
-    100% 100% at 50% 0%,
-    rgba(12,32,56,.75) 0%,
-    rgba(8,20,36,.95) 100%
-  ) !important;
-}
 
 /* ===================================================== */
 /* ENGAGEMENT — CORDÉES DE LA RÉUSSITE */
@@ -936,6 +938,7 @@ body {
     text-align: center;
   }
 }
+
 
 
 
