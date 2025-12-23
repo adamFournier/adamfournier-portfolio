@@ -350,8 +350,6 @@ body {
     rgba(8,20,36,.95) 100%
   ) !important;
 }
-.slide-full:nth-child(2){background:linear-gradient(160deg,#0d2038,#184472);}
-.slide-full:nth-child(3){background:linear-gradient(160deg,#0e2240,#206b93);}
 
 .slide-content{
   max-width:760px;
@@ -1071,6 +1069,16 @@ body {
       rgba(18,42,70,.75) 0%,
       rgba(10,28,48,.95) 100%
     );
+}
+
+/* FOND COMMUN ENGAGEMENTS */
+.slide-engagement-cordee,
+.slide-cours-soutien{
+  background: radial-gradient(
+    100% 100% at 50% 0%,
+    rgba(12,32,56,.75) 0%,
+    rgba(8,20,36,.95) 100%
+  );
 }
 
 
