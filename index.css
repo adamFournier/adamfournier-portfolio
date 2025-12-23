@@ -1059,6 +1059,15 @@ body {
   font-weight: 700;
 }
 
+.slide-cours-soutien{
+  background: linear-gradient(
+    180deg,
+    #0c2443 0%,
+    #0b2a4a 60%,
+    #09203a 100%
+  );
+}
+
 
 
 
