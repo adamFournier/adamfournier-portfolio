@@ -9,6 +9,11 @@
   --border:#1e2f4c;
   --shadow:0 14px 40px rgba(0,0,0,.45);
   --board-h:64px;
+--engagement-bg: radial-gradient(
+  100% 100% at 50% 0%,
+  rgba(12,32,56,.75) 0%,
+  rgba(8,20,36,.95) 100%
+);
 
   /* Hauteurs des barres fixes bas de page */
   --contact-h:76px;  /* bandeau Contact */
@@ -887,7 +892,7 @@ body {
 /* ===================================================== */
 
 .slide-engagement-cordee{
-  background: var(--enedis-bg); /* cohérence avec Enedis */
+  background: var(--engagement-bg); /* cohérence avec Enedis */
   width: 100vw;
   height: calc(100vh - var(--board-h));
   display: flex;
@@ -1060,13 +1065,15 @@ body {
 }
 
 .slide-cours-soutien{
-  background: linear-gradient(
-    180deg,
-    #0c2443 0%,
-    #0b2a4a 60%,
-    #09203a 100%
-  );
+  background:
+    radial-gradient(
+      100% 100% at 50% 0%,
+      rgba(18,42,70,.75) 0%,
+      rgba(10,28,48,.95) 100%
+    );
 }
+
+
 
 
 
