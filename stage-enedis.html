@@ -209,48 +209,61 @@
   </div>
 
   <!-- SCRIPT slider -->
-  <script>
+<script>
     let current = 0;
     const slides = document.getElementById('slider');
+    const total = slides.children.length;
 
-    if (!slides) {
-      console.error("Slider introuvable (#slider).");
-    } else {
-      const total = slides.children.length;
-
-      const dots = document.getElementById('dots');
-      for (let i = 0; i < total; i++) {
-        const b = document.createElement('button');
-        b.className = 'dot' + (i === 0 ? ' is-active' : '');
-        b.onclick = () => { current = i; updateSlide(true); };
-        dots.appendChild(b);
-      }
-
-      const counter = document.getElementById('counter');
-
-      function updateSlide(animate = true){
-        slides.style.transitionDuration = animate ? '.7s' : '0s';
-        slides.style.transform = `translateX(-${current * 100}vw)`;
-        document.querySelectorAll('.dot').forEach((d, i) =>
-          d.classList.toggle('is-active', i === current)
-        );
-        counter.textContent = `${current + 1} / ${total}`;
-      }
-
-      document.getElementById('next').onclick = ()=>{ current = (current + 1) % total; updateSlide(); };
-      document.getElementById('prev').onclick = ()=>{ current = (current - 1 + total) % total; updateSlide(); };
-
-      document.addEventListener('keydown', (e)=>{
-        if(e.key==='ArrowRight') document.getElementById('next').click();
-        if(e.key==='ArrowLeft')  document.getElementById('prev').click();
-        if(e.key==='Escape')     window.location.href='stages.html';
-      });
-
-      updateSlide(false);
+    const dots = document.getElementById('dots');
+    for (let i = 0; i < total; i++) {
+      const b = document.createElement('button');
+      b.className = 'dot' + (i === 0 ? ' is-active' : '');
+      b.onclick = () => { current = i; updateSlide(true); };
+      dots.appendChild(b);
     }
+    const counter = document.getElementById('counter');
+    const progressBar = document.getElementById('progressBar');
+
+    function updateSlide(animate = true){
+      slides.style.transitionDuration = animate ? '.7s' : '0s';
+      slides.style.transform = `translateX(-${current * 100}vw)`;
+      updateUI();
+    }
+    function updateUI(){
+      [...document.querySelectorAll('.dot')].forEach((d, idx)=> d.classList.toggle('is-active', idx === current));
+      counter.textContent = `${current + 1} / ${total}`;
+      progressBar.style.width = `${((current + 1) / total) * 100}%`;
+    }
+
+    document.getElementById('next').onclick = ()=>{ current = (current + 1) % total; updateSlide(); };
+    document.getElementById('prev').onclick = ()=>{ current = (current - 1 + total) % total; updateSlide(); };
+
+    document.addEventListener('keydown', (e)=>{
+      if(e.key==='ArrowRight') document.getElementById('next').click();
+      if(e.key==='ArrowLeft') document.getElementById('prev').click();
+      if(e.key==='Escape') window.location.href='index.html';
+    });
+
+    let lastScroll=0;
+    window.addEventListener('wheel', (e)=>{
+      const now=Date.now(); if(now-lastScroll<600) return;
+      if(e.deltaX>50){ document.getElementById('next').click(); lastScroll=now; }
+      else if(e.deltaX<-50){ document.getElementById('prev').click(); lastScroll=now; }
+    }, {passive:true});
+
+    let startX=0, startTime=0;
+    slides.addEventListener('touchstart', e=>{ startX=e.touches[0].clientX; startTime=Date.now(); }, {passive:true});
+    slides.addEventListener('touchend', e=>{
+      const diff=e.changedTouches[0].clientX-startX; const t=Date.now()-startTime;
+      if(Math.abs(diff)>50 && t<800){ diff>0 ? document.getElementById('prev').click() : document.getElementById('next').click(); }
+    }, {passive:true});
+
+    updateUI();
   </script>
 </body>
 </html>
+
+
 
 
 
