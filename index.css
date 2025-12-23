@@ -939,6 +939,84 @@ body {
   }
 }
 
+/* === ENGAGEMENTS : meilleure mise en page (CSS ONLY) === */
+
+.engagement-grid{
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 64px;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.engagement-image{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.engagement-image img{
+  width: 100%;
+  max-width: 420px;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  background: white;
+  padding: 24px;
+  border-radius: 24px;
+  box-shadow: 0 20px 50px rgba(0,0,0,.35);
+}
+
+.engagement-text{
+  max-width: 560px;
+  position: relative;
+  padding-left: 28px;
+}
+
+.engagement-text::before{
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 6px;
+  bottom: 6px;
+  width: 3px;
+  background: linear-gradient(
+    to bottom,
+    rgba(255,255,255,.6),
+    rgba(255,255,255,.1)
+  );
+  border-radius: 2px;
+}
+
+.engagement-text h1{
+  margin-bottom: 24px;
+}
+
+.engagement-text p{
+  margin-bottom: 18px;
+  line-height: 1.75;
+}
+
+@media (max-width: 900px){
+  .engagement-grid{
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .engagement-image img{
+    max-width: 260px;
+    margin: 0 auto;
+  }
+
+  .engagement-text{
+    padding-left: 0;
+  }
+
+  .engagement-text::before{
+    display: none;
+  }
+}
+
 
 
 
