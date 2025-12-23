@@ -4,11 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Engagements — Adam Fournier</title>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="index.css?v=401" />
 </head>
+
 <body>
 
 <header class="board">
@@ -21,152 +22,177 @@
         <a href="stages.html">Stages</a>
         <div class="sub">
           <a href="stage-enedis.html">Stage — Enedis (Paris)</a>
-          <!-- Ajoute ici d'autres liens quand tu auras Stage #2, #3 -->
-          <!-- <a href="stage-airbus.html">Stage — Airbus</a> -->
-          <!-- <a href="stage-edf.html">Stage — EDF</a> -->
         </div>
       </div>
 
       <a href="projets.html">Projets</a>
-      <a href="engagements.html">Engagements</a>
+      <a href="engagements.html" class="is-active">Engagements</a>
     </nav>
   </div>
 </header>
 
+<!-- WRAPPER SLIDES (IDENTIQUE À STAGE-ENEDIS) -->
+<div class="slides-full-wrap">
+  <div class="slides-full" id="slider">
 
+    <!-- SLIDE 1 -->
+    <section class="slide-full slide-engagement-cordee">
+      <div class="slide-content engagement-grid">
 
-  <!-- SLIDE : Engagement — Cordées de la réussite -->
-<section class="slide-full slide-engagement-cordee">
-
-  <div class="slide-content engagement-grid">
-
-    <!-- IMAGE -->
-    <div class="engagement-image">
-      <img src="assets/engagements/image_cordee.jpg" alt="Cordées de la réussite – Égalité des chances">
-    </div>
-
-    <!-- TEXTE -->
-    <div class="engagement-text">
-      <h1>Engagement — Cordées de la réussite</h1>
-
-      <p>
-        Les <strong>Cordées de la réussite</strong> sont un dispositif national
-        visant à promouvoir l’<strong>égalité des chances</strong> en accompagnant
-        des élèves de lycées professionnels dans la découverte des
-        <strong>études supérieures</strong> et des parcours professionnels.
-      </p>
-
-      <p>
-        Dans ce cadre, je me suis engagée dans le projet
-        <strong>Égalité des chances</strong> en intervenant
-        <strong>une fois par semaine durant l’année 2024–2025</strong>
-        au <strong>lycée professionnel Roland Garros à Toulouse</strong>.
-      </p>
-
-      <p>
-        J’ai assuré l’<strong>encadrement d’un groupe d’élèves de première</strong>
-        autour de la découverte des formations post-bac, des métiers,
-        du développement des <strong>compétences orales</strong> et du
-        renforcement de la <strong>confiance en soi</strong>.
-      </p>
-    </div>
-
-  </div>
-
-</section>
-
-
-      <section class="slide-full">
-        <div class="slide-content">
-          <h1>Sport — Triathlon / Natation</h1>
-          <p>À décrire : régularité, performances, rigueur, parallels avec l’ingénierie.</p>
+        <div class="engagement-image">
+          <img src="assets/engagements/image_cordee.jpg"
+               alt="Cordées de la réussite – Égalité des chances">
         </div>
-      </section>
 
-      <section class="slide-full">
-        <div class="slide-content">
-          <h1>Autres engagements</h1>
-          <p>À décrire : mentoring, tutorat, projets locaux, événements, etc.</p>
+        <div class="engagement-text">
+          <h1>Engagement — Cordées de la réussite</h1>
+
+          <p>
+            Les <strong>Cordées de la réussite</strong> sont un dispositif national
+            visant à promouvoir l’<strong>égalité des chances</strong> en accompagnant
+            des élèves de lycées professionnels dans la découverte des
+            <strong>études supérieures</strong>.
+          </p>
+
+          <p>
+            Dans ce cadre, je me suis engagée dans le projet
+            <strong>Égalité des chances</strong> en intervenant
+            <strong>une fois par semaine durant l’année 2024–2025</strong>
+            au <strong>lycée professionnel Roland Garros à Toulouse</strong>.
+          </p>
+
+          <p>
+            J’ai assuré l’<strong>encadrement d’un groupe d’élèves de première</strong>
+            autour de la découverte des formations post-bac, des métiers,
+            du développement des <strong>compétences orales</strong> et du
+            renforcement de la <strong>confiance en soi</strong>.
+          </p>
         </div>
-      </section>
-    </div>
-  </div>
 
-  <!-- FLÈCHES -->
-  <div class="arrows">
-    <button class="arrow-btn" id="prev" aria-label="Slide précédente">
-      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none"
-           stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"
-           viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
-    </button>
-    <button class="arrow-btn" id="next" aria-label="Slide suivante">
-      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none"
-           stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"
-           viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"/></svg>
-    </button>
-  </div>
+      </div>
+    </section>
 
-  <!-- PAGINATION -->
-  <div class="pagination-ui">
-    <div class="dots" id="dots"></div>
-    <div class="counter" id="counter">1 / 4</div>
-  </div>
+    <!-- SLIDE 2 -->
+    <section class="slide-full">
+      <div class="slide-content">
+        <h1>Sport — Triathlon / Natation</h1>
+        <p>
+          Pratique régulière en compétition, discipline, rigueur,
+          gestion de l’effort et parallèle avec les exigences du monde
+          de l’ingénierie et de la data.
+        </p>
+      </div>
+    </section>
 
-  <!-- SCRIPT slider -->
+    <!-- SLIDE 3 -->
+    <section class="slide-full">
+      <div class="slide-content">
+        <h1>Autres engagements</h1>
+        <p>
+          Mentorat, tutorat, projets associatifs et implication locale,
+          illustrant un engagement constant et transversal.
+        </p>
+      </div>
+    </section>
+
+  </div>
+</div>
+
+<!-- FLÈCHES -->
+<div class="arrows">
+  <button class="arrow-btn" id="prev" aria-label="Slide précédente">
+    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none"
+         stroke="currentColor" stroke-width="2.3" stroke-linecap="round"
+         stroke-linejoin="round" viewBox="0 0 24 24">
+      <polyline points="15 18 9 12 15 6"/>
+    </svg>
+  </button>
+
+  <button class="arrow-btn" id="next" aria-label="Slide suivante">
+    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none"
+         stroke="currentColor" stroke-width="2.3" stroke-linecap="round"
+         stroke-linejoin="round" viewBox="0 0 24 24">
+      <polyline points="9 6 15 12 9 18"/>
+    </svg>
+  </button>
+</div>
+
+<!-- PAGINATION -->
+<div class="pagination-ui">
+  <div class="dots" id="dots"></div>
+  <div class="counter" id="counter">1 / 3</div>
+</div>
+
+<!-- SCRIPT SLIDER (IDENTIQUE AUX AUTRES) -->
 <script>
-    let current = 0;
-    const slides = document.getElementById('slider');
-    const total = slides.children.length;
+  let current = 0;
+  const slides = document.getElementById('slider');
+  const total = slides.children.length;
 
-    const dots = document.getElementById('dots');
-    for (let i = 0; i < total; i++) {
-      const b = document.createElement('button');
-      b.className = 'dot' + (i === 0 ? ' is-active' : '');
-      b.onclick = () => { current = i; updateSlide(true); };
-      dots.appendChild(b);
-    }
-    const counter = document.getElementById('counter');
-    const progressBar = document.getElementById('progressBar');
+  const dots = document.getElementById('dots');
+  for (let i = 0; i < total; i++) {
+    const b = document.createElement('button');
+    b.className = 'dot' + (i === 0 ? ' is-active' : '');
+    b.onclick = () => { current = i; updateSlide(true); };
+    dots.appendChild(b);
+  }
 
-    function updateSlide(animate = true){
-      slides.style.transitionDuration = animate ? '.7s' : '0s';
-      slides.style.transform = `translateX(-${current * 100}vw)`;
-      updateUI();
-    }
-    function updateUI(){
-      [...document.querySelectorAll('.dot')].forEach((d, idx)=> d.classList.toggle('is-active', idx === current));
-      counter.textContent = `${current + 1} / ${total}`;
-      progressBar.style.width = `${((current + 1) / total) * 100}%`;
-    }
+  const counter = document.getElementById('counter');
 
-    document.getElementById('next').onclick = ()=>{ current = (current + 1) % total; updateSlide(); };
-    document.getElementById('prev').onclick = ()=>{ current = (current - 1 + total) % total; updateSlide(); };
-
-    document.addEventListener('keydown', (e)=>{
-      if(e.key==='ArrowRight') document.getElementById('next').click();
-      if(e.key==='ArrowLeft') document.getElementById('prev').click();
-      if(e.key==='Escape') window.location.href='index.html';
-    });
-
-    let lastScroll=0;
-    window.addEventListener('wheel', (e)=>{
-      const now=Date.now(); if(now-lastScroll<600) return;
-      if(e.deltaX>50){ document.getElementById('next').click(); lastScroll=now; }
-      else if(e.deltaX<-50){ document.getElementById('prev').click(); lastScroll=now; }
-    }, {passive:true});
-
-    let startX=0, startTime=0;
-    slides.addEventListener('touchstart', e=>{ startX=e.touches[0].clientX; startTime=Date.now(); }, {passive:true});
-    slides.addEventListener('touchend', e=>{
-      const diff=e.changedTouches[0].clientX-startX; const t=Date.now()-startTime;
-      if(Math.abs(diff)>50 && t<800){ diff>0 ? document.getElementById('prev').click() : document.getElementById('next').click(); }
-    }, {passive:true});
-
+  function updateSlide(animate = true){
+    slides.style.transitionDuration = animate ? '.7s' : '0s';
+    slides.style.transform = `translateX(-${current * 100}vw)`;
     updateUI();
-  </script>
+  }
+
+  function updateUI(){
+    document.querySelectorAll('.dot')
+      .forEach((d, i) => d.classList.toggle('is-active', i === current));
+    counter.textContent = `${current + 1} / ${total}`;
+  }
+
+  document.getElementById('next').onclick = () => {
+    current = (current + 1) % total;
+    updateSlide();
+  };
+
+  document.getElementById('prev').onclick = () => {
+    current = (current - 1 + total) % total;
+    updateSlide();
+  };
+
+  document.addEventListener('keydown', (e)=>{
+    if(e.key === 'ArrowRight') document.getElementById('next').click();
+    if(e.key === 'ArrowLeft') document.getElementById('prev').click();
+    if(e.key === 'Escape') window.location.href = 'index.html';
+  });
+
+  let lastScroll = 0;
+  window.addEventListener('wheel', (e)=>{
+    const now = Date.now();
+    if(now - lastScroll < 600) return;
+    if(e.deltaX > 50) document.getElementById('next').click();
+    if(e.deltaX < -50) document.getElementById('prev').click();
+    lastScroll = now;
+  }, { passive: true });
+
+  let startX = 0, startTime = 0;
+  slides.addEventListener('touchstart', e=>{
+    startX = e.touches[0].clientX;
+    startTime = Date.now();
+  }, { passive: true });
+
+  slides.addEventListener('touchend', e=>{
+    const diff = e.changedTouches[0].clientX - startX;
+    const t = Date.now() - startTime;
+    if(Math.abs(diff) > 50 && t < 800){
+      diff > 0 ? document.getElementById('prev').click()
+               : document.getElementById('next').click();
+    }
+  }, { passive: true });
+
+  updateUI();
+</script>
+
 </body>
 </html>
-
-
-
-
