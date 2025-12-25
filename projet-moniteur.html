@@ -35,37 +35,112 @@
 <div class="slides-full-wrap">
   <div class="slides-full" id="slider">
 
-    <!-- SLIDE 1 -->
-    <section class="slide-full">
-      <div class="slide-content">
-        <h1>Moniteur cardiaque</h1>
-        <p>Présentation rapide du projet : but, contexte, contraintes.</p>
-      </div>
-    </section>
+    <!-- SLIDE 1 : INTRODUCTION -->
+<section class="slide-full">
+  <div class="slide-content engagement-grid">
 
-    <!-- SLIDE 2 -->
-    <section class="slide-full">
-      <div class="slide-content">
-        <h1>Objectifs</h1>
-        <p>Ce que le système devait mesurer/afficher, précision, cadence, etc.</p>
-      </div>
-    </section>
+    <div class="engagement-image">
+      <img src="ppg.jpg" alt="Principe de la photopléthysmographie (PPG)">
+    </div>
 
-    <!-- SLIDE 3 -->
-    <section class="slide-full">
-      <div class="slide-content">
-        <h1>Architecture</h1>
-        <p>Capteur → acquisition → traitement → affichage (ajoute schéma si tu veux).</p>
-      </div>
-    </section>
+    <div class="engagement-text">
+      <h1>Moniteur cardiaque</h1>
+      <p>
+        Ce projet repose sur le principe de la <strong>photopléthysmographie (PPG)</strong>,
+        une technique optique permettant de mesurer les variations de volume sanguin
+        liées aux battements du cœur.
+      </p>
+      <p>
+        L’objectif du projet est l’<strong>acquisition d’un signal cardiaque</strong>,
+        son <strong>amplification et filtrage analogique</strong>, puis sa
+        <strong>numérisation sur FPGA</strong> afin de réaliser un
+        <strong>traitement numérique du signal</strong>.
+      </p>
+    </div>
 
-    <!-- SLIDE 4 -->
-    <section class="slide-full">
-      <div class="slide-content">
-        <h1>Résultats</h1>
-        <p>Résultats obtenus, limites, améliorations possibles.</p>
+  </div>
+</section>
+
+
+   <!-- SLIDE 2 : ACQUISITION / AMPLIFICATION -->
+<section class="slide-full">
+  <div class="slide-content">
+    <h1>Acquisition, amplification et filtrage</h1>
+
+    <p>
+      Le signal issu du capteur PPG étant de très faible amplitude,
+      nous avons conçu <strong>notre propre carte électronique (PCB)</strong>
+      dédiée à l’amplification et au filtrage analogique.
+    </p>
+
+    <p>
+      Les composants ont été <strong>dimensionnés</strong>, puis
+      <strong>soudés manuellement</strong> afin d’obtenir un signal exploitable,
+      débarrassé du bruit et des composantes indésirables.
+    </p>
+
+    <div class="engagement-grid">
+      <div class="engagement-image">
+        <img src="amplietfiltrereel.jpg" alt="Chaîne d'amplification et de filtrage">
       </div>
-    </section>
+      <div class="engagement-image">
+        <img src="battementamplifiltré.jpg" alt="Signal cardiaque amplifié et filtré">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 3 : NUMÉRISATION -->
+<section class="slide-full">
+  <div class="slide-content">
+    <h1>Numérisation du signal</h1>
+
+    <p>
+      Une fois le signal analogique conditionné, il est
+      <strong>échantillonné à l’aide d’un convertisseur analogique-numérique (CAN)</strong>
+      intégré au système sur <strong>FPGA</strong>.
+    </p>
+
+    <p>
+      Le signal est numérisé sur <strong>8 bits</strong>, ce qui permet
+      son exploitation dans une chaîne de traitement numérique.
+    </p>
+
+    <div class="engagement-grid">
+      <div class="engagement-image">
+        <img src="CAN.jpg" alt="Signal numérisé sur FPGA (CAN 8 bits)">
+      </div>
+      <div class="engagement-image">
+        <img src="montage.jpg" alt="Montage expérimental du moniteur cardiaque">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 4 : TRAITEMENT DU SIGNAL -->
+<section class="slide-full">
+  <div class="slide-content">
+    <h1>Traitement numérique du signal</h1>
+
+    <p>
+      Le signal numérisé est ensuite <strong>traité numériquement</strong>
+      afin d’extraire des informations pertinentes.
+    </p>
+
+    <p>
+      Ce traitement permet notamment d’analyser les
+      <strong>battements cardiaques</strong> et de déterminer des indicateurs
+      tels que la <strong>fréquence cardiaque</strong>.
+    </p>
+
+    <p>
+      Cette étape met en œuvre des techniques de
+      <strong>traitement numérique du signal</strong> appliquées à un cas concret
+      de biométrie.
+    </p>
+  </div>
+</section>
+
 
     <!-- SLIDE 5 -->
     <section class="slide-full">
