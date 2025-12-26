@@ -1410,6 +1410,24 @@ body {
   }
 }
 
+/* Légendes sous les images */
+.proj-fig{
+  margin: 0;
+  width: 100%;
+}
+
+.proj-fig img{
+  display: block;
+}
+
+.proj-cap{
+  margin-top: 8px;
+  font-size: 13px;
+  line-height: 1.4;
+  color: rgba(223,233,255,.78);
+  text-align: center;
+}
+
 
 
 
