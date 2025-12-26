@@ -1524,3 +1524,86 @@ body {
   text-align: center;
 }
 
+/* ==========================================
+   SLIDE 3 (slide-adc) : même layout que slide 2
+   Texte gauche + 2 grandes images droite
+   ========================================== */
+
+.slide-full.slide-adc{
+  width: 100vw;
+}
+
+.slide-full.slide-adc > .slide-content{
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 80px 100px;
+}
+
+.slide-full.slide-adc .engagement-grid{
+  width: 100%;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 120px;
+  align-items: start;
+  margin-top: 0;
+}
+
+.slide-full.slide-adc .engagement-text{
+  max-width: none;
+}
+
+.slide-full.slide-adc .engagement-image{
+  width: 100%;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* Colonne des 2 images */
+.slide-full.slide-adc .adc-media-col{
+  width: 100%;
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  gap: 34px;
+}
+
+/* Images */
+.slide-full.slide-adc img.adc-img{
+  width: 100%;
+  max-width: 900px;
+  height: auto;
+  aspect-ratio: auto;
+  object-fit: contain;
+
+  background: rgba(0,0,0,.18);
+  padding: 10px;
+  border-radius: 22px;
+  border: 1px solid rgba(255,255,255,.16);
+  box-shadow: 0 22px 60px rgba(0,0,0,.45);
+}
+
+/* Légendes */
+.slide-full.slide-adc .engagement-cap{
+  text-align: center;
+  margin-top: 10px;
+  font-size: 14px;
+  color: rgba(223,233,255,.88);
+}
+
+/* Responsive */
+@media (max-width: 1200px){
+  .slide-full.slide-adc > .slide-content{
+    padding: 64px 40px;
+  }
+
+  .slide-full.slide-adc .engagement-grid{
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .slide-full.slide-adc .adc-media-col,
+  .slide-full.slide-adc img.adc-img{
+    max-width: 600px;
+  }
+}
+
