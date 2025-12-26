@@ -1607,3 +1607,43 @@ body {
   }
 }
 
+
+/* ============================
+   SLIDE 3 – AJUSTEMENTS FINS
+   ============================ */
+
+/* Grille : centre verticalement texte + images */
+.slide-full.slide-adc .engagement-grid{
+  align-items: center; /* AVANT: start */
+}
+
+/* Texte : on évite qu’il colle trop en haut */
+.slide-full.slide-adc .engagement-text{
+  padding-top: 20px;
+}
+
+/* Colonne images : un peu moins large */
+.slide-full.slide-adc .adc-media-col{
+  max-width: 780px;   /* AVANT: 900px */
+  gap: 28px;
+}
+
+/* Images légèrement réduites */
+.slide-full.slide-adc img.adc-img{
+  max-width: 780px;   /* AVANT: 900px */
+  padding: 10px;
+}
+
+/* Légendes un peu plus proches */
+.slide-full.slide-adc .engagement-cap{
+  margin-top: 8px;
+}
+
+/* Responsive */
+@media (max-width: 1200px){
+  .slide-full.slide-adc .engagement-grid{
+    align-items: start;
+  }
+}
+
+
