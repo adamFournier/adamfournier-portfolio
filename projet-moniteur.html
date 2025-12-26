@@ -173,31 +173,53 @@
 
 
 <!-- SLIDE 3 : NUMÉRISATION -->
-<section class="slide-full">
+<section class="slide-full slide-adc">
+
   <div class="slide-content">
-    <h1>Numérisation du signal</h1>
-
-    <p>
-      Une fois le signal analogique conditionné, il est
-      <strong>échantillonné à l’aide d’un convertisseur analogique-numérique (CAN)</strong>
-      intégré au système sur <strong>FPGA</strong>.
-    </p>
-
-    <p>
-      Le signal est numérisé sur <strong>8 bits</strong>, ce qui permet
-      son exploitation dans une chaîne de traitement numérique.
-    </p>
-
     <div class="engagement-grid">
-      <div class="engagement-image">
-        <img src="CAN.jpg" alt="Signal numérisé sur FPGA (CAN 8 bits)">
+
+      <!-- TEXTE À GAUCHE -->
+      <div class="engagement-text">
+        <h1>Numérisation du signal</h1>
+
+        <p>
+          Une fois le signal analogique conditionné, il est
+          <strong>échantillonné à l’aide d’un convertisseur analogique-numérique (CAN)</strong>
+          intégré au système sur <strong>FPGA</strong>.
+        </p>
+
+        <p>
+          Le signal est numérisé sur <strong>8 bits</strong>, ce qui permet
+          son exploitation dans une chaîne de traitement numérique.
+        </p>
       </div>
+
+      <!-- IMAGES À DROITE -->
       <div class="engagement-image">
-        <img src="montage.jpg" alt="Montage expérimental du moniteur cardiaque">
+        <div class="adc-media-col">
+
+          <figure class="engagement-fig">
+            <img class="adc-img" src="CAN.jpg" alt="Signal numérisé sur FPGA (CAN 8 bits)">
+            <figcaption class="engagement-cap">
+              Signal numérisé (CAN 8 bits) intégré au système sur FPGA.
+            </figcaption>
+          </figure>
+
+          <figure class="engagement-fig">
+            <img class="adc-img" src="montage.jpg" alt="Montage expérimental du moniteur cardiaque">
+            <figcaption class="engagement-cap">
+              Montage expérimental du moniteur cardiaque (acquisition + FPGA).
+            </figcaption>
+          </figure>
+
+        </div>
       </div>
+
     </div>
   </div>
+
 </section>
+
 
 <!-- SLIDE 4 : TRAITEMENT DU SIGNAL -->
 <section class="slide-full">
