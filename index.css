@@ -1550,7 +1550,7 @@ body {
 /* Images : taille réglable ICI */
 .slide-full.slide-adc .adc-fig img{
   width: 100%;
-  max-width: 580px;  /* ✅ C’EST CETTE LIGNE QUI RÈGLE LA TAILLE */
+  max-width: 480px;  /* ✅ C’EST CETTE LIGNE QUI RÈGLE LA TAILLE */
   margin: 0 auto;    /* centre l’image dans sa colonne */
   display: block;
   height: auto;
@@ -1591,3 +1591,4 @@ body {
     max-width: 520px;
   }
 }
+
