@@ -1723,7 +1723,7 @@ body {
 /* Images slide 3 : légèrement plus petites */
 .slide-full.slide-adc .adc-fig img{
   width: 100%;
-  max-width: 580px;   /* ↓ avant ~100% écran */
+  max-width: 480px;   /* ↓ avant ~100% écran */
   height: auto;
 
   border-radius: 22px;
@@ -1745,4 +1745,5 @@ body {
 .slide-full.slide-adc .engagement-cap{
   text-align: center;
 }
+
 
