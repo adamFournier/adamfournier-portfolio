@@ -1524,128 +1524,6 @@ body {
   text-align: center;
 }
 
-/* ==========================================
-   SLIDE 3 (slide-adc) : même layout que slide 2
-   Texte gauche + 2 grandes images droite
-   ========================================== */
-
-.slide-full.slide-adc{
-  width: 100vw;
-}
-
-.slide-full.slide-adc > .slide-content{
-  width: 100%;
-  max-width: 1600px;
-  margin: 0 auto;
-  padding: 80px 100px;
-}
-
-.slide-full.slide-adc .engagement-grid{
-  width: 100%;
-  grid-template-columns: 1.15fr 1fr;
-  gap: 120px;
-  align-items: start;
-  margin-top: 0;
-}
-
-.slide-full.slide-adc .engagement-text{
-  max-width: none;
-}
-
-.slide-full.slide-adc .engagement-image{
-  width: 100%;
-  justify-content: center;
-  align-items: flex-start;
-}
-
-/* Colonne des 2 images */
-.slide-full.slide-adc .adc-media-col{
-  width: 100%;
-  max-width: 900px;
-  display: flex;
-  flex-direction: column;
-  gap: 34px;
-}
-
-/* Images */
-.slide-full.slide-adc img.adc-img{
-  width: 100%;
-  max-width: 900px;
-  height: auto;
-  aspect-ratio: auto;
-  object-fit: contain;
-
-  background: rgba(0,0,0,.18);
-  padding: 10px;
-  border-radius: 22px;
-  border: 1px solid rgba(255,255,255,.16);
-  box-shadow: 0 22px 60px rgba(0,0,0,.45);
-}
-
-/* Légendes */
-.slide-full.slide-adc .engagement-cap{
-  text-align: center;
-  margin-top: 10px;
-  font-size: 14px;
-  color: rgba(223,233,255,.88);
-}
-
-/* Responsive */
-@media (max-width: 1200px){
-  .slide-full.slide-adc > .slide-content{
-    padding: 64px 40px;
-  }
-
-  .slide-full.slide-adc .engagement-grid{
-    grid-template-columns: 1fr;
-    gap: 48px;
-  }
-
-  .slide-full.slide-adc .adc-media-col,
-  .slide-full.slide-adc img.adc-img{
-    max-width: 600px;
-  }
-}
-
-
-/* ============================
-   SLIDE 3 – AJUSTEMENTS FINS
-   ============================ */
-
-/* Grille : centre verticalement texte + images */
-.slide-full.slide-adc .engagement-grid{
-  align-items: center; /* AVANT: start */
-}
-
-/* Texte : on évite qu’il colle trop en haut */
-.slide-full.slide-adc .engagement-text{
-  padding-top: 20px;
-}
-
-/* Colonne images : un peu moins large */
-.slide-full.slide-adc .adc-media-col{
-  max-width: 780px;   /* AVANT: 900px */
-  gap: 28px;
-}
-
-/* Images légèrement réduites */
-.slide-full.slide-adc img.adc-img{
-  max-width: 780px;   /* AVANT: 900px */
-  padding: 10px;
-}
-
-/* Légendes un peu plus proches */
-.slide-full.slide-adc .engagement-cap{
-  margin-top: 8px;
-}
-
-/* Responsive */
-@media (max-width: 1200px){
-  .slide-full.slide-adc .engagement-grid{
-    align-items: start;
-  }
-}
-
 /* ==============================
    SLIDE 3 : NUMÉRISATION (texte haut + images bas)
    ============================== */
@@ -1655,55 +1533,50 @@ body {
   padding: 80px 80px;
 }
 
-/* TEXTE */
-.slide-full.slide-adc .adc-text{
-  max-width: 900px;
+/* Texte : pleine largeur */
+.slide-full.slide-adc .slide-content p{
+  max-width: none;
 }
 
-.slide-full.slide-adc .adc-text h1{
-  margin-bottom: 26px;
-}
-
-.slide-full.slide-adc .adc-text p{
-  margin-bottom: 18px;
-}
-
-/* IMAGES EN BAS */
+/* Images en bas */
 .slide-full.slide-adc .adc-images{
-  margin-top: 56px;
+  margin-top: 48px;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 48px;
+  gap: 40px;
   align-items: start;
 }
 
-/* Figures */
-.slide-full.slide-adc .adc-fig{
-  margin: 0;
-}
-
-/* Images */
+/* Images : taille réglable ICI */
 .slide-full.slide-adc .adc-fig img{
   width: 100%;
-  max-width: 100%;
+  max-width: 580px;  /* ✅ C’EST CETTE LIGNE QUI RÈGLE LA TAILLE */
+  margin: 0 auto;    /* centre l’image dans sa colonne */
+  display: block;
   height: auto;
 
   border-radius: 22px;
-  padding: 14px;
-
+  padding: 12px;
   background: rgba(0,0,0,.18);
   border: 1px solid rgba(255,255,255,.16);
-  box-shadow: 0 22px 60px rgba(0,0,0,.45);
+  box-shadow: 0 20px 50px rgba(0,0,0,.45);
 }
 
-/* Légendes */
+/* Légendes : centrées */
 .slide-full.slide-adc .adc-fig figcaption{
-  margin-top: 12px;
+  text-align: center; /* ✅ centre la légende */
+  margin-top: 10px;
   font-size: 14px;
   color: rgba(223,233,255,.85);
 }
 
-/* RESPONSIVE */
+/* Gras en bleu (comme avant) */
+.slide-content strong{
+  color: #4da3ff;
+  font-weight: 700;
+}
+
+/* Responsive */
 @media (max-width: 900px){
   .slide-full.slide-adc .slide-content{
     padding: 64px 32px;
@@ -1711,39 +1584,10 @@ body {
 
   .slide-full.slide-adc .adc-images{
     grid-template-columns: 1fr;
-    gap: 36px;
+    gap: 28px;
+  }
+
+  .slide-full.slide-adc .adc-fig img{
+    max-width: 520px;
   }
 }
-
-
-.slide-content strong{
-  color: #4da3ff; /* bleu cohérent avec le reste du site */
-  font-weight: 700;
-}
-/* Images slide 3 : légèrement plus petites */
-.slide-full.slide-adc .adc-fig img{
-  width: 100%;
-  max-width: 480px;   /* ↓ avant ~100% écran */
-  height: auto;
-
-  border-radius: 22px;
-  padding: 12px;
-
-  background: rgba(0,0,0,.18);
-  border: 1px solid rgba(255,255,255,.16);
-  box-shadow: 0 20px 50px rgba(0,0,0,.45);
-}
-
-.slide-full.slide-adc .slide-content p{
-  max-width: none;
-}
-
-.slide-full.slide-adc .slide-content p{
-  max-width: none;
-}
-/* Slide 3 : légendes centrées */
-.slide-full.slide-adc .engagement-cap{
-  text-align: center;
-}
-
-
