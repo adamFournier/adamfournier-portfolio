@@ -1325,6 +1325,91 @@ body {
     max-width: 280px;
   }
 }
+/* ==============================
+   PROJET – Layout mix texte/images
+   ============================== */
+
+.proj-split{
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.1fr .9fr;
+  gap: 56px;
+  align-items: center;
+}
+
+.proj-split.is-reverse{
+  grid-template-columns: .9fr 1.1fr;
+}
+.proj-split.is-reverse .proj-text{ order: 2; }
+.proj-split.is-reverse .proj-side{ order: 1; }
+
+.proj-text h1{
+  margin: 0 0 18px;
+}
+
+.proj-text p{
+  line-height: 1.75;
+  margin: 12px 0;
+  max-width: 720px;
+}
+
+/* Bloc images (colonne droite/gauche) */
+.proj-side{
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* Images style "glass dark" */
+.proj-media{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.proj-media img{
+  width: 100%;
+  max-width: 560px;
+  border-radius: 22px;
+  object-fit: contain;
+
+  /* plus de fond blanc */
+  background: rgba(0,0,0,.18);
+  border: 1px solid rgba(255,255,255,.12);
+  box-shadow: 0 18px 55px rgba(0,0,0,.45);
+
+  /* léger padding pour décoller l’image du fond */
+  padding: 12px;
+}
+
+/* Deux images côte à côte */
+.proj-media-row{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin-top: 16px;
+}
+
+.proj-media-row .proj-media img{
+  max-width: 100%;
+}
+
+/* Responsive */
+@media (max-width: 900px){
+  .proj-split{
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .proj-split.is-reverse .proj-text,
+  .proj-split.is-reverse .proj-side{
+    order: initial;
+  }
+  .proj-media-row{
+    grid-template-columns: 1fr;
+  }
+}
+
 
 
 
