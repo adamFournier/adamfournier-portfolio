@@ -1420,5 +1420,92 @@ body {
     max-width: 520px;
   }
 }
+/* ==========================================
+   SLIDE 2 (slide-amp) : FULL WIDTH + BIG MEDIA
+   Ne touche pas aux autres slides
+   ========================================== */
+
+/* 1) On force le slide à utiliser toute la largeur disponible */
+.slide-full.slide-amp{
+  width: 100vw;
+}
+
+/* 2) On casse toute limitation de parent (wrap/section) sur cette slide */
+.slide-full.slide-amp > .slide-content{
+  width: 100%;
+  max-width: 1600px;        /* plus large */
+  margin: 0 auto;
+  padding: 80px 100px;
+}
+
+/* 3) Grille plus large et plus équilibrée */
+.slide-full.slide-amp .engagement-grid{
+  margin-top: 0;
+  width: 100%;
+  grid-template-columns: 1.15fr 1fr; /* texte | images */
+  gap: 120px;
+  align-items: start;
+}
+
+/* 4) Texte : on enlève la contrainte */
+.slide-full.slide-amp .engagement-text{
+  max-width: none;
+}
+
+/* 5) Colonne images : on force la largeur */
+.slide-full.slide-amp .engagement-image{
+  width: 100%;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+
+/* 6) Colonne des 2 images */
+.slide-full.slide-amp .amp-media-col{
+  width: 100%;
+  max-width: 900px;         /* beaucoup plus grand */
+  display: flex;
+  flex-direction: column;
+  gap: 34px;
+}
+
+/* 7) Images vraiment grandes (et rectangulaires) */
+.slide-full.slide-amp img.amp-img{
+  width: 100%;
+  max-width: 900px;
+  height: auto;
+  aspect-ratio: auto;
+  object-fit: contain;      /* IMPORTANT : évite de rogner tes screenshots */
+
+  background: rgba(0,0,0,.18);
+  padding: 10px;
+  border-radius: 22px;
+  border: 1px solid rgba(255,255,255,.16);
+  box-shadow: 0 22px 60px rgba(0,0,0,.45);
+}
+
+/* Légendes */
+.slide-full.slide-amp .engagement-cap{
+  text-align: left;
+  margin-top: 10px;
+  font-size: 14px;
+  color: rgba(223,233,255,.88);
+}
+
+/* Responsive */
+@media (max-width: 1200px){
+  .slide-full.slide-amp > .slide-content{
+    padding: 64px 40px;
+  }
+  .slide-full.slide-amp .engagement-grid{
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  .slide-full.slide-amp .amp-media-col,
+  .slide-full.slide-amp img.amp-img{
+    max-width: 600px;
+  }
+}
+
+
 
 
