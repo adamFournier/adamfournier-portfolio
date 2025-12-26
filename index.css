@@ -1646,4 +1646,73 @@ body {
   }
 }
 
+/* ==============================
+   SLIDE 3 : NUMÉRISATION (texte haut + images bas)
+   ============================== */
+
+.slide-full.slide-adc .slide-content{
+  max-width: 1400px;
+  padding: 80px 80px;
+}
+
+/* TEXTE */
+.slide-full.slide-adc .adc-text{
+  max-width: 900px;
+}
+
+.slide-full.slide-adc .adc-text h1{
+  margin-bottom: 26px;
+}
+
+.slide-full.slide-adc .adc-text p{
+  margin-bottom: 18px;
+}
+
+/* IMAGES EN BAS */
+.slide-full.slide-adc .adc-images{
+  margin-top: 56px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+/* Figures */
+.slide-full.slide-adc .adc-fig{
+  margin: 0;
+}
+
+/* Images */
+.slide-full.slide-adc .adc-fig img{
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+
+  border-radius: 22px;
+  padding: 14px;
+
+  background: rgba(0,0,0,.18);
+  border: 1px solid rgba(255,255,255,.16);
+  box-shadow: 0 22px 60px rgba(0,0,0,.45);
+}
+
+/* Légendes */
+.slide-full.slide-adc .adc-fig figcaption{
+  margin-top: 12px;
+  font-size: 14px;
+  color: rgba(223,233,255,.85);
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px){
+  .slide-full.slide-adc .slide-content{
+    padding: 64px 32px;
+  }
+
+  .slide-full.slide-adc .adc-images{
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+}
+
 
