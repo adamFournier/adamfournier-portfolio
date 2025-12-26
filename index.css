@@ -1509,3 +1509,18 @@ body {
 
 
 
+/* Alignement horizontal des images (slide 2) */
+.slide-full.slide-amp .engagement-image{
+  justify-content: center;   /* au lieu de flex-end */
+}
+
+/* Centre légèrement les images dans la colonne */
+.slide-full.slide-amp .amp-media-col{
+  align-items: center;
+}
+
+/* Et les légendes suivent l’image */
+.slide-full.slide-amp .engagement-cap{
+  text-align: center;
+}
+
