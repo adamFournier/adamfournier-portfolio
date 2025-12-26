@@ -1233,199 +1233,137 @@ body {
 
 
 /* ==============================
-   PROJETS – SLIDES CONTENU
+   PROJET – STYLE SLIDES (PROPRE)
+   Basé sur engagement-grid (cohérent)
    ============================== */
 
-/* Contenu général d’une slide */
+/* Contenu d’une slide */
 .slide-content{
   max-width: 1200px;
   margin: 0 auto;
   padding: 80px 64px;
 }
 
+/* Typo */
 .slide-content h1{
-  font-size: 42px;
+  font-size: 46px;
   font-weight: 800;
-  margin-bottom: 28px;
+  line-height: 1.05;
+  margin: 0 0 24px;
 }
 
 .slide-content p{
-  max-width: 900px;
+  max-width: 820px;
   font-size: 17px;
   line-height: 1.75;
-  color: #dfe9ff;
-  margin-bottom: 18px;
+  color: rgba(223,233,255,.92);
+  margin: 0 0 16px;
 }
 
-/* ==============================
-   GRILLE TEXTE / IMAGE (réutilisée)
-   ============================== */
-
+/* Grille principale : texte + visuels */
 .engagement-grid{
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 64px;
+  grid-template-columns: 1.05fr .95fr;
+  gap: 56px;
   align-items: center;
-  margin-top: 32px;
 }
 
+/* Colonne texte + barre */
 .engagement-text{
-  max-width: 520px;
+  position: relative;
+  padding-left: 28px;
+  max-width: 680px;
 }
 
-.engagement-text p{
-  margin-bottom: 18px;
+.engagement-text::before{
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 6px;
+  bottom: 6px;
+  width: 3px;
+  border-radius: 2px;
+  background: linear-gradient(
+    to bottom,
+    rgba(120,200,255,.85),
+    rgba(255,255,255,.10)
+  );
 }
 
-/* ==============================
-   IMAGES PROJET
-   ============================== */
-
+/* Colonne images */
 .engagement-image{
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+/* Image : style “glass” (pas de fond blanc) */
 .engagement-image img{
   width: 100%;
-  max-width: 420px;
-  aspect-ratio: 1 / 1;
+  max-width: 520px;
+  height: auto;
   object-fit: contain;
-  background: rgba(255,255,255,.95);
-  padding: 22px;
-  border-radius: 24px;
-  box-shadow: 0 22px 50px rgba(0,0,0,.35);
-}
-
-/* Cas où il y a 2 images sur une slide */
-.engagement-grid .engagement-image img{
-  max-width: 360px;
-}
-
-/* ==============================
-   RESPONSIVE
-   ============================== */
-
-@media (max-width: 900px){
-  .slide-content{
-    padding: 64px 32px;
-  }
-
-  .slide-content h1{
-    font-size: 34px;
-  }
-
-  .engagement-grid{
-    grid-template-columns: 1fr;
-    gap: 36px;
-  }
-
-  .engagement-image img{
-    max-width: 280px;
-  }
-}
-/* ==============================
-   PROJET – Layout mix texte/images
-   ============================== */
-
-.proj-split{
-  max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1.1fr .9fr;
-  gap: 56px;
-  align-items: center;
-}
-
-.proj-split.is-reverse{
-  grid-template-columns: .9fr 1.1fr;
-}
-.proj-split.is-reverse .proj-text{ order: 2; }
-.proj-split.is-reverse .proj-side{ order: 1; }
-
-.proj-text h1{
-  margin: 0 0 18px;
-}
-
-.proj-text p{
-  line-height: 1.75;
-  margin: 12px 0;
-  max-width: 720px;
-}
-
-/* Bloc images (colonne droite/gauche) */
-.proj-side{
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-}
-
-/* Images style "glass dark" */
-.proj-media{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.proj-media img{
-  width: 100%;
-  max-width: 560px;
   border-radius: 22px;
-  object-fit: contain;
-
-  /* plus de fond blanc */
+  padding: 10px;
   background: rgba(0,0,0,.18);
   border: 1px solid rgba(255,255,255,.12);
   box-shadow: 0 18px 55px rgba(0,0,0,.45);
-
-  /* léger padding pour décoller l’image du fond */
-  padding: 12px;
 }
 
-/* Deux images côte à côte */
-.proj-media-row{
+/* 2 images côte à côte (dans la colonne images) */
+.media-row{
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 18px;
-  margin-top: 16px;
+  gap: 16px;
+  width: 100%;
+  max-width: 560px;
 }
 
-.proj-media-row .proj-media img{
+.media-row img{
   max-width: 100%;
+  padding: 8px;
 }
 
-/* Responsive */
-@media (max-width: 900px){
-  .proj-split{
-    grid-template-columns: 1fr;
-    gap: 28px;
-  }
-  .proj-split.is-reverse .proj-text,
-  .proj-split.is-reverse .proj-side{
-    order: initial;
-  }
-  .proj-media-row{
-    grid-template-columns: 1fr;
-  }
-}
-
-/* Légendes sous les images */
-.proj-fig{
+/* Légendes (discrètes) */
+.fig{
   margin: 0;
   width: 100%;
 }
 
-.proj-fig img{
-  display: block;
-}
-
-.proj-cap{
+.cap{
   margin-top: 8px;
   font-size: 13px;
-  line-height: 1.4;
-  color: rgba(223,233,255,.78);
+  line-height: 1.35;
+  color: rgba(223,233,255,.72);
   text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 900px){
+  .slide-content{ padding: 64px 28px; }
+  .slide-content h1{ font-size: 36px; }
+
+  .engagement-grid{
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .engagement-text{
+    padding-left: 0;
+  }
+
+  .engagement-text::before{
+    display: none;
+  }
+
+  .media-row{
+    grid-template-columns: 1fr;
+    max-width: 420px;
+  }
+
+  .engagement-image img{
+    max-width: 420px;
+  }
 }
 
 
