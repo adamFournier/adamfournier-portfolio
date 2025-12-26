@@ -1393,6 +1393,62 @@ body {
   }
 }
 
+/* ===== SLIDE 2 : pleine largeur ===== */
+.slide-amp .slide-content{
+  max-width: 1400px;          /* PLUS LARGE */
+  padding: 80px 80px;         /* plus d’air sur les côtés */
+}
+
+/* Grille texte / images */
+.slide-amp .engagement-grid{
+  grid-template-columns: 1.2fr 1fr; /* texte | images */
+  gap: 96px;                        /* PLUS D’ESPACE */
+  align-items: start;
+}
+
+/* Colonne images */
+.slide-amp .amp-media-col{
+  max-width: 720px;   /* images beaucoup plus larges */
+  width: 100%;
+  gap: 32px;
+}
+
+/* Images */
+.slide-amp .amp-img{
+  width: 100%;
+  max-width: 720px;
+  height: auto;
+  padding: 14px;
+  border-radius: 20px;
+
+  background: rgba(0,0,0,.18);
+  border: 1px solid rgba(255,255,255,.16);
+  box-shadow: 0 22px 60px rgba(0,0,0,.45);
+}
+
+/* Légendes */
+.slide-amp .engagement-cap{
+  margin-top: 10px;
+  font-size: 14px;
+  color: rgba(223,233,255,.85);
+}
+
+/* Responsive */
+@media (max-width: 1100px){
+  .slide-amp .slide-content{
+    padding: 64px 40px;
+  }
+
+  .slide-amp .engagement-grid{
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .slide-amp .amp-media-col{
+    max-width: 520px;
+  }
+}
+
 
 
 
