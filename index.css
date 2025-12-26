@@ -1342,6 +1342,58 @@ body {
   color: rgba(223,233,255,.75);
 }
 
+/* ===== SLIDE 2 : texte à gauche, 2 images rectangulaires à droite ===== */
+.slide-amp .engagement-grid{
+  grid-template-columns: 1.1fr .9fr; /* texte + colonne images */
+  align-items: start;
+}
+
+.slide-amp .engagement-image{
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+
+/* Colonne de 2 images */
+.slide-amp .amp-media-col{
+  width: 100%;
+  max-width: 560px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+/* Images : plus carrées + plus grandes */
+.slide-amp .amp-img{
+  width: 100%;
+  max-width: 560px;
+  height: auto;
+  aspect-ratio: auto;          /* IMPORTANT : enlève le carré */
+  object-fit: cover;           /* remplit bien le cadre */
+  padding: 12px;
+  border-radius: 18px;
+
+  background: rgba(0,0,0,.18); /* pas de cadre blanc */
+  border: 1px solid rgba(255,255,255,.14);
+  box-shadow: 0 18px 50px rgba(0,0,0,.45);
+}
+
+/* Légendes */
+.slide-amp .engagement-cap{
+  text-align: left;
+  margin-top: 8px;
+}
+
+/* Responsive */
+@media (max-width: 900px){
+  .slide-amp .engagement-grid{
+    grid-template-columns: 1fr;
+  }
+  .slide-amp .amp-media-col{
+    max-width: 420px;
+  }
+}
+
+
 
 
 
