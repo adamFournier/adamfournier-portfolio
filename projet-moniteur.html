@@ -35,87 +35,90 @@
 <div class="slides-full-wrap">
   <div class="slides-full" id="slider">
 
-    <!-- SLIDE 1 : INTRODUCTION -->
-<section class="slide-full">
-  <div class="slide-content engagement-grid">
+ <section class="slide-full">
+  <div class="slide-content proj-split">
 
-    <div class="engagement-image">
-      <img src="ppg.jpg" alt="Principe de la photopléthysmographie (PPG)">
-    </div>
-
-    <div class="engagement-text">
+    <div class="proj-text">
       <h1>Moniteur cardiaque</h1>
       <p>
         Ce projet repose sur le principe de la <strong>photopléthysmographie (PPG)</strong>,
-        une technique optique permettant de mesurer les variations de volume sanguin
-        liées aux battements du cœur.
+        une méthode optique qui mesure les variations de volume sanguin liées aux battements du cœur.
       </p>
       <p>
-        L’objectif du projet est l’<strong>acquisition d’un signal cardiaque</strong>,
-        son <strong>amplification et filtrage analogique</strong>, puis sa
-        <strong>numérisation sur FPGA</strong> afin de réaliser un
-        <strong>traitement numérique du signal</strong>.
+        Objectif : <strong>acquisition d’un signal cardiaque</strong>, <strong>amplification et filtrage</strong>,
+        <strong>numérisation sur FPGA</strong>, puis <strong>traitement numérique du signal</strong>.
       </p>
     </div>
 
-  </div>
-</section>
-
-
-   <!-- SLIDE 2 : ACQUISITION / AMPLIFICATION -->
-<section class="slide-full">
-  <div class="slide-content">
-    <h1>Acquisition, amplification et filtrage</h1>
-
-    <p>
-      Le signal issu du capteur PPG étant de très faible amplitude,
-      nous avons conçu <strong>notre propre carte électronique (PCB)</strong>
-      dédiée à l’amplification et au filtrage analogique.
-    </p>
-
-    <p>
-      Les composants ont été <strong>dimensionnés</strong>, puis
-      <strong>soudés manuellement</strong> afin d’obtenir un signal exploitable,
-      débarrassé du bruit et des composantes indésirables.
-    </p>
-
-    <div class="engagement-grid">
-      <div class="engagement-image">
-        <img src="amplietfiltrereel.jpg" alt="Chaîne d'amplification et de filtrage">
-      </div>
-      <div class="engagement-image">
-        <img src="battementamplifiltré.jpg" alt="Signal cardiaque amplifié et filtré">
+    <div class="proj-side">
+      <div class="proj-media">
+        <img src="ppg.jpg" alt="Principe de la photopléthysmographie (PPG)">
       </div>
     </div>
+
   </div>
 </section>
 
-<!-- SLIDE 3 : NUMÉRISATION -->
+
 <section class="slide-full">
-  <div class="slide-content">
-    <h1>Numérisation du signal</h1>
+  <div class="slide-content proj-split is-reverse">
 
-    <p>
-      Une fois le signal analogique conditionné, il est
-      <strong>échantillonné à l’aide d’un convertisseur analogique-numérique (CAN)</strong>
-      intégré au système sur <strong>FPGA</strong>.
-    </p>
+    <div class="proj-text">
+      <h1>Acquisition, amplification et filtrage</h1>
+      <p>
+        Le signal PPG étant de très faible amplitude, nous avons conçu <strong>notre propre PCB</strong>
+        pour réaliser la chaîne d’<strong>amplification</strong> et de <strong>filtrage analogique</strong>.
+      </p>
+      <p>
+        Nous avons <strong>dimensionné</strong> puis <strong>soudé</strong> les composants afin d’obtenir
+        un signal exploitable, prêt à être numérisé.
+      </p>
 
-    <p>
-      Le signal est numérisé sur <strong>8 bits</strong>, ce qui permet
-      son exploitation dans une chaîne de traitement numérique.
-    </p>
-
-    <div class="engagement-grid">
-      <div class="engagement-image">
-        <img src="CAN.jpg" alt="Signal numérisé sur FPGA (CAN 8 bits)">
+      <div class="proj-media-row">
+        <div class="proj-media">
+          <img src="amplietfiltrereel.jpg" alt="Chaîne d'amplification et de filtrage (PCB)">
+        </div>
+        <div class="proj-media">
+          <img src="battementamplifiltré.jpg" alt="Signal cardiaque amplifié et filtré">
+        </div>
       </div>
-      <div class="engagement-image">
+    </div>
+
+    <div class="proj-side">
+      <!-- Option : tu peux laisser vide, ou mettre une image bonus si tu en as une -->
+    </div>
+
+  </div>
+</section>
+
+
+<section class="slide-full">
+  <div class="slide-content proj-split">
+
+    <div class="proj-text">
+      <h1>Numérisation sur FPGA</h1>
+      <p>
+        Une fois le signal analogique conditionné, il est <strong>échantillonné</strong>
+        à l’aide d’un <strong>CAN</strong> intégré au système sur <strong>FPGA</strong>.
+      </p>
+      <p>
+        Le signal est numérisé sur <strong>8 bits</strong>, ce qui permet ensuite
+        son exploitation par traitement numérique.
+      </p>
+    </div>
+
+    <div class="proj-side">
+      <div class="proj-media">
+        <img src="CAN.jpg" alt="Signal numérisé (CAN 8 bits) sur FPGA">
+      </div>
+      <div class="proj-media">
         <img src="montage.jpg" alt="Montage expérimental du moniteur cardiaque">
       </div>
     </div>
+
   </div>
 </section>
+
 
 <!-- SLIDE 4 : TRAITEMENT DU SIGNAL -->
 <section class="slide-full">
