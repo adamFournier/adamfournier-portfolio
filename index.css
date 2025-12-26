@@ -1716,3 +1716,21 @@ body {
 }
 
 
+.slide-content strong{
+  color: #4da3ff; /* bleu cohérent avec le reste du site */
+  font-weight: 700;
+}
+/* Images slide 3 : légèrement plus petites */
+.slide-full.slide-adc .adc-fig img{
+  width: 100%;
+  max-width: 620px;   /* ↓ avant ~100% écran */
+  height: auto;
+
+  border-radius: 22px;
+  padding: 12px;
+
+  background: rgba(0,0,0,.18);
+  border: 1px solid rgba(255,255,255,.16);
+  box-shadow: 0 20px 50px rgba(0,0,0,.45);
+}
+
