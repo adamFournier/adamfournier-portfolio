@@ -1722,5 +1722,10 @@ body {
 
 
 
+/* ENEDIS – Slide 2 : augmenter l’espace texte ↔ boutons */
+.slide-full.slide-enedis-mission1 .enedis-bottom{
+  margin-top: 16px;
+}
+
 
 
