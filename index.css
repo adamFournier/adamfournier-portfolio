@@ -1825,5 +1825,49 @@ body {
     font-size: 14.5px;
   }
 }
+/* ==============================
+   PROJETS – layout 2 colonnes
+   ============================== */
+
+.projects-columns{
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+}
+
+.projects-col{
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.projects-col-title{
+  font-size: 18px;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: rgba(223,233,255,.85);
+  margin-bottom: 8px;
+}
+
+/* Cartes projets : simplifiées */
+.projects-columns .stage-card{
+  padding: 22px;
+}
+
+.projects-columns .stage-sub,
+.projects-columns .pill{
+  display: none; /* enlève tout le superflu */
+}
+
+/* Responsive */
+@media (max-width: 900px){
+  .projects-columns{
+    grid-template-columns: 1fr;
+    gap: 42px;
+  }
+}
+
 
 
