@@ -2399,6 +2399,11 @@ body {
     flex-basis: auto;
   }
 }
+/* Remonter légèrement la zone Ressources + PPP */
+.resources-row{
+  margin-top: 18px; /* avant ~26px */
+}
+
 
 
 
