@@ -2153,4 +2153,34 @@ body {
 .projects-col-title::after{
   content: none !important;
 }
+/* ===== PROJETS : effet hover sur les cartes ===== */
+
+.stage-card{
+  transition:
+    transform .35s ease,
+    box-shadow .35s ease,
+    border-color .35s ease;
+}
+
+/* Effet au survol */
+.stage-card:hover{
+  transform: translateY(-6px) scale(1.015);
+  box-shadow:
+    0 30px 70px rgba(0,0,0,.55),
+    inset 0 0 0 1px rgba(77,163,255,.25);
+  border-color: rgba(77,163,255,.35);
+}
+
+/* Titre plus lumineux au hover */
+.stage-card:hover .stage-title{
+  color: #ffffff;
+}
+
+/* Badge date légèrement accentué */
+.stage-card:hover .pill{
+  background: rgba(77,163,255,.12);
+  border-color: rgba(77,163,255,.35);
+}
+
+
 
