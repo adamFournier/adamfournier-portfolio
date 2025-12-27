@@ -1593,5 +1593,89 @@ body {
 }
 
 
+/* ==============================
+   SLIDE 3 : NUMÉRISATION (texte haut + images bas)
+   IMPORTANT : n'impacte QUE .slide-adc
+   ============================== */
+
+.slide-full.slide-adc .slide-content{
+  width: min(92vw, 1600px) !important; /* ✅ c’est CETTE ligne qui fait prendre la largeur */
+  max-width: 1600px !important;
+  margin: 0 auto;
+  padding: 80px 80px;
+}
+
+/* Texte : pleine largeur (évite le retour à la ligne trop tôt) */
+.slide-full.slide-adc .adc-text{
+  width: 100%;
+  max-width: 1200px; /* tu peux monter à 1400 si tu veux encore plus long */
+}
+
+.slide-full.slide-adc .adc-text p{
+  max-width: none !important;
+}
+
+/* Images en bas : 2 colonnes */
+.slide-full.slide-adc .adc-images{
+  margin-top: 46px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 44px;
+  align-items: start;
+}
+
+/* Figures */
+.slide-full.slide-adc .adc-fig{
+  margin: 0;
+  text-align: center; /* ✅ centre image + légende */
+}
+
+/* ✅ TAILLE DES IMAGES : c’est ICI */
+.slide-full.slide-adc .adc-fig img{
+  width: 100%;
+  max-width: 520px;   /* ✅ ← C’EST CETTE LIGNE QUI RÈGLE LA TAILLE DES IMAGES */
+  height: auto;
+  display: block;
+  margin: 0 auto;
+
+  border-radius: 22px;
+  padding: 12px;
+  background: rgba(0,0,0,.18);
+  border: 1px solid rgba(255,255,255,.16);
+  box-shadow: 0 20px 50px rgba(0,0,0,.45);
+}
+
+/* Légendes : centrées */
+.slide-full.slide-adc .adc-fig figcaption{
+  margin-top: 10px;
+  font-size: 14px;
+  color: rgba(223,233,255,.85);
+  text-align: center;
+}
+
+/* Gras en bleu (comme avant) */
+.slide-full.slide-adc strong{
+  color: #4da3ff;
+  font-weight: 700;
+}
+
+/* Responsive */
+@media (max-width: 900px){
+  .slide-full.slide-adc .slide-content{
+    width: min(92vw, 980px) !important;
+    padding: 64px 32px;
+  }
+
+  .slide-full.slide-adc .adc-images{
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .slide-full.slide-adc .adc-fig img{
+    max-width: 560px;
+  }
+}
+
 
 
