@@ -1529,7 +1529,7 @@ body {
    ============================== */
 
 .slide-full.slide-adc .slide-content{
-  max-width: 1400px;
+  max-width: 1600px;
   padding: 80px 80px;
 }
 
@@ -1591,4 +1591,5 @@ body {
     max-width: 520px;
   }
 }
+
 
