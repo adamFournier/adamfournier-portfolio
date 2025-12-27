@@ -613,7 +613,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  gap: 0px;
+  gap: 2px;
 
   padding-top: 12px;
   padding-bottom: 60px;
@@ -631,7 +631,7 @@ body {
 .slide-enedis-mission1 p{
   margin: 0 0 2px;
   color: #d8e2f1;
-  line-height: 1.51;
+  line-height: 1.5;
   font-size: 17px; /* ✅ ton réglage slide 2 */
 }
 
@@ -1695,6 +1695,7 @@ body {
 .slide-full.stage-enedis .slide-content{
   max-width: 1500px;
 }
+
 
 
 
