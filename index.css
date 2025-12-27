@@ -629,7 +629,7 @@ body {
 }
 
 .slide-enedis-mission1 p{
-  margin: 0 0 6px;
+  margin: 0 0 2px;
   color: #d8e2f1;
   line-height: 1.51;
   font-size: 17px; /* ✅ ton réglage slide 2 */
@@ -1680,6 +1680,7 @@ body {
     max-width: 560px;
   }
 }
+
 
 
 
