@@ -2460,19 +2460,21 @@ body {
   }
 }
 
+
 /* =========================
-   MICRO AJUSTEMENT HOME — Ressources / PPP
+   DÉCALAGE FIN — TITRE RESSOURCES & PPP
    ========================= */
 
-/* Décale légèrement le bloc RESSOURCES vers la droite */
-.resources-left{
-  margin-left: 32px;   /* ajuste ici : 16px / 24px / 32px */
+/* Décale uniquement le titre "RESSOURCES" vers la droite */
+.resources-title{
+  margin-left: 24px; /* ajuste : 16px / 24px / 32px */
 }
 
-/* Décale légèrement le bouton PPP vers la gauche */
+/* Décale le bouton PPP vers la droite */
 .ppp-btn{
-  margin-left: 24px; /* ajuste ici : 16px / 24px / 32px */
+  margin-left: 24px; /* ajuste pareil pour cohérence */
 }
+
 
 
 
