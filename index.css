@@ -2347,6 +2347,119 @@ body {
   }
 }
 
+/* =========================
+   HOME — Ressources gauche + PPP droite (sans superposition)
+   ========================= */
+
+.resources-row{
+  max-width: 980px;
+  margin-top: 22px;
+
+  display: grid;
+  grid-template-columns: 1fr 240px; /* gauche | PPP */
+  gap: 24px;
+  align-items: end;
+}
+
+/* Bloc gauche */
+.resources-left{
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-start; /* ✅ à gauche */
+}
+
+.resources-title{
+  font-weight: 800;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: #64c7ff;
+}
+
+/* 3 boutons */
+.resources-links{
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  justify-content: flex-start; /* ✅ à gauche */
+}
+
+/* Si tu as déjà une classe pour les boutons ressource, garde-la.
+   Sinon, ça assure un rendu cohérent. */
+.resource-btn{
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: 14px;
+  text-decoration: none;
+  color: #eaf3ff;
+
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.12);
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+
+.resource-btn:hover{
+  transform: translateY(-2px);
+  border-color: rgba(120,200,255,.55);
+  box-shadow: 0 14px 34px rgba(42,168,216,.20);
+}
+
+/* PPP à droite */
+.ppp-btn{
+  justify-self: end; /* ✅ colle à droite */
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2px;
+
+  padding: 16px 18px;
+  border-radius: 18px;
+  text-decoration: none;
+  color: #eaf3ff;
+
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.14);
+  transition: transform .22s ease, box-shadow .22s ease, background .22s ease, border-color .22s ease;
+}
+
+.ppp-btn--strong{
+  background: linear-gradient(160deg, rgba(42,168,216,.32), rgba(255,255,255,.06));
+  border-color: rgba(42,168,216,.60);
+  box-shadow: 0 18px 44px rgba(42,168,216,.26);
+}
+
+.ppp-btn__title{
+  font-weight: 900;
+  font-size: 18px;
+}
+
+.ppp-btn__sub{
+  font-size: 14px;
+  color: rgba(223,233,255,.88);
+}
+
+.ppp-btn:hover{
+  transform: translateY(-3px);
+  border-color: rgba(120,200,255,.75);
+  box-shadow: 0 24px 60px rgba(42,168,216,.34);
+  background: linear-gradient(160deg, rgba(42,168,216,.40), rgba(255,255,255,.08));
+}
+
+/* Mobile : PPP passe en dessous à droite */
+@media(max-width: 900px){
+  .resources-row{
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+  .ppp-btn{
+    justify-self: start; /* ou end si tu veux à droite sur mobile */
+    width: 100%;
+    max-width: 360px;
+  }
+}
+
 
 
 
