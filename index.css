@@ -613,7 +613,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  gap: 2px;
+  gap: 6px;
 
   padding-top: 12px;
   padding-bottom: 60px;
@@ -1718,6 +1718,7 @@ body {
 .slide-full.slide-enedis-mission1 p{
   margin-bottom: 2px;
 }
+
 
 
 
