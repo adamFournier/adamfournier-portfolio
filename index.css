@@ -1728,4 +1728,102 @@ body {
 }
 
 
+/* ==============================
+   PROJETS – ajustements légers
+   (réutilise le style des stages)
+   ============================== */
+
+/* Titre de section (Électronique analogique / numérique) */
+.section-title{
+  max-width: 1100px;
+  margin: 34px auto 10px;
+  font-size: 18px;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: rgba(223,233,255,.85);
+}
+
+/* Sous-texte explicatif sous le titre */
+.section-sub{
+  max-width: 1100px;
+  margin: 0 auto 18px;
+  color: rgba(223,233,255,.75);
+  font-size: 15.5px;
+  line-height: 1.6;
+}
+
+/* Harmonisation des cartes projets (même hauteur visuelle) */
+.stage-card{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Titre projet un peu plus marqué */
+.stage-card .stage-title{
+  font-weight: 700;
+}
+
+/* Sous-titre projet */
+.stage-card .stage-sub{
+  margin-top: 6px;
+  line-height: 1.45;
+}
+
+/* Bloc durée (calendrier) */
+.stage-card .stage-duration{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: rgba(223,233,255,.85);
+}
+
+/* Icône calendrier */
+.stage-card .stage-duration svg{
+  width: 16px;
+  height: 16px;
+  opacity: .9;
+}
+
+/* Espacement entre durée et tags */
+.stage-card .stage-meta{
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* Tags (pill) légèrement plus compacts pour projets */
+.stage-card .pill{
+  font-size: 12.5px;
+  padding: 4px 10px;
+}
+
+/* Carte “à venir” */
+.stage-card.is-ghost{
+  background: rgba(255,255,255,.03);
+  border: 1px dashed rgba(255,255,255,.18);
+  color: #c7d3e6;
+  opacity: .7;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.stage-card.is-ghost:hover{
+  transform: none;
+  box-shadow: none;
+}
+
+/* Responsive */
+@media (max-width: 720px){
+  .section-title{
+    font-size: 16px;
+  }
+  .section-sub{
+    font-size: 14.5px;
+  }
+}
+
 
