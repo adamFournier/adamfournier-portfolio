@@ -1681,6 +1681,11 @@ body {
   }
 }
 
+/* FORCER l'espacement des paragraphes – slide 2 Enedis */
+.slide-full.stage-enedis .slide-enedis-mission1 p{
+  margin-bottom: 4px !important;
+}
+
 
 
 
