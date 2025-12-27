@@ -2004,5 +2004,47 @@ body {
   }
 }
 
+/* ===== PROJETS : enlever "cadres dans le cadre" ===== */
+
+/* Les colonnes ne sont PLUS des cartes */
+.projects-col{
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+
+/* Titre de section plus léger (sans boîte) */
+.projects-col-title{
+  margin: 8px 0 18px !important;
+  font-size: 14px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: rgba(223,233,255,.85);
+}
+
+/* Un petit trait discret sous le titre de section */
+.projects-col-title::after{
+  content:"";
+  display:block;
+  width: 56px;
+  height: 2px;
+  margin-top: 10px;
+  border-radius: 99px;
+  background: rgba(77,163,255,.65);
+}
+
+/* Cartes : une seule couche, plus clean */
+.projects-col .stage-card{
+  background: rgba(255,255,255,.04) !important;
+  border: 1px solid rgba(255,255,255,.10) !important;
+  box-shadow: 0 18px 55px rgba(0,0,0,.35) !important;
+}
+
+/* Un peu moins "gros" sur le titre des cartes */
+.projects-col .stage-title{
+  font-size: 24px !important;
+}
+
 
 
