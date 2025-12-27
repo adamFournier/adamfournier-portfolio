@@ -2259,6 +2259,94 @@ body {
   }
 }
 
+/* =========================
+   HOME — Ressources centré + PPP visible
+   ========================= */
+
+/* La ligne sous les 3 boutons */
+.resources-row{
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;  /* ✅ centre le bloc ressources */
+  gap: 28px;
+  margin-top: 22px;
+  position: relative;       /* pour placer PPP */
+}
+
+/* Ressources bien centré */
+.info-section--left{
+  text-align: center;
+  margin-top: 0;
+}
+.info-section--left .contact-links{
+  justify-content: center;
+}
+
+/* PPP positionné à droite MAIS ramené vers la gauche */
+.ppp-btn{
+  position: absolute;
+  right: 110px;             /* ✅ décale PPP vers la gauche (augmente pour aller + à gauche) */
+  bottom: 0;
+
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2px;
+
+  padding: 14px 18px;
+  border-radius: 16px;
+  text-decoration: none;
+  color: #eaf3ff;
+
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.14);
+  transition: transform .22s ease, box-shadow .22s ease, background .22s ease, border-color .22s ease;
+  min-width: 190px;
+}
+
+/* PPP plus en valeur */
+.ppp-btn--strong{
+  background: linear-gradient(160deg, rgba(42,168,216,.28), rgba(255,255,255,.06));
+  border-color: rgba(42,168,216,.55);
+  box-shadow: 0 18px 40px rgba(42,168,216,.22);
+}
+
+.ppp-btn__title{
+  font-weight: 900;
+  font-size: 18px;
+  letter-spacing: .02em;
+}
+
+.ppp-btn__sub{
+  font-size: 14px;
+  color: rgba(223,233,255,.85);
+}
+
+.ppp-btn:hover{
+  transform: translateY(-3px);
+  border-color: rgba(120,200,255,.75);
+  box-shadow: 0 22px 55px rgba(42,168,216,.35);
+  background: linear-gradient(160deg, rgba(42,168,216,.36), rgba(255,255,255,.08));
+}
+
+/* Mobile : PPP repasse sous ressources */
+@media(max-width: 900px){
+  .resources-row{
+    position: static;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .ppp-btn{
+    position: static;
+    width: 100%;
+    max-width: 360px;
+    text-align: center;
+    align-items: center;
+  }
+}
+
 
 
 
