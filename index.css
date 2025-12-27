@@ -2401,8 +2401,9 @@ body {
 }
 /* Remonter légèrement la zone Ressources + PPP */
 .resources-row{
-  margin-top: 18px; /* avant ~26px */
+  margin-top: 14px; /* avant ~26px */
 }
+
 
 
 
