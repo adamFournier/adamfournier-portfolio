@@ -1698,6 +1698,21 @@ body {
 
 
 
+/* === ENEDIS : force la largeur (slide 2 + slide 3) === */
+.slide-full.slide-enedis-mission1 .slide-content,
+.slide-full.slide-enedis-mission2 .slide-content{
+  width: min(92vw, 1500px) !important;
+  max-width: 1500px !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+/* Optionnel : si tu veux aussi élargir le texte lui-même */
+.slide-full.slide-enedis-mission1 p,
+.slide-full.slide-enedis-mission2 p{
+  max-width: none !important;
+}
+
 
 
 
