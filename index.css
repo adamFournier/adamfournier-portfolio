@@ -2297,6 +2297,109 @@ body {
   }
 }
 
+/* =========================
+   HOME — Ressources + PPP (ligne propre sous les 3 gros boutons)
+   ========================= */
+
+/* La ligne complète sous les 3 boutons */
+.resources-row{
+  width: 100%;
+  max-width: 980px;          /* même logique que ta zone gauche */
+  margin-top: 26px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 28px;
+}
+
+/* Bloc gauche (titre + boutons) */
+.resources-left{
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Titre */
+.resources-title{
+  font-weight: 800;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: #64c7ff;
+}
+
+/* Les 3 boutons TOUJOURS sur une ligne (desktop) */
+.resources-links{
+  display: flex;
+  gap: 14px;
+  flex-wrap: nowrap;         /* ✅ empêche CV Anglais de descendre */
+  align-items: center;
+}
+
+/* Si un bouton est trop long, on évite qu’il casse la ligne */
+.resources-links .contact-link{
+  white-space: nowrap;
+}
+
+/* PPP à droite, plus visible */
+.ppp-btn{
+  flex: 0 0 300px;           /* ✅ largeur stable = plus “en valeur” */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+
+  padding: 20px 22px;
+  border-radius: 18px;
+  text-decoration: none;
+  color: #eaf3ff;
+
+  background: linear-gradient(160deg, rgba(42,168,216,.42), rgba(255,255,255,.06));
+  border: 1px solid rgba(42,168,216,.75);
+  box-shadow: 0 22px 60px rgba(42,168,216,.32);
+
+  transform: translateY(0);
+  transition: transform .22s ease, box-shadow .22s ease, filter .22s ease;
+}
+
+.ppp-btn__title{
+  font-weight: 900;
+  font-size: 20px;
+  letter-spacing: .01em;
+}
+
+.ppp-btn__sub{
+  font-size: 14px;
+  color: rgba(223,233,255,.92);
+}
+
+/* Hover PPP (plus “premium”) */
+.ppp-btn:hover{
+  transform: translateY(-4px);
+  box-shadow: 0 30px 80px rgba(42,168,216,.42);
+  filter: brightness(1.05);
+}
+
+/* Responsive : on repasse proprement en colonne + boutons resources wrap */
+@media (max-width: 900px){
+  .resources-row{
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .resources-links{
+    flex-wrap: wrap;          /* mobile OK */
+  }
+
+  .ppp-btn{
+    width: 100%;
+    flex-basis: auto;
+  }
+}
+
 
 
 
