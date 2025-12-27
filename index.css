@@ -1691,6 +1691,11 @@ body {
 
 
 
+/* Largeur texte – slide 2 Enedis */
+.slide-full.stage-enedis .slide-content{
+  max-width: 1500px;
+}
+
 
 
 
