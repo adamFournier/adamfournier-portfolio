@@ -2131,3 +2131,26 @@ body {
 
 
 
+/* ===== PROJETS : sous-titres propres et plus visibles ===== */
+
+/* Titres de sections (Électronique analogique / numérique) */
+.projects-col-title{
+  font-size: 20px;           /* ⬆️ plus gros */
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: rgba(223,233,255,.95);
+  justify-content: center;   /* ou left si tu préfères */
+  margin-bottom: 24px;
+}
+
+/* Supprime le point */
+.projects-col-title::before{
+  content: none !important;
+}
+
+/* Supprime la barre */
+.projects-col-title::after{
+  content: none !important;
+}
+
