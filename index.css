@@ -1634,7 +1634,7 @@ body {
 /* ✅ TAILLE DES IMAGES : c’est ICI */
 .slide-full.slide-adc .adc-fig img{
   width: 100%;
-  max-width: 460px;   /* ✅ ← C’EST CETTE LIGNE QUI RÈGLE LA TAILLE DES IMAGES */
+  max-width: 430px;   /* ✅ ← C’EST CETTE LIGNE QUI RÈGLE LA TAILLE DES IMAGES */
   height: auto;
   display: block;
   margin: 0 auto;
@@ -1676,6 +1676,7 @@ body {
     max-width: 560px;
   }
 }
+
 
 
 
