@@ -2182,5 +2182,59 @@ body {
   border-color: rgba(77,163,255,.35);
 }
 
+/* =========================================
+   HOVER CARTES — style halo bleu (comme Enedis)
+   À COLLER TOUT À LA FIN
+   ========================================= */
+
+/* Important : on s’assure que la carte peut afficher un glow */
+.stage-card{
+  position: relative;
+  overflow: hidden;
+  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+
+/* Glow bleu en pseudo-element (comme un halo) */
+.stage-card::before{
+  content:"";
+  position:absolute;
+  inset:-2px;
+  border-radius: inherit;
+  pointer-events:none;
+  opacity:0;
+  transition: opacity .25s ease;
+  /* halo bleu doux */
+  box-shadow:
+    0 0 0 1px rgba(77,163,255,.28),
+    0 0 40px rgba(77,163,255,.18);
+}
+
+/* Hover : si tu survoles la carte OU le lien */
+.stage-card.is-clickable:hover,
+.stage-card.is-clickable:focus-within{
+  transform: translateY(-4px);
+  border-color: rgba(77,163,255,.35);
+  box-shadow:
+    0 26px 65px rgba(0,0,0,.55);
+}
+
+.stage-card.is-clickable:hover::before,
+.stage-card.is-clickable:focus-within::before{
+  opacity:1;
+}
+
+/* (option) rendre le titre un poil plus “vivant” au hover */
+.stage-card.is-clickable:hover .stage-title,
+.stage-card.is-clickable:focus-within .stage-title{
+  color:#ffffff;
+}
+
+/* IMPORTANT : si ton <a> a un background/border, ça peut masquer le glow */
+.stage-card.is-clickable > a{
+  display:block;
+  height:100%;
+  background: transparent;
+}
+
 
 
