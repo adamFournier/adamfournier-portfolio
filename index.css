@@ -1869,5 +1869,140 @@ body {
   }
 }
 
+/* =========================================
+   PROJETS – page d’accueil projets
+   (ajouter à la FIN du CSS)
+   ========================================= */
+
+/* Titre "Projets" plus impactant */
+.stage-head{
+  margin-bottom: 28px; /* espace avant les colonnes */
+}
+.stage-head h1{
+  font-size: 60px;
+  letter-spacing: -0.02em;
+  line-height: 1.02;
+  margin: 0 0 14px 0;
+}
+.stage-head h1::after{
+  content:"";
+  display:block;
+  width: 78px;
+  height: 4px;
+  margin-top: 14px;
+  border-radius: 99px;
+  background: rgba(77,163,255,.9);
+  box-shadow: 0 10px 35px rgba(77,163,255,.28);
+}
+
+/* 2 colonnes + espacement global */
+.projects-columns{
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+  padding: 8px 0 10px;
+}
+
+/* Chaque colonne = bloc "section" */
+.projects-col{
+  position: relative;
+  padding: 22px 18px 18px;
+  border-radius: 26px;
+  background: rgba(255,255,255,.03);
+  border: 1px solid rgba(255,255,255,.08);
+  box-shadow: 0 18px 60px rgba(0,0,0,.35);
+}
+
+/* Titre de section */
+.projects-col-title{
+  margin: 0 0 18px;
+  font-size: 14px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: rgba(223,233,255,.9);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+.projects-col-title::before{
+  content:"";
+  width: 10px;
+  height: 10px;
+  border-radius: 99px;
+  background: rgba(77,163,255,.95);
+  box-shadow: 0 10px 30px rgba(77,163,255,.35);
+}
+
+/* Cartes : plus "pro" */
+.projects-col .stage-card{
+  border-radius: 22px;
+  padding: 0; /* on laisse le <a> gérer le padding */
+  margin-bottom: 16px;
+  background: rgba(255,255,255,.035);
+  border: 1px solid rgba(255,255,255,.10);
+  box-shadow: 0 14px 45px rgba(0,0,0,.30);
+  overflow: hidden;
+}
+.projects-col .stage-card:last-child{ margin-bottom: 0; }
+
+/* Zone cliquable */
+.projects-col .stage-card > a{
+  display: block;
+  padding: 22px 22px 20px;
+}
+
+/* Titre carte */
+.projects-col .stage-title{
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  margin-bottom: 14px;
+}
+
+/* Pill durée : plus clean + align icône */
+.projects-col .stage-duration{
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.12);
+  color: rgba(223,233,255,.92);
+}
+.projects-col .stage-duration svg{
+  width: 18px;
+  height: 18px;
+  opacity: .95;
+}
+
+/* Hover : effet halo + légère montée */
+.projects-col .stage-card.is-clickable{
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease, background .18s ease;
+}
+.projects-col .stage-card.is-clickable:hover{
+  transform: translateY(-4px);
+  border-color: rgba(77,163,255,.35);
+  background: rgba(77,163,255,.06);
+  box-shadow:
+    0 26px 70px rgba(0,0,0,.40),
+    0 0 0 1px rgba(77,163,255,.25) inset;
+}
+
+/* Responsive */
+@media (max-width: 1000px){
+  .stage-head h1{ font-size: 48px; }
+  .projects-columns{
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .projects-col{
+    padding: 18px 14px 14px;
+  }
+}
+
 
 
