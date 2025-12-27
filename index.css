@@ -2236,5 +2236,58 @@ body {
   background: transparent;
 }
 
+/* ==========================================
+   PROJETS / STAGES — HOVER CARTE (ROBUSTE)
+   (marche même si le <a> recouvre tout)
+   ========================================== */
+
+/* La carte doit être "clickable" */
+.stage-card.is-clickable,
+.project-card.is-clickable{
+  cursor: pointer;
+  position: relative;
+}
+
+/* Le lien remplit toute la carte => hover OK partout */
+.stage-card.is-clickable > a,
+.project-card.is-clickable > a{
+  display: block;
+  height: 100%;
+}
+
+/* Effet hover (comme Enedis) */
+.stage-card.is-clickable:hover,
+.stage-card.is-clickable:focus-within,
+.project-card.is-clickable:hover,
+.project-card.is-clickable:focus-within{
+  transform: translateY(-6px);
+  border-color: rgba(120,200,255,.6);
+  box-shadow: 0 18px 40px rgba(42,168,216,.32);
+  background: linear-gradient(160deg,
+    rgba(42,168,216,.22),
+    rgba(255,255,255,.09)
+  );
+}
+
+/* Petit "glow" subtil en plus (optionnel mais joli) */
+.stage-card.is-clickable::after,
+.project-card.is-clickable::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius: inherit;
+  pointer-events:none;
+  opacity:0;
+  transition: opacity .22s ease;
+  box-shadow: 0 0 0 1px rgba(120,200,255,.25) inset;
+}
+
+.stage-card.is-clickable:hover::after,
+.stage-card.is-clickable:focus-within::after,
+.project-card.is-clickable:hover::after,
+.project-card.is-clickable:focus-within::after{
+  opacity:1;
+}
+
 
 
