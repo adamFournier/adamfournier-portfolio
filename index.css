@@ -605,7 +605,7 @@ body {
 }
 
 .slide-enedis-mission1 .slide-content{
-  width: min(92vw, 1100px);
+  width: min(92vw, 1500px);
   max-width: 1500px;
   margin: 0 auto;
 
@@ -1695,6 +1695,7 @@ body {
 .slide-full.stage-enedis .slide-content{
   max-width: 1500px;
 }
+
 
 
 
