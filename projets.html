@@ -19,6 +19,15 @@
       text-transform: uppercase;
       color: rgba(223,233,255,.85);
     }
+
+    /* Petit sous-texte sous le titre de section (optionnel mais propre) */
+    .section-sub{
+      max-width:1100px;
+      margin: 0 auto 18px;
+      color: rgba(223,233,255,.75);
+      font-size: 15.5px;
+      line-height: 1.6;
+    }
   </style>
 </head>
 
@@ -54,17 +63,35 @@
     </p>
   </div>
 
-  <!-- SECTION : ÉLECTRONIQUE -->
-  <h2 class="section-title">Électronique</h2>
+  <!-- ===================== -->
+  <!-- SECTION : ANALOGIQUE   -->
+  <!-- ===================== -->
+  <h2 class="section-title">Électronique analogique</h2>
+  <p class="section-sub">
+    Projets centrés sur l’acquisition, le conditionnement et l’analyse de signaux (amplification, filtrage, chaîne analogique).
+  </p>
 
   <section class="stage-grid">
+
     <!-- Moniteur cardiaque -->
     <article class="stage-card is-clickable">
       <a href="projet-moniteur.html" aria-label="Voir le projet Moniteur cardiaque">
         <div class="stage-title">Moniteur cardiaque</div>
-        <div class="stage-sub">Acquisition du signal • Traitement • Affichage</div>
+        <div class="stage-sub">Acquisition PPG • Amplification/filtrage • Numérisation • Traitement</div>
+
         <div class="stage-meta">
-          <span class="pill">Électronique</span>
+          <span class="stage-duration">
+            <!-- calendrier -->
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M8 7V3m8 4V3M3 11h18M5 20h14a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2z"/>
+            </svg>
+            6&nbsp;sem • 2025
+          </span>
+        </div>
+
+        <div class="stage-meta">
+          <span class="pill">Analogique</span>
           <span class="pill">Signal</span>
           <span class="pill">Slides</span>
         </div>
@@ -75,23 +102,91 @@
     <article class="stage-card is-clickable">
       <a href="projet-emetteur.html" aria-label="Voir le projet Émetteur / Récepteur">
         <div class="stage-title">Émetteur / Récepteur</div>
-        <div class="stage-sub">Transmission • Modulation • Communication</div>
+        <div class="stage-sub">Transmission • Modulation • Chaîne de communication</div>
+
         <div class="stage-meta">
-          <span class="pill">Électronique</span>
+          <span class="stage-duration">
+            <!-- calendrier -->
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M8 7V3m8 4V3M3 11h18M5 20h14a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2z"/>
+            </svg>
+            5&nbsp;sem • 2025
+          </span>
+        </div>
+
+        <div class="stage-meta">
+          <span class="pill">Analogique</span>
           <span class="pill">Comms</span>
           <span class="pill">Slides</span>
         </div>
       </a>
     </article>
 
-    <!-- Ghost -->
-    <article class="stage-card is-ghost">
-      <div>
-        <div class="stage-title">Projet&nbsp;#3</div>
-        <div class="stage-sub">À venir</div>
-      </div>
-    </article>
   </section>
+
+  <!-- ===================== -->
+  <!-- SECTION : NUMÉRIQUE     -->
+  <!-- ===================== -->
+  <h2 class="section-title">Électronique numérique</h2>
+  <p class="section-sub">
+    Projets orientés microcontrôleurs, logique numérique, FPGA et développement VHDL (acquisition + traitement numérique).
+  </p>
+
+  <section class="stage-grid">
+
+    <!-- Système d'accès par badge (MCU) -->
+    <article class="stage-card is-clickable">
+      <a href="projet-badge.html" aria-label="Voir le projet Système d'accès par badge">
+        <div class="stage-title">Système d’accès par badge</div>
+        <div class="stage-sub">Microcontrôleur • Lecture badge • Contrôle d’accès</div>
+
+        <div class="stage-meta">
+          <span class="stage-duration">
+            <!-- calendrier -->
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M8 7V3m8 4V3M3 11h18M5 20h14a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2z"/>
+            </svg>
+            4&nbsp;sem • 2025
+          </span>
+        </div>
+
+        <div class="stage-meta">
+          <span class="pill">Numérique</span>
+          <span class="pill">MCU</span>
+          <span class="pill">Slides</span>
+        </div>
+      </a>
+    </article>
+
+    <!-- Chaîne d’instrumentation + traitement FPGA (VHDL) -->
+    <article class="stage-card is-clickable">
+      <a href="projet-fpga.html" aria-label="Voir le projet Chaîne d'instrumentation sur FPGA">
+        <div class="stage-title">Chaîne d’instrumentation (FPGA)</div>
+        <div class="stage-sub">Acquisition • VHDL • Traitement du signal sur FPGA</div>
+
+        <div class="stage-meta">
+          <span class="stage-duration">
+            <!-- calendrier -->
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M8 7V3m8 4V3M3 11h18M5 20h14a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2z"/>
+            </svg>
+            6&nbsp;sem • 2024
+          </span>
+        </div>
+
+        <div class="stage-meta">
+          <span class="pill">FPGA</span>
+          <span class="pill">VHDL</span>
+          <span class="pill">Slides</span>
+        </div>
+      </a>
+    </article>
+
+  </section>
+
 </main>
 
 </body>
