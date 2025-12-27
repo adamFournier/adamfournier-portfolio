@@ -2046,5 +2046,88 @@ body {
   font-size: 24px !important;
 }
 
+/* ===== PROJETS : titre centré + sections clean (sans points/ barres) ===== */
+
+/* 1) Titre "Projets" centré */
+.stage-head{
+  text-align: center;
+  margin-bottom: 34px;
+}
+
+.stage-head h1{
+  display: inline-block;
+  margin: 0;
+}
+
+/* Supprime toute déco éventuelle (barre, underline custom, etc.) */
+.stage-head h1::after,
+.stage-head h1::before{
+  content: none !important;
+}
+
+/* 2) Deux colonnes : plus équilibré */
+.projects-columns{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: start;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* 3) Sections : pas de cadre, pas de point, juste un titre élégant */
+.projects-col{
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+
+/* Titre de section propre (sans bullet/point/trait) */
+.projects-col-title{
+  margin: 6px 0 18px !important;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: .10em;
+  text-transform: uppercase;
+  color: rgba(223,233,255,.88);
+  display: flex;
+  align-items: center;
+  justify-content: center; /* si tu veux centrer les titres de section */
+  gap: 12px;
+}
+
+/* Petite pastille discrète (plus jolie que les points) */
+.projects-col-title::before{
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(77,163,255,.75);
+  box-shadow: 0 0 0 4px rgba(77,163,255,.12);
+}
+
+/* 4) Cartes : une seule couche, plus "premium" */
+.projects-col .stage-card{
+  background: rgba(255,255,255,.035) !important;
+  border: 1px solid rgba(255,255,255,.10) !important;
+  box-shadow: 0 18px 55px rgba(0,0,0,.35) !important;
+}
+
+/* Hover plus clean */
+.projects-col .stage-card.is-clickable:hover{
+  transform: translateY(-3px);
+  box-shadow: 0 26px 70px rgba(0,0,0,.45) !important;
+  border-color: rgba(77,163,255,.22) !important;
+}
+
+/* Responsive */
+@media (max-width: 1000px){
+  .projects-columns{
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+}
+
 
 
