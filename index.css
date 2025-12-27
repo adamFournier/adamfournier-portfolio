@@ -1714,6 +1714,11 @@ body {
 
 
 
+/* ENEDIS – Slide 2 : diminuer l’espace entre paragraphes */
+.slide-full.slide-enedis-mission1 p{
+  margin-bottom: 2px;
+}
+
 
 
 
