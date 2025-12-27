@@ -1691,27 +1691,27 @@ body {
 
 
 
-/* Largeur texte – slide 2 Enedis */
-.slide-full.stage-enedis .slide-content{
+/* ===== ENEDIS – Slide 2 seulement : texte plus large, bas inchangé ===== */
+
+/* 1) On élargit le conteneur de la slide 2 (Mission 1) */
+.slide-full.slide-enedis-mission1 .slide-content{
+  width: min(92vw, 1500px);
   max-width: 1500px;
 }
 
-
-
-/* === ENEDIS : force la largeur (slide 2 + slide 3) === */
-.slide-full.slide-enedis-mission1 .slide-content,
-.slide-full.slide-enedis-mission2 .slide-content{
-  width: min(92vw, 1500px) !important;
-  max-width: 1500px !important;
-  padding-left: 0 !important;
-  padding-right: 0 !important;
+/* 2) MAIS on empêche le bloc du bas (cartes) de s’étirer */
+.slide-full.slide-enedis-mission1 .enedis-bottom{
+  max-width: 1100px;   /* garde la largeur “ancienne” */
+  margin: 0 auto;      /* centre le bloc */
 }
 
-/* Optionnel : si tu veux aussi élargir le texte lui-même */
-.slide-full.slide-enedis-mission1 p,
-.slide-full.slide-enedis-mission2 p{
-  max-width: none !important;
+/* 3) Optionnel : si tu veux que le texte soit large mais pas “trop” sur grand écran */
+.slide-full.slide-enedis-mission1 h1,
+.slide-full.slide-enedis-mission1 p{
+  max-width: 1400px;   /* tu peux mettre 1500 si tu veux */
 }
+
+
 
 
 
