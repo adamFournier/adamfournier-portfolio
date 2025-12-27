@@ -2183,172 +2183,7 @@ body {
 }
 
 /* =========================
-   HOME — Ressources + PPP row
-   ========================= */
-.resources-row{
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 18px;
-  margin-top: 22px;
-}
-
-/* Ressources un peu "à gauche" (et plus centré globalement) */
-.info-section--left{
-  text-align: left;
-  margin-top: 0; /* annule le margin-top du .info-section */
-}
-.info-section--left .contact-links{
-  justify-content: flex-start; /* au lieu de center */
-}
-
-/* Bouton PPP (à droite) */
-.ppp-btn{
-  display: inline-flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 2px;
-
-  padding: 12px 16px;
-  border-radius: 14px;
-  text-decoration: none;
-  color: var(--text);
-
-  background: rgba(255,255,255,.06);
-  border: 1px solid rgba(255,255,255,.12);
-  transition: all .22s ease;
-  min-width: 170px;
-  text-align: left;
-}
-
-.ppp-btn__title{
-  font-weight: 800;
-  letter-spacing: .02em;
-}
-
-.ppp-btn__sub{
-  font-size: 13px;
-  color: rgba(223,233,255,.75);
-}
-
-/* Hover comme tes boutons/links */
-.ppp-btn:hover{
-  transform: translateY(-2px);
-  background: rgba(42,168,216,.18);
-  border-color: rgba(42,168,216,.4);
-  box-shadow: 0 0 10px rgba(42,168,216,.35);
-}
-
-/* Mobile : on empile */
-@media(max-width: 900px){
-  .resources-row{
-    flex-direction: column;
-    align-items: center;
-  }
-  .info-section--left{
-    text-align: center;
-  }
-  .info-section--left .contact-links{
-    justify-content: center;
-  }
-  .ppp-btn{
-    width: 100%;
-    max-width: 360px;
-    text-align: center;
-    align-items: center;
-  }
-}
-
-/* =========================
-   HOME — Ressources centré + PPP visible
-   ========================= */
-
-/* La ligne sous les 3 boutons */
-.resources-row{
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;  /* ✅ centre le bloc ressources */
-  gap: 28px;
-  margin-top: 22px;
-  position: relative;       /* pour placer PPP */
-}
-
-/* Ressources bien centré */
-.info-section--left{
-  text-align: center;
-  margin-top: 0;
-}
-.info-section--left .contact-links{
-  justify-content: center;
-}
-
-/* PPP positionné à droite MAIS ramené vers la gauche */
-.ppp-btn{
-  position: absolute;
-  right: 110px;             /* ✅ décale PPP vers la gauche (augmente pour aller + à gauche) */
-  bottom: 0;
-
-  display: inline-flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 2px;
-
-  padding: 14px 18px;
-  border-radius: 16px;
-  text-decoration: none;
-  color: #eaf3ff;
-
-  background: rgba(255,255,255,.06);
-  border: 1px solid rgba(255,255,255,.14);
-  transition: transform .22s ease, box-shadow .22s ease, background .22s ease, border-color .22s ease;
-  min-width: 190px;
-}
-
-/* PPP plus en valeur */
-.ppp-btn--strong{
-  background: linear-gradient(160deg, rgba(42,168,216,.28), rgba(255,255,255,.06));
-  border-color: rgba(42,168,216,.55);
-  box-shadow: 0 18px 40px rgba(42,168,216,.22);
-}
-
-.ppp-btn__title{
-  font-weight: 900;
-  font-size: 18px;
-  letter-spacing: .02em;
-}
-
-.ppp-btn__sub{
-  font-size: 14px;
-  color: rgba(223,233,255,.85);
-}
-
-.ppp-btn:hover{
-  transform: translateY(-3px);
-  border-color: rgba(120,200,255,.75);
-  box-shadow: 0 22px 55px rgba(42,168,216,.35);
-  background: linear-gradient(160deg, rgba(42,168,216,.36), rgba(255,255,255,.08));
-}
-
-/* Mobile : PPP repasse sous ressources */
-@media(max-width: 900px){
-  .resources-row{
-    position: static;
-    flex-direction: column;
-    align-items: center;
-    gap: 14px;
-  }
-
-  .ppp-btn{
-    position: static;
-    width: 100%;
-    max-width: 360px;
-    text-align: center;
-    align-items: center;
-  }
-}
-
-/* =========================
-   HOME — Ressources gauche + PPP droite (sans superposition)
+   HOME — Ressources (gauche) + PPP (droite) CLEAN
    ========================= */
 
 .resources-row{
@@ -2356,8 +2191,8 @@ body {
   margin-top: 22px;
 
   display: grid;
-  grid-template-columns: 1fr 240px; /* gauche | PPP */
-  gap: 24px;
+  grid-template-columns: 1fr 260px; /* gauche | PPP */
+  gap: 28px;
   align-items: end;
 }
 
@@ -2366,73 +2201,57 @@ body {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  align-items: flex-start; /* ✅ à gauche */
+  align-items: flex-start;
 }
 
+/* Titre "RESSOURCES" (décalage léger vers la droite) */
 .resources-title{
   font-weight: 800;
   letter-spacing: .06em;
   text-transform: uppercase;
   color: #64c7ff;
+
+  margin-left: 22px; /* ✅ décale juste le titre vers la droite */
 }
 
-/* 3 boutons */
+/* Les 3 boutons ressources (on réutilise tes .contact-link) */
 .resources-links{
   display: flex;
   gap: 14px;
   flex-wrap: wrap;
-  justify-content: flex-start; /* ✅ à gauche */
+  justify-content: flex-start;
 }
 
-/* Si tu as déjà une classe pour les boutons ressource, garde-la.
-   Sinon, ça assure un rendu cohérent. */
-.resource-btn{
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 10px 14px;
-  border-radius: 14px;
-  text-decoration: none;
-  color: #eaf3ff;
-
-  background: rgba(255,255,255,.06);
-  border: 1px solid rgba(255,255,255,.12);
-  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
-}
-
-.resource-btn:hover{
-  transform: translateY(-2px);
-  border-color: rgba(120,200,255,.55);
-  box-shadow: 0 14px 34px rgba(42,168,216,.20);
-}
-
-/* PPP à droite */
+/* PPP à droite — visible */
 .ppp-btn{
-  justify-self: end; /* ✅ colle à droite */
+  justify-self: end;
+  margin-right: 10px; /* ✅ petit décalage vers la droite */
   display: inline-flex;
   flex-direction: column;
   justify-content: center;
-  gap: 2px;
+  gap: 4px;
 
-  padding: 16px 18px;
+  padding: 18px 18px;
   border-radius: 18px;
   text-decoration: none;
   color: #eaf3ff;
 
   background: rgba(255,255,255,.06);
   border: 1px solid rgba(255,255,255,.14);
+
   transition: transform .22s ease, box-shadow .22s ease, background .22s ease, border-color .22s ease;
 }
 
 .ppp-btn--strong{
-  background: linear-gradient(160deg, rgba(42,168,216,.32), rgba(255,255,255,.06));
-  border-color: rgba(42,168,216,.60);
+  background: linear-gradient(160deg, rgba(42,168,216,.34), rgba(255,255,255,.06));
+  border-color: rgba(42,168,216,.65);
   box-shadow: 0 18px 44px rgba(42,168,216,.26);
 }
 
 .ppp-btn__title{
   font-weight: 900;
   font-size: 18px;
+  letter-spacing: .01em;
 }
 
 .ppp-btn__sub{
@@ -2442,39 +2261,41 @@ body {
 
 .ppp-btn:hover{
   transform: translateY(-3px);
-  border-color: rgba(120,200,255,.75);
-  box-shadow: 0 24px 60px rgba(42,168,216,.34);
-  background: linear-gradient(160deg, rgba(42,168,216,.40), rgba(255,255,255,.08));
+  border-color: rgba(120,200,255,.78);
+  box-shadow: 0 24px 60px rgba(42,168,216,.36);
+  background: linear-gradient(160deg, rgba(42,168,216,.42), rgba(255,255,255,.08));
 }
 
-/* Mobile : PPP passe en dessous à droite */
+/* Mobile : PPP passe dessous (propre) */
 @media(max-width: 900px){
   .resources-row{
     grid-template-columns: 1fr;
+    gap: 14px;
     align-items: start;
   }
+
+  .resources-left{
+    align-items: center;
+  }
+
+  .resources-title{
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .resources-links{
+    justify-content: center;
+  }
+
   .ppp-btn{
-    justify-self: start; /* ou end si tu veux à droite sur mobile */
+    justify-self: center;
     width: 100%;
     max-width: 360px;
+    margin-right: 0;
+    text-align: center;
+    align-items: center;
   }
 }
-
-
-/* =========================
-   DÉCALAGE FIN — TITRE RESSOURCES & PPP
-   ========================= */
-
-/* Décale uniquement le titre "RESSOURCES" vers la droite */
-.resources-title{
-  margin-left: 32px; /* ajuste : 16px / 24px / 32px */
-}
-
-/* Décale le bouton PPP vers la droite */
-.ppp-btn{
-  margin-left: 32px; /* ajuste pareil pour cohérence */
-}
-
 
 
 
