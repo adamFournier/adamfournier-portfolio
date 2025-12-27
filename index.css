@@ -1231,6 +1231,10 @@ body {
   .stage-head h1{font-size:34px;}
 }
 
+.slide-full.stage-enedis .slide-content p{
+  margin-bottom: 10px;   /* plus aéré entre paragraphes */
+  line-height: 1.75;     /* tu peux garder */
+}
 
 /* ==============================
    PROJETS – SLIDES CONTENU
@@ -1676,6 +1680,7 @@ body {
     max-width: 560px;
   }
 }
+
 
 
 
