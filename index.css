@@ -3739,4 +3739,17 @@ padding-top: 24px;   /* ← règle PRINCIPALE */
   text-align: left;          /* texte bien aligné */
 }
 
+/* ======================================
+   SLIDE RÉSULTATS — CADRE VRAIMENT CENTRÉ
+   ====================================== */
+
+.slide-full.slide-emrec.slide-emrec--results{
+  display: flex;
+  align-items: center;   /* ✅ centre verticalement la slide */
+}
+
+.slide-full.slide-emrec.slide-emrec--results .slide-content{
+  padding-top: 0;        /* enlève le décalage vers le haut */
+}
+
 
