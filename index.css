@@ -4003,5 +4003,38 @@ body.page-scroll .project-badge-page .project-figure figcaption{
     max-width: 720px;
   }
 }
+/* ======================================================
+   PROJET RFID — FIX SCROLL + "REMONTÉE" DU CONTENU
+   À COLLER TOUT EN BAS de index.css
+   ====================================================== */
+
+/* 1) Réactive le scroll uniquement sur cette page */
+body.page-scroll{
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+}
+
+/* 2) Remonte le contenu en tenant compte de la navbar fixe */
+body.page-scroll .project-wrap.project-badge-page{
+  height: auto !important;
+  min-height: calc(100vh - var(--board-h)) !important;
+
+  /* ✅ Remonte (ajuste les +24 / +32 si besoin) */
+  padding-top: calc(var(--board-h) + 24px) !important;
+
+  /* ✅ évite que le bas soit caché par tes barres fixes */
+  padding-bottom: calc(var(--contact-h) + var(--footer-h) + 32px) !important;
+}
+
+/* 3) Optionnel : enlève un peu d’espace sous le titre (ça remonte encore) */
+body.page-scroll .project-badge-page .project-head{
+  margin-bottom: 34px !important;
+}
+
+/* 4) Optionnel : enlève le gros margin-top des h2 (tu avais ~42px) */
+body.page-scroll .project-badge-page .project-text h2{
+  margin-top: 22px !important;
+}
+
 
 
