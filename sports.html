@@ -1,8 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Sports — Adam Fournier</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+
+<header class="board">
+  <div class="board__inner">
+    <div class="board__brand">Adam Fournier</div>
+    <nav class="board__nav">
+      <a href="index.html">Accueil</a>
+      <a href="stages.html">Stages</a>
+      <a href="projets.html">Projets</a>
+      <a href="engagements.html">Engagements</a>
+      <a href="sports.html" class="is-active">Sports</a>
+    </nav>
+  </div>
+</header>
+
 <main class="sports-wrap">
+
   <h1 class="sports-title">Sports</h1>
 
-  <div class="sports-grid">
+  <section class="sports-grid">
 
+    <!-- Handball -->
     <article class="sport-card">
       <div class="sport-top">
         <h2 class="sport-name">Handball</h2>
@@ -15,11 +42,12 @@
       </p>
 
       <div class="sport-meta">
-        <span class="sport-tag">2017–2022</span>
-        <span class="sport-tag">INP 2025</span>
+        <span class="sport-tag">Collectif</span>
+        <span class="sport-tag">Performance</span>
       </div>
     </article>
 
+    <!-- Grappling -->
     <article class="sport-card">
       <div class="sport-top">
         <h2 class="sport-name">Grappling</h2>
@@ -32,43 +60,49 @@
       </p>
 
       <div class="sport-meta">
-        <span class="sport-tag">2025–2026</span>
-        <span class="sport-tag">Toulouse</span>
+        <span class="sport-tag">Combat</span>
+        <span class="sport-tag">Discipline</span>
       </div>
     </article>
 
+    <!-- Street workout -->
     <article class="sport-card">
       <div class="sport-top">
         <h2 class="sport-name">Street workout</h2>
-        <span class="sport-pill">Poids du corps</span>
+        <span class="sport-pill">Musculation</span>
       </div>
 
       <p class="sport-desc">
-        Musculation au poids du corps : tractions, dips, gainage,
-        progression en force et contrôle.
+        Musculation au <strong>poids du corps</strong> :
+        force, gainage et maîtrise du mouvement.
       </p>
 
       <div class="sport-meta">
-        <span class="sport-tag">Muscu</span>
-        <span class="sport-tag">Poids du corps</span>
+        <span class="sport-tag">Force</span>
+        <span class="sport-tag">Autonomie</span>
       </div>
     </article>
 
+    <!-- Course -->
     <article class="sport-card">
       <div class="sport-top">
-        <h2 class="sport-name">Course</h2>
+        <h2 class="sport-name">Course à pied</h2>
         <span class="sport-pill">Endurance</span>
       </div>
 
       <p class="sport-desc">
-        Course <strong>une fois par semaine</strong> pour l’endurance et la régularité.
+        Course à pied <strong>une fois par semaine</strong>
+        pour l’endurance et l’entretien physique général.
       </p>
 
       <div class="sport-meta">
-        <span class="sport-tag">1× / semaine</span>
-        <span class="sport-tag">Endurance</span>
+        <span class="sport-tag">Cardio</span>
+        <span class="sport-tag">Régularité</span>
       </div>
     </article>
 
-  </div>
+  </section>
 </main>
+
+</body>
+</html>
