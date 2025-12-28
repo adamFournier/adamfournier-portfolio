@@ -2523,6 +2523,64 @@ body {
 }
 
 
+/* ============================
+   PROJETS — CARTES CLIQUABLES
+   ============================ */
+
+/* Carte projet */
+.project-card{
+  position: relative;
+  cursor: pointer;
+
+  transition:
+    transform .25s ease,
+    box-shadow .25s ease,
+    border-color .25s ease,
+    background .25s ease;
+}
+
+/* Icône flèche discrète (indique le clic) */
+.project-card::before{
+  content: "→";
+  position: absolute;
+  right: 22px;
+  bottom: 20px;
+  font-size: 18px;
+  color: rgba(121,210,242,.65);
+  opacity: 0;
+  transform: translateX(-6px);
+  transition: .25s ease;
+}
+
+/* Hover / focus */
+.project-card:hover,
+.project-card:focus-within{
+  transform: translateY(-6px);
+  border-color: rgba(121,210,242,.55);
+
+  background: linear-gradient(
+    160deg,
+    rgba(121,210,242,.18),
+    rgba(255,255,255,.08)
+  );
+
+  box-shadow:
+    0 22px 50px rgba(0,0,0,.45),
+    0 0 0 1px rgba(121,210,242,.22) inset;
+}
+
+/* Affiche la flèche au hover */
+.project-card:hover::before,
+.project-card:focus-within::before{
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Titre plus “vivant” au hover */
+.project-card:hover .project-title{
+  color: #79d2f2;
+}
+
 
 
 
