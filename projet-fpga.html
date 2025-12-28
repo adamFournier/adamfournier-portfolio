@@ -8,134 +8,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="index.css?v=401" />
-
-  <style>
-    /* ==============================
-       SLIDER (scopé projet FPGA)
-       ============================== */
-    .fpga-slider{
-      position: relative;
-      overflow: hidden;
-      border-radius: 22px;
-    }
-
-    .fpga-track{
-      display: flex;
-      width: 100%;
-      transition: transform .35s ease;
-      will-change: transform;
-    }
-
-    .fpga-slide{
-      min-width: 100%;
-    }
-
-    /* flèches */
-    .fpga-arrow{
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 48px;
-      height: 48px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,.16);
-      background: rgba(10,20,34,.35);
-      backdrop-filter: blur(10px);
-      display: grid;
-      place-items: center;
-      cursor: pointer;
-      z-index: 5;
-      transition: transform .18s ease, background .18s ease, border-color .18s ease;
-    }
-    .fpga-arrow:hover{
-      transform: translateY(-50%) scale(1.05);
-      background: rgba(10,20,34,.55);
-      border-color: rgba(120,200,255,.35);
-    }
-    .fpga-arrow.left{ left: 18px; }
-    .fpga-arrow.right{ right: 18px; }
-    .fpga-arrow span{
-      font-size: 20px;
-      line-height: 1;
-      color: rgba(223,233,255,.92);
-    }
-
-    /* dots */
-    .fpga-dots{
-      position: absolute;
-      left: 50%;
-      bottom: 16px;
-      transform: translateX(-50%);
-      display: flex;
-      gap: 10px;
-      z-index: 6;
-      padding: 8px 10px;
-      border-radius: 999px;
-      background: rgba(10,20,34,.28);
-      border: 1px solid rgba(255,255,255,.10);
-      backdrop-filter: blur(10px);
-    }
-    .fpga-dot{
-      width: 10px; height: 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,.18);
-      background: rgba(223,233,255,.22);
-      cursor: pointer;
-      transition: transform .18s ease, background .18s ease, border-color .18s ease;
-    }
-    .fpga-dot.is-active{
-      background: rgba(120,200,255,.85);
-      border-color: rgba(120,200,255,.75);
-      transform: scale(1.15);
-    }
-
-    /* ==============================
-       Slides FPGA : images rectangulaires propres
-       (sans toucher aux autres pages)
-       ============================== */
-    .slide-full.slide-fpga .slide-content{
-      max-width: 1500px;
-      padding: 80px 80px;
-    }
-
-    .slide-full.slide-fpga .fpga-img{
-      width: 100%;
-      height: auto;
-      aspect-ratio: auto;
-      object-fit: cover;
-      border-radius: 20px;
-      padding: 14px;
-      background: rgba(0,0,0,.18);
-      border: 1px solid rgba(255,255,255,.16);
-      box-shadow: 0 22px 60px rgba(0,0,0,.45);
-    }
-
-    .slide-full.slide-fpga .fpga-cap{
-      margin-top: 10px;
-      font-size: 14px;
-      color: rgba(223,233,255,.82);
-      text-align: center;
-      line-height: 1.35;
-    }
-
-    /* slide "texte seul" un peu plus lisible */
-    .slide-full.slide-fpga .solo-text{
-      max-width: 1050px;
-    }
-
-    /* gras en bleu (comme tes autres pages) */
-    .slide-full.slide-fpga .slide-content strong{
-      color: #4da3ff;
-      font-weight: 700;
-    }
-
-    @media (max-width: 1000px){
-      .slide-full.slide-fpga .slide-content{
-        padding: 64px 32px;
-      }
-      .fpga-arrow{ display:none; }
-    }
-  </style>
 </head>
 
 <body>
@@ -144,7 +16,6 @@
 <header class="board">
   <div class="board__inner">
     <div class="board__brand">Adam&nbsp;Fournier</div>
-
     <nav class="board__nav">
       <a href="index.html">Accueil</a>
 
@@ -163,195 +34,174 @@
 </header>
 
 <!-- SLIDER -->
-<section class="fpga-slider" aria-label="Slides du projet FPGA">
-  <div class="fpga-arrow left" id="fpgaPrev" aria-label="Slide précédente"><span>‹</span></div>
-  <div class="fpga-arrow right" id="fpgaNext" aria-label="Slide suivante"><span>›</span></div>
+<div class="slides-full-wrap">
+  <div class="slides-full" id="slider">
 
-  <div class="fpga-track" id="fpgaTrack">
-
-    <!-- =========================
-         SLIDE 1 — INTRO
-         ========================= -->
-    <section class="fpga-slide slide-full slide-fpga">
-      <div class="slide-content">
-        <div class="engagement-grid" style="align-items:start; margin-top:0;">
-          <div class="engagement-text" style="max-width:none;">
-            <h1>Traitement de signal sur FPGA</h1>
-
-            <p>
-              Objectif : concevoir une chaîne complète sur <strong>FPGA</strong> capable de
-              <strong>numériser</strong> un signal via <strong>ADC</strong>, puis de réaliser un
-              <strong>traitement numérique temps réel</strong> afin d’estimer la fréquence du signal.
-            </p>
-
-            <p>
-              Pipeline global :
-              <strong>ADC → Filtrage numérique → Dérivation → Seuil (binaire) → Fréquencemètre → Afficheur 7 segments</strong>.
-            </p>
-          </div>
-
-          <div class="engagement-image" style="justify-content:flex-end; align-items:flex-start;">
-            <div style="width:100%; max-width:720px; display:flex; flex-direction:column; gap:26px;">
-              <figure class="engagement-fig" style="margin:0;">
-                <img class="fpga-img" src="fpga-organigramme.jpg" alt="Organigramme de la chaîne de traitement sur FPGA">
-                <figcaption class="fpga-cap">Chaîne de traitement : acquisition + blocs DSP jusqu’à l’affichage.</figcaption>
-              </figure>
-
-              <figure class="engagement-fig" style="margin:0;">
-                <img class="fpga-img" src="fpga-signal-capteur.jpg" alt="Signal du capteur (sawtooth-like)">
-                <figcaption class="fpga-cap">Signal capteur : forme « sawtooth-like » avec fronts marqués à détecter.</figcaption>
-              </figure>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- =========================
-         SLIDE 2 — ADC
-         ========================= -->
-    <section class="fpga-slide slide-full slide-fpga">
-      <div class="slide-content">
-        <div class="engagement-grid" style="align-items:start; margin-top:0;">
-          <div class="engagement-text" style="max-width:none;">
-            <h1>ADC : numérisation sur FPGA</h1>
-
-            <p>
-              Le signal analogique est acquis via un <strong>ADC 12 bits</strong> intégré au FPGA (XADC),
-              avec une fréquence d’échantillonnage adaptée au système.
-            </p>
-
-            <p>
-              Configuration : génération d’une IP dédiée (type « wizard »),
-              puis récupération des échantillons pour alimenter la chaîne DSP.
-            </p>
-          </div>
-
-          <div class="engagement-image" style="justify-content:flex-end; align-items:flex-start;">
-            <figure class="engagement-fig" style="margin:0; width:100%; max-width:720px;">
-              <img class="fpga-img" src="fpga-adc.jpg" alt="Configuration / validation ADC">
-              <figcaption class="fpga-cap">Configuration et validation de l’ADC (ex : IP / réglages d’acquisition).</figcaption>
-            </figure>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- =========================
-         SLIDE 3 — FILTRAGE (texte seul)
-         ========================= -->
-    <section class="fpga-slide slide-full slide-fpga">
-      <div class="slide-content">
-        <div class="solo-text">
-          <h1>Filtrage numérique (point fixe)</h1>
+    <!-- SLIDE 1 : INTRO -->
+    <section class="slide-full slide-fpga slide-fpga-intro">
+      <div class="slide-content fpga-grid">
+        <div class="fpga-text">
+          <h1>Traitement de signal sur FPGA</h1>
 
           <p>
-            Le signal numérisé est filtré par un <strong>filtre numérique</strong> (ex : passe-haut)
-            afin de réduire les composantes indésirables et de renforcer les transitions utiles.
+            Objectif : concevoir une chaîne complète <strong>d’acquisition</strong> et de
+            <strong>traitement numérique</strong> sur FPGA, puis afficher la fréquence du signal
+            <strong>en temps réel</strong> sur un afficheur <strong>7 segments</strong>.
           </p>
 
           <p>
-            Le traitement est implémenté en <strong>arithmétique en point fixe</strong> :
-            choix des formats (Qn.m), gestion de la précision, saturation/troncature,
-            et optimisation des ressources (adders, multipliers, registers).
+            Chaîne : <strong>ADC → Filtrage → Dérivation → Seuil (binaire) → Fréquencemètre → Affichage</strong>.
+          </p>
+        </div>
+
+        <div class="fpga-side">
+          <figure class="fpga-fig">
+            <img class="fpga-img" src="fpga-organigramme.png" alt="Organigramme de la chaîne de traitement FPGA">
+            <figcaption class="fpga-cap">Organigramme du système (capteur → traitement → affichage).</figcaption>
+          </figure>
+
+          <figure class="fpga-fig">
+            <img class="fpga-img" src="fpga-signal-capteur.png" alt="Signal issu du capteur">
+            <figcaption class="fpga-cap">Signal du capteur (franges / forme dent de scie).</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 2 : ADC -->
+    <section class="slide-full slide-fpga slide-fpga-adc">
+      <div class="slide-content fpga-grid">
+        <div class="fpga-text">
+          <h1>ADC : numérisation sur FPGA</h1>
+
+          <p>
+            Le signal analogique est <strong>numérisé</strong> grâce à l’ADC intégré au FPGA
+            (<strong>XADC</strong>), configuré pour échantillonner à une fréquence adaptée au signal.
           </p>
 
           <p>
-            Objectif : un bloc stable, synthétisable et efficace, compatible avec une exécution
-            <strong>temps réel</strong> au rythme d’échantillonnage.
+            Les échantillons sont récupérés via l’IP générée (Wizard) puis envoyés dans la
+            <strong>chaîne de traitement</strong> numérique.
           </p>
         </div>
-      </div>
-    </section>
 
-    <!-- =========================
-         SLIDE 4 — DÉRIVATION + THRESHOLD
-         ========================= -->
-    <section class="fpga-slide slide-full slide-fpga">
-      <div class="slide-content">
-        <div class="engagement-grid" style="align-items:start; margin-top:0;">
-          <div class="engagement-text" style="max-width:none;">
-            <h1>Dérivation &amp; seuil : détection des fronts</h1>
-
-            <p>
-              Une <strong>dérivation numérique</strong> est appliquée pour accentuer les fronts rapides.
-              Le signal dérivé met en évidence les événements (pics) liés aux transitions.
-            </p>
-
-            <p>
-              Puis un <strong>threshold</strong> transforme ce signal en un
-              <strong>signal binaire</strong> : 1 lors d’un événement détecté, 0 sinon.
-              Cette étape simplifie la mesure de fréquence (comptage d’impulsions).
-            </p>
-          </div>
-
-          <div class="engagement-image" style="justify-content:flex-end; align-items:flex-start;">
-            <figure class="engagement-fig" style="margin:0; width:100%; max-width:720px;">
-              <img class="fpga-img" src="fpga-derivation-threshold.jpg" alt="Schéma dérivation puis threshold binaire">
-              <figcaption class="fpga-cap">Dérivation → signal dérivé → seuil → impulsions binaires.</figcaption>
-            </figure>
-          </div>
+        <div class="fpga-side">
+          <figure class="fpga-fig">
+            <img class="fpga-img" src="fpga-xadc.png" alt="Configuration XADC / ADC sur FPGA">
+            <figcaption class="fpga-cap">Exemple : configuration de l’ADC (XADC Wizard).</figcaption>
+          </figure>
         </div>
       </div>
     </section>
 
-    <!-- =========================
-         SLIDE 5 — FRÉQUENCEMÈTRE + AFFICHAGE
-         ========================= -->
-    <section class="fpga-slide slide-full slide-fpga">
-      <div class="slide-content">
-        <div class="engagement-grid" style="align-items:start; margin-top:0;">
-          <div class="engagement-text" style="max-width:none;">
-            <h1>Fréquencemètre &amp; afficheur 7 segments</h1>
+    <!-- SLIDE 3 : FILTERING -->
+    <section class="slide-full slide-fpga slide-fpga-filter">
+      <div class="slide-content fpga-solo">
+        <h1>Filtrage numérique (point fixe)</h1>
 
-            <p>
-              Le <strong>fréquencemètre</strong> mesure la fréquence du signal à partir des impulsions binaires
-              (ex : comptage sur une fenêtre temporelle, ou mesure de période).
-            </p>
+        <p>
+          Le signal échantillonné est filtré (ex : <strong>passe-haut</strong>) pour supprimer les
+          composantes lentes et mettre en valeur les variations rapides.
+        </p>
 
-            <p>
-              La valeur est ensuite convertie et envoyée vers un <strong>afficheur 7 segments</strong>,
-              avec une mise à jour <strong>temps réel</strong> (rafraîchissement fluide et lisible).
-            </p>
-          </div>
+        <p>
+          L’implémentation FPGA se fait en <strong>arithmétique en point fixe</strong> :
+          choix d’un format (ex : Qm.n), gestion de la <strong>quantification</strong>,
+          saturation/overflow et troncatures contrôlées.
+        </p>
 
-          <div class="engagement-image" style="justify-content:flex-end; align-items:flex-start;">
-            <figure class="engagement-fig" style="margin:0; width:100%; max-width:720px;">
-              <img class="fpga-img" src="fpga-frequencymeter.jpg" alt="Slide fréquencemètre et principe de mesure">
-              <figcaption class="fpga-cap">Principe de mesure et intégration jusqu’à l’affichage.</figcaption>
-            </figure>
-          </div>
+        <p>
+          But : obtenir un signal propre, compatible temps réel et stable sur ressources FPGA.
+        </p>
+      </div>
+    </section>
+
+    <!-- SLIDE 4 : DERIVATION + THRESHOLD -->
+    <section class="slide-full slide-fpga slide-fpga-deriv">
+      <div class="slide-content fpga-grid">
+        <div class="fpga-text">
+          <h1>Dérivation + seuil : détection des pics</h1>
+
+          <p>
+            Une <strong>dérivation numérique</strong> met en évidence les fronts/pics associés aux événements.
+          </p>
+
+          <p>
+            Un <strong>seuil (threshold)</strong> convertit ensuite le signal dérivé en un signal
+            <strong>binaire</strong> (0/1), robuste pour déclencher un comptage.
+          </p>
+
+          <p>
+            Résultat : un signal logique propre, directement exploitable par le fréquencemètre.
+          </p>
+        </div>
+
+        <div class="fpga-side">
+          <figure class="fpga-fig">
+            <img class="fpga-img" src="fpga-derivation-threshold.png" alt="Schéma dérivation puis seuil">
+            <figcaption class="fpga-cap">Principe : signal filtré → dérivé → seuil → binaire.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 5 : FREQUENCYMETER -->
+    <section class="slide-full slide-fpga slide-fpga-freq">
+      <div class="slide-content fpga-grid">
+        <div class="fpga-text">
+          <h1>Fréquencemètre + affichage temps réel</h1>
+
+          <p>
+            Le <strong>fréquencemètre</strong> mesure la fréquence du signal binaire
+            (comptage sur fenêtre temporelle / méthode adaptée).
+          </p>
+
+          <p>
+            La valeur est ensuite <strong>formatée</strong> et affichée en continu sur un
+            <strong>afficheur 7 segments</strong>, avec mise à jour régulière (temps réel).
+          </p>
+        </div>
+
+        <div class="fpga-side">
+          <figure class="fpga-fig">
+            <img class="fpga-img" src="fpga-frequencymeter.png" alt="Principe du fréquencemètre">
+            <figcaption class="fpga-cap">Principe de mesure : comptage / fenêtre / rafraîchissement.</figcaption>
+          </figure>
         </div>
       </div>
     </section>
 
   </div>
+</div>
 
-  <!-- FLÈCHES -->
-  <div class="arrows">
-    <button class="arrow-btn" id="prev" aria-label="Slide précédente">
-      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none"
-           stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"
-           viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
-    </button>
-    <button class="arrow-btn" id="next" aria-label="Slide suivante">
-      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none"
-           stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"
-           viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"/></svg>
-    </button>
-  </div>
+<!-- FLÈCHES (identiques à tes autres projets) -->
+<div class="arrows">
+  <button class="arrow-btn" id="prev" aria-label="Slide précédente">
+    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none"
+         stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"
+         viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+  </button>
+  <button class="arrow-btn" id="next" aria-label="Slide suivante">
+    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none"
+         stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"
+         viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"/></svg>
+  </button>
+</div>
 
-  <!-- PAGINATION -->
-  <div class="pagination-ui">
-    <div class="dots" id="dots"></div>
-    <div class="counter" id="counter">1 / 4</div>
-  </div>
+<!-- PAGINATION (identique) -->
+<div class="pagination-ui">
+  <div class="dots" id="dots"></div>
+  <div class="counter" id="counter">1 / 5</div>
+</div>
 
-  <!-- SCRIPT slider -->
+<!-- SCRIPT slider (identique) -->
 <script>
-    let current = 0;
-    const slides = document.getElementById('slider');
+  let current = 0;
+  const slides = document.getElementById('slider');
+
+  if (!slides) {
+    console.error("Slider introuvable (#slider).");
+  } else {
     const total = slides.children.length;
 
     const dots = document.getElementById('dots');
@@ -361,18 +211,16 @@
       b.onclick = () => { current = i; updateSlide(true); };
       dots.appendChild(b);
     }
+
     const counter = document.getElementById('counter');
-    const progressBar = document.getElementById('progressBar');
 
     function updateSlide(animate = true){
       slides.style.transitionDuration = animate ? '.7s' : '0s';
       slides.style.transform = `translateX(-${current * 100}vw)`;
-      updateUI();
-    }
-    function updateUI(){
-      [...document.querySelectorAll('.dot')].forEach((d, idx)=> d.classList.toggle('is-active', idx === current));
+      document.querySelectorAll('.dot').forEach((d, i) =>
+        d.classList.toggle('is-active', i === current)
+      );
       counter.textContent = `${current + 1} / ${total}`;
-      progressBar.style.width = `${((current + 1) / total) * 100}%`;
     }
 
     document.getElementById('next').onclick = ()=>{ current = (current + 1) % total; updateSlide(); };
@@ -380,8 +228,8 @@
 
     document.addEventListener('keydown', (e)=>{
       if(e.key==='ArrowRight') document.getElementById('next').click();
-      if(e.key==='ArrowLeft') document.getElementById('prev').click();
-      if(e.key==='Escape') window.location.href='index.html';
+      if(e.key==='ArrowLeft')  document.getElementById('prev').click();
+      if(e.key==='Escape')     window.location.href='projets.html';
     });
 
     let lastScroll=0;
@@ -398,8 +246,9 @@
       if(Math.abs(diff)>50 && t<800){ diff>0 ? document.getElementById('prev').click() : document.getElementById('next').click(); }
     }, {passive:true});
 
-    updateUI();
-  </script>
+    updateSlide(false);
+  }
+</script>
 
 </body>
 </html>
