@@ -3573,4 +3573,127 @@ body {
 
 
 
+/* ======================================================
+   PROJET ÉMETTEUR / RÉCEPTEUR — TEXTE EN HAUT, IMAGE EN BAS
+   (scopé: n’impacte QUE les slides .slide-emrec)
+   ====================================================== */
+
+/* 1) Slide : centrage propre */
+.slide-full.slide-emrec{
+  width: 100vw;
+  height: calc(100vh - var(--board-h));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 24px;
+}
+
+/* 2) Contenu : prend bien la largeur + placement vertical */
+.slide-full.slide-emrec .slide-content{
+  width: min(92vw, 1200px);   /* largeur utile */
+  max-width: 1200px;
+  margin: 0 auto;
+
+  /* pour éviter "texte trop haut / image trop basse" */
+  height: calc(100vh - var(--board-h) - 64px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 18px;
+}
+
+/* 3) Grille : passe en 1 colonne (texte au-dessus, image en dessous) */
+.slide-full.slide-emrec .emrec-grid{
+  display: grid;
+  grid-template-columns: 1fr; /* ✅ 1 colonne */
+  gap: 22px;
+  align-items: start;
+}
+
+/* 4) Texte : pas de limite qui casse la largeur */
+.slide-full.slide-emrec .emrec-text{
+  max-width: none;
+  width: 100%;
+}
+
+.slide-full.slide-emrec .emrec-text h1{
+  margin: 0 0 10px;
+  font-size: clamp(28px, 3.2vw, 42px);
+  line-height: 1.15;
+}
+
+.slide-full.slide-emrec .emrec-text p{
+  max-width: none;          /* ✅ texte pleine largeur */
+  margin: 0 0 10px;
+  color: rgba(223,233,255,.92);
+  line-height: 1.65;
+  font-size: 17px;
+}
+
+/* bleu sur les <strong> comme le reste du site */
+.slide-full.slide-emrec strong{
+  color: #4da3ff;
+  font-weight: 700;
+}
+
+/* 5) Figure : centrée + image cadrée proprement */
+.slide-full.slide-emrec .emrec-fig{
+  margin: 0;
+  width: 100%;
+  text-align: center;
+}
+
+.slide-full.slide-emrec .emrec-img{
+  width: 100%;
+  max-width: 880px;          /* ✅ règle la taille de l’image */
+  max-height: 42vh;          /* ✅ évite qu’elle “descende trop bas” */
+  height: auto;
+  object-fit: contain;       /* ✅ pas de rognage */
+
+  background: rgba(0,0,0,.18);
+  padding: 14px;
+  border-radius: 22px;
+  border: 1px solid rgba(255,255,255,.16);
+  box-shadow: 0 22px 60px rgba(0,0,0,.45);
+  display: block;
+  margin: 0 auto;
+}
+
+.slide-full.slide-emrec .emrec-fig figcaption{
+  margin-top: 10px;
+  font-size: 14px;
+  color: rgba(223,233,255,.82);
+  text-align: center;
+}
+
+/* 6) Liste : un peu plus clean (si tu l’utilises sur slide 2/3) */
+.slide-full.slide-emrec .emrec-list{
+  margin: 10px 0 0 18px;
+  color: rgba(223,233,255,.90);
+}
+.slide-full.slide-emrec .emrec-list li{
+  margin: 6px 0;
+}
+
+/* 7) Slide résultats : on garde simple */
+.slide-full.slide-emrec.slide-emrec--results .slide-content{
+  width: min(92vw, 980px);
+  max-width: 980px;
+}
+
+/* Responsive */
+@media (max-width: 900px){
+  .slide-full.slide-emrec .slide-content{
+    width: min(92vw, 980px);
+    height: auto;
+    justify-content: flex-start;
+    padding-top: 12px;
+  }
+
+  .slide-full.slide-emrec .emrec-img{
+    max-width: 100%;
+    max-height: 38vh;
+  }
+}
+
 
