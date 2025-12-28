@@ -3087,16 +3087,14 @@ body {
     max-width: none;
   }
 }
-/* Slide 2 FPGA — texte centré */
+/* Slide 2 FPGA — bloc centré, texte aligné à gauche */
 .slide-full.slide-fpga .solo-text{
-  margin: 0 auto;
-  text-align: center;
+  margin: 0 auto;        /* centre le bloc */
+  max-width: 900px;     /* largeur lisible */
+  text-align: left;     /* ✅ texte JUSTIFIÉ À GAUCHE */
 }
 
-.slide-full.slide-fpga .solo-text p{
-  margin-left: auto;
-  margin-right: auto;
-}
+
 
 
 
