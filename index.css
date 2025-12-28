@@ -2974,6 +2974,120 @@ body {
 
 
 
+/* =========================================================
+   PROJET FPGA — MISE EN PAGE (SCOPÉE)
+   Ne touche PAS aux flèches/dots (déjà gérés ailleurs)
+   ========================================================= */
+
+.slide-full.slide-fpga{
+  /* fond cohérent avec ton site */
+  background: radial-gradient(120% 120% at 50% 0%,
+    rgba(18, 52, 86, .72) 0%,
+    rgba(8, 18, 32, .96) 70%);
+}
+
+/* Variantes légères par slide (optionnel mais joli) */
+.slide-full.slide-fpga-intro{ background: radial-gradient(120% 120% at 50% 0%, rgba(20,72,120,.70) 0%, rgba(8,18,32,.96) 70%); }
+.slide-full.slide-fpga-adc{  background: radial-gradient(120% 120% at 50% 0%, rgba(18,60,96,.68) 0%, rgba(8,18,32,.96) 70%); }
+.slide-full.slide-fpga-filter{background: radial-gradient(120% 120% at 50% 0%, rgba(16,52,86,.66) 0%, rgba(8,18,32,.96) 70%); }
+.slide-full.slide-fpga-deriv{background: radial-gradient(120% 120% at 50% 0%, rgba(18,66,110,.68) 0%, rgba(8,18,32,.96) 70%); }
+.slide-full.slide-fpga-freq{ background: radial-gradient(120% 120% at 50% 0%, rgba(18,58,92,.66) 0%, rgba(8,18,32,.96) 70%); }
+
+/* Contenu : plus large (projet) */
+.slide-full.slide-fpga .slide-content{
+  max-width: 1200px;
+  width: min(92vw, 1200px);
+  margin: 0 auto;
+  padding: 80px 64px;
+}
+
+/* Typo */
+.slide-full.slide-fpga h1{
+  margin: 0 0 14px;
+  font-size: clamp(30px, 3.4vw, 46px);
+  font-weight: 800;
+  line-height: 1.12;
+  color: #eaf2ff;
+}
+
+.slide-full.slide-fpga p{
+  margin: 12px 0;
+  line-height: 1.75;
+  font-size: clamp(14px, 1.55vw, 17px);
+  color: rgba(223,233,255,.92);
+  max-width: 760px;
+}
+
+.slide-full.slide-fpga strong{
+  color: #4da3ff;
+  font-weight: 700;
+}
+
+/* Grille texte + côté images */
+.slide-full.slide-fpga .fpga-grid{
+  display: grid;
+  grid-template-columns: 1.05fr .95fr;
+  gap: 56px;
+  align-items: start;
+}
+
+.slide-full.slide-fpga .fpga-side{
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.slide-full.slide-fpga .fpga-fig{ margin: 0; }
+
+/* Images : même “glow” que ton site */
+.slide-full.slide-fpga .fpga-img{
+  width: 100%;
+  max-width: 560px;
+  height: auto;
+  display: block;
+  margin-left: auto;
+
+  border-radius: 22px;
+  padding: 12px;
+
+  background: rgba(0,0,0,.18);
+  border: 1px solid rgba(255,255,255,.14);
+  box-shadow:
+    0 22px 60px rgba(0,0,0,.45),
+    0 0 0 1px rgba(120,200,255,.12) inset;
+}
+
+/* Légende */
+.slide-full.slide-fpga .fpga-cap{
+  margin-top: 8px;
+  font-size: 13px;
+  color: rgba(223,233,255,.78);
+  text-align: center;
+}
+
+/* Slide texte seul */
+.slide-full.slide-fpga .fpga-solo{
+  max-width: 900px;
+}
+
+/* Responsive */
+@media (max-width: 900px){
+  .slide-full.slide-fpga .slide-content{
+    padding: 64px 28px;
+  }
+  .slide-full.slide-fpga .fpga-grid{
+    grid-template-columns: 1fr;
+    gap: 34px;
+  }
+  .slide-full.slide-fpga .fpga-img{
+    margin: 0 auto;
+    max-width: 620px;
+  }
+  .slide-full.slide-fpga p{
+    max-width: none;
+  }
+}
+
 
 
 
