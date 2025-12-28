@@ -3598,7 +3598,9 @@ body {
   height: calc(100vh - var(--board-h) - 64px);
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
+padding-top: 24px;   /* ← règle PRINCIPALE */
+
   gap: 18px;
 }
 
@@ -3695,5 +3697,6 @@ body {
     max-height: 38vh;
   }
 }
+
 
 
