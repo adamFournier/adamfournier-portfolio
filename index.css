@@ -3457,4 +3457,15 @@ body {
   }
 }
 
+/* ===== AJUSTEMENT CADRAGE TEXTE ===== */
+.slide-full.slide-emrec .slide-content {
+  padding-top: 140px;      /* ↓ descend le texte */
+  padding-bottom: 420px;   /* ↓ réduit l’espace image */
+}
+
+/* ===== AJUSTEMENT IMAGE ===== */
+.slide-full.slide-emrec .emrec-fig {
+  bottom: 140px;           /* ↑ remonte l’image */
+}
+
 
