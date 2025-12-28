@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Projet — Liaison optique FM (Émetteur / Récepteur)</title>
+  <title>Projet — Émetteur / Récepteur</title>
 
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="index.css?v=1" />
+  <link rel="stylesheet" href="index.css?v=401" />
 </head>
 
 <body>
@@ -37,230 +37,118 @@
   <div class="slides-full" id="slider">
 
     <!-- SLIDE 1 : INTRO -->
-    <section class="slide-full">
-      <div class="slide-inner">
-        <div class="slide-left">
-          <p class="kicker">Projet analogique</p>
-          <h1>Liaison optique FM — Introduction</h1>
-          <p class="lead">
-            Conception et réalisation d’une <strong>liaison optique analogique</strong> basée sur la
-            <strong>modulation de fréquence (FM)</strong>. L’objectif est de transmettre un signal audio
-            via un faisceau lumineux infrarouge à travers l’air.
-          </p>
+    <section class="slide-full slide-emrec">
+      <div class="slide-content">
+        <div class="emrec-grid">
+          <div class="emrec-text">
+            <h1>Émetteur / Récepteur — liaison optique FM</h1>
 
-          <div class="card">
-            <h2>Principe général</h2>
-            <ul>
-              <li><strong>Émetteur :</strong> met en forme l’audio, effectue la <strong>FM (VCO)</strong>, puis convertit en flux lumineux (DEL IR).</li>
-              <li><strong>Canal :</strong> propagation dans l’air (alignement, lumière ambiante, atténuation).</li>
-              <li><strong>Récepteur :</strong> photodiode + amplification, puis <strong>démodulation FM par PLL</strong> et restitution audio.</li>
-            </ul>
+            <p>
+              Objectif : concevoir une <strong>liaison optique infrarouge</strong> basée sur une
+              <strong>modulation de fréquence (FM)</strong> pour transmettre un signal audio dans l’air.
+            </p>
+
+            <p>
+              La chaîne globale : <strong>source audio → émetteur → faisceau IR → récepteur → haut-parleur</strong>.
+              Chaque bloc a été <strong>dimensionné</strong>, puis <strong>réalisé et soudé</strong> avant validation.
+            </p>
           </div>
-        </div>
 
-        <div class="slide-right">
-          <figure class="figure">
-            <img src="liaison-optique-principe.png" alt="Principe général de la liaison optique FM" />
-            <figcaption>Principe général : source audio → émetteur → faisceau IR → récepteur → haut-parleur</figcaption>
+          <figure class="emrec-fig">
+            <!-- Remplace par ton image (Figure 1) -->
+            <img class="emrec-img" src="emrec-intro.png" alt="Principe général de la liaison optique (émetteur -> récepteur)" />
+            <figcaption>Principe général de la liaison optique (FM, infrarouge)</figcaption>
           </figure>
         </div>
       </div>
     </section>
 
-    <!-- SLIDE 2 : EMETTEUR -->
-    <section class="slide-full">
-      <div class="slide-inner">
-        <div class="slide-left">
-          <p class="kicker">Partie 1</p>
-          <h1>Émetteur — Modulation FM</h1>
-          <p class="lead">
-            L’émetteur transforme le signal audio en une variation de fréquence grâce au
-            <strong>VCO</strong> (FM), puis l’envoie vers un <strong>transmetteur optique</strong> (DEL infrarouge).
-          </p>
+    <!-- SLIDE 2 : ÉMETTEUR -->
+    <section class="slide-full slide-emrec">
+      <div class="slide-content">
+        <div class="emrec-grid">
+          <div class="emrec-text">
+            <h1>Partie 1 — Émetteur (FM)</h1>
 
-          <div class="grid-2">
-            <div class="card">
-              <h2>Étapes clés (dimensionnées & réalisées)</h2>
-              <ul>
-                <li><strong>Filtre audio d’entrée</strong> : mise en forme + limitation de bande.</li>
-                <li><strong>Modulateur FM (VCO)</strong> : conversion amplitude audio → fréquence instantanée.</li>
-                <li><strong>Transmetteur optique</strong> : conversion signal modulé → flux lumineux IR.</li>
-              </ul>
-              <p class="note">
-                Chaque bloc a été <strong>dimensionné</strong> (valeurs R/C, gains, bande passante),
-                puis <strong>implanté et soudé</strong> sur carte.
-              </p>
-            </div>
+            <p>
+              L’émetteur réalise la <strong>modulation de fréquence</strong> du signal audio via un
+              <strong>VCO</strong>, puis convertit ce signal modulé en un <strong>flux infrarouge</strong>.
+            </p>
 
-            <div class="card">
-              <h2>Focus : Modulation de fréquence</h2>
-              <p>
-                Le VCO réalise une <strong>FM</strong> : la fréquence porteuse varie autour d’une valeur centrale
-                en fonction du signal audio. Cela améliore la robustesse face à certaines perturbations d’amplitude.
-              </p>
-            </div>
+            <ul class="emrec-list">
+              <li><strong>Filtre audio d’entrée</strong> : mise en forme + limitation de bande.</li>
+              <li><strong>VCO (modulateur FM)</strong> : conversion audio → variation de fréquence.</li>
+              <li><strong>Transmetteur optique</strong> : émission IR (LED) pilotée par le signal FM.</li>
+            </ul>
+
+            <p class="emrec-note">
+              Chaque sous-ensemble a été <strong>dimensionné</strong> (valeurs, polarisation, gain) puis
+              <strong>assemblé / soudé</strong> pour tester bloc par bloc.
+            </p>
           </div>
-        </div>
 
-        <div class="slide-right">
-          <figure class="figure">
-            <img src="synoptique-emetteur.png" alt="Synoptique de l'émetteur (filtre audio, VCO FM, transmetteur optique)" />
-            <figcaption>Synoptique émetteur : filtre audio → VCO (FM) → transmetteur optique</figcaption>
+          <figure class="emrec-fig">
+            <!-- Remplace par ton image (Figure 2) -->
+            <img class="emrec-img" src="emrec-emetteur.png" alt="Synoptique de l’émetteur (filtre audio, VCO, transmetteur optique)" />
+            <figcaption>Synoptique de l’émetteur : filtre d’entrée → VCO (FM) → transmetteur optique</figcaption>
           </figure>
-
-          <!-- Optionnel : photo carte émetteur -->
-          <!--
-          <figure class="figure mini">
-            <img src="emetteur-carte.jpg" alt="Carte émetteur soudée" />
-            <figcaption>Carte émetteur — montage / soudure</figcaption>
-          </figure>
-          -->
         </div>
       </div>
     </section>
 
-    <!-- SLIDE 3 : RECEPTEUR -->
-    <section class="slide-full">
-      <div class="slide-inner">
-        <div class="slide-left">
-          <p class="kicker">Partie 2</p>
-          <h1>Récepteur — Démodulation FM (PLL)</h1>
-          <p class="lead">
-            Le récepteur détecte le flux lumineux avec une <strong>photodiode</strong>, amplifie et conditionne le signal,
-            puis réalise la <strong>démodulation FM par PLL</strong> pour reconstituer l’audio.
-          </p>
+    <!-- SLIDE 3 : RÉCEPTEUR -->
+    <section class="slide-full slide-emrec">
+      <div class="slide-content">
+        <div class="emrec-grid">
+          <div class="emrec-text">
+            <h1>Partie 2 — Récepteur (démodulation PLL)</h1>
 
-          <div class="grid-2">
-            <div class="card">
-              <h2>Chaîne fonctionnelle (dimensionnée & soudée)</h2>
-              <ul>
-                <li><strong>Récepteur optique</strong> : photodiode + conversion courant/tension.</li>
-                <li><strong>Amplification sélective</strong> : gain + filtrage autour de la bande utile.</li>
-                <li><strong>Écrêteur</strong> : limitation / mise en forme avant la PLL.</li>
-                <li><strong>PLL</strong> : extraction de l’audio via la boucle de verrouillage.</li>
-                <li><strong>Filtre audio</strong> : nettoyage / bande audio.</li>
-                <li><strong>Amplificateur push-pull</strong> : puissance pour HP.</li>
-              </ul>
-              <p class="note">
-                Dimensionnement des gains / filtres, puis <strong>réalisation et soudure</strong> des composants sur carte.
-              </p>
-            </div>
+            <p>
+              Le récepteur détecte le flux IR avec une <strong>photodiode</strong>, conditionne le signal,
+              puis effectue la <strong>démodulation FM</strong> via une <strong>PLL</strong> afin de restituer l’audio.
+            </p>
 
-            <div class="card">
-              <h2>Focus : PLL (démodulation)</h2>
-              <p>
-                La <strong>PLL</strong> se verrouille sur la fréquence instantanée du signal FM.
-                Les variations de fréquence se retrouvent dans la tension de commande (ou signal d’erreur),
-                qui correspond à l’<strong>audio démodulé</strong>.
-              </p>
-              <p class="note">
-                Contrainte d’alimentation : <strong>5 V / 0 V</strong> côté récepteur (selon cahier des charges).
-              </p>
-            </div>
+            <ul class="emrec-list">
+              <li><strong>Récepteur optique</strong> : photodiode + conversion courant → tension.</li>
+              <li><strong>Amplification sélective</strong> : adaptation de niveau + filtrage.</li>
+              <li><strong>Écrêteur</strong> : limitation pour stabiliser l’entrée de démodulation.</li>
+              <li><strong>PLL</strong> : <strong>démodulation</strong> de la FM (récupération de l’audio).</li>
+              <li><strong>Filtre audio</strong> + <strong>ampli push-pull</strong> : restitution au haut-parleur.</li>
+            </ul>
+
+            <p class="emrec-note">
+              Comme côté émetteur, chaque étape a été <strong>dimensionnée</strong> puis <strong>assemblée</strong>
+              pour valider la chaîne complète.
+            </p>
           </div>
-        </div>
 
-        <div class="slide-right">
-          <figure class="figure">
-            <img src="synoptique-recepteur.png" alt="Synoptique du récepteur (optique, amplification, écrêteur, PLL, filtre, ampli)" />
-            <figcaption>Synoptique récepteur : photodiode → amplification → écrêteur → PLL → filtre → ampli</figcaption>
+          <figure class="emrec-fig">
+            <!-- Remplace par ton image (Figure 1.1 / cahier des charges) -->
+            <img class="emrec-img" src="emrec-recepteur.png" alt="Synoptique du récepteur : photodiode, amplification, écrêteur, PLL, filtre, ampli" />
+            <figcaption>Synoptique du récepteur : conditionnement → PLL (démodulation FM) → audio</figcaption>
           </figure>
-
-          <!-- Optionnel : photo carte récepteur -->
-          <!--
-          <figure class="figure mini">
-            <img src="recepteur-carte.jpg" alt="Carte récepteur soudée" />
-            <figcaption>Carte récepteur — montage / soudure</figcaption>
-          </figure>
-          -->
         </div>
       </div>
     </section>
 
-    <!-- SLIDE 4 : RESULTATS -->
-    <section class="slide-full">
-      <div class="slide-inner">
-        <div class="slide-left">
-          <p class="kicker">Tests</p>
-          <h1>Résultats & validation</h1>
-          <p class="lead">
-            Objectif final : placer <strong>émetteur</strong> et <strong>récepteur</strong> face à face à environ <strong>5 m</strong>,
-            transmettre de la musique, puis l’écouter sur le récepteur.
-          </p>
+    <!-- SLIDE 4 : RÉSULTATS -->
+    <section class="slide-full slide-emrec slide-emrec--results">
+      <div class="slide-content">
+        <h1>Résultats & validation</h1>
 
-          <div class="card">
-            <h2>Ce qui a été validé</h2>
-            <ul>
-              <li>Fonctionnement des blocs : <strong>FM (VCO)</strong> côté émetteur, <strong>PLL</strong> côté récepteur.</li>
-              <li>Dimensionnement (bande passante, gains, filtrage) + <strong>réalisation</strong> (implantation / soudure).</li>
-              <li>Chaîne complète exploitable avec alignement correct et conditions lumineuses raisonnables.</li>
-            </ul>
-          </div>
+        <p>
+          La chaîne complète a été validée en conditions réelles :
+          <strong>émetteur et récepteur placés face à face à ~5 m</strong>.
+        </p>
 
-          <div class="card">
-            <h2>Limites rencontrées</h2>
-            <ul>
-              <li>Sensibilité à l’<strong>alignement</strong> et à la lumière ambiante.</li>
-              <li>Niveau de signal et bruit : nécessité d’optimiser gain/filtrage.</li>
-              <li>Test “5 m musique” : pas toujours stable selon les conditions (à améliorer).</li>
-            </ul>
-          </div>
+        <p>
+          Le système permet d’<strong>émettre de la musique</strong> et de l’<strong>écouter côté récepteur</strong>,
+          avec une restitution audio exploitable après démodulation PLL et filtrage.
+        </p>
 
-          <div class="project-actions">
-            <a class="btn-ghost" href="projets.html">Retour aux projets</a>
-          </div>
-        </div>
-
-        <div class="slide-right">
-          <div class="big-stat">
-            <div class="stat">
-              <span class="stat-num">~5 m</span>
-              <span class="stat-label">Distance visée (face à face)</span>
-            </div>
-            <div class="stat">
-              <span class="stat-num">FM + PLL</span>
-              <span class="stat-label">Modulation / Démodulation</span>
-            </div>
-            <div class="stat">
-              <span class="stat-num">IR</span>
-              <span class="stat-label">Canal optique (air)</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SLIDE 5 : CONCLUSION -->
-    <section class="slide-full">
-      <div class="slide-inner">
-        <div class="slide-left">
-          <p class="kicker">Bilan</p>
-          <h1>Conclusion</h1>
-          <p class="lead">
-            Projet complet autour d’une liaison optique analogique : conception, dimensionnement,
-            réalisation et tests d’une chaîne <strong>FM (VCO)</strong> / <strong>démodulation PLL</strong>.
-          </p>
-
-          <div class="card">
-            <h2>Apprentissages</h2>
-            <ul>
-              <li>Dimensionnement analogique (gains, filtres, bande passante, bruit).</li>
-              <li>Mise en œuvre d’une <strong>modulation FM</strong> et d’une <strong>PLL</strong> de démodulation.</li>
-              <li>Réalisation pratique : implantation, soudure, debug et validation par mesures.</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="slide-right">
-          <div class="end-card">
-            <h2>Améliorations possibles</h2>
-            <ul>
-              <li>Optique : lentille / meilleure directivité / alignement mécanique.</li>
-              <li>Électronique : optimisation gains/filtrage, SNR, protections lumière ambiante.</li>
-              <li>Validation : campagne de tests distance / conditions / stabilité audio.</li>
-            </ul>
-          </div>
-        </div>
+        <p class="emrec-note">
+          Points clés : choix des gains, limitation (écrêtage), stabilité PLL et filtrage audio pour améliorer la qualité.
+        </p>
       </div>
     </section>
 
@@ -273,6 +161,7 @@
     <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none"
          stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"
          viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+  </button
   </button>
   <button class="arrow-btn" id="next" aria-label="Slide suivante">
     <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none"
@@ -284,47 +173,64 @@
 <!-- PAGINATION -->
 <div class="pagination-ui">
   <div class="dots" id="dots"></div>
-  <div class="counter" id="counter">1 / 5</div>
+  <div class="counter" id="counter">1 / 4</div>
 </div>
 
-<!-- SCRIPT slider -->
+<!-- SCRIPT slider (IDENTIQUE) -->
 <script>
   let current = 0;
   const slides = document.getElementById('slider');
 
-  const total = slides.children.length;
-  const dots = document.getElementById('dots');
+  if (!slides) {
+    console.error("Slider introuvable (#slider).");
+  } else {
+    const total = slides.children.length;
 
-  for (let i = 0; i < total; i++) {
-    const b = document.createElement('button');
-    b.className = 'dot' + (i === 0 ? ' is-active' : '');
-    b.onclick = () => { current = i; updateSlide(true); };
-    dots.appendChild(b);
+    const dots = document.getElementById('dots');
+    for (let i = 0; i < total; i++) {
+      const b = document.createElement('button');
+      b.className = 'dot' + (i === 0 ? ' is-active' : '');
+      b.onclick = () => { current = i; updateSlide(true); };
+      dots.appendChild(b);
+    }
+
+    const counter = document.getElementById('counter');
+
+    function updateSlide(animate = true){
+      slides.style.transitionDuration = animate ? '.7s' : '0s';
+      slides.style.transform = `translateX(-${current * 100}vw)`;
+      document.querySelectorAll('.dot').forEach((d, i) =>
+        d.classList.toggle('is-active', i === current)
+      );
+      counter.textContent = `${current + 1} / ${total}`;
+    }
+
+    document.getElementById('next').onclick = ()=>{ current = (current + 1) % total; updateSlide(); };
+    document.getElementById('prev').onclick = ()=>{ current = (current - 1 + total) % total; updateSlide(); };
+
+    document.addEventListener('keydown', (e)=>{
+      if(e.key==='ArrowRight') document.getElementById('next').click();
+      if(e.key==='ArrowLeft')  document.getElementById('prev').click();
+      if(e.key==='Escape')     window.location.href='projets.html';
+    });
+
+    let lastScroll=0;
+    window.addEventListener('wheel', (e)=>{
+      const now=Date.now(); if(now-lastScroll<600) return;
+      if(e.deltaX>50){ document.getElementById('next').click(); lastScroll=now; }
+      else if(e.deltaX<-50){ document.getElementById('prev').click(); lastScroll=now; }
+    }, {passive:true});
+
+    let startX=0, startTime=0;
+    slides.addEventListener('touchstart', e=>{ startX=e.touches[0].clientX; startTime=Date.now(); }, {passive:true});
+    slides.addEventListener('touchend', e=>{
+      const diff=e.changedTouches[0].clientX-startX; const t=Date.now()-startTime;
+      if(Math.abs(diff)>50 && t<800){ diff>0 ? document.getElementById('prev').click() : document.getElementById('next').click(); }
+    }, {passive:true});
+
+    updateSlide(false);
   }
-
-  const counter = document.getElementById('counter');
-
-  function updateSlide(animate = true){
-    slides.style.transitionDuration = animate ? '.7s' : '0s';
-    slides.style.transform = `translateX(-${current * 100}vw)`;
-    document.querySelectorAll('.dot').forEach((d, i) =>
-      d.classList.toggle('is-active', i === current)
-    );
-    counter.textContent = `${current + 1} / ${total}`;
-  }
-
-  document.getElementById('next').onclick = ()=>{ current = (current + 1) % total; updateSlide(); };
-  document.getElementById('prev').onclick = ()=>{ current = (current - 1 + total) % total; updateSlide(); };
-
-  document.addEventListener('keydown', (e)=>{
-    if(e.key==='ArrowRight') document.getElementById('next').click();
-    if(e.key==='ArrowLeft')  document.getElementById('prev').click();
-    if(e.key==='Escape')     window.location.href='projets.html';
-  });
-
-  updateSlide(false);
 </script>
 
 </body>
 </html>
-
