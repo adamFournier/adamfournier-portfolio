@@ -3268,7 +3268,7 @@ body {
 
 /* Conteneur image : limite la largeur */
 .slide-full.slide-fpga .engagement-image{
-  max-width: 520px;          /* ← AJUSTE ICI (480–560 selon ton goût) */
+  max-width: 400px;          /* ← AJUSTE ICI (480–560 selon ton goût) */
   width: 100%;
   justify-self: end;
 }
@@ -3283,8 +3283,9 @@ body {
 
 /* Cadre (figure) s’adapte à l’image */
 .slide-full.slide-fpga figure{
-  max-width: 520px;          /* ← DOIT MATCHER engagement-image */
+  max-width: 400px;          /* ← DOIT MATCHER engagement-image */
 }
+
 
 
 
