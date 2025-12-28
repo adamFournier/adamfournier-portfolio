@@ -3661,7 +3661,37 @@ body{
   .project-badge-page .project-sub{
     font-size: 16px;
   }
+
+/* ===============================
+   CORRECTION DÉCALAGE TEXTE GAUCHE
+   =============================== */
+
+/* Remonte tout le bloc projet */
+.project-badge-page{
+  padding-top: 24px;
 }
+
+/* Réduit l’espace sous le titre */
+.project-badge-page .project-head{
+  margin-bottom: 40px; /* avant trop grand */
+}
+
+/* Remonte la grille texte / image */
+.project-badge-page .project-grid{
+  align-items: flex-start;
+}
+
+/* Réduit l’espace avant les sections texte */
+.project-badge-page .project-text h2{
+  margin-top: 28px; /* au lieu de 42px */
+}
+
+/* Optionnel : si encore trop bas */
+.project-badge-page .project-text{
+  margin-top: -12px;
+}
+
+
 
 
 
