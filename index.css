@@ -3751,5 +3751,29 @@ padding-top: 24px;   /* ← règle PRINCIPALE */
 .slide-full.slide-emrec.slide-emrec--results .slide-content{
   padding-top: 0;        /* enlève le décalage vers le haut */
 }
+/* ======================================
+   DERNIÈRE SLIDE (résultats) — CADRE AU MILIEU
+   ====================================== */
+
+.slide-full.slide-emrec.slide-emrec--results{
+  display: flex !important;
+  align-items: center !important;      /* centre vertical */
+  justify-content: center !important;  /* centre horizontal */
+}
+
+/* On annule le layout "texte en haut" uniquement sur cette slide */
+.slide-full.slide-emrec.slide-emrec--results .slide-content{
+  height: auto !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  display: flex !important;
+  justify-content: center !important;
+}
+
+/* Le cadre */
+.slide-full.slide-emrec.slide-emrec--results .results-box{
+  margin: 0 auto !important;
+}
+
 
 
