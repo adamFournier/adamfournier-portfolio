@@ -3187,6 +3187,43 @@ body {
   box-shadow: 0 22px 60px rgba(0,0,0,.45);
 }
 
+/* ======================================================
+   FIX CADRE IMAGES — PROJET FPGA
+   (le cadre doit suivre l’image, pas le conteneur)
+   ====================================================== */
+
+/* on annule tout style "carte" éventuel sur le conteneur */
+.slide-full.slide-fpga .engagement-image{
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* figure ne doit pas prendre toute la hauteur/largeur */
+.slide-full.slide-fpga .engagement-image figure{
+  margin: 0;
+  width: fit-content;
+  max-width: 100%;
+}
+
+/* l’image porte le cadre, et sa taille définit le cadre */
+.slide-full.slide-fpga .fpga-img{
+  display: block;
+  width: min(720px, 100%);
+  height: auto;
+
+  padding: 14px;
+  border-radius: 22px;
+  background: rgba(0,0,0,.18);
+  border: 1px solid rgba(255,255,255,.16);
+  box-shadow: 0 22px 60px rgba(0,0,0,.45);
+}
+
 
 
 
