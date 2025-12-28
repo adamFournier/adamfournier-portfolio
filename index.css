@@ -3225,6 +3225,43 @@ body {
 }
 
 
+/* ======================================================
+   FPGA — FIX : cadre qui épouse la forme réelle des images
+   (à mettre TOUT EN BAS du CSS)
+   ====================================================== */
+
+/* le conteneur ne porte pas de "cadre" */
+.slide-full.slide-fpga .engagement-image{
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+
+/* le figure shrink-wrap (le bloc suit le contenu) */
+.slide-full.slide-fpga .engagement-image figure{
+  margin: 0 !important;
+  display: inline-block !important;
+  width: auto !important;
+  max-width: 100%;
+}
+
+/* IMPORTANT : on casse le carré (aspect-ratio 1/1) */
+.slide-full.slide-fpga .engagement-image img.fpga-img{
+  aspect-ratio: auto !important;   /* ✅ enlève le carré */
+  object-fit: contain !important;  /* ✅ garde toute l’image */
+
+  display: block !important;
+  width: min(720px, 100%);
+  height: auto;
+
+  padding: 14px;
+  border-radius: 22px;
+  background: rgba(0,0,0,.18);             /* ✅ bien avec un point */
+  border: 1px solid rgba(255,255,255,.16); /* ✅ bien avec un point */
+  box-shadow: 0 22px 60px rgba(0,0,0,.45); /* ✅ bien avec un point */
+}
+
 
 
 
