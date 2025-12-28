@@ -2765,6 +2765,194 @@ body {
     rgba(255,255,255,.08)
   );
 
+  /* ======================================================
+   PROJET FPGA — SLIDES (SCOPÉ, N'AFFECTE PAS LE RESTE)
+   ====================================================== */
+
+/* Conteneur général des slides */
+.slide-full.slide-fpga{
+  background: linear-gradient(160deg, #0b1626, #0a1f33);
+}
+
+/* Contenu */
+.slide-full.slide-fpga .slide-content{
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 80px 80px;
+}
+
+/* Titres */
+.slide-full.slide-fpga h1{
+  font-size: 42px;
+  font-weight: 800;
+  margin-bottom: 28px;
+  color: #eaf2ff;
+}
+
+/* Paragraphes */
+.slide-full.slide-fpga p{
+  font-size: 17px;
+  line-height: 1.65;
+  margin-bottom: 18px;
+  color: rgba(223,233,255,.92);
+  max-width: 900px;
+}
+
+/* Mise en valeur (bleu site) */
+.slide-full.slide-fpga strong{
+  color: #4da3ff;
+  font-weight: 700;
+}
+
+/* ======================================================
+   GRILLE TEXTE + IMAGE
+   ====================================================== */
+
+.slide-full.slide-fpga .engagement-grid{
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 70px;
+  align-items: start;
+}
+
+/* Colonne image */
+.slide-full.slide-fpga .engagement-image{
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* ======================================================
+   IMAGES
+   ====================================================== */
+
+.slide-full.slide-fpga .fpga-img{
+  width: 100%;
+  max-width: 720px;
+  height: auto;
+
+  padding: 14px;
+  border-radius: 22px;
+
+  background: rgba(0,0,0,.18);
+  border: 1px solid rgba(255,255,255,.16);
+  box-shadow: 0 22px 60px rgba(0,0,0,.45);
+}
+
+/* Légendes */
+.slide-full.slide-fpga .fpga-cap{
+  margin-top: 10px;
+  text-align: center;
+  font-size: 14px;
+  color: rgba(223,233,255,.8);
+}
+
+/* ======================================================
+   SLIDE TEXTE SEUL (FILTRAGE)
+   ====================================================== */
+
+.slide-full.slide-fpga .solo-text{
+  max-width: 1000px;
+}
+
+/* ======================================================
+   SLIDER — FLÈCHES & DOTS
+   ====================================================== */
+
+.fpga-slider{
+  position: relative;
+  overflow: hidden;
+  border-radius: 22px;
+}
+
+.fpga-track{
+  display: flex;
+  transition: transform .35s ease;
+}
+
+/* Flèches */
+.fpga-arrow{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  border-radius: 999px;
+
+  background: rgba(10,20,34,.45);
+  border: 1px solid rgba(255,255,255,.18);
+  backdrop-filter: blur(10px);
+
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  z-index: 10;
+
+  transition: background .2s ease, transform .2s ease;
+}
+
+.fpga-arrow:hover{
+  background: rgba(20,40,70,.65);
+  transform: translateY(-50%) scale(1.06);
+}
+
+.fpga-arrow.left{ left: 18px; }
+.fpga-arrow.right{ right: 18px; }
+
+.fpga-arrow span{
+  font-size: 20px;
+  color: #eaf2ff;
+}
+
+/* Dots */
+.fpga-dots{
+  position: absolute;
+  left: 50%;
+  bottom: 16px;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  padding: 8px 12px;
+
+  border-radius: 999px;
+  background: rgba(10,20,34,.35);
+  border: 1px solid rgba(255,255,255,.12);
+  backdrop-filter: blur(10px);
+}
+
+.fpga-dot{
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(223,233,255,.25);
+  border: 1px solid rgba(255,255,255,.2);
+  cursor: pointer;
+  transition: transform .2s ease, background .2s ease;
+}
+
+.fpga-dot.is-active{
+  background: #4da3ff;
+  transform: scale(1.2);
+}
+
+/* ======================================================
+   RESPONSIVE
+   ====================================================== */
+
+@media (max-width: 1100px){
+  .slide-full.slide-fpga .engagement-grid{
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .slide-full.slide-fpga .slide-content{
+    padding: 64px 32px;
+  }
+
+  .fpga-arrow{
+    display: none;
+  }
+}
+
   border-color: rgba(121,210,242,.55);
 
   box-shadow:
@@ -2782,6 +2970,7 @@ body {
 .projects-columns .stage-card.is-clickable:hover .stage-title{
   color: #79d2f2;
 }
+
 
 
 
