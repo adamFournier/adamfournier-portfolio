@@ -4009,3 +4009,46 @@ body{
   }
   .board__nav{ gap: 14px; }
 }
+/* =========================================
+   COMPACTER LE HEADER (titre + sous-texte)
+   ========================================= */
+.project-head{
+  margin: 0 auto 18px auto;   /* au lieu de 40px */
+}
+
+.project-head h1{
+  font-size: clamp(30px, 4vw, 50px); /* un peu plus petit */
+  margin: 0 0 10px 0;                /* moins d'espace */
+}
+
+.project-sub{
+  font-size: 16px;           /* au lieu de 18px */
+  line-height: 1.45;
+  max-width: 760px;          /* pour éviter que ça "prenne 2 lignes" trop grandes */
+}
+
+/* =========================================
+   COMPACTER LA ZONE TEXTE (Description + H2)
+   ========================================= */
+.project-text h2{
+  margin: 18px 0 8px;        /* au lieu de 28px 0 10px */
+  font-size: 16px;           /* un peu plus petit */
+  letter-spacing: .22em;     /* léger */
+}
+
+.project-text p{
+  margin: 0 0 10px;          /* au lieu de 14px */
+}
+
+/* liste plus compacte */
+.project-list li{
+  margin: 6px 0;             /* au lieu de 10px */
+}
+
+/* =========================================
+   OPTION : réduire un peu le gap colonne
+   ========================================= */
+.project-grid{
+  gap: 34px;                 /* au lieu de var(--gap) (56px) */
+}
+
