@@ -2646,6 +2646,84 @@ body {
   color: #79d2f2;
 }
 
+/* ============================
+   PROJETS — CARTES MISES EN VALEUR (AVANT HOVER)
+   ============================ */
+
+/* État par défaut : déjà “cliquable” visuellement */
+.projects-columns .stage-card.is-clickable{
+  position: relative;
+  cursor: pointer;
+
+  /* + de présence */
+  background: rgba(255,255,255,.085);
+  border: 1px solid rgba(121,210,242,.25);
+
+  box-shadow:
+    0 14px 36px rgba(0,0,0,.38),
+    0 0 0 1px rgba(121,210,242,.12) inset;
+
+  transition:
+    transform .22s ease,
+    box-shadow .22s ease,
+    border-color .22s ease,
+    background .22s ease;
+}
+
+/* Le lien remplit la carte */
+.projects-columns .stage-card.is-clickable > a{
+  display: block;
+  height: 100%;
+}
+
+/* Petite flèche visible dès le départ (mais discrète) */
+.projects-columns .stage-card.is-clickable::after{
+  content: "→";
+  position: absolute;
+  right: 22px;
+  bottom: 18px;
+  font-size: 17px;
+  color: rgba(121,210,242,.55);
+  opacity: .6;
+  transition: .22s ease;
+  pointer-events: none;
+}
+
+/* Hover : encore plus marqué */
+.projects-columns .stage-card.is-clickable:hover,
+.projects-columns .stage-card.is-clickable:focus-within{
+  transform: translateY(-6px);
+
+  background: linear-gradient(
+    160deg,
+    rgba(121,210,242,.20),
+    rgba(255,255,255,.08)
+  );
+
+  border-color: rgba(121,210,242,.55);
+
+  box-shadow:
+    0 26px 64px rgba(0,0,0,.48),
+    0 0 0 1px rgba(121,210,242,.22) inset;
+}
+
+/* Flèche plus visible au hover */
+.projects-columns .stage-card.is-clickable:hover::after,
+.projects-columns .stage-card.is-clickable:focus-within::after{
+  opacity: 1;
+  transform: translateX(6px);
+}
+
+/* Titre légèrement accentué même sans hover */
+.projects-columns .stage-card.is-clickable .stage-title{
+  font-weight: 700;
+}
+
+/* Et encore plus au hover */
+.projects-columns .stage-card.is-clickable:hover .stage-title{
+  color: #79d2f2;
+}
+
 
 
 
