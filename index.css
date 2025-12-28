@@ -3741,6 +3741,152 @@ body{
   }
 }
 
+/* ======================================================
+   PAGE PROJET RFID (scopée) — FIX SCROLL + LAYOUT
+   Ajoute à la FIN du index.css
+   ====================================================== */
+
+/* 1) Réactive le scroll UNIQUEMENT sur cette page */
+body:has(.project-badge-page){
+  overflow: auto !important;
+}
+
+/* Si ton navigateur ne supporte pas :has(), garde aussi ce fallback.
+   (ça n'impacte pas les slides car elles ont leurs propres containers) */
+.project-badge-page{
+  overflow: visible;
+}
+
+/* 2) Wrap global : espace pour le board en haut + barres fixes en bas */
+.project-wrap.project-badge-page{
+  width: min(92vw, 1200px);
+  margin: 0 auto;
+  padding-top: calc(var(--board-h) + 42px);
+  padding-bottom: calc(var(--contact-h) + var(--footer-h) + 48px);
+}
+
+/* 3) Head */
+.project-badge-page .project-head h1{
+  font-size: clamp(34px, 4.2vw, 64px);
+  line-height: 1.05;
+  margin-bottom: 14px;
+}
+.project-badge-page .project-sub{
+  max-width: 75ch;
+  color: rgba(223,233,255,.88);
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+/* 4) Grille texte/image */
+.project-badge-page .project-grid{
+  margin-top: 42px;
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 56px;
+  align-items: start; /* <- remonte/colle le texte en haut */
+}
+
+/* 5) Texte : évite les gros espaces */
+.project-badge-page .project-text h2{
+  margin: 26px 0 10px;
+  font-size: 18px;
+  letter-spacing: .10em;
+  text-transform: uppercase;
+  color: rgba(100,199,255,.95);
+}
+.project-badge-page .project-text p{
+  color: rgba(223,233,255,.88);
+  font-size: 16.5px;
+  line-height: 1.75;
+  margin-bottom: 12px;
+}
+.project-badge-page .project-list{
+  margin: 10px 0 0 20px;
+  color: rgba(223,233,255,.88);
+}
+.project-badge-page .project-list li{
+  margin: 10px 0;
+}
+.project-badge-page .project-list strong{
+  color: #59b9ff;
+}
+
+/* 6) Boutons */
+.project-badge-page .project-actions{
+  margin-top: 22px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* Si tu n’as pas déjà btn-primary / btn-ghost ailleurs */
+.project-badge-page .btn-primary,
+.project-badge-page .btn-ghost{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 14px;
+  border-radius: 14px;
+  text-decoration: none;
+  font-weight: 700;
+  transition: transform .2s ease, background .2s ease, border-color .2s ease, box-shadow .2s ease;
+}
+.project-badge-page .btn-primary{
+  color: #061022;
+  background: linear-gradient(160deg, rgba(103,200,227,1), rgba(42,168,216,1));
+  box-shadow: 0 18px 50px rgba(42,168,216,.25);
+}
+.project-badge-page .btn-primary:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 26px 70px rgba(42,168,216,.32);
+}
+.project-badge-page .btn-ghost{
+  color: rgba(234,243,255,.95);
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.14);
+}
+.project-badge-page .btn-ghost:hover{
+  transform: translateY(-2px);
+  border-color: rgba(120,200,255,.45);
+  box-shadow: 0 18px 50px rgba(0,0,0,.25);
+}
+
+/* 7) Figure + légende centrée */
+.project-badge-page .project-figure{
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* <- centre la légende sous l’image */
+  gap: 10px;
+}
+.project-badge-page .project-figure img{
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+  border-radius: 18px;
+  padding: 12px;
+  background: rgba(0,0,0,.18);
+  border: 1px solid rgba(255,255,255,.14);
+  box-shadow: 0 22px 60px rgba(0,0,0,.45);
+}
+.project-badge-page .project-figure figcaption{
+  text-align: center;
+  color: rgba(223,233,255,.78);
+  font-size: 14px;
+}
+
+/* 8) Responsive */
+@media (max-width: 980px){
+  .project-badge-page .project-grid{
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  .project-badge-page .project-figure img{
+    max-width: 620px;
+  }
+}
+
 
 
 
