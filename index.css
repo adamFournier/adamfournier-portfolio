@@ -3345,6 +3345,170 @@ body {
   object-fit: contain !important;
 }
 
+/* ==========================================
+   PROJET BADGE — PAGE SIMPLE (scopé)
+   ========================================== */
+
+.project-badge-page{
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 70px 80px 90px;
+}
+
+.project-badge-page .project-head{
+  max-width: 1100px;
+  margin: 0 auto 44px;
+  text-align: left;
+}
+
+.project-badge-page h1{
+  font-size: 56px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin: 0 0 16px;
+  color: #eaf2ff;
+}
+
+.project-badge-page .project-sub{
+  font-size: 18px;
+  line-height: 1.65;
+  color: rgba(223,233,255,.9);
+  margin: 0;
+}
+
+.project-badge-page strong{
+  color: #4da3ff;
+  font-weight: 700;
+}
+
+/* Grille 2 colonnes */
+.project-badge-page .project-grid{
+  display: grid;
+  grid-template-columns: 1.15fr .85fr;
+  gap: 70px;
+  align-items: start;
+}
+
+/* Texte */
+.project-badge-page .project-text h2{
+  margin: 26px 0 12px;
+  font-size: 18px;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: rgba(223,233,255,.85);
+}
+
+.project-badge-page .project-text p{
+  margin: 0 0 14px;
+  font-size: 16.5px;
+  line-height: 1.7;
+  color: rgba(223,233,255,.92);
+  max-width: 820px;
+}
+
+.project-badge-page .project-list{
+  margin: 0 0 18px 18px;
+  padding: 0;
+  color: rgba(223,233,255,.92);
+}
+
+.project-badge-page .project-list li{
+  margin: 10px 0;
+  line-height: 1.55;
+}
+
+/* Actions */
+.project-badge-page .project-actions{
+  margin-top: 22px;
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.project-badge-page .btn-primary,
+.project-badge-page .btn-ghost{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 16px;
+  border-radius: 14px;
+  text-decoration: none;
+  font-weight: 700;
+  transition: transform .2s ease, box-shadow .2s ease, background .2s ease, border-color .2s ease;
+}
+
+.project-badge-page .btn-primary{
+  background: linear-gradient(160deg, rgba(42,168,216,.34), rgba(255,255,255,.08));
+  border: 1px solid rgba(120,200,255,.35);
+  color: #eaf2ff;
+  box-shadow: 0 18px 40px rgba(42,168,216,.18);
+}
+
+.project-badge-page .btn-primary:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 22px 55px rgba(42,168,216,.28);
+  border-color: rgba(120,200,255,.6);
+}
+
+.project-badge-page .btn-ghost{
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.12);
+  color: rgba(223,233,255,.92);
+}
+
+.project-badge-page .btn-ghost:hover{
+  transform: translateY(-2px);
+  border-color: rgba(120,200,255,.35);
+}
+
+/* Image */
+.project-badge-page .project-figure{
+  margin: 0;
+}
+
+.project-badge-page .project-figure img{
+  width: 100%;
+  max-width: 560px;
+  height: auto;
+  display: block;
+  margin-left: auto;
+
+  padding: 12px;
+  border-radius: 22px;
+  background: rgba(0,0,0,.18);
+  border: 1px solid rgba(255,255,255,.16);
+  box-shadow: 0 22px 60px rgba(0,0,0,.45);
+}
+
+.project-badge-page .project-figure figcaption{
+  margin-top: 10px;
+  text-align: right;
+  font-size: 14px;
+  color: rgba(223,233,255,.8);
+}
+
+/* Responsive */
+@media (max-width: 1100px){
+  .project-badge-page{
+    padding: 64px 32px 80px;
+  }
+  .project-badge-page h1{
+    font-size: 42px;
+  }
+  .project-badge-page .project-grid{
+    grid-template-columns: 1fr;
+    gap: 34px;
+  }
+  .project-badge-page .project-figure img{
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .project-badge-page .project-figure figcaption{
+    text-align: center;
+  }
+}
+
 
 
 
