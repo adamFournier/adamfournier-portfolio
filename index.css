@@ -3698,5 +3698,14 @@ padding-top: 24px;   /* ← règle PRINCIPALE */
   }
 }
 
+/* ===============================
+   SLIDE RÉSULTATS — TEXTE À GAUCHE
+   =============================== */
+
+.slide-full.slide-emrec.slide-emrec--results .slide-content{
+  text-align: left;        /* ✅ texte justifié à gauche */
+  align-items: flex-start; /* ✅ pas de centrage interne */
+}
+
 
 
