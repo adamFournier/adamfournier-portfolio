@@ -3337,6 +3337,14 @@ body {
 }
 
 
+/* FPGA : SLIDE 1 uniquement — image intro plus petite */
+#slider > section:nth-child(1) .fpga-img{
+  width: min(520px, 100%) !important;
+  max-width: 520px !important;
+  max-height: 520px !important;
+  object-fit: contain !important;
+}
+
 
 
 
