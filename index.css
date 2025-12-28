@@ -3510,5 +3510,158 @@ body {
 }
 
 
+/* ======================================================
+   PROJET — BADGE RFID (PAGE DÉDIÉE)
+   ====================================================== */
+
+/* Sécurité : pas de débordement horizontal */
+body{
+  overflow-x: hidden;
+}
+
+/* Conteneur principal */
+.project-badge-page{
+  padding-bottom: 120px;
+}
+
+/* Header projet */
+.project-badge-page .project-head{
+  max-width: 1400px;
+  margin: 0 auto 72px;
+  padding: 0 32px;
+}
+
+.project-badge-page .project-head h1{
+  font-size: 48px;
+  font-weight: 800;
+  margin-bottom: 22px;
+  color: #eaf2ff;
+}
+
+.project-badge-page .project-sub{
+  font-size: 18px;
+  line-height: 1.6;
+  max-width: 900px;
+  color: rgba(223,233,255,.9);
+}
+
+/* ======================================================
+   GRILLE TEXTE / IMAGE
+   ====================================================== */
+
+.project-badge-page .project-grid{
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 32px;
+
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr);
+  gap: 64px;
+  align-items: start;
+}
+
+/* ======================================================
+   TEXTE
+   ====================================================== */
+
+.project-badge-page .project-text h2{
+  font-size: 22px;
+  font-weight: 700;
+  margin: 42px 0 14px;
+  color: #79d2f2;
+}
+
+.project-badge-page .project-text p{
+  font-size: 16.5px;
+  line-height: 1.7;
+  margin-bottom: 18px;
+  color: rgba(223,233,255,.9);
+  max-width: 820px;
+}
+
+.project-badge-page .project-list{
+  margin: 14px 0 0 0;
+  padding-left: 18px;
+}
+
+.project-badge-page .project-list li{
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 10px;
+  color: rgba(223,233,255,.9);
+}
+
+/* ======================================================
+   BOUTONS
+   ====================================================== */
+
+.project-badge-page .project-actions{
+  margin-top: 36px;
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+/* ======================================================
+   IMAGE
+   ====================================================== */
+
+.project-badge-page .project-figure{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.project-badge-page .project-figure img{
+  width: 100%;
+  max-width: 480px;
+  height: auto;
+  display: block;
+
+  padding: 12px;
+  border-radius: 22px;
+
+  background: rgba(0,0,0,.18);
+  border: 1px solid rgba(255,255,255,.16);
+  box-shadow: 0 22px 60px rgba(0,0,0,.45);
+}
+
+/* Légende */
+.project-badge-page .project-figure figcaption{
+  margin-top: 12px;
+  text-align: center;
+  font-size: 14px;
+  color: rgba(223,233,255,.8);
+}
+
+/* ======================================================
+   RESPONSIVE
+   ====================================================== */
+
+@media (max-width: 1100px){
+  .project-badge-page .project-grid{
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .project-badge-page .project-head h1{
+    font-size: 38px;
+  }
+
+  .project-badge-page .project-figure img{
+    max-width: 560px;
+  }
+}
+
+@media (max-width: 600px){
+  .project-badge-page .project-head h1{
+    font-size: 32px;
+  }
+
+  .project-badge-page .project-sub{
+    font-size: 16px;
+  }
+}
+
 
 
