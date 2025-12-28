@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Projet — Accès par badge</title>
+  <title>Projet — Accès par badge RFID</title>
 
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
@@ -33,145 +33,61 @@
   </div>
 </header>
 
-<div class="slides-full-wrap">
-  <div class="slides-full" id="slider">
+<main class="project-wrap project-badge-page">
+  <header class="project-head">
+    <h1>Contrôle d’accès par badge RFID</h1>
+    <p class="project-sub">
+      Projet microcontrôleur : lecture d’un <strong>badge RFID</strong>, décodage des trames, puis
+      <strong>commande d’un servo-moteur</strong> pour simuler l’ouverture d’une porte.
+    </p>
+  </header>
 
-    <!-- SLIDE 1 -->
-    <section class="slide-full">
-      <div class="slide-content">
-        <h1>Système d’accès par badge</h1>
-        <p>
-          Projet de <strong>contrôle d’accès</strong> sur microcontrôleur : lecture d’un badge,
-          validation des droits, puis action (ouverture/LED/buzzer) avec gestion des états.
-        </p>
+  <section class="project-grid">
+    <!-- TEXTE -->
+    <div class="project-text">
+      <h2>Description</h2>
+      <p>
+        L’objectif est de réaliser un système complet de contrôle d’accès : identification d’un badge,
+        validation des droits, puis déclenchement d’une action (servo) avec une logique robuste.
+      </p>
+
+      <h2>Fonctionnalités clés</h2>
+      <ul class="project-list">
+        <li><strong>Programmation du microcontrôleur</strong> (structure claire, gestion des états)</li>
+        <li><strong>Gestion du module RFID</strong> : lecture + récupération de l’ID</li>
+        <li><strong>Communication UART</strong> : réception et parsing des trames</li>
+        <li><strong>Interprétation des trames ISO</strong> / formatage des données</li>
+        <li><strong>Commande du servo-moteur</strong> pour l’ouverture (PWM)</li>
+      </ul>
+
+      <h2>Résultat</h2>
+      <p>
+        À la détection d’un badge autorisé, le système déclenche l’ouverture (servo) et gère les cas d’erreur
+        (badge inconnu, lecture invalide, timeout).
+      </p>
+
+      <div class="project-actions">
+        <!-- Remplace le lien par ton repo -->
+        <a class="btn-primary" href="https://github.com/TON_COMPTE/TON_REPO" target="_blank" rel="noreferrer">
+          Voir le code sur GitHub
+        </a>
+        <a class="btn-ghost" href="projets.html">
+          Retour aux projets
+        </a>
       </div>
-    </section>
+    </div>
 
-    <!-- SLIDE 2 -->
-    <section class="slide-full">
-      <div class="slide-content">
-        <h1>Architecture du système</h1>
-        <p>
-          Organisation en blocs : <strong>lecture badge</strong> → <strong>authentification</strong> →
-          <strong>commande</strong> (sorties) + interface utilisateur.
-        </p>
-        <p>
-          Définition des contraintes : sécurité, temps de réponse, robustesse, erreurs (badge inconnu, timeout, etc.).
-        </p>
-      </div>
-    </section>
-
-    <!-- SLIDE 3 -->
-    <section class="slide-full">
-      <div class="slide-content">
-        <h1>Implémentation microcontrôleur</h1>
-        <p>
-          Mise en œuvre du programme : machine d’états, interruptions/temporisations,
-          lecture du périphérique, et gestion des sorties (verrou, LED, buzzer).
-        </p>
-      </div>
-    </section>
-
-    <!-- SLIDE 4 -->
-    <section class="slide-full">
-      <div class="slide-content">
-        <h1>Tests & validation</h1>
-        <p>
-          Tests fonctionnels : badges autorisés / refusés, gestion des erreurs, comportement en cas de
-          lecture partielle, redémarrage, et stabilité sur la durée.
-        </p>
-      </div>
-    </section>
-
-    <!-- SLIDE 5 -->
-    <section class="slide-full">
-      <div class="slide-content">
-        <h1>Apprentissages</h1>
-        <p>
-          Ce que j’ai renforcé : programmation embarquée, structuration en machine d’états,
-          gestion d’E/S, débogage et validation.
-        </p>
-      </div>
-    </section>
-
-  </div>
-</div>
-
-<!-- FLÈCHES -->
-<div class="arrows">
-  <button class="arrow-btn" id="prev" aria-label="Slide précédente">
-    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none"
-         stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"
-         viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
-  </button>
-  <button class="arrow-btn" id="next" aria-label="Slide suivante">
-    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none"
-         stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"
-         viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"/></svg>
-  </button>
-</div>
-
-<!-- PAGINATION -->
-<div class="pagination-ui">
-  <div class="dots" id="dots"></div>
-  <div class="counter" id="counter">1 / 5</div>
-</div>
-
-<!-- SCRIPT slider -->
-<script>
-  let current = 0;
-  const slides = document.getElementById('slider');
-
-  if (!slides) {
-    console.error("Slider introuvable (#slider).");
-  } else {
-    const total = slides.children.length;
-
-    const dots = document.getElementById('dots');
-    for (let i = 0; i < total; i++) {
-      const b = document.createElement('button');
-      b.className = 'dot' + (i === 0 ? ' is-active' : '');
-      b.onclick = () => { current = i; updateSlide(true); };
-      dots.appendChild(b);
-    }
-
-    const counter = document.getElementById('counter');
-
-    function updateSlide(animate = true){
-      slides.style.transitionDuration = animate ? '.7s' : '0s';
-      slides.style.transform = `translateX(-${current * 100}vw)`;
-      document.querySelectorAll('.dot').forEach((d, i) =>
-        d.classList.toggle('is-active', i === current)
-      );
-      counter.textContent = `${current + 1} / ${total}`;
-    }
-
-    document.getElementById('next').onclick = ()=>{ current = (current + 1) % total; updateSlide(); };
-    document.getElementById('prev').onclick = ()=>{ current = (current - 1 + total) % total; updateSlide(); };
-
-    document.addEventListener('keydown', (e)=>{
-      if(e.key==='ArrowRight') document.getElementById('next').click();
-      if(e.key==='ArrowLeft')  document.getElementById('prev').click();
-      if(e.key==='Escape')     window.location.href='projets.html';
-    });
-
-    let lastScroll=0;
-    window.addEventListener('wheel', (e)=>{
-      const now=Date.now(); if(now-lastScroll<600) return;
-      if(e.deltaX>50){ document.getElementById('next').click(); lastScroll=now; }
-      else if(e.deltaX<-50){ document.getElementById('prev').click(); lastScroll=now; }
-    }, {passive:true});
-
-    let startX=0, startTime=0;
-    slides.addEventListener('touchstart', e=>{ startX=e.touches[0].clientX; startTime=Date.now(); }, {passive:true});
-    slides.addEventListener('touchend', e=>{
-      const diff=e.changedTouches[0].clientX-startX; const t=Date.now()-startTime;
-      if(Math.abs(diff)>50 && t<800){ diff>0 ? document.getElementById('prev').click() : document.getElementById('next').click(); }
-    }, {passive:true});
-
-    updateSlide(false);
-  }
-</script>
+    <!-- IMAGE -->
+    <figure class="project-figure">
+      <!-- Remplace src par ton image -->
+      <img
+        src="images/rfid-projet.png"
+        alt="Illustration du système RFID (module + badge + servo)"
+      />
+      <figcaption>Module RFID + badge + servo-moteur (contrôle d’accès).</figcaption>
+    </figure>
+  </section>
+</main>
 
 </body>
 </html>
