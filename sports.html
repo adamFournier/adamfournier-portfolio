@@ -1,243 +1,74 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Sports — Adam Fournier</title>
-
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="index.css?v=999" />
-
-  <style>
-    /* =========================
-       SPORTS — GRID
-       ========================= */
-
-    .sports-wrap{
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 84px 64px;
-    }
-
-    .sports-title{
-      text-align: center;
-      font-size: 64px;
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      margin: 10px 0 46px;
-    }
-
-    .sports-grid{
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 28px;
-    }
-
-    .sport-card{
-      position: relative;
-      border-radius: 26px;
-      padding: 26px 26px 22px;
-      min-height: 260px;        /* “carré” visuel */
-      aspect-ratio: 1 / 1;      /* ✅ cartes carrées */
-      overflow: hidden;
-
-      background: rgba(255,255,255,.06);
-      border: 1px solid rgba(255,255,255,.10);
-      box-shadow: 0 18px 50px rgba(0,0,0,.35);
-      transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
-    }
-
-    /* halo subtil */
-    .sport-card::before{
-      content:"";
-      position:absolute;
-      inset:-80px;
-      background: radial-gradient(circle at 20% 20%, rgba(79,163,255,.18), transparent 55%),
-                  radial-gradient(circle at 90% 80%, rgba(121,210,242,.12), transparent 55%);
-      opacity: .9;
-      pointer-events: none;
-    }
-
-    .sport-card:hover{
-      transform: translateY(-6px);
-      border-color: rgba(121,210,242,.45);
-      box-shadow: 0 28px 70px rgba(0,0,0,.45);
-    }
-
-    .sport-top{
-      position: relative;
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 14px;
-    }
-
-    .sport-name{
-      font-size: 28px;
-      font-weight: 800;
-      margin: 0;
-    }
-
-    .sport-pill{
-      flex: 0 0 auto;
-      margin-top: 2px;
-      padding: 10px 14px;
-      border-radius: 999px;
-      font-size: 14px;
-      color: rgba(223,233,255,.92);
-      background: rgba(0,0,0,.20);
-      border: 1px solid rgba(255,255,255,.12);
-      white-space: nowrap;
-    }
-
-    .sport-desc{
-      position: relative;
-      margin-top: 18px;
-      font-size: 16px;
-      line-height: 1.7;
-      color: rgba(223,233,255,.92);
-      max-width: 420px;
-    }
-
-    .sport-meta{
-      position: absolute;
-      left: 22px;
-      right: 22px;
-      bottom: 18px;
-
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-
-      padding-top: 14px;
-      border-top: 1px solid rgba(255,255,255,.08);
-      color: rgba(223,233,255,.75);
-      font-size: 14px;
-    }
-
-    .sport-tag{
-      padding: 8px 12px;
-      border-radius: 999px;
-      background: rgba(255,255,255,.06);
-      border: 1px solid rgba(255,255,255,.10);
-      color: rgba(223,233,255,.88);
-    }
-
-    /* Responsive */
-    @media (max-width: 900px){
-      .sports-wrap{ padding: 64px 28px; }
-      .sports-title{ font-size: 44px; margin-bottom: 32px; }
-      .sports-grid{ grid-template-columns: 1fr; }
-      .sport-card{ aspect-ratio: auto; min-height: 240px; }
-    }
-  </style>
-</head>
-
-<body>
-
-<!-- BOARD -->
-<header class="board">
-  <div class="board__inner">
-    <div class="board__brand">Adam&nbsp;Fournier</div>
-
-    <nav class="board__nav">
-      <a href="index.html">Accueil</a>
-
-      <div class="nav-item">
-        <a href="stages.html">Stages</a>
-        <div class="sub">
-          <a href="stage-enedis.html">Stage — Enedis (Paris)</a>
-        </div>
-      </div>
-
-      <a href="projets.html">Projets</a>
-      <a href="engagements.html">Engagements</a>
-      <a href="sports.html" class="is-active">Sports</a>
-    </nav>
-  </div>
-</header>
-
 <main class="sports-wrap">
   <h1 class="sports-title">Sports</h1>
 
-  <section class="sports-grid">
+  <div class="sports-grid">
 
-    <!-- Handball -->
     <article class="sport-card">
       <div class="sport-top">
         <h2 class="sport-name">Handball</h2>
-        <div class="sport-pill">Compétition</div>
+        <span class="sport-pill">Compétition</span>
       </div>
 
       <p class="sport-desc">
-        Handball en compétition de <strong>2017 à 2022</strong>. Reprise en <strong>2025</strong>
-        au sein de l’<strong>équipe INP Toulouse</strong>.
+        Handball en compétition de <strong>2017 à 2022</strong>.
+        Reprise en <strong>2025</strong> au sein de l’équipe <strong>INP Toulouse</strong>.
       </p>
 
       <div class="sport-meta">
-        <span class="sport-tag">2017 — 2022</span>
-        <span class="sport-tag">INP Toulouse • 2025</span>
+        <span class="sport-tag">2017–2022</span>
+        <span class="sport-tag">INP 2025</span>
       </div>
     </article>
 
-    <!-- Grappling -->
     <article class="sport-card">
       <div class="sport-top">
         <h2 class="sport-name">Grappling</h2>
-        <div class="sport-pill">Sport de combat</div>
+        <span class="sport-pill">Sport de combat</span>
       </div>
 
       <p class="sport-desc">
-        Pratique à Toulouse en <strong>2025–2026</strong>. Travail du contrôle,
-        des transitions et des techniques au sol.
+        Pratique à Toulouse en <strong>2025–2026</strong>.
+        Travail du contrôle, des transitions et des techniques au sol.
       </p>
 
       <div class="sport-meta">
+        <span class="sport-tag">2025–2026</span>
         <span class="sport-tag">Toulouse</span>
-        <span class="sport-tag">2025 — 2026</span>
       </div>
     </article>
 
-    <!-- Street workout -->
     <article class="sport-card">
       <div class="sport-top">
         <h2 class="sport-name">Street workout</h2>
-        <div class="sport-pill">Poids du corps</div>
+        <span class="sport-pill">Poids du corps</span>
       </div>
 
       <p class="sport-desc">
-        Musculation au <strong>poids du corps</strong> : tractions, dips, gainage,
-        progression sur les mouvements.
+        Musculation au poids du corps : tractions, dips, gainage,
+        progression en force et contrôle.
       </p>
 
       <div class="sport-meta">
-        <span class="sport-tag">Renforcement</span>
-        <span class="sport-tag">Régulier</span>
+        <span class="sport-tag">Muscu</span>
+        <span class="sport-tag">Poids du corps</span>
       </div>
     </article>
 
-    <!-- Course -->
     <article class="sport-card">
       <div class="sport-top">
         <h2 class="sport-name">Course</h2>
-        <div class="sport-pill">Endurance</div>
+        <span class="sport-pill">Endurance</span>
       </div>
 
       <p class="sport-desc">
-        Une sortie <strong>une fois par semaine</strong> pour l’endurance
-        et l’entretien cardio.
+        Course <strong>une fois par semaine</strong> pour l’endurance et la régularité.
       </p>
 
       <div class="sport-meta">
         <span class="sport-tag">1× / semaine</span>
-        <span class="sport-tag">Cardio</span>
+        <span class="sport-tag">Endurance</span>
       </div>
     </article>
 
-  </section>
+  </div>
 </main>
-
-</body>
-</html>
