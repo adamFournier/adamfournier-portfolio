@@ -3120,6 +3120,36 @@ body {
 }
 
 
+/* =================================================
+   CADRE = TAILLE DU CONTENU (anti-cadre géant)
+   ================================================= */
+
+/* Le conteneur d'image ne s'étire plus */
+.slide-full.slide-fpga .engagement-image{
+  align-self: start !important;
+  justify-self: start !important;
+  display: flex !important;
+  justify-content: center;
+}
+
+/* Le bloc qui contient image + légende doit "shrink" */
+.slide-full.slide-fpga .engagement-image figure{
+  display: inline-flex !important;   /* shrink-wrap */
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  width: fit-content;
+  max-width: 100%;
+}
+
+/* L'image ne crée pas d'espace fantôme */
+.slide-full.slide-fpga .fpga-img{
+  display: block !important;
+  height: auto !important;
+  width: 100%;
+  max-width: 720px;
+}
+
 
 
 
