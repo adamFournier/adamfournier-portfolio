@@ -3316,6 +3316,26 @@ body {
   max-width: 100%;
 }
 
+/* ================================
+   FPGA — SLIDE 1 : organigramme plus petit
+   (UNIQUEMENT la 1ère image de la colonne droite)
+   ================================ */
+
+.slide-full.slide-fpga-intro .fpga-side .fpga-fig:first-child .fpga-img{
+  width: auto !important;                 /* ne prend plus 100% */
+  max-width: 420px !important;            /* <-- ajuste (350-460) */
+  max-height: 360px !important;           /* <-- ajuste si besoin */
+  height: auto !important;
+  display: block;
+  margin-left: auto;                      /* reste aligné à droite */
+  object-fit: contain;
+}
+
+/* Optionnel : si tu veux aussi réduire un peu le cadre (padding) juste pour celle-ci */
+.slide-full.slide-fpga-intro .fpga-side .fpga-fig:first-child .fpga-img{
+  padding: 10px !important;               /* au lieu de 12/14 */
+}
+
 
 
 
