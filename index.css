@@ -3094,6 +3094,31 @@ body {
   text-align: left;     /* ✅ texte JUSTIFIÉ À GAUCHE */
 }
 
+/* ======================================
+   AJUSTEMENT CADRE = TAILLE IMAGE
+   ====================================== */
+
+/* Le conteneur de l’image ne s’étire plus */
+.slide-full.slide-fpga .engagement-image{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Le cadre épouse exactement l’image */
+.slide-full.slide-fpga figure{
+  display: inline-block;   /* 🔑 clé du problème */
+  margin: 0;
+}
+
+/* Image sans marge fantôme */
+.slide-full.slide-fpga .fpga-img{
+  display: block;          /* 🔑 évite espace blanc */
+  width: 100%;
+  max-width: 720px;
+  height: auto;
+}
+
 
 
 
