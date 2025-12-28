@@ -3302,6 +3302,20 @@ body {
   max-width: 100%;
 }
 
+/* =========================================
+   FPGA — SLIDE 1 : IMAGE PLUS PETITE
+   ========================================= */
+
+/* On cible UNIQUEMENT la 1ère slide */
+.fpga-track > .slide-full.slide-fpga:first-child .engagement-image{
+  max-width: 420px;   /* ← taille plus petite que les autres */
+}
+
+/* Image dans la 1ère slide */
+.fpga-track > .slide-full.slide-fpga:first-child .fpga-img{
+  max-width: 100%;
+}
+
 
 
 
