@@ -2724,6 +2724,67 @@ body {
   color: #79d2f2;
 }
 
+/* ============================
+   PROJETS — CARTES AVEC HALO (SANS FLÈCHE)
+   ============================ */
+
+/* ÉTAT PAR DÉFAUT : carte déjà mise en valeur */
+.projects-columns .stage-card.is-clickable{
+  position: relative;
+  cursor: pointer;
+
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(121,210,242,.22);
+
+  box-shadow:
+    0 14px 34px rgba(0,0,0,.40),
+    0 0 0 1px rgba(121,210,242,.12) inset,
+    0 0 24px rgba(121,210,242,.15); /* ✅ halo léger visible */
+
+  transition:
+    transform .22s ease,
+    box-shadow .22s ease,
+    border-color .22s ease,
+    background .22s ease;
+}
+
+/* Le lien remplit toute la carte */
+.projects-columns .stage-card.is-clickable > a{
+  display: block;
+  height: 100%;
+}
+
+/* HOVER : halo plus fort + lift */
+.projects-columns .stage-card.is-clickable:hover,
+.projects-columns .stage-card.is-clickable:focus-within{
+  transform: translateY(-6px);
+
+  background: linear-gradient(
+    160deg,
+    rgba(121,210,242,.22),
+    rgba(255,255,255,.08)
+  );
+
+  border-color: rgba(121,210,242,.55);
+
+  box-shadow:
+    0 26px 64px rgba(0,0,0,.50),
+    0 0 0 1px rgba(121,210,242,.25) inset,
+    0 0 42px rgba(121,210,242,.35); /* ✅ halo renforcé */
+}
+
+/* Titre légèrement accentué même sans hover */
+.projects-columns .stage-card.is-clickable .stage-title{
+  font-weight: 700;
+}
+
+/* Titre encore plus lisible au hover */
+.projects-columns .stage-card.is-clickable:hover .stage-title{
+  color: #79d2f2;
+}
+
+
+
 
 
 
