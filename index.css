@@ -3262,6 +3262,30 @@ body {
   box-shadow: 0 22px 60px rgba(0,0,0,.45); /* ✅ bien avec un point */
 }
 
+/* ===============================
+   FPGA — AJUSTEMENT TAILLE IMAGES
+   =============================== */
+
+/* Conteneur image : limite la largeur */
+.slide-full.slide-fpga .engagement-image{
+  max-width: 520px;          /* ← AJUSTE ICI (480–560 selon ton goût) */
+  width: 100%;
+  justify-self: end;
+}
+
+/* Image elle-même */
+.slide-full.slide-fpga .fpga-img{
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Cadre (figure) s’adapte à l’image */
+.slide-full.slide-fpga figure{
+  max-width: 520px;          /* ← DOIT MATCHER engagement-image */
+}
+
 
 
 
