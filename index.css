@@ -3439,7 +3439,7 @@ body{
    ========================= */
 .project-wrap{
   /* ✅ IMPORTANT : on pousse le contenu sous la navbar fixe */
-  padding-top: calc(var(--board-h) + 20px);
+  padding-top: calc(var(--board-h) + 10px);
   padding-bottom: 80px;
 }
 
@@ -3576,6 +3576,7 @@ body{
   }
   .board__nav{ gap: 14px; }
 }
+
 
 
 
