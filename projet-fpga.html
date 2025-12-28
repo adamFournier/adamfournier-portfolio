@@ -38,132 +38,111 @@
   <div class="slides-full" id="slider">
 
     <!-- SLIDE 1 : INTRO -->
-    <section class="slide-full slide-fpga slide-fpga-intro">
-      <div class="slide-content fpga-grid">
-        <div class="fpga-text">
+    <section class="slide-full slide-fpga">
+      <div class="slide-content engagement-grid">
+        <div>
           <h1>Traitement de signal sur FPGA</h1>
 
           <p>
-            Objectif : concevoir une chaîne complète <strong>d’acquisition</strong> et de
-            <strong>traitement numérique</strong> sur FPGA, puis afficher la fréquence du signal
+            Objectif : concevoir une <strong>chaîne complète d’acquisition et de traitement numérique</strong>
+            sur FPGA, permettant de mesurer la <strong>fréquence d’un signal</strong> et de l’afficher
             <strong>en temps réel</strong> sur un afficheur <strong>7 segments</strong>.
           </p>
 
-         
+          <p>
+            Le projet couvre l’ensemble de la chaîne :
+            acquisition analogique, filtrage numérique, détection des événements et mesure de fréquence.
+          </p>
         </div>
 
-        <div class="fpga-side">
-          <figure class="fpga-fig">
-            <img class="fpga-img" src="fpga-organigramme.png" alt="Organigramme de la chaîne de traitement FPGA">
-            <figcaption class="fpga-cap">Organigramme du système</figcaption>
-          </figure>
-
-          <figure class="fpga-fig">
-            <img class="fpga-img" src="fpga-signal-capteur.png" alt="Signal issu du capteur">
-            <figcaption class="fpga-cap">Signal du capteur</figcaption>
+        <div class="engagement-image">
+          <figure>
+            <img class="fpga-img" src="fpga-organigramme.png" alt="Organigramme FPGA">
+            <figcaption class="fpga-cap">Chaîne de traitement implémentée sur FPGA</figcaption>
           </figure>
         </div>
       </div>
     </section>
 
-    <!-- SLIDE 2 : ADC -->
-    <section class="slide-full slide-fpga slide-fpga-adc">
-      <div class="slide-content fpga-grid">
-        <div class="fpga-text">
-          <h1>ADC : numérisation sur FPGA</h1>
-
-          <p>
-            Le signal analogique est <strong>numérisé</strong> grâce à l’ADC intégré au FPGA
-            (<strong>XADC</strong>), configuré pour échantillonner à une fréquence adaptée au signal.
-          </p>
-
-          <p>
-            Les échantillons sont récupérés via l’IP générée (Wizard) puis envoyés dans la
-            <strong>chaîne de traitement</strong> numérique.
-          </p>
-        </div>
-
-        <div class="fpga-side">
-          <figure class="fpga-fig">
-            <img class="fpga-img" src="fpga-xadc.png" alt="Configuration XADC / ADC sur FPGA">
-            <figcaption class="fpga-cap">Exemple : configuration de l’ADC (XADC Wizard).</figcaption>
-          </figure>
-        </div>
-      </div>
-    </section>
-
-    <!-- SLIDE 3 : FILTERING -->
-    <section class="slide-full slide-fpga slide-fpga-filter">
-      <div class="slide-content fpga-solo">
-        <h1>Filtrage numérique (point fixe)</h1>
+    <!-- SLIDE 2 : ADC + FILTRAGE (SANS IMAGE) -->
+    <section class="slide-full slide-fpga">
+      <div class="slide-content solo-text">
+        <h1>Numérisation et filtrage numérique</h1>
 
         <p>
-          Le signal échantillonné est filtré (ex : <strong>passe-haut</strong>) pour supprimer les
-          composantes lentes et mettre en valeur les variations rapides.
+          Le signal analogique issu du capteur est <strong>numérisé</strong> à l’aide de l’ADC intégré
+          au FPGA (<strong>XADC</strong>), fournissant un flux d’échantillons numériques.
         </p>
 
         <p>
-          L’implémentation FPGA se fait en <strong>arithmétique en point fixe</strong> :
-          choix d’un format (ex : Qm.n), gestion de la <strong>quantification</strong>,
-          saturation/overflow et troncatures contrôlées.
+          Ces échantillons sont ensuite traités par un <strong>filtrage numérique</strong>
+          implémenté directement sur le FPGA afin de supprimer les composantes lentes
+          et de mettre en évidence les variations rapides du signal.
         </p>
 
         <p>
-          But : obtenir un signal propre, compatible temps réel et stable sur ressources FPGA.
+          Les calculs sont réalisés en <strong>arithmétique en point fixe</strong>, garantissant
+          une implémentation <strong>temps réel</strong> et économe en ressources matérielles.
         </p>
       </div>
     </section>
 
-    <!-- SLIDE 4 : DERIVATION + THRESHOLD -->
-    <section class="slide-full slide-fpga slide-fpga-deriv">
-      <div class="slide-content fpga-grid">
-        <div class="fpga-text">
-          <h1>Dérivation + seuil : détection des pics</h1>
+    <!-- SLIDE 3 : DÉRIVATION + THRESHOLD -->
+    <section class="slide-full slide-fpga">
+      <div class="slide-content engagement-grid">
+        <div>
+          <h1>Dérivation et seuillage</h1>
 
           <p>
-            Une <strong>dérivation numérique</strong> met en évidence les fronts/pics associés aux événements.
+            Une <strong>dérivation numérique</strong> est appliquée afin de renforcer les fronts
+            du signal et mettre en évidence les événements significatifs.
           </p>
 
           <p>
-            Un <strong>seuil (threshold)</strong> convertit ensuite le signal dérivé en un signal
-            <strong>binaire</strong> (0/1), robuste pour déclencher un comptage.
+            Un <strong>seuil (threshold)</strong> transforme ensuite le signal dérivé en un
+            <strong>signal binaire</strong>, robuste et exploitable pour le comptage.
           </p>
 
           <p>
-            Résultat : un signal logique propre, directement exploitable par le fréquencemètre.
+            Cette étape permet de détecter précisément les pics associés à la fréquence du signal.
           </p>
         </div>
 
-        <div class="fpga-side">
-          <figure class="fpga-fig">
-            <img class="fpga-img" src="fpga-derivation-threshold.png" alt="Schéma dérivation puis seuil">
-            <figcaption class="fpga-cap">Principe : signal filtré → dérivé → seuil → binaire.</figcaption>
+        <div class="engagement-image">
+          <figure>
+            <img class="fpga-img" src="fpga-derivation-threshold.png" alt="Dérivation et seuil">
+            <figcaption class="fpga-cap">Dérivation puis conversion binaire par seuil</figcaption>
           </figure>
         </div>
       </div>
     </section>
 
-    <!-- SLIDE 5 : FREQUENCYMETER -->
-    <section class="slide-full slide-fpga slide-fpga-freq">
-      <div class="slide-content fpga-grid">
-        <div class="fpga-text">
-          <h1>Fréquencemètre + affichage temps réel</h1>
+    <!-- SLIDE 4 : FRÉQUENCEMÈTRE -->
+    <section class="slide-full slide-fpga">
+      <div class="slide-content engagement-grid">
+        <div>
+          <h1>Fréquencemètre et affichage</h1>
 
           <p>
-            Le <strong>fréquencemètre</strong> mesure la fréquence du signal binaire
-            (comptage sur fenêtre temporelle / méthode adaptée).
+            Le signal binaire alimente un <strong>fréquencemètre</strong> implémenté sur FPGA,
+            basé sur un comptage sur fenêtre temporelle.
           </p>
 
           <p>
-            La valeur est ensuite <strong>formatée</strong> et affichée en continu sur un
-            <strong>afficheur 7 segments</strong>, avec mise à jour régulière (temps réel).
+            La fréquence mesurée est ensuite <strong>mise à jour en continu</strong> et affichée
+            sur un <strong>afficheur 7 segments</strong>.
+          </p>
+
+          <p>
+            L’ensemble du système fonctionne en <strong>temps réel</strong>, avec un affichage
+            stable et lisible.
           </p>
         </div>
 
-        <div class="fpga-side">
-          <figure class="fpga-fig">
-            <img class="fpga-img" src="fpga-frequencymeter.png" alt="Principe du fréquencemètre">
-            <figcaption class="fpga-cap">Principe de mesure : comptage / fenêtre / rafraîchissement.</figcaption>
+        <div class="engagement-image">
+          <figure>
+            <img class="fpga-img" src="fpga-frequencymeter.png" alt="Fréquencemètre">
+            <figcaption class="fpga-cap">Principe de mesure et affichage de la fréquence</figcaption>
           </figure>
         </div>
       </div>
@@ -172,7 +151,7 @@
   </div>
 </div>
 
-<!-- FLÈCHES (identiques à tes autres projets) -->
+<!-- FLÈCHES -->
 <div class="arrows">
   <button class="arrow-btn" id="prev" aria-label="Slide précédente">
     <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none"
@@ -186,67 +165,43 @@
   </button>
 </div>
 
-<!-- PAGINATION (identique) -->
+<!-- PAGINATION -->
 <div class="pagination-ui">
   <div class="dots" id="dots"></div>
-  <div class="counter" id="counter">1 / 5</div>
+  <div class="counter" id="counter">1 / 4</div>
 </div>
 
-<!-- SCRIPT slider (identique) -->
+<!-- SCRIPT SLIDER (IDENTIQUE) -->
 <script>
   let current = 0;
   const slides = document.getElementById('slider');
+  const total = slides.children.length;
 
-  if (!slides) {
-    console.error("Slider introuvable (#slider).");
-  } else {
-    const total = slides.children.length;
-
-    const dots = document.getElementById('dots');
-    for (let i = 0; i < total; i++) {
-      const b = document.createElement('button');
-      b.className = 'dot' + (i === 0 ? ' is-active' : '');
-      b.onclick = () => { current = i; updateSlide(true); };
-      dots.appendChild(b);
-    }
-
-    const counter = document.getElementById('counter');
-
-    function updateSlide(animate = true){
-      slides.style.transitionDuration = animate ? '.7s' : '0s';
-      slides.style.transform = `translateX(-${current * 100}vw)`;
-      document.querySelectorAll('.dot').forEach((d, i) =>
-        d.classList.toggle('is-active', i === current)
-      );
-      counter.textContent = `${current + 1} / ${total}`;
-    }
-
-    document.getElementById('next').onclick = ()=>{ current = (current + 1) % total; updateSlide(); };
-    document.getElementById('prev').onclick = ()=>{ current = (current - 1 + total) % total; updateSlide(); };
-
-    document.addEventListener('keydown', (e)=>{
-      if(e.key==='ArrowRight') document.getElementById('next').click();
-      if(e.key==='ArrowLeft')  document.getElementById('prev').click();
-      if(e.key==='Escape')     window.location.href='projets.html';
-    });
-
-    let lastScroll=0;
-    window.addEventListener('wheel', (e)=>{
-      const now=Date.now(); if(now-lastScroll<600) return;
-      if(e.deltaX>50){ document.getElementById('next').click(); lastScroll=now; }
-      else if(e.deltaX<-50){ document.getElementById('prev').click(); lastScroll=now; }
-    }, {passive:true});
-
-    let startX=0, startTime=0;
-    slides.addEventListener('touchstart', e=>{ startX=e.touches[0].clientX; startTime=Date.now(); }, {passive:true});
-    slides.addEventListener('touchend', e=>{
-      const diff=e.changedTouches[0].clientX-startX; const t=Date.now()-startTime;
-      if(Math.abs(diff)>50 && t<800){ diff>0 ? document.getElementById('prev').click() : document.getElementById('next').click(); }
-    }, {passive:true});
-
-    updateSlide(false);
+  const dots = document.getElementById('dots');
+  for (let i = 0; i < total; i++) {
+    const b = document.createElement('button');
+    b.className = 'dot' + (i === 0 ? ' is-active' : '');
+    b.onclick = () => { current = i; updateSlide(true); };
+    dots.appendChild(b);
   }
+
+  const counter = document.getElementById('counter');
+
+  function updateSlide(animate = true){
+    slides.style.transitionDuration = animate ? '.7s' : '0s';
+    slides.style.transform = `translateX(-${current * 100}vw)`;
+    document.querySelectorAll('.dot').forEach((d, i) =>
+      d.classList.toggle('is-active', i === current)
+    );
+    counter.textContent = `${current + 1} / ${total}`;
+  }
+
+  document.getElementById('next').onclick = ()=>{ current = (current + 1) % total; updateSlide(); };
+  document.getElementById('prev').onclick = ()=>{ current = (current - 1 + total) % total; updateSlide(); };
+
+  updateSlide(false);
 </script>
 
 </body>
 </html>
+
