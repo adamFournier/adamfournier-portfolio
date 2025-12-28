@@ -3891,4 +3891,117 @@ body:has(.project-badge-page){
 
 
 
+/* ======================================================
+   PAGE PROJET RFID — FIX SCROLL + MISE EN PAGE
+   À COLLER TOUT EN BAS DE index.css
+   ====================================================== */
+
+/* 1) IMPORTANT : autoriser le scroll sur cette page */
+body.page-scroll{
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+}
+
+/* 2) Conteneur de page : laisse respirer sous la navbar, et évite que le bas soit caché */
+body.page-scroll .project-wrap.project-badge-page{
+  height: auto !important;
+  min-height: calc(100vh - var(--board-h)) !important;
+
+  padding-top: calc(var(--board-h) + 34px) !important;
+  padding-bottom: calc(var(--contact-h) + var(--footer-h) + 40px) !important;
+}
+
+/* 3) Largeur globale */
+body.page-scroll .project-badge-page{
+  max-width: 1500px;
+  margin: 0 auto;
+  padding-left: 80px;
+  padding-right: 80px;
+}
+
+/* 4) Header projet : moins d’espace (ça “remonte” le contenu) */
+body.page-scroll .project-badge-page .project-head{
+  margin: 0 auto 34px !important;
+  max-width: 1200px;
+  padding: 0 !important;
+}
+
+body.page-scroll .project-badge-page .project-head h1{
+  font-size: 56px;
+  line-height: 1.05;
+  margin: 0 0 14px;
+}
+
+body.page-scroll .project-badge-page .project-sub{
+  margin: 0;
+  max-width: 980px;
+}
+
+/* 5) Grille texte / image */
+body.page-scroll .project-badge-page .project-grid{
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 0 !important;
+
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr);
+  gap: 64px;
+  align-items: start;
+}
+
+/* 6) Titres à gauche : moins d’espace au-dessus (ça remonte encore) */
+body.page-scroll .project-badge-page .project-text h2{
+  margin: 22px 0 12px !important;
+}
+
+/* 7) Bloc image : centré + légende bien centrée */
+body.page-scroll .project-badge-page .project-figure{
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+body.page-scroll .project-badge-page .project-figure img{
+  width: 100%;
+  max-width: 560px;
+  height: auto;
+  display: block;
+
+  padding: 12px;
+  border-radius: 22px;
+  background: rgba(0,0,0,.18);
+  border: 1px solid rgba(255,255,255,.16);
+  box-shadow: 0 22px 60px rgba(0,0,0,.45);
+}
+
+body.page-scroll .project-badge-page .project-figure figcaption{
+  margin-top: 12px;
+  text-align: center;   /* ✅ centré */
+  width: 100%;
+  font-size: 14px;
+  color: rgba(223,233,255,.80);
+}
+
+/* 8) Responsive */
+@media (max-width: 1100px){
+  body.page-scroll .project-badge-page{
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+
+  body.page-scroll .project-badge-page .project-grid{
+    grid-template-columns: 1fr;
+    gap: 34px;
+  }
+
+  body.page-scroll .project-badge-page .project-head h1{
+    font-size: 40px;
+  }
+
+  body.page-scroll .project-badge-page .project-figure img{
+    max-width: 720px;
+  }
+}
+
 
