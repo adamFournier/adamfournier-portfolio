@@ -3470,6 +3470,107 @@ body {
     max-width: 100%;
   }
 }
+/* ======================================================
+   SLIDES ÉMETTEUR / RÉCEPTEUR
+   TEXTE EN HAUT – IMAGE EN BAS
+   ====================================================== */
+
+.slide-full.slide-emrec{
+  background: linear-gradient(160deg, #0b1626, #0a1f33);
+}
+
+/* Conteneur général */
+.slide-full.slide-emrec .slide-content{
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 120px 80px 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 60px; /* espace texte / image */
+}
+
+/* ================= TEXTE ================= */
+
+.emrec-text{
+  max-width: 900px;   /* 🔥 texte lisible */
+}
+
+.emrec-text h1{
+  font-size: 42px;
+  font-weight: 800;
+  margin-bottom: 28px;
+  color: #eaf2ff;
+}
+
+.emrec-text p{
+  font-size: 17px;
+  line-height: 1.7;
+  color: rgba(223,233,255,.92);
+  margin-bottom: 18px;
+}
+
+.emrec-text strong{
+  color: #4da3ff;
+  font-weight: 700;
+}
+
+.emrec-list{
+  margin: 18px 0 22px 18px;
+  padding: 0;
+}
+
+.emrec-list li{
+  margin-bottom: 10px;
+  line-height: 1.6;
+  color: rgba(223,233,255,.9);
+}
+
+/* ================= IMAGE ================= */
+
+.emrec-fig{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Cadre image (identique aux autres projets) */
+.emrec-img{
+  width: 100%;
+  max-width: 600px;   /* 🔥 image bien maîtrisée */
+  height: auto;
+
+  padding: 16px;
+  border-radius: 22px;
+
+  background: rgba(0,0,0,.18);
+  border: 1px solid rgba(255,255,255,.16);
+  box-shadow: 0 22px 60px rgba(0,0,0,.45);
+}
+
+.emrec-fig figcaption{
+  margin-top: 12px;
+  font-size: 14px;
+  text-align: center;
+  color: rgba(223,233,255,.8);
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 900px){
+  .slide-full.slide-emrec .slide-content{
+    padding: 96px 28px 64px;
+    gap: 48px;
+  }
+
+  .emrec-text{
+    max-width: 100%;
+  }
+
+  .emrec-img{
+    max-width: 100%;
+  }
+}
+
 
 
 
