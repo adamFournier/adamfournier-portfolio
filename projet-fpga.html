@@ -328,51 +328,78 @@
 
   </div>
 
-  <div class="fpga-dots" id="fpgaDots" aria-label="Navigation des slides">
-    <button class="fpga-dot is-active" type="button" aria-label="Aller à la slide 1" data-i="0"></button>
-    <button class="fpga-dot" type="button" aria-label="Aller à la slide 2" data-i="1"></button>
-    <button class="fpga-dot" type="button" aria-label="Aller à la slide 3" data-i="2"></button>
-    <button class="fpga-dot" type="button" aria-label="Aller à la slide 4" data-i="3"></button>
-    <button class="fpga-dot" type="button" aria-label="Aller à la slide 5" data-i="4"></button>
+  <!-- FLÈCHES -->
+  <div class="arrows">
+    <button class="arrow-btn" id="prev" aria-label="Slide précédente">
+      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none"
+           stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"
+           viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+    </button>
+    <button class="arrow-btn" id="next" aria-label="Slide suivante">
+      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none"
+           stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"
+           viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"/></svg>
+    </button>
   </div>
-</section>
 
+  <!-- PAGINATION -->
+  <div class="pagination-ui">
+    <div class="dots" id="dots"></div>
+    <div class="counter" id="counter">1 / 4</div>
+  </div>
+
+  <!-- SCRIPT slider -->
 <script>
-  (function(){
-    const track = document.getElementById('fpgaTrack');
-    const dotsWrap = document.getElementById('fpgaDots');
-    const dots = Array.from(dotsWrap.querySelectorAll('.fpga-dot'));
-    const prev = document.getElementById('fpgaPrev');
-    const next = document.getElementById('fpgaNext');
-    const total = dots.length;
+    let current = 0;
+    const slides = document.getElementById('slider');
+    const total = slides.children.length;
 
-    let i = 0;
+    const dots = document.getElementById('dots');
+    for (let i = 0; i < total; i++) {
+      const b = document.createElement('button');
+      b.className = 'dot' + (i === 0 ? ' is-active' : '');
+      b.onclick = () => { current = i; updateSlide(true); };
+      dots.appendChild(b);
+    }
+    const counter = document.getElementById('counter');
+    const progressBar = document.getElementById('progressBar');
 
-    function render(){
-      track.style.transform = `translateX(${-i * 100}%)`;
-      dots.forEach((d, idx) => d.classList.toggle('is-active', idx === i));
+    function updateSlide(animate = true){
+      slides.style.transitionDuration = animate ? '.7s' : '0s';
+      slides.style.transform = `translateX(-${current * 100}vw)`;
+      updateUI();
+    }
+    function updateUI(){
+      [...document.querySelectorAll('.dot')].forEach((d, idx)=> d.classList.toggle('is-active', idx === current));
+      counter.textContent = `${current + 1} / ${total}`;
+      progressBar.style.width = `${((current + 1) / total) * 100}%`;
     }
 
-    function go(n){
-      i = (n + total) % total;
-      render();
-    }
+    document.getElementById('next').onclick = ()=>{ current = (current + 1) % total; updateSlide(); };
+    document.getElementById('prev').onclick = ()=>{ current = (current - 1 + total) % total; updateSlide(); };
 
-    prev.addEventListener('click', () => go(i - 1));
-    next.addEventListener('click', () => go(i + 1));
-
-    dots.forEach(d => {
-      d.addEventListener('click', () => go(parseInt(d.dataset.i, 10)));
+    document.addEventListener('keydown', (e)=>{
+      if(e.key==='ArrowRight') document.getElementById('next').click();
+      if(e.key==='ArrowLeft') document.getElementById('prev').click();
+      if(e.key==='Escape') window.location.href='index.html';
     });
 
-    window.addEventListener('keydown', (e) => {
-      if(e.key === 'ArrowLeft') go(i - 1);
-      if(e.key === 'ArrowRight') go(i + 1);
-    });
+    let lastScroll=0;
+    window.addEventListener('wheel', (e)=>{
+      const now=Date.now(); if(now-lastScroll<600) return;
+      if(e.deltaX>50){ document.getElementById('next').click(); lastScroll=now; }
+      else if(e.deltaX<-50){ document.getElementById('prev').click(); lastScroll=now; }
+    }, {passive:true});
 
-    render();
-  })();
-</script>
+    let startX=0, startTime=0;
+    slides.addEventListener('touchstart', e=>{ startX=e.touches[0].clientX; startTime=Date.now(); }, {passive:true});
+    slides.addEventListener('touchend', e=>{
+      const diff=e.changedTouches[0].clientX-startX; const t=Date.now()-startTime;
+      if(Math.abs(diff)>50 && t<800){ diff>0 ? document.getElementById('prev').click() : document.getElementById('next').click(); }
+    }, {passive:true});
+
+    updateUI();
+  </script>
 
 </body>
 </html>
