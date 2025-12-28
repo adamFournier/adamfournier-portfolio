@@ -3690,6 +3690,57 @@ body{
 .project-badge-page .project-text{
   margin-top: -12px;
 }
+/* ======================================================
+   PROJET RFID — FIX AFFICHAGE (évite que le bas soit coupé)
+   À coller TOUT EN BAS de index.css
+   ====================================================== */
+
+.project-wrap.project-badge-page{
+  /* IMPORTANT : on ne bloque JAMAIS la page en height fixe */
+  height: auto !important;
+  min-height: calc(100vh - var(--board-h)) !important;
+
+  /* Remonte le contenu + laisse de la place en bas */
+  padding: 46px 80px 120px !important;
+  overflow: visible !important;
+}
+
+.project-badge-page .project-head{
+  margin: 0 0 34px !important; /* remonte le bloc titre */
+}
+
+.project-badge-page .project-head h1{
+  margin: 0 0 16px !important;
+}
+
+.project-badge-page .project-sub{
+  margin: 0 !important;
+  max-width: 980px;
+}
+
+/* Grille : on garde la mise en page, mais on évite les “coupes” */
+.project-badge-page .project-grid{
+  align-items: start !important;
+}
+
+/* Légende bien centrée sous l’image */
+.project-badge-page .project-figure{
+  margin: 0 !important;
+  text-align: center;
+}
+
+.project-badge-page .project-figure figcaption{
+  margin-top: 12px !important;
+  text-align: center !important;
+}
+
+/* Responsive */
+@media (max-width: 980px){
+  .project-wrap.project-badge-page{
+    padding: 42px 32px 110px !important;
+  }
+}
+
 
 
 
