@@ -2581,6 +2581,71 @@ body {
   color: #79d2f2;
 }
 
+/* ============================
+   PROJETS — HOVER CARTES (TES .stage-card)
+   ============================ */
+
+/* On cible uniquement la page Projets (structure projects-columns) */
+.projects-columns .stage-card.is-clickable{
+  position: relative;
+  cursor: pointer;
+
+  transition:
+    transform .22s ease,
+    box-shadow .22s ease,
+    border-color .22s ease,
+    background .22s ease;
+}
+
+/* Le lien remplit toute la carte (hover ok partout) */
+.projects-columns .stage-card.is-clickable > a{
+  display: block;
+  height: 100%;
+}
+
+/* Petite flèche pour montrer que c'est cliquable */
+.projects-columns .stage-card.is-clickable::after{
+  content: "→";
+  position: absolute;
+  right: 22px;
+  bottom: 18px;
+  font-size: 18px;
+  color: rgba(121,210,242,.75);
+  opacity: 0;
+  transform: translateX(-8px);
+  transition: .22s ease;
+  pointer-events: none;
+}
+
+/* Hover / focus */
+.projects-columns .stage-card.is-clickable:hover,
+.projects-columns .stage-card.is-clickable:focus-within{
+  transform: translateY(-6px);
+  border-color: rgba(121,210,242,.55);
+
+  background: linear-gradient(
+    160deg,
+    rgba(121,210,242,.16),
+    rgba(255,255,255,.06)
+  );
+
+  box-shadow:
+    0 22px 55px rgba(0,0,0,.45),
+    0 0 0 1px rgba(121,210,242,.18) inset;
+}
+
+/* Affiche la flèche au hover */
+.projects-columns .stage-card.is-clickable:hover::after,
+.projects-columns .stage-card.is-clickable:focus-within::after{
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Option : titre devient bleu au hover */
+.projects-columns .stage-card.is-clickable:hover .stage-title{
+  color: #79d2f2;
+}
+
 
 
 
