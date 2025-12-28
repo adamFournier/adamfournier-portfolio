@@ -3149,6 +3149,44 @@ body {
   width: 100%;
   max-width: 720px;
 }
+/* ================================
+   FPGA — FIX CADRE QUI ÉPOUSE L’IMAGE
+   (override des styles globaux)
+   ================================ */
+
+/* On enlève tout cadre éventuel sur le conteneur */
+.slide-full.slide-fpga .engagement-image{
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+
+  display: flex;
+  justify-content: center;  /* centre le bloc image */
+  align-items: flex-start;
+}
+
+/* Le figure ne doit pas “prendre toute la hauteur” */
+.slide-full.slide-fpga .engagement-image figure{
+  margin: 0 !important;
+  display: inline-block;   /* => le cadre suit le contenu */
+  width: auto;
+  text-align: center;      /* centre la légende */
+}
+
+/* Le cadre est uniquement sur l’image */
+.slide-full.slide-fpga img.fpga-img{
+  display: block;
+  width: min(720px, 100%); /* ajuste ici si tu veux + petit/grand */
+  height: auto;
+
+  padding: 14px;
+  border-radius: 22px;
+  background: rgba(0,0,0,.18);
+  border: 1px solid rgba(255,255,255,.16);
+  box-shadow: 0 22px 60px rgba(0,0,0,.45);
+}
+
 
 
 
