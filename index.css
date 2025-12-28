@@ -3346,82 +3346,88 @@ body {
 }
 
 /* ======================================================
-   SLIDES — TEXTE EN HAUT + IMAGE EN BAS (GÉNÉRIQUE)
-   ✅ à mettre 1 seule fois dans index.css
-   ✅ n'affecte pas les autres pages si tu l'appliques via .slide-full
+   SLIDES ÉMETTEUR / RÉCEPTEUR — LAYOUT PROPRE & STABLE
    ====================================================== */
 
-/* Base slide */
-.slide-full{
-  min-height: calc(100vh - 72px); /* 72px ≈ hauteur du board (ajuste si besoin) */
-  display: flex;
-  align-items: stretch;
-  position: relative;
+.slide-full.slide-emrec{
   background: linear-gradient(160deg, #0b1626, #0a1f33);
 }
 
-/* Contenu global : texte en haut, espace réservé en bas pour l'image */
-.slide-full .slide-content{
-  width: 100%;
-  max-width: 1400px;
+/* Conteneur slide */
+.slide-full.slide-emrec .slide-content{
+  max-width: 1500px;
   margin: 0 auto;
-  padding: 140px 80px 340px; /* top = texte plus bas, bottom = réserve image */
+  padding: 120px 80px 80px; /* ↓ texte plus bas, mais visible */
 }
 
-/* Titres */
-.slide-full .slide-content h1{
-  font-size: 46px;
-  line-height: 1.08;
+/* Grille texte / image */
+.emrec-grid{
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 80px;
+  align-items: center; /* ALIGNEMENT VERTICAL CORRECT */
+}
+
+/* ================= TEXTE ================= */
+
+.emrec-text{
+  max-width: 720px;        /* 🔥 empêche le texte d’être écrasé */
+}
+
+.emrec-text h1{
+  font-size: 42px;
   font-weight: 800;
-  margin: 0 0 26px;
+  margin-bottom: 28px;
   color: #eaf2ff;
 }
 
-/* Paragraphes : largeur lisible mais pas "bloquée" */
-.slide-full .slide-content p{
-  font-size: 17.5px;
-  line-height: 1.75;
-  margin: 0 0 18px;
+.emrec-text p{
+  font-size: 17px;
+  line-height: 1.7;
   color: rgba(223,233,255,.92);
-  max-width: 980px; /* lisible, mais large */
+  margin-bottom: 18px;
 }
 
-/* IMPORTANT : si tu as des règles ailleurs qui bloquent, on force ici */
-.slide-full .slide-content > *{
-  max-width: none;
-}
-.slide-full .slide-content p{
-  max-width: 980px;
-}
-
-/* Accent bleu */
-.slide-full strong{
+.emrec-text strong{
   color: #4da3ff;
   font-weight: 700;
 }
 
-/* ======================================================
-   IMAGE EN BAS (ABS) + CADRE PRO
-   ====================================================== */
-
-/* Conteneur image : en bas, centré */
-.slide-full .slide-media{
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  bottom: 90px;            /* remonte/descend l'image ici */
-  width: min(980px, 86vw); /* taille responsive */
-  text-align: center;
-  z-index: 2;
+/* Listes */
+.emrec-list{
+  margin: 18px 0 22px 18px;
+  padding: 0;
 }
 
-/* Cadre image */
-.slide-full .slide-media img{
-  width: 100%;
-  height: auto;
-  display: block;
+.emrec-list li{
+  margin-bottom: 10px;
+  line-height: 1.6;
+  color: rgba(223,233,255,.9);
+}
 
-  padding: 14px;
+/* Note */
+.emrec-note{
+  font-size: 15px;
+  color: rgba(223,233,255,.7);
+  margin-top: 18px;
+}
+
+/* ================= IMAGE ================= */
+
+.emrec-fig{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* CADRE IMAGE (IDENTIQUE AUX AUTRES PROJETS) */
+.emrec-img{
+  width: 100%;
+  max-width: 520px;     /* 🔥 taille maîtrisée */
+  height: auto;
+
+  padding: 16px;
   border-radius: 22px;
 
   background: rgba(0,0,0,.18);
@@ -3429,60 +3435,42 @@ body {
   box-shadow: 0 22px 60px rgba(0,0,0,.45);
 }
 
-/* Légende centrée */
-.slide-full .slide-media figcaption,
-.slide-full .slide-media .caption{
-  margin-top: 10px;
+/* Légende */
+.emrec-fig figcaption{
+  margin-top: 12px;
   font-size: 14px;
+  text-align: center;
   color: rgba(223,233,255,.8);
+}
+
+/* ================= SLIDE RÉSULTATS ================= */
+
+.slide-emrec--results .slide-content{
+  max-width: 900px;
   text-align: center;
 }
 
-/* ======================================================
-   VARIANTE : IMAGE PLUS PETITE (juste ajoute .is-small au figure)
-   ====================================================== */
-.slide-full .slide-media.is-small{
-  width: min(760px, 84vw);
-}
+/* ================= RESPONSIVE ================= */
 
-/* ======================================================
-   RESPONSIVE
-   ====================================================== */
 @media (max-width: 1100px){
-  .slide-full .slide-content{
-    padding: 120px 32px 320px;
+  .emrec-grid{
+    grid-template-columns: 1fr;
+    gap: 50px;
   }
 
-  .slide-full .slide-content h1{
-    font-size: 38px;
+  .slide-full.slide-emrec .slide-content{
+    padding: 96px 32px 64px;
   }
 
-  .slide-full .slide-media{
-    bottom: 70px;
-    width: min(860px, 92vw);
-  }
-}
-
-@media (max-width: 700px){
-  .slide-full .slide-content{
-    padding: 110px 22px 300px;
-  }
-
-  .slide-full .slide-content h1{
-    font-size: 32px;
-  }
-
-  .slide-full .slide-content p{
-    font-size: 16.5px;
-    line-height: 1.7;
+  .emrec-text{
     max-width: 100%;
   }
 
-  .slide-full .slide-media{
-    bottom: 55px;
-    width: min(720px, 94vw);
+  .emrec-img{
+    max-width: 100%;
   }
 }
+
 
 
 
