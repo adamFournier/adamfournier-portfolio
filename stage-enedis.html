@@ -3,194 +3,283 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Stage — Enedis (Paris) | Adam Fournier</title>
+  <title>Projet — Liaison optique FM (Émetteur / Récepteur) | Adam Fournier</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="index.css" />
 </head>
 
 <body>
-  <!-- BOARD -->
+  <!-- BOARD (identique) -->
   <header class="board">
     <div class="board__inner">
       <div class="board__brand">Adam&nbsp;Fournier</div>
       <nav class="board__nav">
-  <a href="index.html">Accueil</a>
+        <a href="index.html">Accueil</a>
 
-  <div class="nav-item">
-    <a href="stages.html" class="is-active">Stages</a>
-    <div class="sub">
-      <a href="stage-enedis.html">Stage — Enedis (Paris)</a>
-    </div>
-  </div>
+        <div class="nav-item">
+          <a href="stages.html">Stages</a>
+          <div class="sub">
+            <a href="stage-enedis.html">Stage — Enedis (Paris)</a>
+          </div>
+        </div>
 
-  <a href="projets.html">Projets</a>
-  <a href="engagements.html">Engagements</a>
-  <a href="sports.html">Sports</a>
-</nav>
-
+        <a href="projets.html" class="is-active">Projets</a>
+        <a href="engagements.html">Engagements</a>
+        <a href="sports.html">Sports</a>
+      </nav>
     </div>
   </header>
 
-  <!-- WRAPPER SLIDES -->
+  <!-- WRAPPER SLIDES (identique) -->
   <div class="slides-full-wrap">
     <div class="slides-full" id="slider">
 
-      <!-- SLIDE 1 : Intro Enedis -->
-      <section class="slide-full slide-enedis-main">
+      <!-- SLIDE 1 : INTRO -->
+      <section class="slide-full slide-optique-intro">
         <div class="slide-content">
-          <div class="enedis-grid">
+          <div class="optique-grid">
 
             <!-- Texte -->
-            <div class="enedis-text">
-              <h1>Stage Enedis — Data Analyst</h1>
+            <div class="optique-text">
+              <h1>Liaison optique analogique — Modulation FM</h1>
+
               <p class="intro-text">
-                J’ai effectué mon stage de première année chez <strong>Enedis</strong> pendant 3 mois,
-                au sein de la <strong>DSI</strong> au <strong>pôle SI Réseaux Électrique</strong>, couvrant :
+                Ce projet vise la <strong>conception</strong> et la <strong>réalisation</strong> d’une liaison optique
+                analogique basée sur la <strong>modulation de fréquence (FM)</strong>.
+                Le signal audio est transmis sous forme d’un <strong>faisceau infrarouge</strong> à travers l’air.
               </p>
 
-              <ul class="enedis-bullets">
-                <li><strong>1,4 million de km</strong> de réseau électrique</li>
-                <li><strong>2 500</strong> postes sources</li>
-                <li><strong>800 000</strong> postes de distribution</li>
-              </ul>
+              <div class="optique-box">
+                <h2>Principe général</h2>
+                <ul class="optique-bullets">
+                  <li><strong>Émetteur :</strong> filtre audio → <strong>FM (VCO)</strong> → transmetteur optique (DEL IR)</li>
+                  <li><strong>Canal :</strong> propagation dans l’air (alignement / lumière ambiante)</li>
+                  <li><strong>Récepteur :</strong> photodiode → amplification → <strong>démodulation PLL</strong> → audio</li>
+                </ul>
+              </div>
 
-              <p>
-                Mon rôle a été de soutenir l’équipe <strong>Data</strong> du domaine
-                <strong>Raccordement et Ingénierie du réseau</strong> dans la valorisation
-                et la fiabilisation des données métiers. Deux missions principales m’ont été confiées :
-              </p>
+              <div class="optique-tags">
+                <span class="tool-chip">FM (VCO)</span>
+                <span class="tool-chip">PLL</span>
+                <span class="tool-chip">Filtres</span>
+                <span class="tool-chip">Analogique</span>
+                <span class="tool-chip">IR</span>
+              </div>
             </div>
 
-            <!-- Colonne droite : image + cartes dessous -->
+            <!-- Image -->
             <div>
-              <div class="enedis-image">
-                <img src="photo-enedis.jpg" alt="Stage Enedis — Pylônes électriques au coucher du soleil" />
+              <div class="optique-image">
+                <img src="liaison-optique-principe.png" alt="Principe général de la liaison optique" />
               </div>
-
-              <div class="enedis-missions-under">
-                <div class="enedis-mission">
-                  <div class="icon">🎯</div>
-                  <div class="text">
-                    <h3>1 - Mise en conformité d’un stock de données métiers</h3>
-                  </div>
-                </div>
-
-                <div class="enedis-mission">
-                  <div class="icon">☁️</div>
-                  <div class="text">
-                    <h3>2 - Élaboration d’un nouveau produit de données</h3>
-                  </div>
-                </div>
-              </div>
+              <div class="optique-caption">Principe général : Émetteur → Faisceau IR → Récepteur</div>
             </div>
 
           </div>
         </div>
       </section>
 
-      <!-- SLIDE 2 : Mission 1 (TEXTES DE TA CAPTURE) -->
-      <section class="slide-full slide-enedis-mission1">
+      <!-- SLIDE 2 : EMETTEUR -->
+      <section class="slide-full slide-optique-emetteur">
         <div class="slide-content">
-          <h1>Mission 1 — Mise en conformité des données métiers</h1>
+          <div class="optique-grid">
 
-          <p>
-            L’objectif de cette mission était <strong>d’améliorer la qualité et la conformité</strong>
-            d’un stock de données du SI du réseau électrique.
-          </p>
+            <div class="optique-text">
+              <h1>Partie 1 — Émetteur (modulation FM)</h1>
 
-          <p>
-            J’ai travaillé sur un ensemble de données métiers contenant des informations potentiellement
-            <strong>sensibles au regard du RGPD</strong>. Il s’agissait de relier ces données aux référentiels
-            métiers d’Enedis afin d’enrichir chaque enregistrement avec les caractéristiques adéquates.
-          </p>
-
-          <p>
-            Le processus initial étant majoritairement manuel, j’ai donc proposé et conçu un
-            <strong>outil d’automatisation sous Excel</strong> capable de générer des
-            <strong>requêtes SQL dynamiques</strong> intégrant automatiquement les nouvelles caractéristiques métiers.
-            Ces requêtes ont ensuite été utilisées pour intégrer directement les données conformes dans
-            <strong>la base de données d’Enedis</strong>.
-          </p>
-
-          <div class="enedis-bottom">
-            <div class="tools-box">
-              <h2>🧰 Outils & compétences mobilisés</h2>
-              <div class="tools-grid">
-                <span class="tool-chip">Excel</span>
-                <span class="tool-chip">SQL</span>
-                <span class="tool-chip">Power Query</span>
-                <span class="tool-chip">Data Virtualisation</span>
-              </div>
-            </div>
-
-            <div class="enedis-result-single">
-              <h2>📊 Résultat obtenu</h2>
-              <p>
-                <strong>Réduction d’un tiers</strong> de la charge de travail estimée et
-                <strong>plus de 50 % du stock de données traité</strong>.
+              <p class="intro-text">
+                L’émetteur met en forme le signal audio puis réalise la <strong>modulation de fréquence (FM)</strong>
+                via un <strong>VCO</strong>. Le signal FM pilote ensuite le <strong>transmetteur optique</strong>
+                (DEL infrarouge) pour générer le faisceau lumineux modulé.
               </p>
-            </div>
-          </div>
-        </div>
-      </section>
 
-      <!-- SLIDE 3 : Mission 2 (TEXTES DE TA CAPTURE) -->
-      <section class="slide-full slide-enedis-mission2">
-        <div class="slide-content">
-          <h1>Mission 2 — Produit de données Cloud</h1>
+              <div class="optique-box">
+                <h2>Chaîne émetteur</h2>
+                <ul class="optique-bullets">
+                  <li><strong>Filtre audio d’entrée</strong> : mise en forme + limitation de bande</li>
+                  <li><strong>Modulateur FM (VCO)</strong> : conversion audio → variation de fréquence</li>
+                  <li><strong>Transmetteur optique</strong> : conversion signal FM → flux IR</li>
+                </ul>
+              </div>
 
-          <p>
-            Cette mission consistait à concevoir un <strong>produit de données Cloud</strong>
-            destiné à être réutilisé sur la nouvelle plateforme Cloud d’Enedis.
-          </p>
+              <div class="optique-box">
+                <h2>Réalisation</h2>
+                <p>
+                  Chaque bloc a été <strong>dimensionné</strong> (valeurs R/C, bande passante, niveaux),
+                  puis les composants ont été <strong>implantés et soudés</strong> sur carte.
+                </p>
+              </div>
 
-          <p>
-            J’ai réalisé le <strong>tri</strong>, <strong>l’étiquetage</strong> et la <strong>description</strong> des données,
-            ainsi que leur mise au bon format, afin de garantir leur exploitabilité
-            par un <strong>Data Engineer</strong> sur la nouvelle plateforme.
-          </p>
-
-          <div class="enedis-bottom">
-            <div class="tools-box">
-              <h2>🧰 Outils & compétences mobilisés</h2>
-              <div class="tools-grid">
-                <span class="tool-chip">Power Query</span>
-                <span class="tool-chip">SQL</span>
-                <span class="tool-chip">Excel (VBA)</span>
-                <span class="tool-chip">Power BI</span>
+              <div class="optique-focus">
+                <h2>Focus : FM</h2>
+                <p>
+                  En FM, l’information audio est portée par la <strong>variation de fréquence</strong> autour d’une porteuse.
+                  L’objectif est d’obtenir une transmission plus robuste face aux variations d’amplitude.
+                </p>
               </div>
             </div>
 
-            <div class="enedis-result-single">
-              <h2>📊 Résultat obtenu</h2>
-              <p>
-                <strong>Réalisation d’un produit de données</strong> comprenant environ <strong>1 000 données</strong>,
-                structuré et prêt à être réutilisé sur la plateforme Cloud d’Enedis.
-              </p>
+            <div>
+              <div class="optique-image">
+                <img src="synoptique-emetteur.png" alt="Synoptique de l'émetteur : filtre audio, VCO, transmetteur optique" />
+              </div>
+              <div class="optique-caption">Synoptique de l’émetteur</div>
+
+              <!-- optionnel : photo carte -->
+              <!--
+              <div class="optique-mini">
+                <img src="emetteur.jpg" alt="Carte émetteur soudée" />
+                <div class="optique-caption">Carte émetteur — soudure & intégration</div>
+              </div>
+              -->
             </div>
+
           </div>
         </div>
       </section>
 
-
-      <!-- SLIDE 4 : Bilan -->
-      <section class="slide-full slide-enedis-bilan">
+      <!-- SLIDE 3 : RECEPTEUR -->
+      <section class="slide-full slide-optique-recepteur">
         <div class="slide-content">
-          <h1>Bilan du stage</h1>
-          <p>
-  💡 Ce stage m’a permis d’améliorer mes compétences en <strong>data</strong>, de sa structuration et son stockage à son extraction et sa préparation pour les utilisateurs, en comprenant que la maîtrise de ces étapes constitue la base essentielle de l’<strong>IA</strong>.
-</p>
+          <div class="optique-grid">
 
+            <div class="optique-text">
+              <h1>Partie 2 — Récepteur (démodulation PLL)</h1>
 
-      
+              <p class="intro-text">
+                Le récepteur détecte le flux lumineux reçu avec une <strong>photodiode</strong>, amplifie et conditionne
+                le signal, puis récupère l’audio grâce à la <strong>démodulation FM par PLL</strong>.
+              </p>
+
+              <div class="optique-box">
+                <h2>Chaîne récepteur</h2>
+                <ul class="optique-bullets">
+                  <li><strong>Récepteur optique</strong> : photodiode + conversion courant/tension</li>
+                  <li><strong>Amplification sélective</strong> : gain + filtrage</li>
+                  <li><strong>Écrêteur</strong> : mise en forme avant PLL</li>
+                  <li><strong>PLL</strong> : démodulation FM (verrouillage sur la fréquence)</li>
+                  <li><strong>Filtre audio</strong> : nettoyage du signal</li>
+                  <li><strong>Amplificateur push-pull</strong> : puissance pour haut-parleur</li>
+                </ul>
+              </div>
+
+              <div class="optique-box">
+                <h2>Réalisation</h2>
+                <p>
+                  Les étages ont été <strong>dimensionnés</strong> (gains, coupures, stabilité), puis
+                  <strong>assemblés et soudés</strong>. L’alimentation récepteur est en <strong>5 V / 0 V</strong>.
+                </p>
+              </div>
+
+              <div class="optique-focus">
+                <h2>Focus : PLL</h2>
+                <p>
+                  La <strong>PLL</strong> se verrouille sur la fréquence instantanée du signal FM.
+                  La tension de commande/signal d’erreur suit les variations de fréquence :
+                  on récupère ainsi l’<strong>audio démodulé</strong>.
+                </p>
+              </div>
+            </div>
+
+            <div>
+              <div class="optique-image">
+                <img src="synoptique-recepteur.png" alt="Synoptique du récepteur : optique, amplification, écrêteur, PLL, filtre, ampli" />
+              </div>
+              <div class="optique-caption">Synoptique du récepteur</div>
+
+              <!-- optionnel : photo carte -->
+              <!--
+              <div class="optique-mini">
+                <img src="recepteur.jpg" alt="Carte récepteur soudée" />
+                <div class="optique-caption">Carte récepteur — soudure & intégration</div>
+              </div>
+              -->
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 4 : RESULTATS -->
+      <section class="slide-full slide-optique-resultats">
+        <div class="slide-content">
+          <h1>Résultats & tests</h1>
+
+          <p class="intro-text">
+            Objectif final : placer <strong>émetteur</strong> et <strong>récepteur</strong> face à face à environ <strong>5 m</strong>,
+            transmettre de la musique et l’écouter côté récepteur.
+          </p>
+
+          <div class="optique-results">
+            <div class="optique-card">
+              <h2>✅ Validations</h2>
+              <ul class="optique-bullets">
+                <li>Fonctionnement des blocs : <strong>FM (VCO)</strong> + chaîne optique + <strong>PLL</strong>.</li>
+                <li>Étages <strong>dimensionnés</strong>, puis <strong>soudés</strong> et testés.</li>
+                <li>Transmission audio possible avec alignement correct.</li>
+              </ul>
+            </div>
+
+            <div class="optique-card">
+              <h2>⚠️ Limites observées</h2>
+              <ul class="optique-bullets">
+                <li>Sensibilité à l’<strong>alignement</strong> et à la lumière ambiante.</li>
+                <li>Stabilité à 5 m dépendante des conditions (niveau/bruit).</li>
+                <li>Pistes : optimisation gains/filtrage + amélioration optique.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="optique-tags" style="margin-top:14px;">
+            <span class="tool-chip">Test ~5 m</span>
+            <span class="tool-chip">Musique</span>
+            <span class="tool-chip">FM + PLL</span>
+            <span class="tool-chip">SNR</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 5 : CONCLUSION -->
+      <section class="slide-full slide-optique-fin">
+        <div class="slide-content">
+          <h1>Conclusion</h1>
+
+          <p class="intro-text">
+            Projet complet de liaison optique analogique avec une chaîne <strong>modulation FM</strong> (VCO) et
+            <strong>démodulation PLL</strong> : conception, dimensionnement, soudure et validation.
+          </p>
+
+          <div class="optique-results">
+            <div class="optique-card">
+              <h2>Ce que ça m’a apporté</h2>
+              <ul class="optique-bullets">
+                <li>Dimensionnement analogique (filtres, gains, bande passante).</li>
+                <li>Compréhension pratique de la <strong>FM</strong> et de la <strong>PLL</strong>.</li>
+                <li>Méthode : mesures, debug, itérations.</li>
+              </ul>
+            </div>
+
+            <div class="optique-card">
+              <h2>Améliorations possibles</h2>
+              <ul class="optique-bullets">
+                <li>Optique : lentille / meilleure directivité / support d’alignement.</li>
+                <li>Électronique : SNR, filtrage, adaptation niveaux.</li>
+                <li>Validation : tests systématiques distance/conditions.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div style="margin-top:18px;">
+            <a class="btn-ghost" href="projets.html">Retour aux projets</a>
+          </div>
         </div>
       </section>
 
     </div>
   </div>
 
-  <!-- FLÈCHES -->
+  <!-- FLÈCHES (identiques) -->
   <div class="arrows">
     <button class="arrow-btn" id="prev" aria-label="Slide précédente">
       <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none"
@@ -204,14 +293,14 @@
     </button>
   </div>
 
-  <!-- PAGINATION -->
+  <!-- PAGINATION (identique) -->
   <div class="pagination-ui">
     <div class="dots" id="dots"></div>
-    <div class="counter" id="counter">1 / 4</div>
+    <div class="counter" id="counter">1 / 5</div>
   </div>
 
-  <!-- SCRIPT slider -->
-<script>
+  <!-- SCRIPT slider (identique à ton style) -->
+  <script>
     let current = 0;
     const slides = document.getElementById('slider');
     const total = slides.children.length;
@@ -223,18 +312,14 @@
       b.onclick = () => { current = i; updateSlide(true); };
       dots.appendChild(b);
     }
+
     const counter = document.getElementById('counter');
-    const progressBar = document.getElementById('progressBar');
 
     function updateSlide(animate = true){
       slides.style.transitionDuration = animate ? '.7s' : '0s';
       slides.style.transform = `translateX(-${current * 100}vw)`;
-      updateUI();
-    }
-    function updateUI(){
       [...document.querySelectorAll('.dot')].forEach((d, idx)=> d.classList.toggle('is-active', idx === current));
       counter.textContent = `${current + 1} / ${total}`;
-      progressBar.style.width = `${((current + 1) / total) * 100}%`;
     }
 
     document.getElementById('next').onclick = ()=>{ current = (current + 1) % total; updateSlide(); };
@@ -242,35 +327,13 @@
 
     document.addEventListener('keydown', (e)=>{
       if(e.key==='ArrowRight') document.getElementById('next').click();
-      if(e.key==='ArrowLeft') document.getElementById('prev').click();
-      if(e.key==='Escape') window.location.href='index.html';
+      if(e.key==='ArrowLeft')  document.getElementById('prev').click();
+      if(e.key==='Escape')     window.location.href='projets.html';
     });
 
-    let lastScroll=0;
-    window.addEventListener('wheel', (e)=>{
-      const now=Date.now(); if(now-lastScroll<600) return;
-      if(e.deltaX>50){ document.getElementById('next').click(); lastScroll=now; }
-      else if(e.deltaX<-50){ document.getElementById('prev').click(); lastScroll=now; }
-    }, {passive:true});
-
-    let startX=0, startTime=0;
-    slides.addEventListener('touchstart', e=>{ startX=e.touches[0].clientX; startTime=Date.now(); }, {passive:true});
-    slides.addEventListener('touchend', e=>{
-      const diff=e.changedTouches[0].clientX-startX; const t=Date.now()-startTime;
-      if(Math.abs(diff)>50 && t<800){ diff>0 ? document.getElementById('prev').click() : document.getElementById('next').click(); }
-    }, {passive:true});
-
-    updateUI();
+    updateSlide(false);
   </script>
+
 </body>
 </html>
-
-
-
-
-
-
-
-
-
 
